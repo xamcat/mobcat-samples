@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RuntimeFrameworkVersion>2.1.0</RuntimeFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Update="Microsoft.NETCore.App" Version="2.1.0" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="Moq" Version="4.10.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\mobcat_shared\MobCAT\MobCAT.csproj" />
+    <ProjectReference Include="..\Weather\Weather.csproj" />
+    <ProjectReference Include="..\..\..\..\mobcat_shared\MobCAT.Forms\MobCAT.Forms.csproj" />
+  </ItemGroup>
+</Project>

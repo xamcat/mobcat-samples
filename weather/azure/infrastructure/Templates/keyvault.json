@@ -1,0 +1,118 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "keyVaultName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Vault"
+      }
+    },
+    "tenantId": {
+      "type": "string",
+      "metadata": {
+        "description": "Tenant Id of the subscription."
+      }
+    },
+    "objectId": {
+      "type": "string",
+      "metadata": {
+        "description": "Object Id of the AD user or Service Principal."
+      }
+    },
+    "skuName": {
+      "type": "string",
+      "allowedValues": [
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "Standard",
+      "metadata": {
+        "description": "SKU for the vault"
+      }
+    },
+    "enableVaultForDeployment": {
+      "type": "bool",
+      "allowedValues": [
+        true,
+        false
+      ],
+      "defaultValue": true,
+      "metadata": {
+        "description": "Specifies if the vault is enabled for a VM deployment"
+      }
+    },
+    "enableVaultForDiskEncryption": {
+      "type": "bool",
+      "allowedValues": [
+        true,
+        false
+      ],
+      "defaultValue": true,
+      "metadata": {
+        "description": "Specifies if the vault is enabled for a disk encryption "
+      }
+    },
+    "enabledForTemplateDeployment": {
+      "type": "bool",
+      "allowedValues": [
+        true,
+        false
+      ],
+      "defaultValue": true,
+      "metadata": {
+        "description": "Specifies if the vault is enabled for a template deployment"
+      }
+    },
+    "keysPermissions": {
+      "type": "string",
+      "defaultValue": "All",
+      "metadata": {
+        "description": "Specifies the vault key permissions"
+      }
+    },
+    "secretsPermissions": {
+      "type": "string",
+      "defaultValue": "All",
+      "metadata": {
+        "description": "Specifies the vault secret permissions"
+      }
+    }
+  },
+  "variables": {
+  },
+  "resources": [
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "name": "[parameters('keyVaultName')]",
+      "apiVersion": "2015-06-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "enabledForDeployment": "[parameters('enableVaultForDeployment')]",
+        "enabledForDiskEncryption": "[parameters('enableVaultForDiskEncryption')]",
+        "enabledForTemplateDeployment": "[parameters('enabledForTemplateDeployment')]",
+        "tenantId": "[parameters('tenantId')]",
+        "accessPolicies": [
+          {
+            "tenantId": "[parameters('tenantId')]",
+            "objectId": "[parameters('objectId')]",
+            "permissions": {
+              "secrets": [ "[parameters('secretsPermissions')]" ],
+              "keys": [ "[parameters('keysPermissions')]" ]
+            }
+          }
+        ],
+        "sku": {
+          "name": "[parameters('skuName')]",
+          "family": "A"
+        }
+      }
+    }
+  ],
+  "outputs": {
+      "resourceUniqueName": {
+          "type": "string",
+          "value": "[parameters('keyVaultName')]"
+      }
+  }
+}

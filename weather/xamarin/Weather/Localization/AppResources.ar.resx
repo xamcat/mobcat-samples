@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader
+        name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader
+        name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader
+        name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader
+        name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data
+        name="AppName"
+        xml:space="preserve">
+        <value>Weather</value>
+        <comment>label for app name</comment>
+    </data>
+    
+    <!-- Weather conditions from: https://openweathermap.org/weather-conditions -->
+    <!-- Translated literally with https://www.bing.com/translator -->
+   <data
+        name="thunderstormwithlightrain"
+        xml:space="preserve">
+        <value>عاصفه رعدية مع المطر الخفيف</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithrain"
+        xml:space="preserve">
+        <value>عاصفه رعدية مع المطر</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithheavyrain"
+        xml:space="preserve">
+        <value>عاصفه رعدية مع الامطار الغزيرة</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightthunderstorm"
+        xml:space="preserve">
+        <value>ضوء العواصف الرعدية</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstorm"
+        xml:space="preserve">
+        <value>عاصفه رعديه</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavythunderstorm"
+        xml:space="preserve">
+        <value>عاصفه رعدية ثقيله</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="raggedthunderstorm"
+        xml:space="preserve">
+        <value>عاصفه رعدية خشنه</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithlightdrizzle"
+        xml:space="preserve">
+        <value>عاصفه رعدية مع رذاذ الضوء</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithdrizzle"
+        xml:space="preserve">
+        <value>عاصفه رعدية مع رذاذ</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithheavydrizzle"
+        xml:space="preserve">
+        <value>عاصفه رعدية مع رذاذ الثقيلة</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightintensitydrizzle"
+        xml:space="preserve">
+        <value>رذاذ كثافة الضوء</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="drizzle"
+        xml:space="preserve">
+        <value>رذاذ</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensitydrizzle"
+        xml:space="preserve">
+        <value>رذاذ كثافة الثقيلة</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightintensitydrizzlerain"
+        xml:space="preserve">
+        <value>ضوء كثافة رذاذ المطر</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="drizzlerain"
+        xml:space="preserve">
+        <value>رذاذ المطر</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensitydrizzlerain"
+        xml:space="preserve">
+        <value>كثافة الامطار رذاذ الثقيلة</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showerrainanddrizzle"
+        xml:space="preserve">
+        <value>دش المطر ورذاذ</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyshowerrainanddrizzle"
+        xml:space="preserve">
+        <value>دش الامطار الغزيرة ورذاذ</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showerdrizzle"
+        xml:space="preserve">
+        <value>دش رذاذ</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="rain"
+        xml:space="preserve">
+        <value>المطر</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightrain"
+        xml:space="preserve">
+        <value>ضوء المطر</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="moderaterain"
+        xml:space="preserve">
+        <value>معتدل المطر</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensityrain"
+        xml:space="preserve">
+        <value>كثافة الامطار الثقيلة</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="veryheavyrain"
+        xml:space="preserve">
+        <value>الامطار الغزيرة جدا</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="extremerain"
+        xml:space="preserve">
+        <value>المطر المدقع</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="freezingrain"
+        xml:space="preserve">
+        <value>تجميد المطر</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightintensityshowerrain"
+        xml:space="preserve">
+        <value>ضوء شده المطر دش</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showerrain"
+        xml:space="preserve">
+        <value>دش المطر</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensityshowerrain"
+        xml:space="preserve">
+        <value>الكثافة الشديدة دش المطر</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="raggedshowerrain"
+        xml:space="preserve">
+        <value>خشنه دش المطر</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightsnow"
+        xml:space="preserve">
+        <value>ضوء الثلوج</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="snow"
+        xml:space="preserve">
+        <value>الثلج</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavysnow"
+        xml:space="preserve">
+        <value>الثلوج الثقيلة</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="sleet"
+        xml:space="preserve">
+        <value>الصقيع</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showersleet"
+        xml:space="preserve">
+        <value>دش صقيع</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightrainandsnow"
+        xml:space="preserve">
+        <value>ضوء المطر والثلوج</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="rainandsnow"
+        xml:space="preserve">
+        <value>المطر والثلوج</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightshowersnow"
+        xml:space="preserve">
+        <value>ضوء الثلوج دش</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showersnow"
+        xml:space="preserve">
+        <value>دش الثلوج</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyshowersnow"
+        xml:space="preserve">
+        <value>دش الثلوج الثقيلة</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="mist"
+        xml:space="preserve">
+        <value>الضباب</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="smoke"
+        xml:space="preserve">
+        <value>الدخان</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="haze"
+        xml:space="preserve">
+        <value>الضباب</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="sand,dustwhirls"
+        xml:space="preserve">
+        <value>الرمل ، والغبار الهامه</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="fog"
+        xml:space="preserve">
+        <value>الضباب</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="sand"
+        xml:space="preserve">
+        <value>الرمال</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="dust"
+        xml:space="preserve">
+        <value>الغبار</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="volcanicash"
+        xml:space="preserve">
+        <value>الرماد البركاني</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="squalls"
+        xml:space="preserve">
+        <value>ريحه</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="tornado"
+        xml:space="preserve">
+        <value>اعصار</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="clear"
+        xml:space="preserve">
+        <value>واضحه</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="clearsky"
+        xml:space="preserve">
+        <value>سماء صافيه</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="clouds"
+        xml:space="preserve">
+        <value>الغيوم</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="fewclouds"
+        xml:space="preserve">
+        <value>عدد قليل الغيوم</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="scatteredclouds"
+        xml:space="preserve">
+        <value>غيوم متفرقة</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="brokenclouds"
+        xml:space="preserve">
+        <value>الغيوم المكسورة</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="overcastclouds"
+        xml:space="preserve">
+        <value>الغيوم الملبدة</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="unknownweather"
+        xml:space="preserve">
+        <value>غير معروف</value>
+        <comment>unknown weather condition</comment>
+    </data>
+</root>

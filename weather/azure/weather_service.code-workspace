@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "service"
+		}
+	],
+  "settings": {
+		"files.exclude": {
+			"**/bin": true,
+			"**/obj": true
+		}
+	}
+}

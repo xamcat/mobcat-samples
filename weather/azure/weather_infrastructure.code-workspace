@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "infrastructure"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/bin": true,
+			"**/obj": true
+		}
+	}
+}

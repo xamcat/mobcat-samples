@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader
+        name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader
+        name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader
+        name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader
+        name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data
+        name="AppName"
+        xml:space="preserve">
+        <value>Weather</value>
+        <comment>label for app name</comment>
+    </data>
+    
+    <!-- Weather conditions from: https://openweathermap.org/weather-conditions -->
+   <data
+        name="thunderstormwithlightrain"
+        xml:space="preserve">
+        <value>Thunderstorm with light rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithrain"
+        xml:space="preserve">
+        <value>Thunderstorm with rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithheavyrain"
+        xml:space="preserve">
+        <value>Thunderstorm with heavy rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightthunderstorm"
+        xml:space="preserve">
+        <value>Light thunderstorm</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstorm"
+        xml:space="preserve">
+        <value>Thunderstorm</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavythunderstorm"
+        xml:space="preserve">
+        <value>Heavy thunderstorm</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="raggedthunderstorm"
+        xml:space="preserve">
+        <value>Ragged thunderstorm</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithlightdrizzle"
+        xml:space="preserve">
+        <value>Thunderstorm with light drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithdrizzle"
+        xml:space="preserve">
+        <value>Thunderstorm with drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithheavydrizzle"
+        xml:space="preserve">
+        <value>Thunderstorm with heavy drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightintensitydrizzle"
+        xml:space="preserve">
+        <value>Light intensity drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="drizzle"
+        xml:space="preserve">
+        <value>Drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensitydrizzle"
+        xml:space="preserve">
+        <value>Heavy intensity drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightintensitydrizzlerain"
+        xml:space="preserve">
+        <value>Light intensity drizzle rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="drizzlerain"
+        xml:space="preserve">
+        <value>Drizzle rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensitydrizzlerain"
+        xml:space="preserve">
+        <value>Heavy intensity drizzle rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showerrainanddrizzle"
+        xml:space="preserve">
+        <value>Shower rain and drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyshowerrainanddrizzle"
+        xml:space="preserve">
+        <value>Heavy shower rain and drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showerdrizzle"
+        xml:space="preserve">
+        <value>Shower drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="rain"
+        xml:space="preserve">
+        <value>Rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightrain"
+        xml:space="preserve">
+        <value>Light rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="moderaterain"
+        xml:space="preserve">
+        <value>Moderate rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensityrain"
+        xml:space="preserve">
+        <value>Heavy intensity rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="veryheavyrain"
+        xml:space="preserve">
+        <value>Very heavy rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="extremerain"
+        xml:space="preserve">
+        <value>Extreme rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="freezingrain"
+        xml:space="preserve">
+        <value>Freezing rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightintensityshowerrain"
+        xml:space="preserve">
+        <value>Light intensity shower rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showerrain"
+        xml:space="preserve">
+        <value>Shower rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensityshowerrain"
+        xml:space="preserve">
+        <value>Heavy intensity shower rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="raggedshowerrain"
+        xml:space="preserve">
+        <value>Ragged shower rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightsnow"
+        xml:space="preserve">
+        <value>Light snow</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="snow"
+        xml:space="preserve">
+        <value>Snow</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavysnow"
+        xml:space="preserve">
+        <value>Heavy snow</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="sleet"
+        xml:space="preserve">
+        <value>Sleet</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showersleet"
+        xml:space="preserve">
+        <value>Shower sleet</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightrainandsnow"
+        xml:space="preserve">
+        <value>Light rain and snow</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="rainandsnow"
+        xml:space="preserve">
+        <value>Rain and snow</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightshowersnow"
+        xml:space="preserve">
+        <value>Light shower snow</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showersnow"
+        xml:space="preserve">
+        <value>Shower snow</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyshowersnow"
+        xml:space="preserve">
+        <value>Heavy shower snow</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="mist"
+        xml:space="preserve">
+        <value>Mist</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="smoke"
+        xml:space="preserve">
+        <value>Smoke</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="haze"
+        xml:space="preserve">
+        <value>Haze</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="sand,dustwhirls"
+        xml:space="preserve">
+        <value>Sand, dust whirls</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="fog"
+        xml:space="preserve">
+        <value>Fog</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="sand"
+        xml:space="preserve">
+        <value>Sand</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="dust"
+        xml:space="preserve">
+        <value>Dust</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="volcanicash"
+        xml:space="preserve">
+        <value>Volcanic ash</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="squalls"
+        xml:space="preserve">
+        <value>Squalls</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="tornado"
+        xml:space="preserve">
+        <value>Tornado</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="clear"
+        xml:space="preserve">
+        <value>Clear</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="clearsky"
+        xml:space="preserve">
+        <value>Clear sky</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="clouds"
+        xml:space="preserve">
+        <value>Clouds</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="fewclouds"
+        xml:space="preserve">
+        <value>Few clouds</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="scatteredclouds"
+        xml:space="preserve">
+        <value>Scattered clouds</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="brokenclouds"
+        xml:space="preserve">
+        <value>Broken clouds</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="overcastclouds"
+        xml:space="preserve">
+        <value>Overcast clouds</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="unknownweather"
+        xml:space="preserve">
+        <value>Unknown Weather</value>
+        <comment>unknown weather condition</comment>
+    </data>
+</root>

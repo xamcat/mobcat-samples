@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appName": {
+            "type": "string"
+        },
+        "servicePlanName": {
+            "type": "string"
+        },
+        "alwaysOn": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "Description" : "Determines whether the API app should be set to always on"
+            }
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "apiVersion": "2016-08-01",
+            "type": "Microsoft.Web/sites",
+            "name": "[parameters('appName')]",
+            "location": "[resourceGroup().location]",
+            "kind": "api",
+            "properties": {
+                "enabled": true,
+                "name": "[parameters('appName')]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('servicePlanName'))]",
+                "clientAffinityEnabled": false,
+                "siteConfig" : {
+                    "alwaysOn": "[parameters('alwaysOn')]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "resourceUniqueName": {
+            "type": "string",
+            "value": "[parameters('appName')]"
+        }
+    }
+}

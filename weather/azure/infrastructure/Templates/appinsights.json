@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appInsightsName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.insights/components",
+            "kind": "web",
+            "name": "[parameters('appInsightsName')]",
+            "apiVersion": "2015-05-01",
+            "location": "northeurope",
+            "properties": {
+                "Application_Type": "web"
+            }
+        }
+    ],
+    "outputs": {
+        "resourceUniqueName": {
+            "type": "string",
+            "value": "[parameters('appInsightsName')]"
+        }
+    }
+}

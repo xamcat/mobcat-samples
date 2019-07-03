@@ -1,0 +1,3 @@
+# User-specific files
+# Secrets file. Don't commit secrets
+**/ServiceConfig.cs

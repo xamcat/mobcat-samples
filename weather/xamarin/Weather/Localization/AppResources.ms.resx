@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader
+        name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader
+        name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader
+        name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader
+        name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data
+        name="AppName"
+        xml:space="preserve">
+        <value>Cuaca</value>
+        <comment>label for app name</comment>
+    </data>
+    
+    <!-- Weather conditions from: https://openweathermap.org/weather-conditions -->
+   <data
+        name="thunderstormwithlightrain"
+        xml:space="preserve">
+        <value>Ribut petir dan hujan ringan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithrain"
+        xml:space="preserve">
+        <value>Ribut petir dan hujan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithheavyrain"
+        xml:space="preserve">
+        <value>Ribut petir dan hujan lebat</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightthunderstorm"
+        xml:space="preserve">
+        <value>Ribut petir</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstorm"
+        xml:space="preserve">
+        <value>Ribut petir</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavythunderstorm"
+        xml:space="preserve">
+        <value>Ribut petir</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="raggedthunderstorm"
+        xml:space="preserve">
+        <value>Ribut petir</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithlightdrizzle"
+        xml:space="preserve">
+        <value>Ribut petir dan hujan renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithdrizzle"
+        xml:space="preserve">
+        <value>Ribut petir dan hujan renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="thunderstormwithheavydrizzle"
+        xml:space="preserve">
+        <value>Thunderstorm with heavy drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightintensitydrizzle"
+        xml:space="preserve">
+        <value>Hujan renyai-renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="drizzle"
+        xml:space="preserve">
+        <value>Hujan renyai-renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensitydrizzle"
+        xml:space="preserve">
+        <value>Hujan renyai-renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightintensitydrizzlerain"
+        xml:space="preserve">
+        <value>Light intensity drizzle rain</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="drizzlerain"
+        xml:space="preserve">
+        <value>Hujan renyai-renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensitydrizzlerain"
+        xml:space="preserve">
+        <value>Hujan renyai-renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showerrainanddrizzle"
+        xml:space="preserve">
+        <value>Hujan renyai-renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyshowerrainanddrizzle"
+        xml:space="preserve">
+        <value>Hujan renyai-renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showerdrizzle"
+        xml:space="preserve">
+        <value>Shower drizzle</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="rain"
+        xml:space="preserve">
+        <value>Hujan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightrain"
+        xml:space="preserve">
+        <value>Hujan renyai-renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="moderaterain"
+        xml:space="preserve">
+        <value>Hujan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensityrain"
+        xml:space="preserve">
+        <value>Hujan lebat</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="veryheavyrain"
+        xml:space="preserve">
+        <value>Hujan lebat beterusan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="extremerain"
+        xml:space="preserve">
+        <value>Hujan lebat ekstrim</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="freezingrain"
+        xml:space="preserve">
+        <value>Hujan beku</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightintensityshowerrain"
+        xml:space="preserve">
+        <value>Hujan renyai-renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showerrain"
+        xml:space="preserve">
+        <value>Hujan renyai-renyai</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyintensityshowerrain"
+        xml:space="preserve">
+        <value>Hujan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="raggedshowerrain"
+        xml:space="preserve">
+        <value>Hujan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightsnow"
+        xml:space="preserve">
+        <value>Salji ringan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="snow"
+        xml:space="preserve">
+        <value>Salji</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavysnow"
+        xml:space="preserve">
+        <value>Salji lebat</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="sleet"
+        xml:space="preserve">
+        <value>Hujan beku</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showersleet"
+        xml:space="preserve">
+        <value>Hujan beku</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightrainandsnow"
+        xml:space="preserve">
+        <value>Light rain and snow</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="rainandsnow"
+        xml:space="preserve">
+        <value>Hujan dan salji</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="lightshowersnow"
+        xml:space="preserve">
+        <value>Salji ringan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="showersnow"
+        xml:space="preserve">
+        <value>Salji</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="heavyshowersnow"
+        xml:space="preserve">
+        <value>Salji lebat</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="mist"
+        xml:space="preserve">
+        <value>Kabus</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="smoke"
+        xml:space="preserve">
+        <value>Asap</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="haze"
+        xml:space="preserve">
+        <value>Jerebu</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="sand,dustwhirls"
+        xml:space="preserve">
+        <value>Pasir, pusaran debu</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="fog"
+        xml:space="preserve">
+        <value>Kabus</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="sand"
+        xml:space="preserve">
+        <value>Pasir</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="dust"
+        xml:space="preserve">
+        <value>Debu</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="volcanicash"
+        xml:space="preserve">
+        <value>Abu gunung berapi</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="squalls"
+        xml:space="preserve">
+        <value>Angin kencang</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="tornado"
+        xml:space="preserve">
+        <value>Puting beliung</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="clear"
+        xml:space="preserve">
+        <value>Tiada hujan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="clearsky"
+        xml:space="preserve">
+        <value>Tiada hujan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="clouds"
+        xml:space="preserve">
+        <value>Berawan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="fewclouds"
+        xml:space="preserve">
+        <value>Berawan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="scatteredclouds"
+        xml:space="preserve">
+        <value>Berawan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="brokenclouds"
+        xml:space="preserve">
+        <value>Berawan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="overcastclouds"
+        xml:space="preserve">
+        <value>Berawan</value>
+        <comment>weather condition</comment>
+    </data>
+    
+    <data
+        name="unknownweather"
+        xml:space="preserve">
+        <value>Cuaca Tidak Diketahui</value>
+        <comment>unknown weather condition</comment>
+    </data>
+</root>

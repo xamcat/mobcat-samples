@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "searchAccountName": {
+      "type": "string"
+    },
+    "searchSku": {
+      "type": "string",
+      "defaultValue": "S1"
+    }
+  },
+  "variables": {
+  },
+  "resources": [
+    {
+        "type": "Microsoft.CognitiveServices/accounts",
+        "sku": {
+            "name": "[parameters('searchSku')]"
+        },
+        "kind": "Bing.Search.v7",
+        "name": "[parameters('searchAccountName')]",
+        "apiVersion": "2016-02-01-preview",
+        "location": "global",
+        "scale": null,
+        "properties": {},
+        "dependsOn": []
+    }
+  ],
+  "outputs": {
+    "resourceUniqueName": {
+      "type": "string",
+      "value": "[parameters('searchAccountName')]"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "cacheName": {
+            "type": "string"
+        },
+        "cacheSku": {
+            "defaultValue": "Basic",
+            "type": "string"
+        },
+        "cacheFamily": {
+            "defaultValue": "C",
+            "type": "string"
+        },
+        "cacheMaxClients": {
+            "defaultValue": "256",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Cache/Redis",
+            "name": "[parameters('cacheName')]",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2016-04-01",
+            "properties": {
+                "redisVersion": "3.2",
+                "sku": {
+                    "name": "[parameters('cacheSku')]",
+                    "family": "[parameters('cacheFamily')]",
+                    "capacity": 0
+                },
+                "enableNonSslPort": false,
+                "redisConfiguration": {
+                    "maxclients": "[parameters('cacheMaxClients')]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "resourceUniqueName": {
+            "type": "string",
+            "value": "[parameters('cacheName')]"
+        }
+    }
+}

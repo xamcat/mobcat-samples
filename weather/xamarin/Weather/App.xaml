@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Weather.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="WeatherIcons">
+                <On Platform="Android" Value="WeatherIcons.ttf#Weather Icons" />
+                <On Platform="iOS" Value="Weather Icons" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="OpenSansRegular">
+                <On Platform="Android" Value="OpenSans-Regular.ttf#Open Sans"/>
+                <On Platform="iOS" Value="Open Sans" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
