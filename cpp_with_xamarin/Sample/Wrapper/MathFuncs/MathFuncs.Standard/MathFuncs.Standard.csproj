@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>MathFuncs</RootNamespace>
+    <AssemblyName>MathFuncs</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <Import Project="..\MathFuncs.Shared\MathFuncs.Shared.projitems" Label="Shared" Condition="Exists('..\MathFuncs.Shared\MathFuncs.Shared.projitems')" />
+</Project>
