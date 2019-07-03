@@ -1,0 +1,12 @@
+//
+//  module.modulemap
+//  Foundation.Notifications
+//
+//  Created by Mike Parker on 27/04/2018.
+//  Copyright © 2018 mobcat. All rights reserved.
+//
+
+module FoundationNotificationsPrivate {
+    header "../Foundation_Notifications.h"
+    export *
+}
