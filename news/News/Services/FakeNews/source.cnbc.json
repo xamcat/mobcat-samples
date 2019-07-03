@@ -1,0 +1,136 @@
+﻿{
+  "status": "ok",
+  "totalResults": 10,
+  "articles": [
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Yen Nee Lee",
+      "title": "Mark Mobius says he's 'very much' concerned about populist promises ahead of Indian election",
+      "description": "Prime Minister Modi is seeking a second term as government in the general election, which is expected to take place in April or May this year.",
+      "url": "https://www.cnbc.com/2019/01/08/investing-mark-mobius-on-india-general-election-china-opening-up.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/05/23/104488063-RTX36ANY.1910x1000.jpg",
+      "publishedAt": "2019-01-08T08:18:34Z",
+      "content": "India is one of Mark Mobius' top investment picks for 2019, but the prominent investor admitted he's \"very much\" concerned that Prime Minister Narendra Modi's economic reforms may take a back seat ahead of the general election. div &gt; div.group &gt; p:first… [+1052 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Natasha Turak",
+      "title": "Mark Mobius doesn't think anyone should be investing in Saudi Arabia",
+      "description": "",
+      "url": "https://www.cnbc.com/2019/01/08/mark-mobius-doesnt-think-anyone-should-be-investing-in-saudi-arabia--and-sees-disaster-ahead--.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/06/21/104542611-IMG_3802.1910x1000.JPG",
+      "publishedAt": "2019-01-08T08:12:39Z",
+      "content": "Now is not a good time to put your money in Saudi Arabia, heavyweight emerging markets investor Mark Mobius believes. The founder of Mobius Capital Partners criticized the kingdom on Monday, telling CNBC's Hadley Gamble he sees rough times ahead for the count… [+1443 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Karen Gilchrist",
+      "title": "Forget the US and Asia, the top 5 countries for expats are in Europe and the Middle East",
+      "description": "If you plan to embark on a new career move this year, you may want to try casting your eye to Europe or the Middle East, according to HSBC's new expat survey.",
+      "url": "https://www.cnbc.com/2019/01/08/best-countries-in-the-world-for-expats-are-germany-bahrain-uk-hsbc.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2019/01/08/105664719-1546920675142gettyimages-838473148.1910x1000.jpeg",
+      "publishedAt": "2019-01-08T07:46:49Z",
+      "content": "To determine the results, survey participants were asked to rate the experience of their new work location according to eight career-focused questions. Their responses were then converted into an overall country rating and compared to last year's study. Exter… [+714 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Huileng Tan",
+      "title": "China's current GDP growth is likely less than 6 percent, economist says",
+      "description": "China's economic growth is likely below the 6 percent level currently amid faltering domestic demand, according to one economist.",
+      "url": "https://www.cnbc.com/2019/01/08/chinas-current-gdp-growth-is-likely-less-than-6-percent-economist.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/01/30/104250502-GettyImages-603577804.1910x1000.jpg",
+      "publishedAt": "2019-01-08T07:43:15Z",
+      "content": "China's current economic growth is likely below the 6 percent level amid faltering domestic demand, an economist said Tuesday. div &gt; div.group &gt; p:first-child\"&gt; Recent signals about the world's second-largest economy point to weaker growth, including… [+2216 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Kelly Olsen",
+      "title": "Deal-making in the global health-care sector is set to rebound in 2019, law firm says",
+      "description": "M&A activity in the fast growing health-care sector is expected to rebound in 2019, according to international law firm Baker McKenzie  — but heavier regulation and political uncertainty could cloud the future.",
+      "url": "https://www.cnbc.com/2019/01/07/health-care-sector-ma-set-to-rebound-in-2019-law-firm-says.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/12/06/105610222-1544111533560gettyimages-71265250.1910x1000.jpeg",
+      "publishedAt": "2019-01-08T05:36:21Z",
+      "content": "Deal-making activity in the rapidly growing health-care sector is expected to rebound in 2019, a law firm said in a report Monday, but heavier regulation and political uncertainty cloud the future of mergers and acquisitions. div &gt; div.group &gt; p:first-c… [+1863 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Reuters",
+      "title": "Ousted Nissan Chairman Ghosn says he is innocent in first appearance since November",
+      "description": "Nissan Motor's ousted Chairman Carlos Ghosn defended himself against allegations of financial misconduct in a Tokyo court on Tuesday, declaring his innocence in his first public appearance since his arrest in November.",
+      "url": "https://www.cnbc.com/2019/01/08/nissans-carlos-ghosn-first-public-appearance-since-arrest.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2019/01/08/105664593-1546910957148gettyimages-102510351.1910x1000.jpeg",
+      "publishedAt": "2019-01-08T01:46:40Z",
+      "content": "Nissan Motor's ousted Chairman Carlos Ghosn defended himself against allegations of financial misconduct in a Tokyo court on Tuesday, declaring his innocence in his first public appearance since his arrest in November. \"I have been wrongly accused and unfairl… [+2928 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Saheli Roy Choudhury",
+      "title": "Samsung says fourth-quarter earnings likely fell sharply on weak memory demand",
+      "description": "Samsung said its fourth-quarter earnings likely fell due to lackluster demand in its memory business and amid growing competition in the smartphone segment.",
+      "url": "https://www.cnbc.com/2019/01/08/samsung-q4-guidance-.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/01/30/104977749-GettyImages-868371820.1910x1000.jpg",
+      "publishedAt": "2019-01-07T23:50:39Z",
+      "content": "Samsung Electronics said on Tuesday that its fourth-quarter earnings likely decreased sharply due to lackluster demand in its memory chip business as well growing competition in the smartphone segment. div &gt; div.group &gt; p:first-child\"&gt; The South Kore… [+591 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Jeff Daniels",
+      "title": "New California Gov. Gavin Newsom sets tone with attacks on the Trump administration",
+      "description": "California Democratic Gov. Gavin Newsom ripped the Trump administration and its policies during his inaugural address Monday while also taking a swipe at President Donald Trump himself, without mentioning him.",
+      "url": "https://www.cnbc.com/2019/01/07/new-calif-gov-newsom-sets-tone-with-attacks-on-trump-administration.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2019/01/07/105664128-1546892456929ap_19007721892576.1910x1000.jpg",
+      "publishedAt": "2019-01-07T22:50:32Z",
+      "content": "California Democratic Gov. Gavin Newsom ripped the Trump administration and its policies during his inaugural address Monday while also taking a swipe at President Donald Trump himself, without mentioning him. div &gt; div.group &gt; p:first-child\"&gt; \"Here … [+6204 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Patti Domm",
+      "title": "Apple hasn't been this unloved by Wall Street analysts since 2005",
+      "description": "Apple has become more unloved by Wall Street than it's been in 13 years.",
+      "url": "https://www.cnbc.com/2019/01/07/more-wall-street-analysts-have-thrown-in-the-towel-on-apple-than-any-time-since-2005.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2010/04/07/46808760-apple_cash--2107200039_v2.1910x1000.jpg",
+      "publishedAt": "2019-01-07T21:02:44Z",
+      "content": "Apple has become more unloved by Wall Street analysts than at any time in the past 14 years. div &gt; div.group &gt; p:first-child\"&gt; Wall Street analysts have the lowest percentage of 'buy' ratings on Apple stock since 2005 at 49 percent, according to Fact… [+896 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Sarah Whitten",
+      "title": "How Starbucks went from a single coffee bean store to an $80 billion business",
+      "description": "In its 47-year history, Starbucks has transformed from a single coffee bean store in Seattle to a 30,000-cafe international coffee power house. But massive expansion hasn't come without growing pains.",
+      "url": "https://www.cnbc.com/2019/01/07/starbucks-cafes-coffee-business.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/11/02/105549903-1541189279364redcupcropped.1910x1000.jpg",
+      "publishedAt": "2019-01-07T15:40:29Z",
+      "content": "To remedy this, Starbucks has shifted its strategy to include more cold beverages like teas, Starbucks Refreshers energy drinks and cold-brew coffee. Around 50 percent of all Starbucks purchases include a cold beverage, the company said when it met with analy… [+1285 chars]"
+    }
+  ]
+}

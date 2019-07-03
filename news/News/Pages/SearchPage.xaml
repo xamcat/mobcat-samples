@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:Microsoft.MobCAT.Forms.Pages;assembly=MobCAT.Forms" 
+    xmlns:vm="clr-namespace:News.ViewModels;assembly=News" 
+    xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" 
+    xmlns:cell="clr-namespace:News.ViewCells;assembly=News"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:mobcat="clr-namespace:News.Controls;assembly=News"
+    xmlns:behaviors="clr-namespace:MobCAT.Behaviors;assembly=MobCAT.Forms"
+    x:TypeArguments="vm:SearchViewModel" 
+    x:Class="News.Pages.SearchPage" 
+    Style="{DynamicResource navBarStyle}"
+    Title="search"
+    Icon="ic_search.png"
+    AutomationId="SearchPage">
+    
+    <Grid VerticalOptions="FillAndExpand" 
+          HorizontalOptions="FillAndExpand"
+          Padding="0" 
+          Margin="0"
+          RowSpacing="0"
+          ColumnSpacing="0">
+        <Grid.Margin>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="0,20,0,0" />
+                <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+            </OnPlatform>
+        </Grid.Margin>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Text="Search" 
+               Style="{DynamicResource labelStyle}"
+               VerticalTextAlignment="End"
+               HorizontalTextAlignment="Start"
+               FontSize="33"
+               LineBreakMode="MiddleTruncation"
+               MaxLines="1"
+               Margin="15,30,15,10"
+               Grid.Row="0"
+               Grid.ColumnSpan="2"/>
+        <Entry Text="{Binding SearchTerm, Mode=TwoWay}"
+               FontSize="20"
+               Style="{DynamicResource entryStyle}"
+               Grid.Row="1"
+               Placeholder="Search..."
+               Margin="15,0,0,15"
+               AutomationId="SearchEntry"/>
+        <Button Text="Find" 
+                Command="{Binding RefreshCommand}"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="5,0,15,15"
+                BackgroundColor="#21AAD6"
+                TextColor="White"
+                Padding="10,0"
+                VerticalOptions="Fill"
+                HorizontalOptions="Center"
+                AutomationId="FindButton"/>
+        <Grid VerticalOptions="Start" 
+              HorizontalOptions="FillAndExpand"
+              Style="{DynamicResource separatorStyle}"
+              HeightRequest="1"
+              Grid.Row="2"
+              Grid.ColumnSpan="2"/>
+        <mobcat:NewsInfiniteListView
+            ItemsSource="{Binding Articles}"
+            ItemSelectedCommand="{Binding ArticleSelectedCommand}"
+            IsPullToRefreshEnabled="true"
+            RefreshCommand="{Binding RefreshCommand}"   
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshAllowed="true"
+            LoadMoreCommand="{Binding LoadMoreCommand}"
+            IsLoadingMore="{Binding IsLoadingMore}"
+            IsEmpty="{Binding IsEmpty}"
+            SelectionMode="Single"
+            Style="{DynamicResource infiniteListViewStyle}"
+            RowHeight="150"
+            SeparatorVisibility="None"
+            Grid.Row="3"
+            Grid.ColumnSpan="2">
+            <mobcat:NewsInfiniteListView.ItemTemplate>
+                <DataTemplate>
+                    <cell:SearchArticleViewCell />
+                </DataTemplate>
+            </mobcat:NewsInfiniteListView.ItemTemplate>
+            <mobcat:NewsInfiniteListView.EmptyTemplate>
+                <DataTemplate>
+                     <Label Text="No search results 🤷"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            Style="{DynamicResource labelStyle}"
+                            InputTransparent="true"
+                            FontSize="Large"/>
+                </DataTemplate>
+            </mobcat:NewsInfiniteListView.EmptyTemplate>
+            <mobcat:NewsInfiniteListView.Behaviors>
+                <behaviors:ClearListViewSelectionBehavior />
+            </mobcat:NewsInfiniteListView.Behaviors>
+        </mobcat:NewsInfiniteListView>
+    </Grid>
+    
+</local:BaseContentPage>

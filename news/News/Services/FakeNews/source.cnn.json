@@ -1,0 +1,136 @@
+﻿{
+  "status": "ok",
+  "totalResults": 10,
+  "articles": [
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": null,
+      "title": "Deconstructing Trump's claims on building a wall - CNN Video",
+      "description": "CNN's Anderson Cooper looks at different arguments President Trump has used to justify shutting down the government in the name of a border wall.",
+      "url": "http://us.cnn.com/videos/politics/2019/01/08/wall-government-shutdown-trump-sanders-kth-ac360-vpx.cnn",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190107213413-ac-kth-wall-super-tease.jpg",
+      "publishedAt": "2019-01-08T07:23:43.0579286Z",
+      "content": "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds."
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Analysis by Stephen Collinson, CNN",
+      "title": "Prime-time Trump faces credibility crisis",
+      "description": "President Donald Trump will face one huge obstacle when he appeals to Americans in a prime-time Oval Office address Tuesday to unite behind his crusade for a border wall: Himself.",
+      "url": "http://us.cnn.com/2019/01/08/politics/donald-trump-prime-time-address-immigration-wall/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190107145326-donald-trump-press-0106-super-tease.jpg",
+      "publishedAt": "2019-01-08T06:22:02Z",
+      "content": "Washington (CNN) President Donald Trump will face one huge obstacle when he appeals to Americans in a prime-time Oval Office address Tuesday to unite behind his crusade for a border wall: Himself. Trump has spent years exploiting immigration -- one of the nat… [+7895 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Analysis by Chris Cillizza, CNN Editor-at-large",
+      "title": "Donald Trump's speech will make the shutdown worse",
+      "description": "President Donald Trump will address the country at 9 p.m. ET tomorrow on the issue of immigration and, presumably, the ongoing fight over a border wall that has kept the federal government shut for the past 17 days.",
+      "url": "http://us.cnn.com/2019/01/07/politics/donald-trump-shutdown-address/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190107145326-donald-trump-press-0106-super-tease.jpg",
+      "publishedAt": "2019-01-08T00:30:50Z",
+      "content": "THE POINT -- NOW ON YOUTUBE! In each episode of his weekly YouTube show, Chris Cillizza will delve a little deeper into the surreal world of politics. Click to subscribe!"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": null,
+      "title": "TV executive worries about airing Trump live - CNN Video",
+      "description": "President Donald Trump tweeted he will address the nation Tuesday night, claiming a \"humanitarian and national security crisis on our southern border.\"",
+      "url": "http://us.cnn.com/videos/media/2019/01/07/trump-national-address-broadcast-networks-lead-vpx.cnn",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190104154522-donald-trump-january-4-2019-02-super-tease.jpg",
+      "publishedAt": "2019-01-08T00:08:18.8505302Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Caroline Kelly, CNN",
+      "title": "3 former presidents deny praising Trump's zeal to build border wall",
+      "description": "President Donald Trump said Friday that a former president had commended him for his commitment to securing funds to build a wall along the nation's southern border.",
+      "url": "http://us.cnn.com/2019/01/07/politics/former-presidents-trump-wall/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190107145326-donald-trump-press-0106-super-tease.jpg",
+      "publishedAt": "2019-01-07T23:57:08Z",
+      "content": "(CNN) President Donald Trump said Friday that a former president had commended him for his commitment to securing funds to build a wall along the nation's southern border. However, three of the four living former presidents have denied telling Trump they wish… [+2302 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Jim Acosta and Betsy Klein, CNN",
+      "title": "Pence: White House looking into ability to declare border emergency",
+      "description": "Vice President Mike Pence said Monday that the White House counsel is looking at the President's ability to declare a national emergency to fund border security, something President Donald Trump has repeatedly said he is considering as partial government shut…",
+      "url": "http://us.cnn.com/2019/01/07/politics/border-national-emergency-white-house-counsel/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190104154018-donald-trump-january-4-2019-03-super-tease.jpg",
+      "publishedAt": "2019-01-07T21:24:34Z",
+      "content": "Washington (CNN) Vice President Mike Pence said Monday that the White House counsel is looking at the President's ability to declare a national emergency to fund border security, something President Donald Trump has repeatedly said he is considering as partia… [+3189 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Manu Raju and Ted Barrett, CNN",
+      "title": "Senate Democrats considering blocking all legislation to keep focus on shutdown",
+      "description": "Senate Democrats will try to block action on a Syria sanctions bill when it comes up for a vote Tuesday, an effort to keep the focus on the government shutdown.",
+      "url": "http://us.cnn.com/2019/01/07/politics/senate-democrats-mull-blocking-legislation-shutdown/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190104134004-03-dems-presser-0104-super-tease.jpg",
+      "publishedAt": "2019-01-07T20:53:29Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Brian Stelter and Oliver Darcy, CNN Business",
+      "title": "Broadcast networks deliberating whether to air Trump's prime time immigration address",
+      "description": "The big four broadcast networks are deliberating over President Donald Trump's request to air a Tuesday night prime time address on border security, a network executive told CNN.",
+      "url": "http://us.cnn.com/2019/01/07/media/networks-trump-border-security-speech/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190107145326-donald-trump-press-0106-super-tease.jpg",
+      "publishedAt": "2019-01-07T20:16:25Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Caroline Kenny, CNN",
+      "title": "Federal contract worker: I set up GoFundMe to pay rent",
+      "description": "As government workers across the country figure out ways to pay the bills during the government shutdown, one contract employee says she set up a GoFundMe account to help pay her expenses during the unpaid period.",
+      "url": "http://us.cnn.com/2019/01/07/us/federal-contract-worker-without-pay-cnntv/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190107135646-julie-burr-contract-worker-go-fund-me-for-lost-wages-crn-sot-vpx-00000000-super-tease.jpg",
+      "publishedAt": "2019-01-07T19:57:39Z",
+      "content": "Julie Burr, a contracted federal worker affected by the shutdown, says she set up a GoFundMe with a goal of two months of salary and that money has helped with rent She also isn't getting paid for work she has already done because no one is working who can ap… [+92 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Peter Bergen, CNN National Security Analyst",
+      "title": "Border wall would do nothing to stop terrorism. And there is no national emergency.",
+      "description": "The Trump administration is framing the necessity of a southern border wall, in part, as responding to a national security emergency involving terrorists. This is a barrel of bunkum and balderdash served with generous helpings of hogwash, writes Peter Bergen.",
+      "url": "http://us.cnn.com/2019/01/07/opinions/border-wall-would-do-nothing-to-stop-terrorism-bergen/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190107090027-border-wall-super-tease.jpg",
+      "publishedAt": "2019-01-07T14:42:01Z",
+      "content": "Peter Bergen is CNN's national security analyst, a vice president at New America and a professor of practice at Arizona State University. He is the author of \"United States of Jihad: Investigating America's Homegrown Terrorists.\" The opinions expressed in thi… [+3172 chars]"
+    }
+  ]
+}

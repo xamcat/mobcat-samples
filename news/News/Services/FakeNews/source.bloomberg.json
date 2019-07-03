@@ -1,0 +1,136 @@
+﻿{
+  "status": "ok",
+  "totalResults": 10,
+  "articles": [
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "Fintech Revolution Still Not Here a Year Into ‘Open Banking’",
+      "description": null,
+      "url": "https://www.bloomberg.com/news/articles/2019-01-08/fintech-revolution-still-not-here-a-year-into-open-banking",
+      "urlToImage": null,
+      "publishedAt": "2019-01-08T05:00:00+00:00",
+      "content": "To continue, please click the box below to let us know you're not a robot."
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "MediaLink CEO on Apple's TV Deal With Samsung, Streaming Media and CES 2019",
+      "description": null,
+      "url": "https://www.bloomberg.com/news/videos/2019-01-08/medialink-ceo-on-apple-s-tv-deal-with-samsung-streaming-media-and-ces-2019-video",
+      "urlToImage": null,
+      "publishedAt": "2019-01-08T00:02:00+00:00",
+      "content": "To continue, please click the box below to let us know you're not a robot."
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "Amazon Is Still 'Top Holding,' Munro Partners CIO Says",
+      "description": null,
+      "url": "https://www.bloomberg.com/news/videos/2019-01-07/amazon-is-still-top-holding-munro-investment-cio-says-video",
+      "urlToImage": null,
+      "publishedAt": "2019-01-07T22:59:00+00:00",
+      "content": "To continue, please click the box below to let us know you're not a robot."
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "Hedge Fund Titans Baupost, D.E. Shaw Caught in PG&E Value Trap",
+      "description": null,
+      "url": "https://www.bloomberg.com/news/articles/2019-01-07/hedge-fund-titans-baupost-d-e-shaw-caught-in-pg-e-value-trap",
+      "urlToImage": null,
+      "publishedAt": "2019-01-07T22:47:00+00:00",
+      "content": "To continue, please click the box below to let us know you're not a robot."
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "Musk Urges Chinese Consumers to Buy Model 3 Now to Fund Factory",
+      "description": null,
+      "url": "https://www.bloomberg.com/news/articles/2019-01-07/musk-urges-chinese-consumers-to-buy-model-3-now-to-fund-factory",
+      "urlToImage": null,
+      "publishedAt": "2019-01-07T22:38:00+00:00",
+      "content": "To continue, please click the box below to let us know you're not a robot."
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "Don’t Be Fooled by China’s Old Debt Playbook",
+      "description": null,
+      "url": "https://www.bloomberg.com/opinion/articles/2019-01-07/china-s-infrastructure-stimulus-will-favor-state-firms-as-usual",
+      "urlToImage": null,
+      "publishedAt": "2019-01-07T22:00:00+00:00",
+      "content": "To continue, please click the box below to let us know you're not a robot."
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "Amazon Becomes Most Valuable Company, Inching Past Microsoft",
+      "description": null,
+      "url": "https://www.bloomberg.com/news/articles/2019-01-07/amazon-becomes-most-valuable-company-inching-past-microsoft",
+      "urlToImage": null,
+      "publishedAt": "2019-01-07T21:09:00+00:00",
+      "content": "To continue, please click the box below to let us know you're not a robot."
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "Theresa May Weighs Move to Restrict No-Deal Brexit Threat",
+      "description": null,
+      "url": "https://www.bloomberg.com/news/articles/2019-01-07/theresa-may-said-to-mull-move-to-restrict-no-deal-brexit-threat",
+      "urlToImage": null,
+      "publishedAt": "2019-01-07T19:50:00+00:00",
+      "content": "To continue, please click the box below to let us know you're not a robot."
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "Three Reasons Trump’s Trade War Will Become a Pain for the U.S. Economy",
+      "description": null,
+      "url": "https://www.bloomberg.com/news/articles/2019-01-07/three-reasons-why-trade-war-will-become-a-pain-for-u-s-economy",
+      "urlToImage": null,
+      "publishedAt": "2019-01-07T18:36:00+00:00",
+      "content": "To continue, please click the box below to let us know you're not a robot."
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": null,
+      "title": "Oil Caps Longest Gain in 17 Months on New Trade Talks, OPEC Cut",
+      "description": null,
+      "url": "https://www.bloomberg.com/news/articles/2019-01-06/oil-extends-gains-as-fed-signals-flexibility-u-s-rigs-decline",
+      "urlToImage": null,
+      "publishedAt": "2019-01-06T23:41:00+00:00",
+      "content": "To continue, please click the box below to let us know you're not a robot."
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+﻿{
+  "status": "ok",
+  "totalResults": 70,
+  "articles": [
+    {
+      "source": {
+        "id": "engadget",
+        "name": "Engadget"
+      },
+      "author": "Nick Summers",
+      "title": "This mobile app could offer sweet relief from tinnitus - Engadget",
+      "description": "Diapson's mobile app offers therapeutic mini-games for people with tinnitus.",
+      "url": "https://www.engadget.com/2019/01/08/diapason-tinnitus-mobile-app-games/",
+      "urlToImage": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fresize%3D2000%252C2000%252Cshrink%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-uploaded-images%252F2019-01%252F6b18aad0-139e-11e9-bffe-c6c63d7b0477%26client%3Da1acac3e1b3290917d92%26signature%3Dcf05193e25ff9233ce561e04a9589159311a2667&client=amp-blogside-v2&signature=d72b517d47b25888e4cf3ec7215e77db5eeb72ba",
+      "publishedAt": "2019-01-09T00:11:24Z",
+      "content": "The games are colorful and deceptively simple. One moment, I was tapping on stars and creating picturesque constellations. The next, I was slotting Tetris-style bricks together to build a house. Every interaction has an impact on the sound, which is set to th… [+751 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Gizmodo.com"
+      },
+      "author": "Alex Cranz",
+      "title": "A Glimpse at the Glorious Future of Display Tech - Gizmodo",
+      "description": "LG Display is not LG. LG Display makes displays that go in products from a wide variety of companies—including many LG competitors. And it’s really good at making those displays. Its concepts are a peek at what to expect from TV, laptop, and phone makers in t…",
+      "url": "https://gizmodo.com/a-glimpse-at-the-future-of-glorious-display-tech-1831581607",
+      "urlToImage": "https://i.kinja-img.com/gawker-media/image/upload/s--dmCnc0Nr--/c_fill,fl_progressive,g_center,h_900,q_80,w_1600/jliatgi3tzwq8fgdk6e7.jpg",
+      "publishedAt": "2019-01-08T23:57:00Z",
+      "content": "LG Display is not LG. LG Display makes displays that go in products from a wide variety of companiesincluding many LG competitors. And its really good at making those displays. Its concepts are a peek at what to expect from TV, laptop, and phone makers in the… [+1309 chars]"
+    },
+    {
+      "source": {
+        "id": "the-verge",
+        "name": "The Verge"
+      },
+      "author": "Makena Kelly",
+      "title": "Twitter will begin a public test of new features in the coming weeks - The Verge",
+      "description": "A few months ago, Twitter announced that it had begun testing new features that could enhance conversations on the platform. Now, these changes will be rolling out to select users in the coming weeks.",
+      "url": "https://www.theverge.com/2019/1/8/18174452/twitter-features-platform-status-slack-public-test",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/2z0nkeOqAbnZqe1cJriMBz4J4Lg=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/12645587/acastro_180827_1777_0001.jpg",
+      "publishedAt": "2019-01-08T23:22:11Z",
+      "content": "A few months ago, Twitter announced that it had begun testing new features to promote healthy conversations on the platform. Now, these changes will be rolling out to a test group of users in the coming weeks, according to Engadget. Twitter first demonstrated… [+1204 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Phonearena.com"
+      },
+      "author": "Cosmin Vasile",
+      "title": "Deal: The newest Echo Dot is 40% off on Amazon, or half off if you buy two - Phone Arena",
+      "description": "Amazon's newest Echo Dot smart speaker powered by Alexa usually sells for $50, but the U.S. retailer offers an important 40% discount to those who wish to buy it right now....",
+      "url": "https://www.phonearena.com/news/Deal-Echo-Dot-half-off-Amazon_id112548",
+      "urlToImage": "//i-cdn.phonearena.com/images/article/112548-two/Deal-The-newest-Echo-Dot-is-40-off-on-Amazon-or-half-off-if-you-buy-two.jpg",
+      "publishedAt": "2019-01-08T23:16:00Z",
+      "content": "Amazon's Black Friday deal on the 3rd generation Echo Dot is live once again, which means you now have the chance to purchase the smart speaker for the lowest price we've seen to date. More importantly, Amazon has an even better offer for those who are willin… [+680 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Dexerto.com"
+      },
+      "author": null,
+      "title": "Overwatch player discovers possible clue for a new hero on Temple of Anubis - Dexerto.com",
+      "description": "The change was discovered after the latest update.",
+      "url": "https://www.dexerto.com/overwatch/overwatch-player-discovers-possible-clue-for-a-new-hero-on-temple-of-anubis-277909",
+      "urlToImage": "https://s3.dexerto.com/thumbnails/_thumbnailLarge/Overwatch-hero-clue-Anubis.jpg",
+      "publishedAt": "2019-01-08T23:02:16Z",
+      "content": "It didnt take long after Overwatchs latest update for fans to begin noticing changes to the Temple of Anubis map on the games main menu, changes that could be a clue to the identity of a future hero. The latest Overwatch update gives players the chance to ear… [+1174 chars]"
+    },
+    {
+      "source": {
+        "id": "engadget",
+        "name": "Engadget"
+      },
+      "author": "Christopher Schodt",
+      "title": "Razer's 'Hypersense' vibration tech shakes your whole gaming rig - Engadget",
+      "description": "Razer envisions a future where every everything near your PC will vibrate.",
+      "url": "https://www.engadget.com/2019/01/08/razer-hypersense-vibration-tech-hands-on-video/",
+      "urlToImage": "https://o.aolcdn.com/images/dims?resize=1200%2C630&crop=1200%2C630%2C0%2C0&quality=80&image_uri=https%3A%2F%2Fimg.vidible.tv%2Fprod%2F2019-01%2F08%2F5c34dd02fcd67b3a10de74c0%2F5c34df33e39d150671457405_o_U_v1.jpg&client=amp-blogside-v2&signature=ad3d2026f3de620c1d9a9ff9ae970a7553eebe54",
+      "publishedAt": "2019-01-08T22:55:57Z",
+      "content": "At CES 2019, Razer showed off its expanded high-resolution vibration system, which it calls \"Hypersense.\" In addition to a Nari headset, the rig I tried out had a vibrating mouse, keyboard rest, and chair. After an Overwatch practice map and a few Doom arenas… [+1558 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Androidpolice.com"
+      },
+      "author": "Rose Behar",
+      "title": "Google Assistant is coming to the Sonos One and Beam, with older models to follow - Android Police",
+      "description": "I think it's fair to say that we've seen some questionably useful Google Assistant integrations this CES, and will no doubt see a great many more in the near future. That's why it's a special occasion when a heavily-demanded, long-due integration is announced…",
+      "url": "https://www.androidpolice.com/2019/01/08/google-assistant-is-coming-to-the-sonos-one-and-beam-with-older-models-to-follow/",
+      "urlToImage": "https://www.androidpolice.com/wp-content/uploads/2019/01/Google-Assistant-Update-header-668x387.png",
+      "publishedAt": "2019-01-08T22:48:00Z",
+      "content": "I think it's fair to say that we've seen some questionably useful Google Assistant integrations this CES, and will no doubt see a great many more in the near future. That's why it's a special occasion when a heavily-demanded, long-due integration is announced… [+1458 chars]"
+    },
+    {
+      "source": {
+        "id": "engadget",
+        "name": "Engadget"
+      },
+      "author": "Devindra Hardawar",
+      "title": "Intel Studios shows off volumetric video capturing with 'Grease' - Engadget",
+      "description": "Intel Studios is using Grease to show off volumetric video capturing at CES.",
+      "url": "https://www.engadget.com/2019/01/08/intel-studios-volumetric-grease/",
+      "urlToImage": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D1600%252C954%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C954%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-uploaded-images%252F2019-01%252F785689f0-138b-11e9-b7fd-13079088c145%26client%3Da1acac3e1b3290917d92%26signature%3Dba9a428e21ec888a195c104e26e5d43b8dd35351&client=amp-blogside-v2&signature=e7c877a77afd8dccbaf5f80c01504b1fa961ca5a",
+      "publishedAt": "2019-01-08T22:15:26Z",
+      "content": "This Intel Studios volumetric video demo is cool, lets you control the angles of a Grease dance sequence by moving around the screen #CES2019 pic.twitter.com/0TAiaynhGb — Devindra Hardawar (@Devindra) January 8, 2019 When you step up to the demo display, an I… [+691 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Gamespot.com"
+      },
+      "author": "Jordan Ramée",
+      "title": "CES 2019: Samsung's New \"The Wall\" TV Might Actually Be Small Enough To Fit On Your Wall - GameSpot",
+      "description": "Samsung plans on promoting MicroLED TVs in 2019, and introduced the television that's meant to lead the charge at CES.",
+      "url": "https://www.gamespot.com/articles/ces-2019-samsungs-new-the-wall-tv-might-actually-b/1100-6464260/",
+      "urlToImage": "https://static.gamespot.com/uploads/screen_kubrick/1587/15875866/3485506-screen+shot+2019-01-08+at+1.23.16+pm.png",
+      "publishedAt": "2019-01-08T22:05:00Z",
+      "content": "At CES 2019, Samsung unveiled its new 75-inch MicroLED TV. Despite its size, this is actually the smallest MicroLED TV that supports 4K resolution. Even though both OLED and LCD technology are already pushing 8K resolution, CNET's coverage of CES reports that… [+1547 chars]"
+    },
+    {
+      "source": {
+        "id": "engadget",
+        "name": "Engadget"
+      },
+      "author": "Billy Steele",
+      "title": "I want Sony's 360 Reality Audio to be the future of music - Engadget",
+      "description": "Sony is working on a new audio format that could make listening to music more immersive than ever -- if the company can take it mainstream.",
+      "url": "https://www.engadget.com/2019/01/08/sony-360-reality-audio-hands-on/",
+      "urlToImage": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2019-01%2Fb14ffd80-137d-11e9-a4f4-05be07e77a15&client=amp-blogside-v2&signature=549a99d88ceb892ff111b92a8f852ee875234250",
+      "publishedAt": "2019-01-08T22:00:16Z",
+      "content": "First, there's the music creation and recording side. Sony says it's already working major labels and distribution services, providing the technology necessary to build an ecosystem around this new 360 Reality Audio. As you might expect, this includes the cre… [+4659 chars]"
+    },
+    {
+      "source": {
+        "id": "the-next-web",
+        "name": "The Next Web"
+      },
+      "author": "Napier Lopez",
+      "title": "Dell's new XPS 13 puts the webcam above the screen, and all is right with the world - The Next Web",
+      "description": "Ever since Dell introduced the slim bezel XPS 13 back in 2015, reviewers and users alike have had one recurring complaint: the webcam is below the screen. As nice as having thin bezels is, this meant you’d get an unflattering view of your face at best and cle…",
+      "url": "https://thenextweb.com/plugged/2019/01/08/dells-new-xps-13-puts-the-webcam-above-the-screen-and-all-is-right-with-the-world/",
+      "urlToImage": "https://img-cdn.tnwcdn.com/image/plugged?filter_last=1&fit=1280%2C640&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2019%2F01%2FDell-XPS-13-CES-2019_29.jpg&signature=b351ac60894ff536fb56e68649fbcbee",
+      "publishedAt": "2019-01-08T21:58:00Z",
+      "content": "Ever since Dell introduced the slim bezel XPS 13 back in 2015, reviewers and users alike have had one recurring complaint: the webcam is below the screen. As nice as having thin bezels is, this meant youd get an unflattering view of your face at best and clea… [+1344 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Digitaltrends.com"
+      },
+      "author": "Simon Cohen",
+      "title": "Hisense shows off triple-laser TV, 1-inch thick LED at CES 2019 - Digital Trends",
+      "description": "HiSense, the Chinese company known for its value-priced TVs has shown up at CES 2019 with some interesting innovations in display technology, including a triple-beam laser TV, and a 1-inch thick LED TV that uses the screen as the TV's speaker. It also showed …",
+      "url": "https://www.digitaltrends.com/home-theater/hisense-laser-tv-ces-2019/",
+      "urlToImage": "https://icdn3.digitaltrends.com/image/hisense-uled-xd-ces-2019-5-1200x630-c-ar1.91.jpg",
+      "publishedAt": "2019-01-08T21:18:00Z",
+      "content": "There’s a tendency to expect that budget electronics companies will rely on trickle-down technologies to power their products. After all, how can you keep your prices lower than the competition if you’re investing millions in research and development? And yet… [+3062 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Cnet.com"
+      },
+      "author": "Justin Jaffe",
+      "title": "Everything Dell announced at CES 2019 - CNET",
+      "description": "Our first look at \"the world's most powerful gaming laptop\" and a new 55-inch 4K OLED gaming display.",
+      "url": "https://www.cnet.com/news/everything-that-dell-announced-at-ces-2019/",
+      "urlToImage": "https://cnet4.cbsistatic.com/img/e2FNEBaWLBW03pf2uDjHw0DyfzI=/724x407/2019/01/02/274784de-6f2b-4258-850c-cccd90c70d13/img-20181217-144108.jpg",
+      "publishedAt": "2019-01-08T21:12:00Z",
+      "content": "The new Alienware Area-51m. Sarah Tew/CNET Dell kicked off its press conference at CES 2019 touting its position as the largest PC company, at least in terms of revenue. But it proved the point more literally when it introduced the Alienware Area-51m -- an en… [+3582 chars]"
+    },
+    {
+      "source": {
+        "id": "engadget",
+        "name": "Engadget"
+      },
+      "author": "Daniel Cooper",
+      "title": "I don’t want to live in LG’s vision of the future - Engadget",
+      "description": "It's like 'Black Mirror' if technology just mildly irritated you until you were miserable.",
+      "url": "https://www.engadget.com/2019/01/08/lg-ai-concept-video-future-vision/",
+      "urlToImage": "https://o.aolcdn.com/images/dims?resize=1200%2C630&crop=1200%2C630%2C0%2C0&quality=80&image_uri=https%3A%2F%2Fimg.vidible.tv%2Fprod%2F2019-01%2F08%2F5c343982f674e07431a56e7c%2F5c343a49e39d15067145488c_o_U_v1.jpg&client=amp-blogside-v2&signature=632a2d96d4f3152c38ed5910c7883867126c0f57",
+      "publishedAt": "2019-01-08T21:08:07Z",
+      "content": "It opens with Mark Young, jet-lagged after a long business trip, being irritated awake by his smart home's AI assistant. Rather than gently waking him, the device plays music he doesn't enjoy, needles him awake and runs the robot vacuum under his bed. So much… [+1511 chars]"
+    },
+    {
+      "source": {
+        "id": "techradar",
+        "name": "TechRadar"
+      },
+      "author": "https://www.facebook.com/TechRadar",
+      "title": "Google Assistant's Interpreter Mode is a world-changing, real-time translator - TechRadar",
+      "description": "Potentially world-changing for the future of travel",
+      "url": "https://www.techradar.com/news/google-assistant-interpreter-mode-real-time-translator-ces-2019",
+      "urlToImage": "https://cdn.mos.cms.futurecdn.net/D72cmrGhgWEUQPhB3d6M6G-1200-80.jpg",
+      "publishedAt": "2019-01-08T21:03:00Z",
+      "content": "For the first time today since graduating high school, I don't feel guilty about forgetting the years' worth of Spanish I learned. Better, I don't expect to feel guilty about it ever again thanks to Google Assistant. That’s because Google Assistant is being u… [+3840 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Bleepingcomputer.com"
+      },
+      "author": "Mayank Parmar",
+      "title": "Microsoft Releases Windows 7 & 8.1 Cumulative Updates KB4480970 & KB4480963 - BleepingComputer",
+      "description": "Microsoft has just released new cumulative updates for supported Windows 10 versions with security fixes and improvements. The January 2019 patch is also available for users with Windows 7 or Windows 8.1 device.",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-windows-7-and-81-cumulative-updates-kb4480970-and-kb4480963/",
+      "urlToImage": "https://www.bleepstatic.com/content/hl-images/2017/05/26/Windows7Update.png",
+      "publishedAt": "2019-01-08T20:59:39Z",
+      "content": "Microsoft has just released new cumulative updates for supported Windows 10 versions with security fixes and improvements. The January 2019 update is also available for users with Windows 7 or Windows 8.1 device. The new monthly rollups for Windows 7 and Wind… [+5038 chars]"
+    },
+    {
+      "source": {
+        "id": "the-verge",
+        "name": "The Verge"
+      },
+      "author": "Chris Welch, Nick Statt, Shannon Liao, Dieter Bohn",
+      "title": "Google Assistant goes big at CES 2019 - The Verge",
+      "description": "The Assistant is getting new features (like conversational translation, boarding pass support, and improved auto reply) and is being built in to even more places (Dish’s Hopper DVR, Samsung TVs, and that long-awaited Sonos integration).",
+      "url": "https://www.theverge.com/2019/1/8/18173861/google-assistant-ces-2019-lenovo-sonos-translation",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/fT24nkscB7HtCYve9YK2zNSxaY0=/0x51:2040x1119/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/13670418/google2_vsavov3.jpg",
+      "publishedAt": "2019-01-08T20:55:02Z",
+      "content": "Google has a ton of news to share at CES this year, and most of it revolves around the Google Assistant. The Assistant is getting new features (like conversational translation, boarding pass support, and improved auto reply) and is being built in to even more… [+120 chars]"
+    },
+    {
+      "source": {
+        "id": "time",
+        "name": "Time"
+      },
+      "author": "Sarah Frier / Bloomberg",
+      "title": "Samsung Users Cannot Delete Facebook From Their Phones - TIME",
+      "description": "Samsung users are becoming alarmed about the fact that they are not allowed to delete the Facebook app from their smartphones.",
+      "url": "http://time.com/5497200/samsung-facebook-app-delete/",
+      "urlToImage": "https://timedotcom.files.wordpress.com/2019/01/samsung-facebook-app.jpg?quality=85",
+      "publishedAt": "2019-01-08T20:34:53Z",
+      "content": "(Bloomberg) — Nick Winke, a photographer in the Pacific northwest, was perusing internet forums when he came across a complaint that alarmed him: On certain Samsung Electronics Co. smartphones, users aren’t allowed to delete the Facebook app. Winke bought his… [+5610 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Cnet.com"
+      },
+      "author": "Antuan Goodwin",
+      "title": "JBL Link Drive brings 'Hey, Google' voice commands along for the ride at CES - CNET",
+      "description": "The in-car device can charge your phone via USB and enable clearer Google Assistant voice commands thanks to its noise-canceling microphone.",
+      "url": "https://www.cnet.com/roadshow/news/jbl-link-drive-google-assistant-car-kit/",
+      "urlToImage": "https://cnet1.cbsistatic.com/img/z1LBmstbsJFQtc2tADzyBOun7_Y=/2019/01/08/e309dbd2-c7c6-4545-916f-4ff425323c51/ogi-jbl-link-ogi.jpg",
+      "publishedAt": "2019-01-08T20:10:00Z",
+      "content": "Fans and users of Google's digital assistant have another way to safely bring that technology on the road with the announcement of the JBL Link Drive. Google Assistant has found its way into vehicles via a few vectors -- primarily Android Auto, smartphones ru… [+1341 chars]"
+    },
+    {
+      "source": {
+        "id": "engadget",
+        "name": "Engadget"
+      },
+      "author": "Cherlynn Low",
+      "title": "Google Assistant will soon check into your flight for you - Engadget",
+      "description": "\"Hey Google, check in to my flight.\" And done.",
+      "url": "https://www.engadget.com/2019/01/08/google-assistant-check-in-flight-travel-hotels/",
+      "urlToImage": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D1600%252C899%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C900%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-uploaded-images%252F2019-01%252F74c37260-132e-11e9-933c-a2393083e401%26client%3Da1acac3e1b3290917d92%26signature%3De2a9b41203b58d55c00b4dd8bb2dd63992ba313a&client=amp-blogside-v2&signature=01c172cc4a51ec4de0a9103b0f907401a97dd501",
+      "publishedAt": "2019-01-08T19:45:46Z",
+      "content": "The service is first launching on United Airlines' domestic flights, although Google hasn't shared a timeline for the rollout yet. Assistant will also be able to retrieve and save your boarding pass, and proactively remind you to check into your flight when i… [+826 chars]"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrl="clr-namespace:News.Controls;assembly=News" 
+    x:Class="News.ViewCells.SearchArticleViewCell" >
+    <StackLayout Orientation="Vertical" 
+                 Spacing="0" 
+                 Margin="10">
+        <Frame BackgroundColor="#3c3c3c" 
+               HasShadow="true"
+               IsClippedToBounds="false"
+               VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand"
+               Padding="0"
+               CornerRadius="10"
+               Grid.Row="0">
+            <Frame BackgroundColor="Transparent" 
+                   HasShadow="false"
+                   IsClippedToBounds="true"
+                   VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0"
+                   Padding="0"
+                   CornerRadius="10">
+                 <Grid VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       RowSpacing="0"
+                       ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="0.7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="🗞️" 
+                           FontSize="60" 
+                           Style="{DynamicResource labelStyle}" 
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Grid.Column="0"/>
+                    <Image Source="{Binding UrlToImage}"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"
+                           Aspect="AspectFill"
+                           Grid.Column="0"/>
+                    <Grid VerticalOptions="FillAndExpand" 
+                          HorizontalOptions="FillAndExpand"
+                          Style="{DynamicResource articleBackgroundStyle}"
+                          Grid.Column="1" >
+                        <Label Text="{Binding Title}"
+                               Style="{DynamicResource labelStyle}"
+                               MaxLines="4"
+                               FontSize="18"
+                               Margin="10,10,25,10"
+                               VerticalOptions="StartAndExpand"
+                               LineBreakMode="TailTruncation" />
+                    </Grid>
+                    <Grid VerticalOptions="Start"
+                          HorizontalOptions="End"
+                          Grid.Column="1">
+                        <ctrl:FavoriteButton IsFavorite="{Binding IsFavorite}"
+                                             WidthRequest="50"
+                                             HeightRequest="50"
+                                             Margin="0"
+                                             Padding="0"
+                                             Command="{Binding SwitchFavoriteArticleCommand}" />
+                    </Grid>
+                </Grid>
+            </Frame>
+        </Frame>
+        <Label HorizontalOptions="End"
+               VerticalOptions="Start"
+               Text="{Binding Footer}"
+               Style="{DynamicResource accentLabelStyle}"
+               MaxLines="1"
+               FontSize="Small"
+               Margin="5,7,5,0"
+               LineBreakMode="MiddleTruncation"/>
+    </StackLayout>
+</ViewCell>

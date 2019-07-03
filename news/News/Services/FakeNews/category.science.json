@@ -1,0 +1,266 @@
+﻿{
+  "status": "ok",
+  "totalResults": 70,
+  "articles": [
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Nina Avramova, CNN",
+      "title": "AI technology can identify genetic diseases by looking at your face, study says - CNN",
+      "description": "A new artificial intelligence technology can accurately identify rare genetic disorders using a photograph of a patient's face, according to a new study.",
+      "url": "https://www.cnn.com/2019/01/08/health/ai-technology-to-identify-genetic-disorder-from-facial-image-intl/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190108101559-01-new-ia-technology-identify-genetic-diseases-from-facial-images-intl-file-super-tease.jpg",
+      "publishedAt": "2019-01-08T21:17:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "daily-mail",
+        "name": "Daily Mail"
+      },
+      "author": "https://www.facebook.com/DailyMail",
+      "title": "New Breakfast Club: Modern American high schools still 'jocks' 'princess' trope geeks anime/manga - Daily Mail",
+      "description": "Many of the popular high school cliques at the top of the modern social hierarchy remain the same, but the labels for those at the bottom have shifted, according to a new study.",
+      "url": "https://www.dailymail.co.uk/news/article-6570507/New-Breakfast-Club-Modern-American-high-schools-jocks-princess-trope-geeks-anime-manga.html",
+      "urlToImage": "https://i.dailymail.co.uk/1s/2019/01/08/21/8283554-0-image-a-50_1546981242472.jpg",
+      "publishedAt": "2019-01-08T21:17:00Z",
+      "content": "High school remains a cruel place for many teenagers but some things do change, including the divisions and differences that teens use to define themselves and their peers. While many of the popular high school cliques at the top of the modern social hierarch… [+4261 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Weather.com"
+      },
+      "author": "",
+      "title": "Oceans Absorbed Equivalent of an Atomic Bomb Per Second Over Past 150 Years - The Weather Channel",
+      "description": "The world's oceans have absorbed 90 percent of the heat trapped by humanity's greenhouse gas emissions.",
+      "url": "https://weather.com/science/environment/news/2019-01-08-oceans-warming-atomic-bomb-per-second",
+      "urlToImage": "https://s.w-x.co/warmingoceans_1.jpg",
+      "publishedAt": "2019-01-08T20:22:18Z",
+      "content": "This photo provided by NOAA Corps shows the deployment of an Argo float to capture ocean temperature data. (NOAA Corps, Lt. Elizabeth Crapo via AP) At a Glance The world's oceans have warmed roughly 1,000 times more than the annual global energy consumption. … [+3281 chars]"
+    },
+    {
+      "source": {
+        "id": "associated-press",
+        "name": "Associated Press"
+      },
+      "author": "Marcia Dunn",
+      "title": "Asteroid-circling spacecraft grabs cool snapshot of home - The Associated Press",
+      "description": "CAPE CANAVERAL, Fla. (AP) — An asteroid-circling spacecraft has captured a cool snapshot of home. NASA's Osiris-Rex  spacecraft took the picture days before going into orbit around asteroid Bennu on New Year's Eve. The tiny asteroid — barely one-third of a mi…",
+      "url": "https://apnews.com/de76da4abcc04c288109201c33e22a2c",
+      "urlToImage": "https://storage.googleapis.com/afs-prod/media/media:784950fb564242ef81ff5a536fd22999/2758.jpeg",
+      "publishedAt": "2019-01-08T20:06:50Z",
+      "content": "CAPE CANAVERAL, Fla. (AP) An asteroid-circling spacecraft has captured a cool snapshot of home. NASAs Osiris-Rex spacecraft took the picture days before going into orbit around asteroid Bennu on New Years Eve. The tiny asteroid barely one-third of a mile (500… [+531 chars]"
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": "James Rogers",
+      "title": "'Sea monster' skull reveals secrets more than 60 years after its discovery - Fox News",
+      "description": "Scientists have used 3-D technology to unlock the secrets of a prehistoric marine reptile’s skull.",
+      "url": "https://www.foxnews.com/science/sea-monster-skull-reveals-secrets-more-than-60-years-after-its-discovery",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2019/01/SeaMonsterSkull.jpg",
+      "publishedAt": "2019-01-08T19:48:21Z",
+      "content": "Scientists have used 3-D technology to unlock the secrets of a prehistoric marine reptile’s skull. The huge marine ichthyosaur skull, which is almost 200 million years old, was discovered in a U.K. farmer’s field in 1955. Ichthyosaurs roamed the seas during t… [+2241 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Sciencedaily.com"
+      },
+      "author": null,
+      "title": "Space microbes aren't so alien after all: Genetic evidence shows bacteria on the International Space Station are adapting to survive, not to harm - Science Daily",
+      "description": "A new study has found that -- despite its seemingly harsh conditions -- the ISS is not causing bacteria to mutate into dangerous, antibiotic-resistant superbugs. The bacteria are instead simply responding, and perhaps evolving, to survive in a stressful envir…",
+      "url": "https://www.sciencedaily.com/releases/2019/01/190108141336.htm",
+      "urlToImage": "/images/2019/01/190108141336_1_540x360.jpg",
+      "publishedAt": "2019-01-08T19:23:38Z",
+      "content": "Microbes stranded in the International Space Station (ISS) are just trying to survive, man. A new Northwestern University study has found that -- despite its seemingly harsh conditions -- the ISS is not causing bacteria to mutate into dangerous, antibiotic-re… [+3349 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Space.com"
+      },
+      "author": "Mike Wall",
+      "title": "Close But No Cigar: Watch SpaceX's Mr. Steven Just Miss Catching a Rocket Fairing in Test (Video) - Space.com",
+      "description": "SpaceX's net-equipped boat came agonizingly close to plucking a falling payload fairing out of the sky during a recent test, a new video shows.",
+      "url": "https://www.space.com/42932-spacex-mr-steven-fairing-recovery-test-video.html",
+      "urlToImage": "https://img.purch.com/h/1000/aHR0cDovL3d3dy5zcGFjZS5jb20vaW1hZ2VzL2kvMDAwLzA4Mi8wODQvb3JpZ2luYWwvc3BhY2V4LW1yLXN0ZXZlbi1mYWlyaW5nLXRyeS5qcGc=",
+      "publishedAt": "2019-01-08T19:17:00Z",
+      "content": "SpaceX's net-equipped boat, Mr. Steven, came agonizingly close to plucking a falling rocket payload fairing out of the sky during a recent test, a new video shows. The fairing splashed down in the ocean right next to Mr. Steven, riding the whitewater wake gen… [+2362 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Inverse.com"
+      },
+      "author": "Sarah Sloat",
+      "title": "Meat-Eating Snowshoe Hares Observed Dining on Lynx in the Canadian Yukon - Inverse",
+      "description": "The consumption of dead flesh by herbivores is increasingly being observed in nature, scientists report. In the December issue of Bio One researchers revealed that between January 2015 and July 2017 they observed scavenging hares eating the flesh of grouse, o…",
+      "url": "https://www.inverse.com/article/52305-snowshoe-hare-meat-eating-study",
+      "urlToImage": "https://fsmedia.imgix.net/8f/a4/25/5f/2702/40d2/9cb4/aaa1506c43bb/snowshoe-hares-eat-meat.jpeg?rect=0%2C215%2C2048%2C1024&auto=format%2Ccompress&w=1200",
+      "publishedAt": "2019-01-08T19:00:02Z",
+      "content": "I n Monty Python and the Holy Grail, theres a killer rabbit that takes out three knights in one bloody scene. Its hilarious because rabbits are so innocuous or at least they used to be. New research posits that, while rabbits wont be decapitating us any time … [+2892 chars]"
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": "Madeline Farber",
+      "title": "California’s monarch butterfly population is ‘disturbingly low,’ falling 86 percent in 1 year: scientists - Fox News",
+      "description": "The population of western monarch butterflies in California’s coastal areas is apparently taking a nosedive.",
+      "url": "https://www.foxnews.com/science/californias-monarch-butterfly-population-is-disturbingly-low-falling-86-percent-in-1-year-researchers",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2019/01/butterfly-ap.jpg",
+      "publishedAt": "2019-01-08T18:59:55Z",
+      "content": "The population of western monarch butterflies in California’s coastal areas is apparently taking a nosedive. Researchers with the environmental group Xerces Society, along with volunteers, take to the state’s coastal areas each year to count the number of ove… [+2795 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Nasaspaceflight.com"
+      },
+      "author": null,
+      "title": "New Horizons in solar communication blackout, team studies first flyby data - NASASpaceflight.com",
+      "description": null,
+      "url": "https://www.nasaspaceflight.com/2019/01/new-horizons-communication-blackout-studies-flyby-data/",
+      "urlToImage": null,
+      "publishedAt": "2019-01-08T18:52:13Z",
+      "content": "As New Horizons and its scientists prepare for the end of a solar conjunction in two days and the resumption of science data downlink from the craft of its historic flyby of 2014 MU69 on New Year’s Day, Alan Stern and his team are busy analyzing the first few… [+7472 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Universetoday.com"
+      },
+      "author": "https://www.facebook.com/evan.gough.3",
+      "title": "Still no Word from Opportunity - Universe Today",
+      "description": "There's been no signal from Opportunity for over 6 months now. But NASA still hasn't given up. They're still doing everything they can to talk to the rover.",
+      "url": "https://www.universetoday.com/141097/still-no-word-from-opportunity/",
+      "urlToImage": "https://www.universetoday.com/wp-content/uploads/2017/06/Opportunity-Sol-4736_1c_Ken-Kremer-.jpg",
+      "publishedAt": "2019-01-08T18:43:58Z",
+      "content": "Could this be the end of the Opportunity rover? Theres been no signal from the rover since last summer, when a massive global dust storm descended on it. But even though the craft has been silent and unreachable for six-and-a-half months, NASA hasnt given up.… [+5656 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Sci-news.com"
+      },
+      "author": null,
+      "title": "Astrophysicists Find First Observational Evidence for 'Dark Matter Heating' | Astronomy - Sci-News.com",
+      "description": "An international team of astrophysicists from the University of Surrey, Carnegie Mellon University and ETH Zürich has found evidence that dark matter can be heated up and moved around, as a result of star formation in galaxies.",
+      "url": "http://www.sci-news.com/astronomy/dark-matter-heating-06793.html",
+      "urlToImage": "http://cdn.sci-news.com/images/2019/01/image_6793-Dark-Matter-Heating.jpg",
+      "publishedAt": "2019-01-08T18:23:52Z",
+      "content": "An international team of astrophysicists from the University of Surrey, Carnegie Mellon University and ETH Zürich has found evidence that dark matter can be heated up and moved around, as a result of star formation in galaxies. Star formation in dwarf galaxie… [+2616 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Phys.org"
+      },
+      "author": null,
+      "title": "Researchers offer new physics rule to find mechanical strain - Phys.org",
+      "description": "Addressing a physics problem that dates back to Galileo, three University of Massachusetts Amherst researchers this week propose a new approach to the theory of how thin sheets can be forced to conform to \"geometrically incompatible\" shapes—think gift-wrappin…",
+      "url": "https://phys.org/news/2019-01-physics-mechanical-strain.html",
+      "urlToImage": "https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/2019/umassamherst.jpg",
+      "publishedAt": "2019-01-08T17:43:53Z",
+      "content": "This schematic shows what happens when a curved elastic shell, here depicted as a globe, is forced by confinement to change from spherical to flat. If it wrinkles enough, the shell can flatten almost without stretching. The bottom image shows that the distanc… [+5836 chars]"
+    },
+    {
+      "source": {
+        "id": "independent",
+        "name": "Independent"
+      },
+      "author": "Andrew Griffin",
+      "title": "Nasa finds strange alien planet hiding outside our solar system - The Independent",
+      "description": "Very small and very cool",
+      "url": "https://www.independent.co.uk/news/science/nasa-exoplanet-discovery-tess-spacecraft-solar-system-a8717891.html",
+      "urlToImage": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/01/08/17/tess.jpg",
+      "publishedAt": "2019-01-08T17:38:00Z",
+      "content": "Nasa has found a strange alien planet sitting outside of our solar system. The world is cool and small: two characteristics that make it a very strange thing indeed for scientists to find. The little planet known as HD 21749b is the third planet to be found b… [+14692 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Iflscience.com"
+      },
+      "author": "Tom Hale",
+      "title": "Rogue CRISPR Scientist Might Now Be In Life-Threatening Trouble - IFLScience",
+      "description": "In November last year, genetics was reluctantly thrown into a new era. \nDr He Jiankui announced via YouTube that he had created the world’s first gene-edit",
+      "url": "https://www.iflscience.com/health-and-medicine/rogue-crispr-scientist-might-now-be-in-lifethreatening-trouble/",
+      "urlToImage": "https://cdn.iflscience.com/images/40d520ee-065e-5a84-a18e-20839e4b5142/default-1546959264-cover-image.jpg",
+      "publishedAt": "2019-01-08T16:11:00Z",
+      "content": "In November last year, genetics was reluctantly thrown into a new era. Dr He Jiankui announced via YouTube that he had created the worlds first gene-edited babies under a veil of secrecy, much to the disbelief and disapproval of the world. The overwhelming ma… [+2747 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Iflscience.com"
+      },
+      "author": "Alfredo Carpineti",
+      "title": "Dinosaur-Killing Asteroid Created A Mile-High Tsunami That Swept Through The World's Oceans - IFLScience",
+      "description": "Sixty-six million years ago, an asteroid roughly 14 kilometers (9 miles) in diameter hit the shallow water off the modern-day Yucatan peninsula in Mexico.",
+      "url": "https://www.iflscience.com/environment/dinosaurkilling-asteroid-created-a-milehigh-tsunami-that-swept-through-the-worlds-oceans/",
+      "urlToImage": "https://cdn.iflscience.com/images/6224c683-a356-5f73-bb2b-023c0a17dd05/default-1546951140-cover-image.jpg",
+      "publishedAt": "2019-01-08T15:17:00Z",
+      "content": "Sixty-six million years ago, an asteroid roughly 14 kilometers (9 miles) in diameter hit the shallow water off the modern-day Yucatan peninsula in Mexico. Chicxulub, as it is known, was the size of a mountain and moving as fast as a speeding bullet. When it h… [+2307 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Forbes.com"
+      },
+      "author": "Ethan Siegel",
+      "title": "Supermoon Lunar Eclipse To Become The First Pan-American Total Eclipse In 19 Years - Forbes",
+      "description": "On January 20/21, half of Earth will experience a total lunar eclipse. For the first time in 19 years, this includes all of North and South America.",
+      "url": "https://www.forbes.com/sites/startswithabang/2019/01/08/supermoon-lunar-eclipse-to-become-the-first-pan-american-total-eclipse-in-19-years/",
+      "urlToImage": "https://thumbor.forbes.com/thumbor/600x315/https%3A%2F%2Fblogs-images.forbes.com%2Fstartswithabang%2Ffiles%2F2016%2F10%2F21796020361_24d26193b3_b.jpg",
+      "publishedAt": "2019-01-08T15:00:00Z",
+      "content": "Share to facebook Share to twitter Share to linkedin The Supermoon lunar eclipse of 2015 was the first such combination since 1982, and was the largest diameter Moon to be seen in lunar eclipse in more than three decades. 2018 had one, and so will 2019 on Jan… [+22751 chars]"
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": null,
+      "title": "Hubble space telescope captures amazing galaxy image - Fox News",
+      "description": "The Hubble Space Telescope has snapped an amazing image of the Triangulum Galaxy, which is 3 million light years from our own Milky Way Galaxy. The image is comprised of 665 million pixels and was created from 54 different images, a view in space so large tha…",
+      "url": "https://www.foxnews.com/science/hubble-space-telescope-captures-amazing-galaxy-image",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2019/01/triangulum-galaxy.jpg",
+      "publishedAt": "2019-01-08T14:47:26Z",
+      "content": "The Hubble Space Telescope has snapped an amazing image of the Triangulum Galaxy, which is three million light-years from our own Milky Way galaxy. The image is comprised of 665 million pixels and was created from 54 different images, a view in space so large… [+1441 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Phys.org"
+      },
+      "author": null,
+      "title": "Computer simulation sheds new light on colliding stars - Phys.org",
+      "description": "Unprecedented detail of the aftermath of a collision between two neutron stars depicted in a 3-D computer model created by a University of Alberta astrophysicist provides a better understanding of how some of the universe's fundamental elements form in cosmic…",
+      "url": "https://phys.org/news/2019-01-simulation-colliding-stars.html",
+      "urlToImage": "https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/2019/computersimu.jpg",
+      "publishedAt": "2019-01-08T14:10:13Z",
+      "content": "Artist's conception of two neutron stars colliding. A U of A researcher has created a 3-D computer simulation that gives scientists a clearer picture of what happens in the aftermath of the collision. Credit: Robin Dienel, Carnegie Institution for Science Unp… [+3768 chars]"
+    },
+    {
+      "source": {
+        "id": "business-insider",
+        "name": "Business Insider"
+      },
+      "author": "Dave Mosher",
+      "title": "Elon Musk says SpaceX is building a stainless-steel rocket ship in Texas that will 'look like liquid silver' and might launch in February - Business Insider",
+      "description": "SpaceX's founder, Elon Musk, said his rocket company was assembling a shiny steel \"test hopper\" prototype of its Starship spaceship for Mars in Texas.",
+      "url": "https://www.businessinsider.com/elon-musk-spacex-steel-test-hopper-starship-texas-2019-1",
+      "urlToImage": "https://amp.businessinsider.com/images/5c33c010aebf42231474b572-1136-568.png",
+      "publishedAt": "2019-01-08T12:23:43Z",
+      "content": "On Saturday, Elon Musk shared an eye-catching picture of a stainless-steel rocket ship gleaming in the Texas sun. The futuristic image is not a photo but rather a rendering created by SpaceX, Musk's rocket company. However, his company is working quickly to b… [+5555 chars]"
+    }
+  ]
+}

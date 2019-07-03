@@ -1,0 +1,136 @@
+﻿{
+  "status": "ok",
+  "totalResults": 10,
+  "articles": [
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "Kevin Spacey pleaded not guilty to sexual assault allegations",
+      "description": "Former \"House of Cards\" actor Kevin Spacey pleaded not guilty Monday to sexually assaulting an 18-year-old man in 2016. The case is ongoing and Spacey's next hearing is in March. Attorney Deborah Blum joins CBSN to discuss the case.",
+      "url": "https://www.cbsnews.com/video/kevin-spacey-pleaded-not-guilty-sexual-assault-today-2019-01-07/",
+      "urlToImage": "https://cbsnews1.cbsistatic.com/hub/i/r/2019/01/08/3ec78dcf-2952-4b1a-acf2-05c78b823761/thumbnail/1200x630/6b8e0eb0e9d5e855518aa77065b0bc34/cbsn-fusion-kevin-spacey-pleaded-not-guilty-sexual-assault-today-2019-01-07-thumbnail-1752159-640x360.jpg",
+      "publishedAt": "2019-01-08T03:40:41+00:00",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "Trump to address the nation ahead of border visit",
+      "description": "President Trump will address the nation Tuesday night, nearly three full weeks into a partial government shutdown. CBS News Washington correspondent Paula Reid joins CBSN's Elaine Quijano to discuss what would stop the stalled negotiations and ahead of Mr. Tr…",
+      "url": "https://www.cbsnews.com/video/trump-to-address-nation-border-visit-this-week/",
+      "urlToImage": "https://cbsnews1.cbsistatic.com/hub/i/r/2019/01/08/32a254ca-da8d-46ac-8508-c924bce6493a/thumbnail/1200x630/0900eb643a5aefa2a9fac68abddc70f7/cbsn-fusion-trump-to-address-nation-border-visit-this-week-thumbnail-1752148-640x360.jpg",
+      "publishedAt": "2019-01-08T03:31:42+00:00",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "Cyntoia Brown granted clemency after serving 15 years in prison",
+      "description": "A woman serving a life sentence for killing a man who bought her for sex has been granted clemency. Cyntoia Brown's case garnered national attention from criminal justice reform advocates. Mark Strassmann reports.",
+      "url": "https://www.cbsnews.com/video/cyntoia-brown-granted-clemency-after-serving-15-years-in-prison/",
+      "urlToImage": "https://cbsnews2.cbsistatic.com/hub/i/r/2019/01/08/3e8df36b-425d-4b7a-90b1-4530b0f867a0/thumbnail/1200x630/762e8344a1d290ff90a2b08d78ef4706/0107-en-cynthia-strassman-1752008-640x360.jpg",
+      "publishedAt": "2019-01-08T01:52:23+00:00",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "Second suspect questioned in shooting death of 7-year-old Jazmine Barnes",
+      "description": "Investigators identified one suspect believed to be the getaway driver in a shooting that claimed the life of 7-year-old Jazmine Barnes. But they're questioning a second man who may be involved. Janet Shamlian reports.",
+      "url": "https://www.cbsnews.com/video/second-suspect-questioned-in-shooting-death-of-7-year-old-jazmine-barnes/",
+      "urlToImage": "https://cbsnews1.cbsistatic.com/hub/i/r/2019/01/08/b3bafd90-6122-4967-a1f6-4e218005a78c/thumbnail/1200x630/6d12996dc7998fec25f7d6168a97ca13/0107-en-sevenyearold-shamlian-1752001-640x360.jpg",
+      "publishedAt": "2019-01-08T01:44:01+00:00",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "Stranger reunites 8-year-old boy recovering from surgery with his dog",
+      "description": "While visiting family in Utah, 8-year-old Perryn Miller found out he had a brain tumor. A stranger decided to bring him some comfort by driving Perryn's beloved dog Frank 2,300 miles to see him. Jim Axelrod has their story.",
+      "url": "https://www.cbsnews.com/video/stranger-reunites-8-year-old-boy-recovering-from-surgery-with-his-dog/",
+      "urlToImage": "https://cbsnews1.cbsistatic.com/hub/i/r/2019/01/08/210ce346-085f-4f82-9ed3-c34cdcbe8b03/thumbnail/1200x630/17accdaa81301d7bbb220ec2c96ce8cb/0107-en-crosscountry-axelrod-1752015-640x360.jpg",
+      "publishedAt": "2019-01-08T01:43:31+00:00",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "5G among highly-anticipated tech trends at CES 2019",
+      "description": "5G is among the top tech trends expected to be talked about at the Consumer Electronics Show, which is being held this week in Las Vegas. CNET News executive editor Roger Cheng joins CBSN with the latest.",
+      "url": "https://www.cbsnews.com/video/5g-among-highly-anticipated-tech-trends-at-ces-2019/",
+      "urlToImage": "https://cbsnews2.cbsistatic.com/hub/i/r/2019/01/08/8e1c6b58-41d7-4bc2-88bd-3e97f2ea543b/thumbnail/1200x630/f49b678e66ea74d752c1737448b20c58/0107-cbsn-ces5gpreview-fws-1752091-640x360.jpg",
+      "publishedAt": "2019-01-08T01:40:38+00:00",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "Hillary Clinton, N.Y. Gov. Andrew Cuomo discuss abortion rights",
+      "description": "Former Secretary of State Hillary Clinton and New York Gov. Andrew Cuomo want to make abortion a constitutional right in New York state. The two made the announcement Monday at Barnard College in Manhattan. Cuomo called for an amendment last year.",
+      "url": "https://www.cbsnews.com/video/hillary-clinton-new-york-governor-andrew-cuomo-abortion-rights/",
+      "urlToImage": "https://cbsnews2.cbsistatic.com/hub/i/r/2019/01/08/20096eb7-51d7-41ca-b8a3-647518ef4db9/thumbnail/1200x630/110ea89f47c3be204c3c1905269872e8/cbsn-fusion-hillary-clinton-new-york-governor-andrew-cuomo-abortion-rights-thumbnail-1752074-640x360.jpg",
+      "publishedAt": "2019-01-08T01:06:51+00:00",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "Government shutdown could impact airport wait times as TSA workers call out sick",
+      "description": "The partial government shutdown is starting to impact travelers. Wait times are up at many airports as some screeners call out sick, rather than work without pay. Kris Van Cleave reports.",
+      "url": "https://www.cbsnews.com/video/government-shutdown-could-impact-airport-wait-times-as-tsa-workers-call-out-sick/",
+      "urlToImage": "https://cbsnews1.cbsistatic.com/hub/i/r/2019/01/07/45e8782a-18d7-4be5-8445-cba5ee8b1d1d/thumbnail/1200x630/b325a043941a1bf49dcfd50e59665795/0107-en-tsaworkers-kvc-1751978-640x360.jpg",
+      "publishedAt": "2019-01-07T23:55:41+00:00",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "CBSN",
+      "description": "Watch \"Special Counsel Robert Mueller's grand jury has been granted a six month extension by a federal judge\", a CBSN video on CBSNews.com. View more CBSN videos and watch CBSN, a live news stream featuring original CBS News reporting.",
+      "url": "https://www.cbsnews.com/live/",
+      "urlToImage": "https://cbsnews1.cbsistatic.com/hub/i/2014/11/11/2375a2ad-a0a2-4fdc-a5aa-529e506f8bd2/slatelive600x337.jpg",
+      "publishedAt": "2018-11-29T15:17:08+00:00",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "cbs-news",
+        "name": "CBS News"
+      },
+      "author": null,
+      "title": "CBSN",
+      "description": "Watch \"In an interview with 60 Minutes the Egyptian government later asked not be shown, President Abdel Fattah el-Sisi denies estimates of 60,000 political \", a CBSN video on CBSNews.com. View more CBSN videos and watch CBSN, a live news stream featuring ori…",
+      "url": "https://www.cbsnews.com/live/",
+      "urlToImage": "https://cbsnews1.cbsistatic.com/hub/i/2014/11/11/2375a2ad-a0a2-4fdc-a5aa-529e506f8bd2/slatelive600x337.jpg",
+      "publishedAt": "2018-10-08T21:42:19+00:00",
+      "content": null
+    }
+  ]
+}

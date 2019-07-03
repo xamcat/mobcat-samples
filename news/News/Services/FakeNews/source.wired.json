@@ -1,0 +1,136 @@
+﻿{
+  "status": "ok",
+  "totalResults": 10,
+  "articles": [
+    {
+      "source": {
+        "id": "wired",
+        "name": "Wired"
+      },
+      "author": "Brian Barrett",
+      "title": "Intel Lakefield Brings Its 3-D Chip-Stacking Tech to Life",
+      "description": "Weeks after introducing Foveros, its 3-D logic stacking technology, Intel has shown off a motherboard that puts it to use.",
+      "url": "https://www.wired.com/story/intel-lakefield/",
+      "urlToImage": "https://media.wired.com/photos/5c33eade7900010b1acb5435/191:100/pass/foveros_featured.jpg",
+      "publishedAt": "2019-01-08T00:45:00Z",
+      "content": "Three years ago, Intel engineer Wilfred Gomes and his colleagues sat down to decide how the future should look. The team had just finished its work on Intel's next-generation high-performance and low-power processes, both of which would further shrink the com… [+6274 chars]"
+    },
+    {
+      "source": {
+        "id": "wired",
+        "name": "Wired"
+      },
+      "author": "Jack Stewart",
+      "title": "Hyundai's Elevate Concept Uses Legs and Wheels to Go Anywhere",
+      "description": "The automaker's CES concept uses multiple modes of locomotion to move through any territory.",
+      "url": "https://www.wired.com/story/hyundai-walking-car-elevate-concept-ces/",
+      "urlToImage": "https://media.wired.com/photos/5c2fd59be75ab51425985e20/191:100/pass/HyundaiElevateWalkingCar-Transpo.jpg",
+      "publishedAt": "2019-01-07T23:00:00Z",
+      "content": "Like the sushirrito and the Rollie Eggmaster, the wheel is the certified product of the human brain, unmatched in ingenuity by eons of evolution. Now, after 5,000 years of transportation advances built on the ability to roll from A to B, Hyundai has decided i… [+3244 chars]"
+    },
+    {
+      "source": {
+        "id": "wired",
+        "name": "Wired"
+      },
+      "author": "Eric Adams",
+      "title": "Bell's Nexus Air Taxi Brings Flying Cars Down to Earth",
+      "description": "The company behind the V-22 Osprey and V-280 Valor brings its experience to the pie-in-the-sky flying car industry.",
+      "url": "https://www.wired.com/story/bell-nexus-air-taxi-flying-car/",
+      "urlToImage": "https://media.wired.com/photos/5c2d3d76a5c97c151336a8fb/191:100/pass/BellNexus-(2).jpg",
+      "publishedAt": "2019-01-07T21:00:00Z",
+      "content": "The past two years have seen visions of traffic-hopping bliss delivered via spry air taxis coming at us like peregrine falcons dive-bombing pigeons, and Bell just made sure 2019 wont be any different. At CES this afternoon, the aerospace company unveiled its … [+6768 chars]"
+    },
+    {
+      "source": {
+        "id": "wired",
+        "name": "Wired"
+      },
+      "author": "Jack Stewart",
+      "title": "Harley-Davidson's Electric LiveWire Motorcycle Debuts at CES",
+      "description": "Unveiled today at CES, the LiveWire will hit 60 mph in 3.5 seconds and cover 110 miles between charging stops.",
+      "url": "https://www.wired.com/story/harley-davidson-electric-motorcycle-livewire/",
+      "urlToImage": "https://media.wired.com/photos/5c339276e91b067f6d57dfba/191:100/pass/Transpo-HarleyDavidson-Electric-w.jpg",
+      "publishedAt": "2019-01-07T20:11:38Z",
+      "content": "Ask any serious automaker about the future of driving, and they'll bring up batteries and zero emissions, the glory of instant torque and the anxiety of underdeveloped charging infrastructure. But you don't have to build things on four wheels to see where the… [+3297 chars]"
+    },
+    {
+      "source": {
+        "id": "wired",
+        "name": "Wired"
+      },
+      "author": "Jason Parham",
+      "title": "Today's TV Mom Is Raising Us for a More Real World",
+      "description": "From 'Pose' to 'Jane the Virgin', mothers on TV are getting much more complex—and that's a good thing.",
+      "url": "https://www.wired.com/story/tv-mom-changing/",
+      "urlToImage": "https://media.wired.com/photos/5c1c317c2020097d13ab8619/191:100/pass/TV%20Moms%20-GettyImages-559558297-675693420.jpg",
+      "publishedAt": "2019-01-07T20:01:24Z",
+      "content": "The history-rattling Season 1 finale of Pose concluded just as it commenced: with a ball. Born of Steven Canals and Ryan Murphy, the darling FX showwhich spotlights black and Latin queer performers, specifically trans women, in New York City's late-1980s unde… [+7409 chars]"
+    },
+    {
+      "source": {
+        "id": "wired",
+        "name": "Wired"
+      },
+      "author": "Brian Raftery",
+      "title": "Netflix and Amazon Binged Wins at the Golden Globes",
+      "description": "And 'Aquaman' continues to rule the box office.",
+      "url": "https://www.wired.com/story/netflix-amazon-golden-globes/",
+      "urlToImage": "https://media.wired.com/photos/5c33723c03ddbb5c215d5a84/191:100/pass/Culture_TheMonitor_Cuaron.jpg",
+      "publishedAt": "2019-01-07T18:03:57Z",
+      "content": "Its Monday, which means its time for another installment of The Monitor, WIRED's roundup of the latest in the world of culture, from breakout trailers to box-office breakdowns. In today's installment: Netflix and Amazon stay Golden at last night's awards; Bra… [+2469 chars]"
+    },
+    {
+      "source": {
+        "id": "wired",
+        "name": "Wired"
+      },
+      "author": "WIRED Staff",
+      "title": "CES 2019 Liveblog Day 1: News and Photos From CES in Las Vegas",
+      "description": "This year's CES, one of the biggest consumer tech showcases in the world, starts Monday morning. Join us for live updates from the show in Las Vegas, Nevada.",
+      "url": "https://www.wired.com/story/ces-2019-liveblog-day-1/",
+      "urlToImage": "https://media.wired.com/photos/5c32f251649b866b18ca52fb/191:100/pass/ces_J5A8826.jpg",
+      "publishedAt": "2019-01-07T15:00:00Z",
+      "content": "Welcome to day one of our CES 2019 liveblog. Monday is the unofficial first day of the showunofficial because it's mostly just press conferences and events that are only open to the media. CES proper, with all of its gaudy excess, begins on Tuesday when the e… [+677 chars]"
+    },
+    {
+      "source": {
+        "id": "wired",
+        "name": "Wired"
+      },
+      "author": "Rhett Allain",
+      "title": "How to Calculate the Physics in Super Smash Bros. Ultimate",
+      "description": "Using the videogame's training mode, you can figure out the rules governing how the various characters jump and move.",
+      "url": "https://www.wired.com/story/how-to-calculate-the-physics-in-super-smash-bros-ultimate/",
+      "urlToImage": "https://media.wired.com/photos/5c2fe48559e96b0db4565b85/191:100/pass/Switch_SSBU_090618_PressKit_SCRN_10.jpg",
+      "publishedAt": "2019-01-07T14:00:00Z",
+      "content": "Videogames can do whatever they like with their physics. They don't have to follow our so-called laws of nature. Yet there are indeed rules in every game, otherwise the motions of characters wouldn't make any sense. But what are the rules ? What physics gover… [+7329 chars]"
+    },
+    {
+      "source": {
+        "id": "wired",
+        "name": "Wired"
+      },
+      "author": "Noam Cohen",
+      "title": "Bitcoin Exposed Silicon Valley's Ultimate Aim: Making Money",
+      "description": "Bitcoin is a prime example of how Silicon Valley touts \\\"democratization\\\" and \\\"decentralization\\\" as righteous motives when wealth is the ultimate goal.",
+      "url": "https://www.wired.com/story/bitcoin-exposed-silicon-valley-aim-making-money/",
+      "urlToImage": "https://media.wired.com/photos/5c2feca7b49dea0ea6833687/191:100/pass/Ideas_Art_Bitcoin-167577080.jpg",
+      "publishedAt": "2019-01-07T12:00:00Z",
+      "content": "Bitcoin turned 10 this month, and what a ride its beeninitial obscurity; the kind of exponential price spike last seen by Dutch tulip peddlers ; the rise of imitators based on its underlying blockchain technology; and, in the past year, a steep, steady declin… [+7221 chars]"
+    },
+    {
+      "source": {
+        "id": "wired",
+        "name": "Wired"
+      },
+      "author": "Graeme McMillan",
+      "title": "Romney, Pelosi, Warren, and More Pave the Runway for 2020",
+      "description": "Surely things on the internet will be better than they were in 2018, right? Oh, wait...",
+      "url": "https://www.wired.com/story/internet-week-202/",
+      "urlToImage": "https://media.wired.com/photos/5c2fd5975ecee564c8187038/191:100/pass/Culture_WhileYouWereOffline_TrumpPresser.jpg",
+      "publishedAt": "2019-01-06T14:00:00Z",
+      "content": "Finally, we've made it to 2019a year that will bring events better than any that came in the last 12 months simply because they won't be happening in 2018. Almost immediately, its obvious that things are better, because the US national debt is higher than eve… [+7769 chars]"
+    }
+  ]
+}

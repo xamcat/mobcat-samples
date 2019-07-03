@@ -1,0 +1,266 @@
+﻿{
+  "status": "ok",
+  "totalResults": 70,
+  "articles": [
+    {
+      "source": {
+        "id": null,
+        "name": "News12.com"
+      },
+      "author": null,
+      "title": "Health officials: New Jersey child dies from the flu - News 12 New Jersey",
+      "description": "New Jersey health officials say that a child has died from the flu – the first child death this flu season.",
+      "url": "http://newjersey.news12.com/story/39754062/health-officials-new-jersey-child-dies-from-the-flu",
+      "urlToImage": "https://NEWS12NJ.images.worldnow.com/images/17998522_G.jpeg?lastEditedDate=20190108174147",
+      "publishedAt": "2019-01-08T22:41:00Z",
+      "content": "EDISON - New Jersey health officials say that a child has died from the flu – the first child death this flu season. Health Commissioner Dr. Shereef Elnahal says that the child is from central New Jersey and died in late December. Additional details about the… [+671 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Gizmodo.com"
+      },
+      "author": "Ed Cara",
+      "title": "New York Is Dealing With an Old Enemy—Measles - Gizmodo",
+      "description": "New York is in the midst of an outbreak of measles, a childhood disease that shouldn’t really exist in the U.S. any longer. On Tuesday, NBC News reported, New York health officials said the state has seen more than 100 cases of the vaccine-preventable disease…",
+      "url": "https://gizmodo.com/new-york-is-dealing-with-an-old-enemy-measles-1831587909",
+      "urlToImage": "https://i.kinja-img.com/gawker-media/image/upload/s--XsUb-t0h--/c_fill,fl_progressive,g_center,h_900,q_80,w_1600/priga1rnrfg33v4v03ed.jpg",
+      "publishedAt": "2019-01-08T22:15:00Z",
+      "content": "New York is in the midst of an outbreak of measles, a childhood disease that shouldnt really exist in the U.S. any longer. On Tuesday, NBC News reported, New York health officials said the state has seen more than 100 cases of the vaccine-preventable disease … [+3685 chars]"
+    },
+    {
+      "source": {
+        "id": "cnn",
+        "name": "CNN"
+      },
+      "author": "Nina Avramova, CNN",
+      "title": "AI technology can identify genetic diseases by looking at your face, study says - CNN",
+      "description": "A new artificial intelligence technology can accurately identify rare genetic disorders using a photograph of a patient's face, according to a new study.",
+      "url": "https://www.cnn.com/2019/01/08/health/ai-technology-to-identify-genetic-disorder-from-facial-image-intl/index.html",
+      "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190108101559-01-new-ia-technology-identify-genetic-diseases-from-facial-images-intl-file-super-tease.jpg",
+      "publishedAt": "2019-01-08T21:17:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Fox17.com"
+      },
+      "author": "KAYLIN JORGE, WZTV",
+      "title": "FDA warns of candy possibly contaminated with Hep A made in Kentucky - WZTV",
+      "description": "NASHVILLE, Tenn. (WZTV) - The Food and Drug Administration is warning of candy made in Kentucky that's possibly contaminated with Hepatitis A.  The FDA is warning consumers to not eat and throw away anyBauer's Candies Chocolate or Caramel Modjeskas. The FDA s…",
+      "url": "http://fox17.com/news/local/fda-warns-of-candy-possible-contaminated-with-hep-a",
+      "urlToImage": "http://static-12.sinclairstoryline.com/resources/media/40fe35fd-ab29-4bf1-81a0-7f3de2329936-large16x9_BauersCandy.png?1546981316705",
+      "publishedAt": "2019-01-08T21:06:52Z",
+      "content": "NASHVILLE, Tenn. ( WZTV ) - The Food and Drug Administration is warning of candy made in Kentucky that's possibly contaminated with Hepatitis A. The FDA is warning consumers to not eat and throw away any Bauer's Candies Chocolate or Caramel Modjeskas. The FDA… [+654 chars]"
+    },
+    {
+      "source": {
+        "id": "axios",
+        "name": "Axios"
+      },
+      "author": null,
+      "title": "As cancer mortality declines, gap between rich and poor emerges - Axios",
+      "description": "Bad news: This isn't true for obesity-related ones or as true for the poor",
+      "url": "https://www.axios.com/cancer-deaths-drop-for-most-americans-but-not-poor-as-much-496edfcc-bd98-4867-a8a6-d74dcd6776c4.html",
+      "urlToImage": "https://images.axios.com/m4Gk1Tw6KMrCZtpAakh61AHQqqs=/0x0:2400x1350/1920x1080/2019/01/08/1546906026109.png",
+      "publishedAt": "2019-01-08T20:10:00Z",
+      "content": "Data: ACS' Cancer Statistics, 2019 ; Note: \"Poor\" counties are those in which the poverty rate is between 21.18% and 53.95%, while \"rich\" counties have poverty rates between 1.81% and 10.84%. Chart: Harry Stevens/Axios American deaths from cancer dropped 27% … [+395 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Wjla.com"
+      },
+      "author": "Diana DiGangi",
+      "title": "Stray cat tests positive for rabies in Frederick County - WJLA",
+      "description": "A stray cat that was picked up by animal control in Frederick on Jan. 2 later tested positive for rabies, the Health Department announced Tuesday. The cat is an older black domestic short-haired female that \"appeared sick\" before it was captured. It was found…",
+      "url": "http://wjla.com/news/local/stray-cat-tests-positive-for-rabies-in-frederick-county",
+      "urlToImage": "http://static-11.sinclairstoryline.com/resources/media/2ad8a30c-700e-431b-8b54-d6a3a2aa2c4c-large16x9_blackcat.PNG?1546977091891",
+      "publishedAt": "2019-01-08T19:51:50Z",
+      "content": "FREDERICK COUNTY, Md. A stray cat that was picked up by animal control in Frederick on Jan. 2 later tested positive for rabies, the Health Department announced Tuesday. The cat is an older black domestic short-haired female that \"appeared sick\" before it was … [+1193 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Medicalxpress.com"
+      },
+      "author": "Science X staff",
+      "title": "Dental flossing and other behaviors linked with higher levels of toxic chemicals in the body - Medical Xpress",
+      "description": "A new study suggests certain types of consumer behaviors, including flossing with Oral-B Glide dental floss, contribute to elevated levels in the body of toxic PFAS chemicals. PFAS are water- and grease-proof substances that have been linked with numerous hea…",
+      "url": "https://medicalxpress.com/news/2019-01-dental-flossing-behaviors-linked-higher.html",
+      "urlToImage": "https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2019/dentalflossi.jpg",
+      "publishedAt": "2019-01-08T19:19:53Z",
+      "content": "A new study suggests certain types of consumer behaviors, including flossing with Oral-B Glide dental floss, contribute to elevated levels in the body of toxic PFAS chemicals. PFAS are water- and grease-proof substances that have been linked with numerous hea… [+4549 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Boingboing.net"
+      },
+      "author": null,
+      "title": "Ten years after Juneau ditched water fluoridation, kids racked up an average of $300/each in extra dental bills - Boing Boing",
+      "description": "Ten years after Juneau ditched water fluoridation, kids racked up an average of $300/each in extra dental bills",
+      "url": "https://boingboing.net/2019/01/08/excess-caries.html",
+      "urlToImage": "https://media.boingboing.net/wp-content/uploads/2019/01/141015-F-XR514-031.jpg",
+      "publishedAt": "2019-01-08T18:45:00Z",
+      "content": "It's been ten years since the people of Juneau, Alaska succumbed to conspiracy theories and voted to ruin their kids' teeth by removing fluoride from the drinking water, and it shows. A BMC Oral Health study by Jennifer Meyer (U Alaska), Vasileios Margaritis … [+1115 chars]"
+    },
+    {
+      "source": {
+        "id": "nbc-news",
+        "name": "NBC News"
+      },
+      "author": "Liz Szabo, Kaiser Health News",
+      "title": "Health care industry spends $30 billion a year on marketing - NBCNews.com",
+      "description": "Sophisticated campaigns make people worry about diseases they don’t have and ask for drugs or exams they don’t need, researchers say.",
+      "url": "https://www.nbcnews.com/health/health-news/health-care-industry-spends-30-billion-year-marketing-n956251",
+      "urlToImage": "https://media1.s-nbcnews.com/j/newscms/2018_42/2605111/181015-pharmacist-drugs-se-228p_01c0b7541ae4ce28d01937482e2cd548.1200;630;7;70;5.jpg",
+      "publishedAt": "2019-01-08T18:43:00Z",
+      "content": "Get breaking news alerts and special reports. The news and stories that matter, delivered weekday mornings. SUBSCRIBE Jan. 8, 2019, 6:43 PM GMT By Liz Szabo, Kaiser Health News Spending on health care marketing nearly doubled from 1997 to 2016, soaring to at … [+5838 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Statnews.com"
+      },
+      "author": "Helen Branswell",
+      "title": "New Ebola-like virus is discovered in China - STAT",
+      "description": "Scientists say that they have discovered a new Ebola-like virus and that there is reason to believe it is capable of infecting humans.",
+      "url": "https://www.statnews.com/2019/01/08/new-ebola-like-virus-is-discovered-in-china/",
+      "urlToImage": "https://www.statnews.com/wp-content/uploads/2019/01/AdobeStock_187623400-1024x576.jpeg",
+      "publishedAt": "2019-01-08T18:22:42Z",
+      "content": "T he notorious filovirus family which includes such dangerous actors as the Ebola and Marburg viruses seems to just keep getting bigger. In a new study, scientists from Singapore and China have announced they found a new branch of the family, in bats in China… [+3026 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Medicalxpress.com"
+      },
+      "author": "Sharon Parmet",
+      "title": "Technique boosts omega 3 fatty acid levels in brain - Medical Xpress",
+      "description": "Getting enough of the omega 3 fatty acids DHA and EPA into the brain to study their effects on conditions such as Alzheimer's and depression—which they have been shown to help—is no easy task. While supplements containing these fatty acids exist, there is sca…",
+      "url": "https://medicalxpress.com/news/2019-01-technique-boosts-omega-fatty-acid.html",
+      "urlToImage": "https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2016/5735b36a59343.jpg",
+      "publishedAt": "2019-01-08T17:56:59Z",
+      "content": "Getting enough of the omega 3 fatty acids DHA and EPA into the brain to study their effects on conditions such as Alzheimer's and depressionwhich they have been shown to helpis no easy task. While supplements containing these fatty acids exist, there is scant… [+3944 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Nj.com"
+      },
+      "author": "Susan K. Livio | NJ Advance Media",
+      "title": "Here are New Jersey's top 15 hospitals, as ranked by U.S. News & World Report - NJ.com",
+      "description": "See which New Jersey hospitals ranked highest in this high-profile survey.",
+      "url": "https://www.nj.com/expo/news/g66l-2019/01/e6d611bce27273/here-are-new-jerseys-top-15-ho.html",
+      "urlToImage": "https://expo.advance.net/img/537e1e9efd/width960/541_morristownmedctr.jpeg",
+      "publishedAt": "2019-01-08T17:30:00Z",
+      "content": "This story originally appeared in August 2018. The nation's most widely read hospital rankings report, produced by U.S. News Report, crowned three of New Jersey's largest facilities with top honors in the state. Morristown Medical Center bested Hackensack Uni… [+504 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Fox17.com"
+      },
+      "author": "Adrian Mojica",
+      "title": "Polio-like illness affecting children continues to surpass record totals into 2019 - WZTV",
+      "description": "The number of confirmed cases of a polio-like illness affecting mostly children has now reached 193 confirmed cases in 39 states. The confirmed cases are among a total of 349 cases reported and being investigated by the Centers for Disease Control and Prevent…",
+      "url": "http://fox17.com/news/local/polio-like-illness-affecting-children-continues-to-surpass-record-totals-into-2019",
+      "urlToImage": "http://static-33.sinclairstoryline.com/resources/media/eb0bfafc-53f5-4335-ad11-f41ca8d84b5b-large16x9_AFMCasesasof142019.JPG?1546966686625",
+      "publishedAt": "2019-01-08T16:59:36Z",
+      "content": "The number of confirmed cases of a polio-like illness affecting mostly children has now reached 193 confirmed cases in 39 states. The confirmed cases are among a total of 349 cases reported and being investigated by the Centers for Disease Control and Prevent… [+1923 chars]"
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": "Madeline Farber",
+      "title": "Plague infects third Wyoming cat in 6 months, health officials say - Fox News",
+      "description": "A cat in Kaycee, Wyoming, has been infected with plague, a potentially deadly bacterial infection, health officials in the state recently said.",
+      "url": "https://www.foxnews.com/health/plague-infects-third-wyoming-cat-in-6-months-health-officials-say",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2019/01/Cat-iStock.jpg",
+      "publishedAt": "2019-01-08T16:54:25Z",
+      "content": "A cat in Kaycee, Wyoming, has been infected with plague, a potentially deadly bacterial infection, health officials in the state confirmed. The Wyoming State Veterinary Laboratory in Laramie recently confirmed the case in the cat, the state department of heal… [+2373 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "News12.com"
+      },
+      "author": null,
+      "title": "Another company recalls blood pressure medication over cancer concerns - News 12 New Jersey",
+      "description": "Another drug company has recalled blood pressure medication over concerns the drug contains trace amounts of a cancer-causing ingredient.",
+      "url": "http://newjersey.news12.com/story/39751749/another-company-recalls-blood-pressure-medication-over-cancer-concerns",
+      "urlToImage": "https://NEWS12NJ.images.worldnow.com/images/17997366_G.jpeg?lastEditedDate=20190108114210",
+      "publishedAt": "2019-01-08T16:43:00Z",
+      "content": "EDISON - Another drug company has recalled blood pressure medication over concerns the drug contains trace amounts of a cancer-causing ingredient. Torrent Pharmaceuticals last week recalled eight more lots of losartan potassium tablets, on top of the two it r… [+281 chars]"
+    },
+    {
+      "source": {
+        "id": "fox-news",
+        "name": "Fox News"
+      },
+      "author": "Alexandria Hein",
+      "title": "Woman expecting 'miracle' baby after brain tumor shock - Fox News",
+      "description": "A pregnant woman in the U.K. is calling her baby a “miracle” after she believed that treatment for a massive brain tumor had left her infertile.",
+      "url": "https://www.foxnews.com/health/woman-expecting-miracle-baby-after-brain-tumor-shock",
+      "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2019/01/Sarah-after-her-brain-surgery-PA-Real-Life.jpg",
+      "publishedAt": "2019-01-08T16:22:51Z",
+      "content": "A pregnant woman in the U.K. is calling her baby a “miracle” after she believed that treatment for a massive brain tumor had left her infertile. Sarah Gaffney-Lang, of Manchester, England, told PA Real Life that it all started with a seizure in 2016. “I had a… [+1953 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Vogue.com"
+      },
+      "author": "Lauren Valenti",
+      "title": "6 All-Natural Strategies for Fighting the Cold and Flu This Winter - Vogue.com",
+      "description": "In the spirit of taking a 360-degree approach to healing, an integrative medicine pro’s guide to naturally warding off the cold and flu this winter.",
+      "url": "https://www.vogue.com/article/natural-cold-flu-remedies-natural-anti-inflammatory-ingredients-essential-oils-neti-pot-hydration-sleep",
+      "urlToImage": "https://assets.vogue.com/photos/5c2f90643330d02d29dfee68/16:9/pass/00-social-cold-flu.jpg",
+      "publishedAt": "2019-01-08T16:22:00Z",
+      "content": "A throbbing throat. A nose thats somehow equal parts congested and runny. A rapid-fire succession of gesundheit -worthy sneezes. No matter what foreboding signs of the common cold come first, the reflexive need to eradicate them in one fell swoop is only natu… [+4567 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Treehugger.com"
+      },
+      "author": "Ilana Strauss",
+      "title": "Are most people lonely? - Treehugger",
+      "description": "According to a new study, if you're lonely, you're not alone.",
+      "url": "https://www.treehugger.com/health/most-people-lonely.html",
+      "urlToImage": "https://media.treehugger.com/assets/images/2019/01/lonely-in-crowd.jpg.600x315_q90_crop-smart.jpg",
+      "publishedAt": "2019-01-08T16:20:47Z",
+      "content": "According to a new study, if you're lonely, you're not alone. If you're feeling lonely, you're not alone. A group of researchers studied 340 people from the ages of 27-101 living in San Diego County. According to the scale they used, about 75 percent of the p… [+1769 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Medicalxpress.com"
+      },
+      "author": "Science X staff",
+      "title": "Brain plasticity restored in adult mice through targeting specific nerve cell connections - Medical Xpress",
+      "description": "Neuroscientists at Tufts University School of Medicine, in collaboration with colleagues at Yale University School of Medicine, have discovered a new molecular mechanism that is essential for maturation of brain function and may be used to restore plasticity …",
+      "url": "https://medicalxpress.com/news/2019-01-brain-plasticity-adult-mice-specific.html",
+      "urlToImage": "https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/2019/brainplastic.jpg",
+      "publishedAt": "2019-01-08T16:00:32Z",
+      "content": "Neuroscientists at Tufts University School of Medicine, in collaboration with colleagues at Yale University School of Medicine, have discovered a new molecular mechanism that is essential for maturation of brain function and may be used to restore plasticity … [+5018 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Wowt.com"
+      },
+      "author": "WOWT",
+      "title": "Second metro flu-related death reported - WOWT",
+      "description": "A second flu-related death has been reported in Douglas County.",
+      "url": "https://www.wowt.com/content/news/Second-metro-flu-related-death-reported-504049621.html",
+      "urlToImage": "https://media.graytvinc.com/images/flu+season6.jpg",
+      "publishedAt": "2019-01-08T15:39:24Z",
+      "content": "OMAHA, Neb. (WOWT) -- A second flu-related death has been reported in Douglas County. The Health Department says high levels of influenza activity continue in Douglas County. A total of 301 influenza cases were reported last week compared to 355 reported the … [+1172 chars]"
+    }
+  ]
+}

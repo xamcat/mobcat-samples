@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Microsoft.MobCAT.Forms.Pages;assembly=MobCAT.Forms"
+    xmlns:vm="clr-namespace:News.ViewModels;assembly=News"
+    xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:cell="clr-namespace:News.ViewCells;assembly=News"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:mobcat="clr-namespace:News.Controls;assembly=News"
+    xmlns:behaviors="clr-namespace:MobCAT.Behaviors;assembly=MobCAT.Forms"
+    x:TypeArguments="vm:NewsByCategoryViewModel"
+    x:Class="News.Pages.NewsByCategoryPage"
+    Style="{DynamicResource navBarStyle}"
+    Title="news"
+    Icon="ic_news.png"
+    AutomationId="NewsPage">
+    <cv:CarouselViewControl
+        x:Name="carousel"
+        ItemsSource="{Binding Categories}"
+        Position="{Binding SelectedCategoryPosition}">
+        <cv:CarouselViewControl.Margin>
+            <OnPlatform
+                x:TypeArguments="Thickness">
+                <On
+                    Platform="iOS"
+                    Value="0,20,0,0" />
+                <On
+                    Platform="Android, WinPhone, Windows"
+                    Value="0,0,0,0" />
+            </OnPlatform>
+        </cv:CarouselViewControl.Margin>
+        <cv:CarouselViewControl.ItemTemplate>
+            <DataTemplate>
+                <Grid
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="0"
+                    Margin="0"
+                    RowSpacing="0"
+                    ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="1" />
+                        <RowDefinition
+                            Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Text="{Binding Title}"
+                        Style="{DynamicResource labelStyle}"
+                        VerticalTextAlignment="End"
+                        HorizontalTextAlignment="Start"
+                        FontSize="33"
+                        LineBreakMode="MiddleTruncation"
+                        MaxLines="1"
+                        Margin="15,30,15,10"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        AutomationId="CategoryLabel" />
+                    <forms:AnimationView
+                        BindingContext="{Binding BindingContext, Source={x:Reference carousel}}"
+                        IsVisible="{Binding IsSelectNextCategoryTipEnabled}"
+                        IsEnabled="{Binding IsSelectNextCategoryTipEnabled}"
+                        IsPlaying="{Binding IsSelectNextCategoryTipEnabled}"
+                        ClickedCommand="{Binding SelectNextCategoryCommand}"
+                        AutoPlay="true"
+                        Loop="true"
+                        BackgroundColor="Transparent"
+                        Animation="lottie_swipe_left.json"
+                        VerticalOptions="Fill"
+                        HorizontalOptions="Fill"
+                        HeightRequest="70"
+                        WidthRequest="100"
+                        Grid.Row="0"
+                        Grid.Column="1" />
+                    <Grid
+                        VerticalOptions="Start"
+                        HorizontalOptions="FillAndExpand"
+                        Style="{DynamicResource separatorStyle}"
+                        HeightRequest="1"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2" />
+                    <mobcat:NewsInfiniteListView
+                        Style="{DynamicResource infiniteListViewStyle}"
+                        ItemsSource="{Binding Articles}"
+                        ItemSelectedCommand="{Binding ArticleSelectedCommand}"
+                        IsPullToRefreshEnabled="true"
+                        RefreshCommand="{Binding RefreshCommand}"
+                        RefreshAllowed="true"
+                        IsRefreshing="{Binding IsRefreshing}"
+                        LoadMoreCommand="{Binding LoadMoreCommand}"
+                        IsLoadingMore="{Binding IsLoadingMore}"
+                        IsEmpty="{Binding IsEmpty}"
+                        SelectionMode="Single"
+                        RowHeight="250"
+                        SeparatorVisibility="None"
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2">
+                        <mobcat:NewsInfiniteListView.ItemTemplate>
+                            <DataTemplate>
+                                <cell:ArticleViewCell />
+                            </DataTemplate>
+                        </mobcat:NewsInfiniteListView.ItemTemplate>
+                        <mobcat:NewsInfiniteListView.EmptyTemplate>
+                            <DataTemplate>
+                                <Label
+                                    Text="We don't have any articles for the given category 🤷"
+                                    Style="{DynamicResource labelStyle}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    InputTransparent="true"
+                                    FontSize="Large" />
+                            </DataTemplate>
+                        </mobcat:NewsInfiniteListView.EmptyTemplate>
+                        <mobcat:NewsInfiniteListView.Behaviors>
+                            <behaviors:ClearListViewSelectionBehavior />
+                        </mobcat:NewsInfiniteListView.Behaviors>
+                    </mobcat:NewsInfiniteListView>
+                </Grid>
+            </DataTemplate>
+        </cv:CarouselViewControl.ItemTemplate>
+    </cv:CarouselViewControl>
+</local:BaseContentPage>

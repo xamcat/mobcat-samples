@@ -1,0 +1,266 @@
+﻿{
+  "status": "ok",
+  "totalResults": 285,
+  "articles": [
+    {
+      "source": {
+        "id": "ars-technica",
+        "name": "Ars Technica"
+      },
+      "author": "Dan Goodin",
+      "title": "Almost $500,000 in Ethereum coin stolen by forking its blockchain",
+      "description": "Rollback attack let attackers spent 88,500 previously spent coins.",
+      "url": "https://arstechnica.com/information-technology/2019/01/almost-500000-in-ethereum-coin-stolen-by-forking-its-blockchain/",
+      "urlToImage": "https://cdn.arstechnica.net/wp-content/uploads/2019/01/etc-760x380.jpeg",
+      "publishedAt": "2019-01-08T02:50:33Z",
+      "content": "10 with 10 posters participating\r\nAttackers have stolen almost $500,000 worth of the Ethereum Classic digital currency by carrying out a compute-intensive hack that rewrote its blockchain, officials with Coinbase, one of the leading crypto currency exchanges,… [+2660 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Cnet.com"
+      },
+      "author": "Laura Hautala",
+      "title": "Ethereum Classic cryptocurrency pulled from Coinbase after attack - CNET",
+      "description": "A hack on the cryptocurrency let attackers spend coins twice.",
+      "url": "https://www.cnet.com/news/ethereum-classic-cryptocurrency-pulled-from-trading-site-after-attack/",
+      "urlToImage": "https://cnet4.cbsistatic.com/img/KBro-u2KrnEXFi-VpAb9RqUPTF8=/724x407/2017/10/02/de8a1ed1-3e4d-4d58-99bc-f3a89e35b79e/security-privacy-hackers-locks-key-6779.jpg",
+      "publishedAt": "2019-01-08T00:50:06Z",
+      "content": "If there's one thing cryptocurrency is supposed to guarantee, it's that no one can spend the same coin twice. Every transaction ever made with Bitcoin, for example, is recorded in a database that anyone can access. The database is called a blockchain, and it'… [+1737 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Slashdot.org"
+      },
+      "author": "msmash",
+      "title": "Connecting Your Bank Account To an App is Now a $3-Billion Business",
+      "description": "When you link your checking account to Venmo or use it to buy bitcoin, a startup called Plaid is likely facilitating the connection with your bank. You punch in your user name and password; Plaid checks those credentials with the financial institution and, if…",
+      "url": "https://tech.slashdot.org/story/19/01/08/2046257/connecting-your-bank-account-to-an-app-is-now-a-3-billion-business",
+      "urlToImage": "https://a.fsdn.com/sd/topics/business_64.png",
+      "publishedAt": "2019-01-08T20:47:00Z",
+      "content": "This kind of software has been around for decades. But in the last year, Plaid has captured investors' attention. The San Francisco startup was the subject of a bidding war among venture capitalists and at least one tech company, ultimately resulting in a $25… [+896 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Boingboing.net"
+      },
+      "author": "Mark Frauenfelder",
+      "title": "Ethereum Classic blockchain successfully attacked, over $500,000 stolen",
+      "description": "The Ethereum Classic (ETC) blockchain was recently compromised by a hacker who spent 88,500 tokens (worth $500,000) then used a lot of computing power to roll back the blockchain so they could get the tokens back. The original tokens are now worthless because…",
+      "url": "https://boingboing.net/2019/01/08/ethereum-classic-blockchain-su.html",
+      "urlToImage": "https://media.boingboing.net/wp-content/uploads/2019/01/etc-800x534.jpg",
+      "publishedAt": "2019-01-08T18:56:51Z",
+      "content": "The Ethereum Classic (ETC) blockchain was recently compromised by a hacker who spent 88,500 tokens (worth $500,000) then used a lot of computing power to roll back the blockchain so they could get the tokens back. The original tokens are now worthless because… [+2484 chars]"
+    },
+    {
+      "source": {
+        "id": "the-next-web",
+        "name": "The Next Web"
+      },
+      "author": "Matthew Beedham",
+      "title": "There’s more to Bitcoin maximalism than meets the eye",
+      "description": "Welcome to Hard Fork Basics, a collection of tips, tricks, guides, and advice to keep you up to date in the cryptocurrency and blockchain world. If you’ve been in the Bitcoin and cryptocurrency game for any longer than a month, you’ve probably come across som…",
+      "url": "https://thenextweb.com/hardfork/2019/01/08/basics-explainer-bitcoin-maximalism/",
+      "urlToImage": "https://img-cdn.tnwcdn.com/image/hardfork?filter_last=1&fit=1280%2C640&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2019%2F01%2Fbitcoin-maximalism-bitcoin-cryptocurrency-blockchain-ethereum-monero-coins-digital-assets-tokens.jpg&signature=665e1852a44b82e15cfa997b9f2af3d3",
+      "publishedAt": "2019-01-08T13:30:09Z",
+      "content": "Welcome to Hard Fork Basics, a collection of tips, tricks, guides, and advice to keep you up to date in the cryptocurrency and blockchain world.\r\nIf youve been in the Bitcoin BTC and cryptocurrency game for any longer than a month, youve probably come across … [+3834 chars]"
+    },
+    {
+      "source": {
+        "id": "the-next-web",
+        "name": "The Next Web"
+      },
+      "author": "Matthew Beedham",
+      "title": "Ethereum Classic hackers steal $1.5M with 51% attacks",
+      "description": "Ethereum Classic, one of the most popular forks of the second most valuable cryptocurrencies by marketcap has suffered a 51-percent attack. After Chinese blockchain security firm SlowMist raised the alarm, an analyst at CoinNess dug a little deeper. The analy…",
+      "url": "https://thenextweb.com/hardfork/2019/01/08/ehtereum-classic-51-percent-attack/",
+      "urlToImage": "https://img-cdn.tnwcdn.com/image/hardfork?filter_last=1&fit=1280%2C640&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2019%2F01%2F51-percent-blockchain-ethereum-classic-ethereum-cryptourrency-blockchain.jpg&signature=b65aee7ac424254013cab0e4d4a4cd19",
+      "publishedAt": "2019-01-08T10:34:53Z",
+      "content": "Ethereum ETH Classic, one of the most popular forks of the second most valuable cryptocurrencies by marketcap has suffered a 51-percent attack.\r\nAfter Chinese blockchain security firm SlowMist raised the alarm, an analyst at CoinNess dug a little deeper. The … [+3403 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Heise.de"
+      },
+      "author": "Fabian A. Scherschel",
+      "title": "Zahlen, bitte! Wie viele Bitcoins gibt es eigentlich?",
+      "description": "Ein grundlegender Bestandteil der Kryptowährung Bitcoin: Von Anfang wurde festgelegt, wie viele Bitcoins maximal existieren können.",
+      "url": "https://www.heise.de/newsticker/meldung/Zahlen-bitte-Wie-viele-Bitcoins-gibt-es-eigentlich-4266249.html",
+      "urlToImage": "https://heise.cloudimg.io/bound/1920x1920/q90.png-lossy-90.webp-lossy-90.foil1/_www-heise-de_/imgs/18/2/5/7/2/3/9/2/zahlenbitte_bitcoin-f6b8e9509e1e9632.png",
+      "publishedAt": "2019-01-08T12:38:33Z",
+      "content": "Als Satoshi Nakamoto die Kryptowährung Bitcoin erfand, baute er einige Bedingungen in den Code, der das Währungssystem steuert. Eine davon ist die Tatsache, dass es eine maximale Anzahl an Bitcoins gibt, die nicht überschritten werden kann. Wenn diese Maximal… [+7918 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Heise.de"
+      },
+      "author": "Axel Kannenberg",
+      "title": "Kryptogeld: Mutmaßlich 51-Prozent-Attacke gegen Ethereum classic",
+      "description": "Es ist was faul in der Blockchain des Kryptogelds Ethereum classic: Berichten zufolge nutzten Angreifer die Mehrheit der Hashrate, um Coins mehrfach auszugeben.",
+      "url": "https://www.heise.de/newsticker/meldung/Kryptogeld-Mutmasslich-51-Prozent-Attacke-gegen-Ethereum-classic-4268053.html",
+      "urlToImage": "https://heise.cloudimg.io/bound/1920x1920/q90.png-lossy-90.webp-lossy-90.foil1/_www-heise-de_/imgs/18/2/5/7/3/8/3/8/ether_classic-867ab2f48048411a.jpeg",
+      "publishedAt": "2019-01-08T16:15:08Z",
+      "content": "Die Kryptowährung Ethereum classic ist mutmaßlich Opfer einer 51-Prozent-Attacke geworden. Dem Kryptogelddienstleister Coinbase zufolge ist es mehrfach zu Änderungen der gültigen Blockchain gekommen, die einen Double Spend, also die Mehrfachausgabe von Coins,… [+4128 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Marketwatch.com"
+      },
+      "author": "Aaron Hankin",
+      "title": "Cryptos: Cryptos quiet as investors eye ethereum upgrade",
+      "description": "Cryptocurrency prices are trading mostly unchanged on Tuesday, continuing what’s been a relatively quiet start to 2019 for digital assets.",
+      "url": "https://www.marketwatch.com/story/cryptos-quiet-as-investors-eye-ethereum-upgrade-2019-01-08",
+      "urlToImage": "http://s.marketwatch.com/public/resources/MWimages/MW-GC010_ethere_MG_20180118143052.jpg",
+      "publishedAt": "2019-01-08T13:18:56Z",
+      "content": "Cryptocurrency prices are trading virtually unchanged Tuesday, extending whats been a relatively subdued start to 2019 for digital assets. \r\nIn early Tuesday trading, a single bitcoin, \r\nBTCUSD, +0.74%\r\nthe best-known cryptocurrency, was fetching $4,047.87, u… [+1695 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Thehackernews.com"
+      },
+      "author": "noreply@blogger.com (Swati Khandelwal)",
+      "title": "Ethereum Classic (ETC) Hit by Double-Spend Attack Worth $1.1 Million",
+      "description": "Popular cryptocurrency exchange Coinbase has suspended all transactions of Ethereum Classic (ETC)—the original unforked version of the Ethereum network—on their trading platforms, other products and services after detecting a potential attack on the cryptocur…",
+      "url": "https://thehackernews.com/2019/01/ethereum-double-spend-attack.html",
+      "urlToImage": "https://1.bp.blogspot.com/-Wsxjnfi_Evw/XDSI3tXIv3I/AAAAAAAAy7w/2WSdlxh5ExIB29LXg49ql4erS3kiO4CkACLcBGAs/s728-e100/ethereum-classic-double-spend-attack.jpg",
+      "publishedAt": "2019-01-08T11:27:15Z",
+      "content": "Popular cryptocurrency exchange Coinbase has suspended all transactions of Ethereum Classic (ETC)—the original unforked version of the Ethereum network—on their trading platforms, other products and services after detecting a potential attack on the cryptocur… [+3067 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Technologyreview.com"
+      },
+      "author": "Mike Orcutt",
+      "title": "Hackers may have just stolen $1 million from the Ethereum Classic blockchain in a “51%” attack",
+      "description": "An attack on the Ethereum Classic blockchain may have helped hackers steal around $1.1 million worth of the currency from other users, according to popular cryptocurrency exchange Coinbase.",
+      "url": "https://www.technologyreview.com/the-download/612728/hackers-just-stole-1-million-from-the-ethereum-classic-blockchain-in-a-rare-51/",
+      "urlToImage": "https://cdn.technologyreview.com/i/images/etcgreen.png?sw=1200",
+      "publishedAt": "2019-01-08T18:17:55Z",
+      "content": "An attack on the Ethereum Classic blockchain may have helped hackers steal around $1.1 million worth of the currency from other users, according to popular cryptocurrency exchange Coinbase.\r\nEthereum what? Ethereum Classic is the original Ethereum blockchain.… [+1448 chars]"
+    },
+    {
+      "source": {
+        "id": "t3n",
+        "name": "T3n"
+      },
+      "author": "Kim Rixecker",
+      "title": "Angriff auf Ethereum Classic: Mehr als eine Million Dollar doppelt ausgegeben",
+      "description": "Die Kryptobörse Coinbase meldet einen erfolgreichen Angriff auf die Blockchain von Ethereum Classic. Insgesamt sollen die Angreifer mehr als eine Million US-Dollar doppelt ausgegeben haben. Das Problem war schon dem Bitcoin-Erfinder Satoshi Nakamoto bekannt: …",
+      "url": "https://t3n.de/news/ethereum-classic-51-prozent-angriff-1136445/",
+      "urlToImage": "https://assets.t3n.sc/news/wp-content/uploads/2019/01/ethereum-classic-etc-krypto.jpg?auto=compress%2Cformat&fit=crop&fm=jpg&h=630&ixlib=php-1.1.0&q=65&w=1200&s=7244b44afbc493dd6abbefe89bd98a5e",
+      "publishedAt": "2019-01-08T14:32:52Z",
+      "content": "Die Kryptobörse Coinbase meldet einen erfolgreichen Angriff auf die Blockchain von Ethereum Classic. Insgesamt sollen die Angreifer mehr als eine Million US-Dollar doppelt ausgegeben haben.\r\n Das Problem war schon dem Bitcoin-Erfinder Satoshi Nakamoto bekannt… [+2316 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Nextinpact.com"
+      },
+      "author": "La rédaction",
+      "title": "Ledger dévoile son Nano X : un portefeuille Bluetooth pour cryptomonnaies",
+      "description": "La société française est connue pour ses solutions matérielles plutôt complètes et ouvertes. Elle avait levé 61 millions d'euros l'année dernière. La chute impressionnante du cours du bitc... Lire la suite",
+      "url": "https://www.nextinpact.com/brief/ledger-devoile-son-nano-x---un-portefeuille-bluetooth-pour-cryptomonnaies-7239.htm",
+      "urlToImage": "https://cdn2.nextinpact.com/images/bd/wide-linked-media/22120.jpg",
+      "publishedAt": "2019-01-08T09:11:17Z",
+      "content": "La société française est connue pour ses solutions matérielles plutôt complètes et ouvertes. Elle avait levé 61 millions d'euros l'année dernière.\r\nLa chute impressionnante du cours du bitcoin, passé de 8 000 euros à 3 500 euros en un an, ne l'empêche pas de … [+1070 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Nextinpact.com"
+      },
+      "author": "La rédaction",
+      "title": "Plus de 30 terminaux 5G seront lancés dès cette année avec une puce Qualcomm",
+      "description": "Le fabricant de puces est très actif sur la 5G avec son modem X50, que l'on retrouve dans de nombreuses expérimentations menées par les opérateurs, et son SoC Snapdragon 855. Le constructeur annonce que plus de 30 terminau... Lire la suite",
+      "url": "https://www.nextinpact.com/brief/plus-de-30-terminaux-5g-seront-lances-des-cette-annee-avec-une-puce-qualcomm-7238.htm",
+      "urlToImage": "https://cdn2.nextinpact.com/images/bd/wide-linked-media/18855.jpg",
+      "publishedAt": "2019-01-08T09:11:17Z",
+      "content": "La société française est connue pour ses solutions matérielles plutôt complètes et ouvertes. Elle avait levé 61 millions d'euros l'année dernière.\r\nLa chute impressionnante du cours du bitcoin, passé de 8 000 euros à 3 500 euros en un an, ne l'empêche pas de … [+1070 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Nextinpact.com"
+      },
+      "author": "La rédaction",
+      "title": "Android Q préparerait un mode sombre beaucoup plus global",
+      "description": "La mention de ce mode apparaît nettement dans les commentaire d’un ingénieur Google, repéré par Android Police dans le bug tracker de Chromium. Le message est on ne peut plus clair : « Le mode sombre est une fon... Lire la suite",
+      "url": "https://www.nextinpact.com/brief/android-q-preparerait-un-mode-sombre-beaucoup-plus-global-7250.htm",
+      "urlToImage": "https://cdn2.nextinpact.com/images/bd/wide-linked-media/1539.jpg",
+      "publishedAt": "2019-01-08T09:11:17Z",
+      "content": "La société française est connue pour ses solutions matérielles plutôt complètes et ouvertes. Elle avait levé 61 millions d'euros l'année dernière.\r\nLa chute impressionnante du cours du bitcoin, passé de 8 000 euros à 3 500 euros en un an, ne l'empêche pas de … [+1070 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Nextinpact.com"
+      },
+      "author": "La rédaction",
+      "title": "Amazon étend son programme Key, notamment aux entreprises",
+      "description": "Amazon Key est un programme d’ouverture de portes à distance, utilisé pour livrer des colis par le géant du e-commerce aux États-Unis. Il vient d’annoncer l’arrivée de la serrure à pêne dormant Schlage Encode, avec Wi-Fi, ne nécessitant pas de matériel supplé…",
+      "url": "https://www.nextinpact.com/brief/amazon-etend-son-programme-key--notamment-aux-entreprises-7252.htm",
+      "urlToImage": "https://cdn2.nextinpact.com/images/bd/wide-linked-media/17853.jpg",
+      "publishedAt": "2019-01-08T09:11:17Z",
+      "content": "La société française est connue pour ses solutions matérielles plutôt complètes et ouvertes. Elle avait levé 61 millions d'euros l'année dernière.\r\nLa chute impressionnante du cours du bitcoin, passé de 8 000 euros à 3 500 euros en un an, ne l'empêche pas de … [+1070 chars]"
+    },
+    {
+      "source": {
+        "id": "vice-news",
+        "name": "Vice News"
+      },
+      "author": "Lorenzo Franceschi-Bicchierai, Emanuel Maiberg",
+      "title": "SIM Swapping Victims Who Lost Millions Are Pressuring Telcos to Protect Their Customers",
+      "description": "A small group of victims of SIM swapping hacks is trying to raise awareness, teach people about the scam, and put pressure on cell phone providers to step up their efforts against cybercriminals.",
+      "url": "https://motherboard.vice.com/en_us/article/vbawv8/sim-swapping-hacking-victims-want-telephone-companies-protect-customers-edited",
+      "urlToImage": "https://video-images.vice.com/articles/5c34e3dc6a9a370007d87c08/lede/1546970792038-shutterstock_587834552-1.jpeg?crop=1xw:0.84375xh;center,center&resize=1200:*",
+      "publishedAt": "2019-01-08T19:01:08Z",
+      "content": "In the last year, hundredsperhaps thousandsof people have had their phone numbers hijacked by hackers looking to steal their unique Instagram usernames or their cryptocurrency. Using a technique known as SIM swappinga process by which criminals take control o… [+4130 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Nakedcapitalism.com"
+      },
+      "author": "Yves Smith",
+      "title": "Links 1/8/19",
+      "description": "Our popular links: Galapagos iguanas, vanishing butterflies, climate change A bombs?, crypto hack, crickets as Russian super weapon, China mad at US navy, Brexit extension? Canada housing implosion? wall impasse, Beto researches natives, LA teacher strike, Ga…",
+      "url": "https://www.nakedcapitalism.com/2019/01/links-1-8-19.html",
+      "urlToImage": "https://www.nakedcapitalism.com/wp-content/uploads/2019/01/00-b5512-peek-snowy-29nov18-links.jpg",
+      "publishedAt": "2019-01-08T11:55:18Z",
+      "content": "Galápagos island gets its first iguanas since Darwin after mass-release Guardian\r\na href=”https://science.slashdot.org/story/19/01/07/2250251/monarch-butterfly-numbers-plummet-86-percent-in-california” rel=”nofollow”&gt;Monarch Butterfly Numbers Plummet 86 Pe… [+5435 chars]"
+    },
+    {
+      "source": {
+        "id": "gruenderszene",
+        "name": "Gruenderszene"
+      },
+      "author": "Michel Penke",
+      "title": "Kryptowinter: Rund 1.000 Kryptowährungen sind bereits tot",
+      "description": "2017 sprossen Kryptowährungen wie Pilze aus dem Boden. Als 2018 aber die Kryptomärkte einbrachen, wurden viele Coins aufgegeben. Jeder fünfte davon war Betrug.",
+      "url": "https://www.gruenderszene.de/fintech/krypto-winter-coins-tot",
+      "urlToImage": "http://www.gruenderszene.de/wp-content/uploads/2019/01/coins.jpg",
+      "publishedAt": "2019-01-08T13:51:53Z",
+      "content": "Während der Winter in Deutschland recht milde ist, spricht die Blockchainszene mittlerweile von einem klirrenden Kryptowinter. Die seit Januar 2018 fallenden Kurse hatten Hunderte Kryptowährungen dahingerafft. Nun, im Januar 2019, summiert sich ihre Zahl auf … [+3314 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Forbes.com"
+      },
+      "author": "Joel Comm, CommunityVoice, Joel Comm, CommunityVoice https://www.forbes.com/sites/forbescoachescouncil/people/joelcomm1/",
+      "title": "What Bitcoin Needs Now",
+      "description": "For businesses, crypto’s exciting times need to end.",
+      "url": "https://www.forbes.com/sites/forbescoachescouncil/2019/01/08/what-bitcoin-needs-now/",
+      "urlToImage": "https://thumbor.forbes.com/thumbor/600x315/https%3A%2F%2Fblogs-images.forbes.com%2Fforbescoachescouncil%2Ffiles%2F2019%2F01%2Fcanva-photo-editor-12-500x500.png",
+      "publishedAt": "2019-01-08T13:00:00Z",
+      "content": "Share to facebook\r\nShare to twitter\r\nShare to linkedin\r\n(Disclosure: Author holds investments in bitcoin.)\r\nIts been an exciting time for cryptocurrency followers. After a few months of relative stability during which bitcoin traded within a fairly narrow ban… [+9368 chars]"
+    }
+  ]
+}

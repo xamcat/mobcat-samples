@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Microsoft.MobCAT.Forms.Pages;assembly=MobCAT.Forms"
+    xmlns:vm="clr-namespace:News.ViewModels;assembly=News"
+    xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:cell="clr-namespace:News.ViewCells;assembly=News"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:mobcat="clr-namespace:News.Controls;assembly=News"
+    xmlns:behaviors="clr-namespace:MobCAT.Behaviors;assembly=MobCAT.Forms"
+    x:TypeArguments="vm:NewsBySourceViewModel"
+    x:Class="News.Pages.NewsBySourcePage"
+    Style="{DynamicResource navBarStyle}"
+    Title="sources"
+    Icon="ic_sources.png"
+    AutomationId="SourcesPage">
+    <cv:CarouselViewControl
+        x:Name="carousel"
+        ItemsSource="{Binding Sources}"
+        Position="{Binding SelectedSourcePosition}">
+        <cv:CarouselViewControl.Margin>
+            <OnPlatform
+                x:TypeArguments="Thickness">
+                <On
+                    Platform="iOS"
+                    Value="0,20,0,0" />
+                <On
+                    Platform="Android, WinPhone, Windows"
+                    Value="0,0,0,0" />
+            </OnPlatform>
+        </cv:CarouselViewControl.Margin>
+        <cv:CarouselViewControl.ItemTemplate>
+            <DataTemplate>
+                <Grid
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="0"
+                    Margin="0"
+                    RowSpacing="0"
+                    ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="1" />
+                        <RowDefinition
+                            Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Text="{Binding Title}"
+                        Style="{DynamicResource labelStyle}"
+                        VerticalTextAlignment="End"
+                        HorizontalTextAlignment="Start"
+                        FontSize="33"
+                        LineBreakMode="MiddleTruncation"
+                        MaxLines="1"
+                        Margin="15,30,15,10"
+                        Grid.Row="0"
+                        AutomationId="SourceLabel" />
+                    <Grid
+                        VerticalOptions="Start"
+                        HorizontalOptions="FillAndExpand"
+                        Style="{DynamicResource separatorStyle}"
+                        HeightRequest="1"
+                        Grid.Row="1" />
+                    <mobcat:NewsInfiniteListView
+                        ItemsSource="{Binding Articles}"
+                        ItemSelectedCommand="{Binding ArticleSelectedCommand}"
+                        IsPullToRefreshEnabled="true"
+                        RefreshCommand="{Binding RefreshCommand}"
+                        RefreshAllowed="true"
+                        IsRefreshing="{Binding IsRefreshing}"
+                        LoadMoreCommand="{Binding LoadMoreCommand}"
+                        IsLoadingMore="{Binding IsLoadingMore}"
+                        IsEmpty="{Binding IsEmpty}"
+                        SelectionMode="Single"
+                        Style="{DynamicResource infiniteListViewStyle}"
+                        RowHeight="250"
+                        SeparatorVisibility="None"
+                        Grid.Row="2">
+                        <mobcat:NewsInfiniteListView.ItemTemplate>
+                            <DataTemplate>
+                                <cell:ArticleViewCell />
+                            </DataTemplate>
+                        </mobcat:NewsInfiniteListView.ItemTemplate>
+                        <mobcat:NewsInfiniteListView.EmptyTemplate>
+                            <DataTemplate>
+                                <Label
+                                    Text="We don't have any articles from this source 🤷"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    Style="{DynamicResource labelStyle}"
+                                    InputTransparent="true"
+                                    FontSize="Large" />
+                            </DataTemplate>
+                        </mobcat:NewsInfiniteListView.EmptyTemplate>
+                        <mobcat:NewsInfiniteListView.Behaviors>
+                            <behaviors:ClearListViewSelectionBehavior />
+                        </mobcat:NewsInfiniteListView.Behaviors>
+                    </mobcat:NewsInfiniteListView>
+                </Grid>
+            </DataTemplate>
+        </cv:CarouselViewControl.ItemTemplate>
+    </cv:CarouselViewControl>
+</local:BaseContentPage>

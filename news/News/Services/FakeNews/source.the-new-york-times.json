@@ -1,0 +1,19 @@
+﻿{
+  "status": "ok",
+  "totalResults": 1,
+  "articles": [
+    {
+      "source": {
+        "id": "the-new-york-times",
+        "name": "The New York Times"
+      },
+      "author": null,
+      "title": "Olivia Colman: Uneasy Lies the Head That Wears the Crowns",
+      "description": "Olivia Colman has been a quiet star in Britain for a decade. But with two royal roles ahead, she’s reluctantly stepping into the spotlight.",
+      "url": "https://www.nytimes.com/2018/11/22/arts/olivia-colman-the-favourite-the-crown.html",
+      "urlToImage": "https://static01.nyt.com/images/2018/11/25/arts/25olivia-colman1/25olivia-colman1-facebookJumbo.jpg",
+      "publishedAt": "2019-01-06T11:12:42.35Z",
+      "content": "I was such a massive fan of the show, and I thought Claire Foy was just breathtaking, she said. I no idea they were going to recast for season 3 and 4, so hadnt thought about the role at all. She did an imitation of her agent calling her and trying to be disc… [+1759 chars]"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:conv="clr-namespace:News.Converters;assembly=News" 
+    xmlns:mobcat="clr-namespace:News.Controls;assembly=News"
+    xmlns:style="clr-namespace:News.Helpers.Constants.Style;assembly=News"
+    x:Class="News.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- <conv:SomeConverter x:Key="someConverter" />-->
+            
+            <Color x:Key="backgroundColor">#585858</Color>
+            <Color x:Key="articleBackgroundColor">#E6272727</Color>
+            <Color x:Key="separatorColor">#2C2C2C</Color>
+            <Color x:Key="navBarColor">#3C3C3C</Color>
+            <Color x:Key="entryColor">#585858</Color>
+            <Color x:Key="textColor">#FFFFFF</Color>
+            <Color x:Key="accentTextColor">#CCFFFF</Color>
+            
+            <Style x:Key="infiniteListViewStyle" TargetType="{x:Type mobcat:NewsInfiniteListView}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource backgroundColor}"/>
+            </Style>
+            
+            <Style x:Key="backgroundStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{DynamicResource backgroundColor}"/>
+            </Style>
+            
+            
+            <Style x:Key="articleBackgroundStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{DynamicResource articleBackgroundColor}"/>
+            </Style>
+            
+            <Style x:Key="labelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource textColor}"/>
+            </Style>     
+            
+            <Style x:Key="accentLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource accentTextColor}"/>
+            </Style>            
+            
+            <Style x:Key="gridStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{DynamicResource backgroundColor}"/>
+            </Style>
+            
+            <Style x:Key="navBarStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{DynamicResource navBarColor}"/>
+            </Style>
+            
+            <Style x:Key="separatorStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{DynamicResource separatorColor}"/>
+            </Style>
+            
+            <Style x:Key="tabBarStyle" TargetType="{x:Type TabbedPage}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource navBarColor}"/>
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource navBarColor}"/>
+            </Style>
+            
+            <Style x:Key="entryStyle" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="{DynamicResource entryColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource textColor}"/>
+            </Style>
+                   
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

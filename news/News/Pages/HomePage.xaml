@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseTabbedPage
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Microsoft.MobCAT.Forms.Pages;assembly=MobCAT.Forms" 
+    xmlns:vm="clr-namespace:News.ViewModels;assembly=News"
+    xmlns:pages="clr-namespace:News.Pages;assembly=News"
+    x:TypeArguments="vm:HomeViewModel" 
+    x:Class="News.Pages.HomePage" 
+    NavigationPage.HasNavigationBar="false" 
+    NavigationPage.HasBackButton="false"
+    ios:Page.UseSafeArea="true"
+    android:TabbedPage.IsSwipePagingEnabled="false"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    Style="{DynamicResource tabBarStyle}">
+    
+    <pages:NewsByCategoryPage />
+    
+    <pages:NewsBySourcePage/>
+    
+    <pages:FavoritesPage/>
+    
+    <pages:SearchPage />
+    
+    <pages:SettingsPage />
+    
+</local:BaseTabbedPage>

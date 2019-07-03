@@ -1,0 +1,87 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceAssemblyReference>true</ProduceAssemblyReference>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Microsoft.AppCenter" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.0.0" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.7.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
+    <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Localization\" />
+    <Folder Include="Services\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Pages\" />
+    <Folder Include="ViewCells\" />
+    <Folder Include="Converters\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Services\Abstractions\" />
+    <Folder Include="Services\FakeNews\" />
+    <Folder Include="Behaviors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\mobcat_shared\MobCAT\MobCAT.csproj" />
+    <ProjectReference Include="..\..\..\mobcat_shared\MobCAT.Forms\MobCAT.Forms.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Services\FakeNews\source.the-new-york-times.json" />
+    <None Remove="Services\FakeNews\source.wired.json" />
+    <None Remove="Services\FakeNews\source.usa-today.json" />
+    <None Remove="Services\FakeNews\source.the-washington-post.json" />
+    <None Remove="Services\FakeNews\source.reuters.json" />
+    <None Remove="Services\FakeNews\source.nbc-news.json" />
+    <None Remove="Services\FakeNews\source.fox-news.json" />
+    <None Remove="Services\FakeNews\source.cnn.json" />
+    <None Remove="Services\FakeNews\source.cnbc.json" />
+    <None Remove="Services\FakeNews\source.cbs-news.json" />
+    <None Remove="Services\FakeNews\source.bloomberg.json" />
+    <None Remove="Services\FakeNews\source.abc-news.json" />
+    <None Remove="Services\FakeNews\category.all.json" />
+    <None Remove="Services\FakeNews\category.business.json" />
+    <None Remove="Services\FakeNews\category.entertainment.json" />
+    <None Remove="Services\FakeNews\category.health.json" />
+    <None Remove="Services\FakeNews\category.science.json" />
+    <None Remove="Services\FakeNews\category.sports.json" />
+    <None Remove="Services\FakeNews\category.technology.json" />
+    <None Remove="Services\FakeNews\search.obama.json" />
+    <None Remove="Services\FakeNews\search.trump.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Services\FakeNews\source.the-new-york-times.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.wired.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.usa-today.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.the-washington-post.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.reuters.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.nbc-news.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.fox-news.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.cnn.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.cnbc.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.cbs-news.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.bloomberg.json" />
+    <EmbeddedResource Include="Services\FakeNews\source.abc-news.json" />
+    <EmbeddedResource Include="Services\FakeNews\category.all.json" />
+    <EmbeddedResource Include="Services\FakeNews\category.business.json" />
+    <EmbeddedResource Include="Services\FakeNews\category.entertainment.json" />
+    <EmbeddedResource Include="Services\FakeNews\category.health.json" />
+    <EmbeddedResource Include="Services\FakeNews\category.science.json" />
+    <EmbeddedResource Include="Services\FakeNews\category.sports.json" />
+    <EmbeddedResource Include="Services\FakeNews\category.technology.json" />
+    <EmbeddedResource Include="Services\FakeNews\search.bitcoin.json" />
+    <EmbeddedResource Include="Services\FakeNews\search.trump.json" />
+  </ItemGroup>
+</Project>

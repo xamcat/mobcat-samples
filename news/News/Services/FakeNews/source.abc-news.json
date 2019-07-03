@@ -1,0 +1,136 @@
+﻿{
+  "status": "ok",
+  "totalResults": 10,
+  "articles": [
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "The Associated Press",
+      "title": "20 children injured in Chinese primary school attack",
+      "description": "3 of the children had serious but non-life-threatening injuries.",
+      "url": "https://abcnews.go.com/International/wireStory/20-children-injured-chinese-primary-school-attack-60225437",
+      "urlToImage": null,
+      "publishedAt": "2019-01-08T00:00:00Z",
+      "content": "Interested in China? Add China as an interest to stay up to date on the latest China news, video, and analysis from ABC News. A male attacker wounded 20 children Tuesday inside a primary school in China 's capital. Three of the children have serious but non-l… [+451 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "The Associated Press",
+      "title": "Activists call on Australia to accept fleeing Saudi woman",
+      "description": "The Saudi woman said she her family would kill her if she returned home.",
+      "url": "https://abcnews.go.com/International/wireStory/activists-call-australia-accept-fleeing-saudi-woman-60225036",
+      "urlToImage": "https://s.abcnews.com/images/International/WireAP_16bce5a8181c46c9a273e527d0b9a25c_16x9_992.jpg",
+      "publishedAt": "2019-01-08T00:00:00Z",
+      "content": "Interested in Saudi Arabia? Add Saudi Arabia as an interest to stay up to date on the latest Saudi Arabia news, video, and analysis from ABC News. Thailand's immigration police chief met Tuesday with officials of the Saudi Embassy in Bangkok, and said the off… [+1702 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "Karma Allen",
+      "title": "Nevada inmate whose execution was called off found dead",
+      "description": "Scott Raymond Dozier, 48, was found dead in his cell at Ely State Prison.",
+      "url": "https://abcnews.go.com/US/nevada-inmate-execution-called-off-found-dead/story?id=60205474",
+      "urlToImage": "https://s.abcnews.com/images/International/dozier-ap-er-190106_hpMain_16x9_992.jpg",
+      "publishedAt": "2019-01-07T00:00:00Z",
+      "content": "A Nevada death-row inmate who fought to speed up his own execution died of an apparent suicide over the weekend, authorities said. Scott Raymond Dozier, 48, was found dead in his cell at Ely State Prison in White Pine County, Nevada, on Saturday after he appa… [+1179 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "Julia Jacobo",
+      "title": "2-year-old injured after falling into rhino enclosure discharged from hospital",
+      "description": "The toddler was taking part in the \"Rhino Encounter,\" a hands-on educational experience with the zoo's white rhinoceroses.",
+      "url": "https://abcnews.go.com/US/year-injured-falling-rhino-enclosure-discharged-hospital/story?id=60215561",
+      "urlToImage": "https://s.abcnews.com/images/US/rhino-ht-er-190102_hpMain_16x9_992.jpg",
+      "publishedAt": "2019-01-07T00:00:00Z",
+      "content": "The toddler who was injured when she fell into a rhinoceros exhibit at a Florida zoo has been discharged, according to a hospital spokesperson. The 2-year-old girl fell into the enclosure while participating in the \"Rhino Encounter,\" a hands-on educational ex… [+1639 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "Joseph Diaz and Emily Shapiro",
+      "title": "Former Uber driver pleads guilty for deadly shooting spree instead of going to trial",
+      "description": "Six were killed in the string of shootings in the Kalamazoo, Michigan, area.",
+      "url": "https://abcnews.go.com/US/uber-driver-jason-dalton-pleads-guilty-charges-deadly/story?id=60211922",
+      "urlToImage": "https://s.abcnews.com/images/US/RTR_Jason_Dalton_jrl_160316_hpMain_3_16x9_992.jpg",
+      "publishedAt": "2019-01-07T00:00:00Z",
+      "content": "Jason Dalton, a former Michigan Uber driver who was set to stand trial for a shooting spree that killed six, said Monday he was pleading guilty to all charges, against his attorney's advice. Six were killed and two others were injured in a string of shootings… [+841 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "Conor Finnegan",
+      "title": "Amid confusion over Syria withdrawal, Pompeo to Middle East to reassure US partners",
+      "description": "Amid confusion over a U.S. troop withdrawal from Syria, Secretary of State Mike Pompeo heads to the Middle East to reassure U.S. partners.",
+      "url": "https://abcnews.go.com/Politics/amid-confusion-syria-withdrawal-pompeo-heads-middle-east/story?id=60211093",
+      "urlToImage": "https://s.abcnews.com/images/Politics/trump-nato-rt-ml-180712_hpMain_16x9_992.jpg",
+      "publishedAt": "2019-01-07T00:00:00Z",
+      "content": "With statements from National Security Adviser John Bolton contradicting President Donald Trump creating more confusion about whether the U.S. is withdrawing its 2,000 troops from Syria, Secretary of State Mike Pompeo is heading to the Middle East for a whirl… [+6606 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "Matt McGarry",
+      "title": "2 Americans captured while fighting for ISIS, militia says",
+      "description": "U.S. allies said they picked up two American men on a battlefield in Syria.",
+      "url": "https://abcnews.go.com/International/american-texas-captured-fighting-isis-militia/story?id=60211846",
+      "urlToImage": "https://s.abcnews.com/images/International/warren-christopher-clark-float-ht-jc-190107_hpMain_16x9_992.jpg",
+      "publishedAt": "2019-01-07T00:00:00Z",
+      "content": "The Pentagon and the anti-ISIS coalition said they are aware of reports from America's Kurdish allies in Syria that at least two American citizens who were allegedly fighting with ISIS have been captured. Interested in ISIS? Add ISIS as an interest to stay up… [+4666 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "The Associated Press",
+      "title": "Israel's Netanyahu to make 'dramatic announcement'",
+      "description": "Get breaking national and world news, broadcast video coverage, and exclusive interviews. Find the top news online at ABC news.",
+      "url": "https://abcnews.go.com/International/wireStory/israels-netanyahu-make-dramatic-announcement-60211753",
+      "urlToImage": null,
+      "publishedAt": "2019-01-07T00:00:00Z",
+      "content": "Interested in Israel? Add Israel as an interest to stay up to date on the latest Israel news, video, and analysis from ABC News. Israeli Prime Minister Benjamin Netanyahu says he will deliver a \"dramatic announcement\" set to coincide with the evening news bro… [+651 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "Emily Shapiro",
+      "title": "Slain officer killed while chasing fugitive mourned by police departments across US",
+      "description": "Joseph Shinners, 29, who was killed Saturday, is survived by his wife and son.",
+      "url": "https://abcnews.go.com/US/slain-utah-police-officer-joseph-shinners-mourned-police/story?id=60208170",
+      "urlToImage": "https://s.abcnews.com/images/US/shinners-ht-er-190106_hpMain_v4x3_16x9_992.jpg",
+      "publishedAt": "2019-01-07T00:00:00Z",
+      "content": "Police departments across the country are offering an outpouring of support after a young Provo, Utah, police officer was gunned down in the line of duty. Officer Joseph Shinners, 29, was shot in the nearby town of Orem trying to apprehend a fugitive Saturday… [+3530 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news",
+        "name": "ABC News"
+      },
+      "author": "The Associated Press",
+      "title": "1 of 2 girls convicted in Slender Man stabbing files appeal",
+      "description": "2 girls were convicted of stabbing a classmate to please fictional character.",
+      "url": "https://abcnews.go.com/US/wireStory/girls-convicted-slender-man-stabbing-files-appeal-60208220",
+      "urlToImage": "https://s.abcnews.com/images/US/WireAP_4fce51dc031949e49afafd48d1cb9d26_16x9_992.jpg",
+      "publishedAt": "2019-01-07T00:00:00Z",
+      "content": "Interested in Slender Man? Add Slender Man as an interest to stay up to date on the latest Slender Man news, video, and analysis from ABC News. One of two Wisconsin girls who repeatedly stabbed a classmate shouldn't have been tried in adult court because she … [+1996 chars]"
+    }
+  ]
+}

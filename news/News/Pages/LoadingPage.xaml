@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<local:BaseContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:Microsoft.MobCAT.Forms.Pages;assembly=MobCAT.Forms" 
+    xmlns:vm="clr-namespace:News.ViewModels;assembly=News"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    x:TypeArguments="vm:LoadingViewModel"
+    x:Class="News.Pages.LoadingPage"
+    NavigationPage.HasNavigationBar="false"
+    NavigationPage.HasBackButton="false">
+    
+    <forms:AnimationView 
+        Animation="lottie_loading_news.json" 
+        Loop="false" 
+        AutoPlay="true"
+        PlaybackFinishedCommand="{Binding ContinueCommand}" 
+        VerticalOptions="FillAndExpand" 
+        HorizontalOptions="FillAndExpand" />
+  
+</local:BaseContentPage>

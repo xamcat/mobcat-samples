@@ -1,0 +1,266 @@
+﻿{
+  "status": "ok",
+  "totalResults": 70,
+  "articles": [
+    {
+      "source": {
+        "id": "the-verge",
+        "name": "The Verge"
+      },
+      "author": "Sean O'Kane",
+      "title": "Riding in Daimler’s new semi-autonomous big rig - The Verge",
+      "description": "Nearly four years after the first prototype, Daimler is ready to put its driver assistance tech on the road. We got a test ride in the truck where we watched it drive itself and pull off a pretty wild emergency braking maneuver.",
+      "url": "https://www.theverge.com/2019/1/8/18174526/daimler-cascadia-self-driving-semi-truck-ces-2019",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/Ul7TwBN8BwcFYrXIohFzkIxdrVU=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/13677728/daimler_truck_ces_2019_1800.jpg",
+      "publishedAt": "2019-01-09T00:09:29Z",
+      "content": "In 2015, Daimler told the world it was building the worlds first self-driving semi truck. It pulled out all the stops for the big reveal of the prototype, debuting the truck on top of the Hoover Dam in the middle of the night and renting out Las Vegas Motor S… [+1517 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Sara Salinas",
+      "title": "Apple CEO Tim Cook rips into Qualcomm, leaves little chance of a settlement in patent dispute - CNBC",
+      "description": "Qualcomm and CEO Steve Mollenkopf have repeatedly said the company expects to settle the dispute with Apple outside of court.",
+      "url": "https://www.cnbc.com/2019/01/08/apple-ceo-tim-cook-rips-into-qualcomm-denies-patent-dispute-settlement.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/05/03/104446572-IMG_2195r.1910x1000.jpg",
+      "publishedAt": "2019-01-08T23:35:46Z",
+      "content": "Apple CEO Tim Cook ripped into Qualcomm in an interview with CNBC's Jim Cramer Tuesday, leaving little chance of a settlement in the companies' ongoing legal battle. div &gt; div.group &gt; p:first-child\"&gt; \"The issue that we have with Qualcomm is that they… [+1572 chars]"
+    },
+    {
+      "source": {
+        "id": "business-insider",
+        "name": "Business Insider"
+      },
+      "author": "Mark Abadi",
+      "title": "Sears chairman Eddie Lampert has a net worth of $1 billion — from a $130 million yacht to a home on 'billionaire bunker' island, here's how he spends his fortune - Business Insider",
+      "description": "Sears chairman Eddie Lampert was kidnapped in 2003, and after being held captive for 30 hours, he managed to negotiate his way to freedom.",
+      "url": "https://www.businessinsider.com/sears-chairman-eddie-lampert-net-worth-lifestyle-yacht-home-2019-1",
+      "urlToImage": "https://amp.businessinsider.com/images/5af99d6947ac5917008b497e-1920-960.jpg",
+      "publishedAt": "2019-01-08T23:03:17Z",
+      "content": "Sears chairman Eddie Lampert. REUTERS/Peter Morgan PM Eddie Lampert, the chairman and former CEO of Sears, has had an eventful career. With an estimated net worth of $1 billion, Lampert was once hailed as a genius hedge-fund manager and the next Warren Buffet… [+923 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Gizmodo.com"
+      },
+      "author": "Rhett Jones",
+      "title": "Well, Mark Zuckerberg's 2019 Challenge Is Going to Be Awkward - Gizmodo",
+      "description": "It’s that time of year, again. Time for Facebook CEO Mark Zuckerberg to announce his annual personal challenge. In previous years, he did normal things like vowing to learn how to speak Mandarin. Then, life got messy and last year he pledged that he would onl…",
+      "url": "https://gizmodo.com/well-mark-zuckerbergs-2019-challenge-is-going-to-be-aw-1831587482",
+      "urlToImage": "https://i.kinja-img.com/gawker-media/image/upload/s--Wchbe9Ol--/c_fill,fl_progressive,g_center,h_900,q_80,w_1600/mvbtryindmqenegzrt7g.jpg",
+      "publishedAt": "2019-01-08T22:46:00Z",
+      "content": "Its that time of year, again. Time for Facebook CEO Mark Zuckerberg to announce his annual personal challenge. In previous years, he did normal things like vowing to learn how to speak Mandarin. Then, life got messy and last year he pledged that he would only… [+3567 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Yahoo.com"
+      },
+      "author": null,
+      "title": "Roku CEO responds to short-seller's tweet about Apple and Samsung - Yahoo Finance",
+      "description": "Roku was off to a good start this year until infamous short-seller Andrew Left’s tweet storm on Tuesday took down the stock.",
+      "url": "https://finance.yahoo.com/news/roku-ceo-responds-short-sellers-224426164.html",
+      "urlToImage": "https://s.yimg.com/uu/api/res/1.2/CluB7UDyvo.HiV.Gm_WF.A--~B/aD0zNDU2O3c9NTE4NDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://img.huffingtonpost.com/asset/5c3527f2210000850bcbad39.jpg",
+      "publishedAt": "2019-01-08T22:44:00Z",
+      "content": "Roku was off to a good start this year until infamous short-seller Andrew Lefts tweet storm on Tuesday took down the stock, but Roku CEO Anthony Wood shrugged off the Twitter attack. After initially tweeting on Tuesday morning that Roku stock was uninvestable… [+2700 chars]"
+    },
+    {
+      "source": {
+        "id": "engadget",
+        "name": "Engadget"
+      },
+      "author": "Jon Fingas",
+      "title": "It's way too easy for bounty hunters to get your phone location data - Engadget",
+      "description": "Carrier location data isn't as tightly guarded as you might think: a report found that middlemen are selling data to bounty hunters and others who shouldn't have access.",
+      "url": "https://www.engadget.com/2019/01/08/companies-resell-us-carrier-data/",
+      "urlToImage": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D5184%252C3455%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1067%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2019-01%252F713dd3d0-138b-11e9-adec-cf403e79ff8d%26client%3Da1acac3e1b3290917d92%26signature%3D2e9915f323b5aa342a0db0a305a39f9ed1c26b8a&client=amp-blogside-v2&signature=a44b9e72be024d46dd0b176d8b26ebf3e3f57dd6",
+      "publishedAt": "2019-01-08T22:40:51Z",
+      "content": "The prices are initially low, as well. Microbilt can provide basic location info for $5 per device, and $13 for live tracking. Resellers tend to hike the price in order to turn a profit, but it's still low enough that a determined individual could afford it. … [+1764 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Deadline.com"
+      },
+      "author": "Greg Evans, Greg Evans",
+      "title": "Google Signs Lease For Once Bustling Westside Pavilion Shopping Center - Deadline",
+      "description": "Google is going where Clueless went before: The company has leased the entirety of a redevelopment at the Westside Pavilion shopping mall. Property owners Hudson Pacific Properties and Macerich mad…",
+      "url": "https://deadline.com/2019/01/google-westside-pavilion-shopping-center-lease-one-westside-office-space-1202531630/",
+      "urlToImage": "https://pmcdeadline2.files.wordpress.com/2019/01/one_westside_pavilion-publicity-h_2019.jpg?w=605",
+      "publishedAt": "2019-01-08T22:38:00Z",
+      "content": "Google is going where Clueless went before: The company has leased the entirety of a redevelopment at the Westside Pavilion shopping mall. Property owners Hudson Pacific Properties and Macerich made the announcement today that Google, Inc. signed a 14-year le… [+2183 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Bbc.com"
+      },
+      "author": "https://www.facebook.com/bbcnews",
+      "title": "Heathrow airport drone investigated by police and military - BBC News",
+      "description": "Scotland Yard say officers were among those to see the drone that halted flights earlier.",
+      "url": "https://www.bbc.com/news/uk-46804425",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/224C/production/_105108780_heathrowdrone_pa.jpg",
+      "publishedAt": "2019-01-08T22:34:13Z",
+      "content": "Image copyright PA The military is helping police after sightings of a drone temporarily halted flights at Heathrow airport on Tuesday. Scotland Yard said a \"full criminal investigation\" had been launched into the incident - and that officers were among those… [+4782 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Bgr.com"
+      },
+      "author": "Jacob Siegal",
+      "title": "Amazon now sending out free samples to users based on their buying habits - BGR",
+      "description": "Amazon’s latest advertising push should surprise and delight consumers, if it doesn’t terrify them first. Axios reported on Tuesday that the online retailer quietly kicked off a pilot p…",
+      "url": "https://bgr.com/2019/01/08/amazon-free-samples-new-program-targeted-ads/",
+      "urlToImage": "https://boygeniusreport.files.wordpress.com/2019/01/amazon-logo.jpg?quality=98&strip=all",
+      "publishedAt": "2019-01-08T22:33:00Z",
+      "content": "Amazon’s latest advertising push should surprise and delight consumers, if it doesn’t terrify them first. Axios reported on Tuesday that the online retailer quietly kicked off a pilot program recently that lets brands pay to send free samples to Amazon users.… [+1605 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Medcitynews.com"
+      },
+      "author": "Alaric DeArment",
+      "title": "In JPM interview, Gottlieb outlines FDA efforts to promote biopharma competition - MedCity News",
+      "description": "The agency plans to release several guidances on complex generics and biosimilars, along with taking a deep dive into the Orange Book patent and exclusivity database.",
+      "url": "https://medcitynews.com/2019/01/in-jpm-interview-gottlieb-outlines-fda-efforts-to-promote-biopharma-competition/",
+      "urlToImage": "https://medcitynews.com/wp-content/uploads/2018/06/Gottlieb-e1528382279804.jpg",
+      "publishedAt": "2019-01-08T22:32:54Z",
+      "content": "Gottlieb in a fireside chat at BIO 2018. What can the biopharma industry expect from the Food and Drug Administration in 2019? A flurry of guidance documents, for one. But through those documents, the agency has plans in store to promote competition among pha… [+4384 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Ktla.com"
+      },
+      "author": "http://www.facebook.com/ktla5",
+      "title": "California Would Become First State to Discourage Paper Receipts Under Newly Proposed Bill - KTLA Los Angeles",
+      "description": "California would become the first state to require businesses to offer electronic receipts unless customers ask for paper copies under legislation proposed on Tuesday.\r\n\nMany businesses and consumers already are moving toward e-receipts, said Democratic Assem…",
+      "url": "https://ktla.com/2019/01/08/california-would-become-first-state-in-u-s-to-discourage-paper-receipts-under-newly-proposed-bill/",
+      "urlToImage": "https://tribktla.files.wordpress.com/2019/01/receipt.jpg?quality=85&strip=all&w=1200",
+      "publishedAt": "2019-01-08T21:53:00Z",
+      "content": "California would become the first state to require businesses to offer electronic receipts unless customers ask for paper copies under legislation proposed on Tuesday. Many businesses and consumers already are moving toward e-receipts, said Democratic Assembl… [+2039 chars]"
+    },
+    {
+      "source": {
+        "id": "business-insider",
+        "name": "Business Insider"
+      },
+      "author": "Lydia Ramsey, Zachary Tracer",
+      "title": "CVS Health reveals plans for Health Hub stores - Business Insider",
+      "description": "In a presentation Tuesday, CVS CEO Larry Merlo outlined  how the company is going to take to see if they can influence how healthcare is used.",
+      "url": "https://www.businessinsider.com/cvs-health-reveals-plans-for-health-hub-stores-2019-1",
+      "urlToImage": "https://amp.businessinsider.com/images/59f3899ebcf93d45008b5256-1920-960.jpg",
+      "publishedAt": "2019-01-08T21:43:25Z",
+      "content": "CVS Health and Aetna officially merged at the end of 2018. The $70 billion merger combines a chain of nearly 10,000 pharmacies that also owns a drug benefits business with one of the biggest US health insurers. The result is an entirely new healthcare company… [+3784 chars]"
+    },
+    {
+      "source": {
+        "id": "business-insider",
+        "name": "Business Insider"
+      },
+      "author": "Paige Leskin",
+      "title": "It took a day for WeWork's CEO to recover from the shock of a $16 billion SoftBank investment falling apart - Business Insider",
+      "description": "After hearing a $16 billion investment had fallen apart, WeWork CEO Adam Neumann was reportedly able to salvage part of it by returning to negotiations.",
+      "url": "https://www.businessinsider.com/wework-ceo-quickly-recovered-from-16-billion-softbank-investment-falling-apart-2019-1",
+      "urlToImage": "https://amp.businessinsider.com/images/5c34dc0e630d9b7bfd0dbe13-2732-1366.jpg",
+      "publishedAt": "2019-01-08T21:43:10Z",
+      "content": "After hearing that SoftBank could no longer invest $16 billion into his startup, The We Company CEO Adam Neumann was reportedly able to salvage $1 billion in new capital by refusing to accept the deal was completely dead. It reportedly took only \"a day\" for N… [+2539 chars]"
+    },
+    {
+      "source": {
+        "id": "cnbc",
+        "name": "CNBC"
+      },
+      "author": "Christine Wang",
+      "title": "J.C. Penney to close 3 stores by spring as part of ongoing review, holiday sales drop - CNBC",
+      "description": "The retailer said it will provide more information on store closures when it reports fourth-quarter results on Feb. 28.",
+      "url": "https://www.cnbc.com/2019/01/08/jc-penney-says-holiday-same-store-sales-fell-3point5percent-on-an-adjusted-basis-sees-store-closures-ahead.html",
+      "urlToImage": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/01/13/104217666-GettyImages-517862955.1910x1000.jpg",
+      "publishedAt": "2019-01-08T21:40:57Z",
+      "content": "J.C. Penney announced Tuesday that holiday sales fell and it plans to close three stores by the spring as part of an ongoing evaluation of its performance. div &gt; div.group &gt; p:first-child\"&gt; For the nine weeks ended Jan. 5, same-store sales fell 3.5 p… [+2232 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Gizmodo.com"
+      },
+      "author": "Melanie Ehrenkranz",
+      "title": "Is CES Afraid Of Sex or Women or Both? - Gizmodo",
+      "description": "CES, the annual conference showcasing the cutting-edge in consumer tech, has a reputation for not only being dominated by men, but largely catering to them. That bias was spectacularly on display this week after an impressive-sounding sex toy had its award re…",
+      "url": "https://gizmodo.com/is-ces-afraid-of-sex-or-women-or-both-1831587518",
+      "urlToImage": "https://i.kinja-img.com/gawker-media/image/upload/s--uBCHlU2x--/c_fill,fl_progressive,g_center,h_900,q_80,w_1600/l8sdbxpyk049z6ctvknt.jpg",
+      "publishedAt": "2019-01-08T21:30:00Z",
+      "content": "CES, the annual conference showcasing the cutting-edge in consumer tech, has a reputation for not only being dominated by men, but largely catering to them. That bias was spectacularly on display this week after an impressive-sounding sex toy had its award re… [+3569 chars]"
+    },
+    {
+      "source": {
+        "id": "engadget",
+        "name": "Engadget"
+      },
+      "author": "Kris Holt",
+      "title": "Sprint says AT&T is 'blatantly misleading consumers' with fake 5G - Engadget",
+      "description": "'5GE is not real 5G,' said Sprint CTO Dr. John Saw.",
+      "url": "https://www.engadget.com/2019/01/08/sprint-att-blatantly-misleading-consumers-fake-5g/",
+      "urlToImage": "https://o.aolcdn.com/images/dims?thumbnail=1200%2C630&quality=80&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D5000%252C3333%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1067%26image_uri%3Dhttps%253A%252F%252Fs.yimg.com%252Fos%252Fcreatr-images%252F2018-12%252F520b7cd0-fe30-11e8-ad7f-e55586fc89ba%26client%3Da1acac3e1b3290917d92%26signature%3D473009808504d665adbe99cbd3745f970f6f9318&client=amp-blogside-v2&signature=2b0dcd066099688ca8b79e1d01fa40fd15ae1d1d",
+      "publishedAt": "2019-01-08T21:24:50Z",
+      "content": "Verizon (which is Engadget's parent company) and T-Mobile have also criticized AT&amp;T's move. It remains to be seen whether AT&amp;T will face more serious blowback -- the FCC is currently out of commission due to the partial government shutdown. Still, it'… [+426 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Fool.com"
+      },
+      "author": "Keith Speights",
+      "title": "Why Tilray Surged Today - Motley Fool",
+      "description": "An influential analyst's Increased optimism boosted the Canadian marijuana stock.",
+      "url": "https://www.fool.com/investing/2019/01/08/why-tilray-surged-today.aspx",
+      "urlToImage": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F506508%2Fmarijuana-leaves-with-shadow-of-maple-leaf.jpg&h=630&w=1200&op=resize",
+      "publishedAt": "2019-01-08T21:16:00Z",
+      "content": "What happened Shares of Tilray ( NASDAQ:TLRY ) surged 13.5% as of 3:27 p.m. EST on Tuesday. The marijuana stock's big move came after Cowen analyst Vivien Azer wrote in a note to clients that she expected Tilray and Canopy Growth ( NYSE:CGC ) to outperform in… [+2598 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": "Reuters Editorial",
+      "title": "Tesla sued for passenger death due to defective battery - Reuters",
+      "description": "Chicago law firm Corboy & Demetrio said on Tuesday it filed a lawsuit against electric carmaker Tesla Inc alleging that its 2014 Model S sedan had a defective battery pack that caused the death of an 18-year old passenger in an accident last year.",
+      "url": "https://www.reuters.com/article/us-tesla-crash/tesla-sued-for-passenger-death-due-to-defective-battery-idUSKCN1P228B",
+      "urlToImage": "https://s2.reutersmedia.net/resources/r/?m=02&d=20190108&t=2&i=1343554334&w=1200&r=LYNXNPEF071C4",
+      "publishedAt": "2019-01-08T21:12:00Z",
+      "content": "(Reuters) - Chicago law firm Corboy &amp; Demetrio said on Tuesday it filed a lawsuit against electric carmaker Tesla Inc ( TSLA.O ) alleging that its 2014 Model S sedan had a defective battery pack that caused the death of an 18-year old passenger in an acci… [+1275 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Cbs8.com"
+      },
+      "author": "Jennifer Lothspeich",
+      "title": "6 San Diego restaurants make Yelp's 'Top 100 Places to Eat in the US 2019' list - CBS 8 San Diego",
+      "description": "SAN DIEGO (NEWS 8) — For the sixth year, Yelp has released a list of the top eateries in the U.S. based on the crowd-sourced reviews on their website and app.  Making the cut of “must try” restaura...",
+      "url": "http://www.cbs8.com/story/39753510/6-san-diego-restaurants-make-yelps-top-100-places-to-eat-in-the-us-2019-list",
+      "urlToImage": "https://KFMB.images.worldnow.com/images/17998220_G.jpg?lastEditedDate=20190108162639",
+      "publishedAt": "2019-01-08T21:08:00Z",
+      "content": "SAN DIEGO (NEWS 8) — For the sixth year, Yelp has released a list of the top eateries in the U.S. based on the crowd-sourced reviews on their website and app. Making the cut of “must try” restaurants of 2019 are six local locations. From East County to North … [+2932 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Witn.com"
+      },
+      "author": "The Associated Press",
+      "title": "Beach restaurant fined $14,287 for child labor violations - WITN",
+      "description": "The U.S. Department of Labor announced in a news release that Max's Pizza in Surf City was fined for violating requirements of the Fair Labor Standards Act.",
+      "url": "https://www.witn.com/content/news/Beach-restaurant-fined-14287-for-child-labor-violations-504064081.html",
+      "urlToImage": "https://media.graytvinc.com/images/fined+generic+800.jpg",
+      "publishedAt": "2019-01-08T21:02:50Z",
+      "content": "SURF CITY, N.C. (AP) - An Eastern Carolina restaurant has been fined by federal officials for violating minimum wage and child labor laws. The U.S. Department of Labor announced in a news release that Max's Pizza in Surf City was fined $14,287 for violating r… [+712 chars]"
+    }
+  ]
+}
