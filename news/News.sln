@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "News.UITests", "News.UITest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "News", "News\News.csproj", "{B9BDA780-7F35-4623-8C6B-B595A8E21DCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobCAT", "..\..\mobcat_shared\MobCAT\MobCAT.csproj", "{CF339104-1F1C-4EBE-A2A4-07A2B40AC282}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobCAT", "..\..\mobcat-library\MobCAT\MobCAT.csproj", "{CF339104-1F1C-4EBE-A2A4-07A2B40AC282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobCAT.Forms", "..\..\mobcat_shared\MobCAT.Forms\MobCAT.Forms.csproj", "{829DFCCA-F21D-4923-86A6-7735EEE8E326}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobCAT.Forms", "..\..\mobcat-library\MobCAT.Forms\MobCAT.Forms.csproj", "{829DFCCA-F21D-4923-86A6-7735EEE8E326}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6EFAB8E-32F9-4D31-8876-B5F3305D42E0}"
 	ProjectSection(SolutionItems) = preProject
