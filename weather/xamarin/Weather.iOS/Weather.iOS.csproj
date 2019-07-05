@@ -188,7 +188,7 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.2</Version>
     </PackageReference>
@@ -206,17 +206,17 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\mobcat_shared\MobCAT\MobCAT.csproj">
-      <Project>{BC919755-75C0-4E73-B231-59105D9A86A6}</Project>
-      <Name>MobCAT</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\mobcat_shared\MobCAT.Forms\MobCAT.Forms.csproj">
-      <Project>{EBE47B69-3178-440A-894F-4493E84EFDE7}</Project>
-      <Name>MobCAT.Forms</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Weather\Weather.csproj">
       <Project>{597B8444-AEDB-4480-A0E3-D76A84BD2AE5}</Project>
       <Name>Weather</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\mobcat-library\MobCAT\MobCAT.csproj">
+      <Project>{BC919755-75C0-4E73-B231-59105D9A86A6}</Project>
+      <Name>MobCAT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\mobcat-library\MobCAT.Forms\MobCAT.Forms.csproj">
+      <Project>{EBE47B69-3178-440A-894F-4493E84EFDE7}</Project>
+      <Name>MobCAT.Forms</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
