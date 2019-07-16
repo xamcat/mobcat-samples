@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.1" />
@@ -180,11 +180,11 @@
       <Project>{B9BDA780-7F35-4623-8C6B-B595A8E21DCF}</Project>
       <Name>News</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\mobcat_shared\MobCAT\MobCAT.csproj">
+    <ProjectReference Include="..\..\..\mobcat-library\MobCAT\MobCAT.csproj">
       <Project>{CF339104-1F1C-4EBE-A2A4-07A2B40AC282}</Project>
       <Name>MobCAT</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\mobcat_shared\MobCAT.Forms\MobCAT.Forms.csproj">
+    <ProjectReference Include="..\..\..\mobcat-library\MobCAT.Forms\MobCAT.Forms.csproj">
       <Project>{829DFCCA-F21D-4923-86A6-7735EEE8E326}</Project>
       <Name>MobCAT.Forms</Name>
     </ProjectReference>

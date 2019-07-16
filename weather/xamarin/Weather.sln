@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather.iOS", "Weather.iOS\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather.UITests", "Weather.UITests\Weather.UITests.csproj", "{8EB656CE-5D6E-4A4E-8EE1-1C54B3E74101}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobCAT", "..\..\..\mobcat_shared\MobCAT\MobCAT.csproj", "{BC919755-75C0-4E73-B231-59105D9A86A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobCAT", "..\..\..\mobcat-library\MobCAT\MobCAT.csproj", "{BC919755-75C0-4E73-B231-59105D9A86A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobCAT.Forms", "..\..\..\mobcat_shared\MobCAT.Forms\MobCAT.Forms.csproj", "{EBE47B69-3178-440A-894F-4493E84EFDE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobCAT.Forms", "..\..\..\mobcat-library\MobCAT.Forms\MobCAT.Forms.csproj", "{EBE47B69-3178-440A-894F-4493E84EFDE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather", "Weather\Weather.csproj", "{597B8444-AEDB-4480-A0E3-D76A84BD2AE5}"
 EndProject

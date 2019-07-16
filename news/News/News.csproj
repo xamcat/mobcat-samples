@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Microsoft.AppCenter" Version="2.0.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.0.0" />
@@ -33,10 +33,6 @@
     <Folder Include="Services\Abstractions\" />
     <Folder Include="Services\FakeNews\" />
     <Folder Include="Behaviors\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\mobcat_shared\MobCAT\MobCAT.csproj" />
-    <ProjectReference Include="..\..\..\mobcat_shared\MobCAT.Forms\MobCAT.Forms.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\FakeNews\source.the-new-york-times.json" />
@@ -83,5 +79,9 @@
     <EmbeddedResource Include="Services\FakeNews\category.technology.json" />
     <EmbeddedResource Include="Services\FakeNews\search.bitcoin.json" />
     <EmbeddedResource Include="Services\FakeNews\search.trump.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\mobcat-library\MobCAT\MobCAT.csproj" />
+    <ProjectReference Include="..\..\..\mobcat-library\MobCAT.Forms\MobCAT.Forms.csproj" />
   </ItemGroup>
 </Project>

@@ -11,14 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.0.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\mobcat_shared\MobCAT.Forms\MobCAT.Forms.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Localization\" />
@@ -43,5 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\mobcat-library\MobCAT.Forms\MobCAT.Forms.csproj" />
   </ItemGroup>
 </Project>
