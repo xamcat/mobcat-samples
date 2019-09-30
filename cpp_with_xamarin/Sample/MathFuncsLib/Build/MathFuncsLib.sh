@@ -145,6 +145,11 @@ echo "Copying lib${LibraryName}.a to bin/iOS"
 
 cd ..
 
+echo "Stripping bitcode from lib${LibraryName}.a"
+{
+    xcrun bitcode_strip "bin/iOS/lib${LibraryName}.a" -r -o "bin/iOS/lib${LibraryName}.a"
+} &> /dev/null
+
 echo ""
 echo "** BUILD SUCCEEDED (iOS) **"
 echo "" 
