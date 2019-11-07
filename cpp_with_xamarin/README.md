@@ -36,7 +36,7 @@ The term 'target architecture' is principally the CPU (and Operating System) for
 Libraries are often used to encapsulate a set of related functionality enabling sharing and distribution of code across multiple external libraries or executables in a modular fashion. A static library is resolved at compile-time and ultimately becomes part of the resulting consuming library or executable. A dynamic library is resolved at runtime by being copied into memory and bound to the respective process although the exact behaviour is platform-specific. Both of these approaches have their advantages and disadvantages along with implementation nuisances. It is often a case of choosing the most appropriate option given the situation and so further reading is certainly beneficial if you are unfamilier with this concept. An important consideration is that Apple do not support the [use of dynamic libraries that are not packaged as a framework](https://developer.apple.com/library/archive/technotes/tn2435/_index.html#//apple_ref/doc/uid/DTS40017543-CH1-TROUBLESHOOTING). Use of dynamic libraries is technically possible but apps that follow this approach will be rejected when they are submitted to the public App Store.    
 
 **Name Mangling and Extern C**  
-In order to ensure function, variable and type names are unique within a given namespace, C++ encodes them during compilation in a process referred to as name mangling. This behaviour makes it more challenging to consume the library in scenarios such as ours. Whilst it is possible to determine the generated names using tools such as nm (included with Xcode Command Line Tools) or [dumpbin](https://msdn.microsoft.com/library/b06ww5dd.aspx) (for Windows), this is not ideal since the generated names might change depending on the compiler being used and when things invariably change in our code. The solution in this case is to prevent this by applying the *extern "C"* linkage specifier to the respective declarations. This can be done explicitly for each declaration or for multiple declarations using a block.  
+In order to ensure function, variable and type names are unique within a given namespace, C++ encodes them during compilation in a process referred to as name mangling. This behaviour makes it more challenging to consume the library in scenarios such as ours. Whilst it is possible to determine the generated names using tools such as nm (included with Xcode Command Line Tools and the Android NDK) or [dumpbin](https://msdn.microsoft.com/library/b06ww5dd.aspx) (for Windows), this is not ideal since the generated names might change depending on the compiler being used and when things invariably change in our code. The solution in this case is to prevent this by applying the *extern "C"* linkage specifier to the respective declarations. This can be done explicitly for each declaration or for multiple declarations using a block.  
 
 **CMAKE**  
 CMAKE is an open-source software tool for managing the build process in a platform (and Operating System) agnostic manner. It can support multiple builds from the same source code using a single configuration. The tool does not compile anything itself, but rather helps to orchestrate the process and with creating the build environment required for each target. 
@@ -100,7 +100,7 @@ This walkthrough is structured based on the [high-level approach](#high-level-ap
 
 #### Prerequisites
 In order to follow along, you will need:
-- [Android NDK](https://developer.android.com/ndk/downloads/)
+- [Android NDK (19.2.5345600 and above)](https://developer.android.com/ndk/downloads/)
 - [Command Line Tools for Xcode](https://developer.apple.com/download/more/)
 - [NuGet Command Line (CLI)](https://docs.microsoft.com/nuget/tools/nuget-exe-cli-reference#macoslinux)
 - [Microsoft C/C++ Extension (for VS Code)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
@@ -119,7 +119,7 @@ The steps in this first-principles walkthrough are relatively simple, and it sho
 ## Creating the native library
 I have used the *MathFuncsLib* example from [Walkthrough: Creating and Using a Static Library (C++)](https://docs.microsoft.com/cpp/windows/walkthrough-creating-and-using-a-static-library-cpp?view=vs-2017) as the basis for our native library functionality. The intent was to keep the C/C++ code simple with the focus being on the subsequent steps for wrapping, distributing, and consuming our library in a Xamarin.Forms app.  
 
-Depending on your background and experience, it may take some time to follow this part of the walkthrough end-to-end. You can always skip ahead to the [next step: wrapping the native library](#wrapping-the-native-library) using the [precompiled libraries](https://github.com/xamarin/mobcat/blob/master/samples/cpp_with_xamarin/Sample/Artefacts/PrecompiledLibs.zip) and return to complete this part at a more convenient time.  
+Depending on your background and experience, it may take some time to follow this part of the walkthrough end-to-end. You can always skip ahead to the [next step: wrapping the native library](#wrapping-the-native-library) using the [precompiled libraries](https://github.com/xamcat/mobcat-samples/raw/master/cpp_with_xamarin/Sample/Artefacts/PrecompiledLibs.zip) and return to complete this part at a more convenient time.  
 
 You will require **Visual Studio for Mac** in order to follow along with the first part of this walkthrough. You can use **Visual Studio 2017** (on **Windows**) for the subsequent steps if you prefer however the walkthrough steps will be specific to **Visual Studio for Mac**. 
 
@@ -310,13 +310,13 @@ We need to update our build script to turn our library code into platform-specif
 We will start with the common parts of the script, and then on the platform-specific aspects. The script assumes the following prerequisite components are installed:  
 
 **Android NDK:**  
-android-ndk-r15c  
+19.2.5345600  
 
 **Android API Version:**  
 21  
 
 **iOS SDK Version:**  
-12.1  
+12.2  
 
 You should __**ensure that you have the above components (and matching versions) installed now or update the script to use the SDKs that you do have installed**__. You can quickly determine which versions you have installed by opening **Terminal** and executing the following commands:  
 
@@ -369,9 +369,10 @@ xcodebuild -showsdks
     declare -a iOSArchitectures=("x86_64" "arm64" "arm64e")
 
     LibraryName="MathFuncs"
-    Android_NDK_Target="android-ndk-r15c"
+    Android_NDK_Host_Name="macosx"
+    Android_NDK_Host_Tag="darwin-x86_64"
     Android_Minimum_Api_Version="21"
-    iOS_SDK_Version="12.1"
+    iOS_SDK_Version="12.2"
     iOS_SDK_Min_Version="8.0"
     ```
 
@@ -390,37 +391,50 @@ Try executing a build (**SHIFT + CMD + B**) and validate the script has created 
     cd tmp
     LibPath=${PWD}/sourceFiles
     ```
-2. Export the path to the **Android NDK Home** folder by adding the following code:
+2. Conditionally export the path to the **Android NDK Home** folder by adding the following code:
 
     ```
-    export ANDROID_NDK_HOME="/Users/$USER/Library/Developer/Xamarin/android-ndk/$Android_NDK_Target"
+    if [ -z "${ANDROID_NDK_HOME}" ]
+    then
+        export ANDROID_NDK_HOME="/Users/$USER/Library/Developer/Xamarin/android-sdk-$Android_NDK_Host_Name/ndk-bundle"
+    fi
     ```
 
     **NOTE:** I have set this path explicitly (based on my own environment) on the assumption that you have used Visual Studio for Mac to install the **NDK** (and have not changed the default location). I recommend validating this using the *Locations* tab in the Visual Studio for Mac **SDK Manager** (Tools > SDK Manager). This value should match the path specified in the *Android NDK Location* field. You should update the script to reflect this path.
 
-3. Update the script to perform a loop over the target architectures (defined in the [previous step](#preparing-to-build)), creating the appropriate subdirectories and determining the relevant compiler for the respective architecture:
+3. Update the script to perform a loop over the target architectures (defined in the [previous step](#preparing-to-build)), creating the appropriate subdirectories and determining the relevant output folder name and compiler for the respective architecture:
 
     ```
     for i in "${AndroidArchitectures[@]}"
     do
         echo "Build for $i:"
-        mkdir ../bin/Android/$i  
-        mkdir Android/build   
+
+        ABI_Folder_Name=$i
+
+        if [ $i == "arm" ]
+        then
+            ABI_Folder_Name="armeabi-v7a"
+        elif [ $i == "arm64" ]
+        then
+            ABI_Folder_Name="arm64-v8a"
+        fi
+
+        mkdir ../bin/Android/$ABI_Folder_Name     
 
         if [ $i == "x86" ]
         then
-            CxxTarget="i686-linux-android-g++"
+            CxxTarget="i686-linux-android"
         elif [ $i == "x86_64" ]
         then
-            CxxTarget="x86_64-linux-android-g++"
+            CxxTarget="x86_64-linux-android"
         elif [ $i == "arm" ]
         then
-            CxxTarget="arm-linux-androideabi-g++"
+            CxxTarget="armv7a-linux-androideabi"
         else
-            CxxTarget="aarch64-linux-android-g++"
+            CxxTarget="aarch64-linux-android"
         fi
 
-        echo CxxTarget
+        echo $CxxTarget
 
     done
 
@@ -440,6 +454,8 @@ Try executing a build (**SHIFT + CMD + B**) and validate the script has created 
 
     === BUILD TARGET Android ===
 
+    Build for x86:
+    i686-linux-android-g++
     Build for x86_64:
     x86_64-linux-android-g++
     Build for arm:
@@ -450,20 +466,13 @@ Try executing a build (**SHIFT + CMD + B**) and validate the script has created 
 
 5. Replace the line *echo CxxTarget* with the following code (*be sure to add the remaining Android script within the main for loop*):
 
-    ```
-    echo "Installing customized toolchain"
-    $ANDROID_NDK_HOME/build/tools/make_standalone_toolchain.py --api $Android_Minimum_Api_Version --arch $i --install-dir=${PWD}/Android/droid-toolchain --force        
-
-    export CXX=$CxxTarget
-    
-    cd Android
-    cd droid-toolchain
-    cd bin
+    ``` 
+    export CXX="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/$Android_NDK_Host_Tag/bin/$CxxTarget$Android_Minimum_Api_Version-clang++"
     ```
 
-    The script above performs a customized toolchain installation for each target using the *make_standalone_toolchain.py script*. See Google's [Standalone Toolchain](https://developer.android.com/ndk/guides/standalone_toolchain) guide for more information. We then change directory so we are executing commands from within the newly created droid-toolchain bin folder.
+    As of **NDK r19**, the toolchains are installed by default with the NDK and so the script above simply determines the appropriate prebuilt toolchain compiler to use based on the target architecture and minimum API version. See Google's [Standalone Toolchain](https://developer.android.com/ndk/guides/standalone_toolchain) and [Other Build Systems](https://developer.android.com/ndk/guides/other_build_systems) guides for more information.
 
-6. Using the toolchain we just installed, compile the source code and link the resulting object files to produce a dynamic library with the following script:
+6. Compile the source code with the following script:
 
     ```
     echo "Compiling and linking (output as dynamic library)"
@@ -471,30 +480,40 @@ Try executing a build (**SHIFT + CMD + B**) and validate the script has created 
     for i2 in $LibPath/*.cpp; do
         ShortName="${i2##*/}"
         OutputName="${ShortName/cpp/o}"
-        ${PWD}/$CXX -c $i2 -std=c++0x -o ../../build/$OutputName
+        $CXX -c $i2 -std=c++0x -o ${PWD}/sourceFiles/$OutputName
     done
-
-    ${PWD}/$CXX -shared -o ../../build/lib${LibraryName}.so ../../build/*.o
-
-    cd ../../..
     ```
 
-    **NOTE:** The filename is extracted from the full filepath before a find and replace expression is used to change the .cpp extension for a .o extension. These values are subsequently passed into the compiler. Once we have the necessary object files, we can link them to create a dynamic library (denoted by the *-shared* flag).
+    **NOTE:** The filename is extracted from the full filepath before a find and replace expression is used to change the .cpp extension for a .o extension. These values are subsequently passed into the compiler. 
 
-7. To wrap up the Android build, add the following script to copy the resulting **.so** library to the respective **bin** folder before clearing out the **tmp** directory:
+7. Link the resulting object files to produce a dynamic library by adding the following script after the for loop is done:
 
     ```
-    echo "Copying lib${LibraryName}.so to bin/Android/$i"
+    $CXX -shared -static-libstdc++ -o ${PWD}/sourceFiles/lib${Libr
+    ```
 
+    **NOTE:** Once we have the necessary object files, we can link them to create a dynamic library (denoted by the *-shared* flag). The system STL (*/system/lib/libstdc++.so*) will no longer be included in the NDK and so *libc++_shared.so* must also be included in the APK or the static variant must be linked. Since all our native code is contained within a single shared library in this example we will use static variant by adding the *static-libstdc++* flag. If your application uses multiple shared libraries, it is recommended that you use the *libc++_shared.so* runtime instead. Further reading on [Android C++ Library Support](https://developer.android.com/ndk/guides/cpp-support) is recommended.
+
+8. Add the following script to copy the resulting **.so** library to the respective **bin** folder
+
+    ```
+    echo "Copying lib${LibraryName}.so to bin/Android/$ABI_Folder_Name"
     {
-        find Android/build -name "*.so" -exec cp {} ../bin/Android/$i \;
+        find sourceFiles -name "*.so" -exec cp {} ../bin/Android/$ABI_Folder_Name \;
     } &> /dev/null
 
-    rm -rf Android/*
     echo ""
     ```
 
-8. Verify that the completed Android section of the script appears as follows:
+9. To wrap up the Android build, add the following script to switch back to the parent directory and denote the end of the Android build
+
+    ```
+    cd ..
+    echo "** BUILD SUCCEEDED (Android) **"
+    echo "" 
+    ```
+
+10. Verify that the completed Android section of the script appears as follows:
 
     ```
     echo ""
@@ -505,62 +524,66 @@ Try executing a build (**SHIFT + CMD + B**) and validate the script has created 
 
     LibPath=${PWD}/sourceFiles
 
-    export ANDROID_NDK_HOME="/Users/$USER/Library/Developer/Xamarin/android-ndk/$Android_NDK_Target"
+    if [ -z "${ANDROID_NDK_HOME}" ]
+    then
+        export ANDROID_NDK_HOME="/Users/$USER/Library/Developer/Xamarin/android-sdk-$Android_NDK_Host_Name/ndk-bundle"
+    fi
 
     for i in "${AndroidArchitectures[@]}"
         do
             echo "Build for $i:"
-            mkdir ../bin/Android/$i     
-            mkdir Android/build      
+
+            ABI_Folder_Name=$i
+
+            if [ $i == "arm" ]
+            then
+                ABI_Folder_Name="armeabi-v7a"
+            elif [ $i == "arm64" ]
+            then
+                ABI_Folder_Name="arm64-v8a"
+            fi
+
+            mkdir ../bin/Android/$ABI_Folder_Name     
 
             if [ $i == "x86" ]
             then
-                CxxTarget="i686-linux-android-g++"
+                CxxTarget="i686-linux-android"
             elif [ $i == "x86_64" ]
             then
-                CxxTarget="x86_64-linux-android-g++"
+                CxxTarget="x86_64-linux-android"
             elif [ $i == "arm" ]
             then
-                CxxTarget="arm-linux-androideabi-g++"
+                CxxTarget="armv7a-linux-androideabi"
             else
-                CxxTarget="aarch64-linux-android-g++"
+                CxxTarget="aarch64-linux-android"
             fi
 
-            echo "Installing customized toolchain"
-            $ANDROID_NDK_HOME/build/tools/make_standalone_toolchain.py --api $Android_Minimum_Api_Version --arch $i --install-dir=${PWD}/Android/droid-toolchain --force 
+            CxxTarget="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/$Android_NDK_Host_Tag/bin/$CxxTarget$Android_Minimum_Api_Version-clang++"   
 
             export CXX=$CxxTarget
-            
-            cd Android
-            cd droid-toolchain
-            cd bin
 
             echo "Compiling and linking (output as dynamic library)"
 
             for i2 in $LibPath/*.cpp; do
                 ShortName="${i2##*/}"
                 OutputName="${ShortName/cpp/o}"
-                ${PWD}/$CXX -c $i2 -std=c++0x -o ../../build/$OutputName
+                $CXX -c $i2 -std=c++0x -fPIC -o ${PWD}/sourceFiles/$OutputName
             done
 
-            ${PWD}/$CXX -shared -o ../../build/lib${LibraryName}.so ../../build/*.o
+            $CXX -shared -static-libstdc++ -o ${PWD}/sourceFiles/lib${LibraryName}.so ${PWD}/sourceFiles/*.o
 
-            cd ../../..
-
-            echo "Copying lib${LibraryName}.so to bin/Android/$i"
+            echo "Copying lib${LibraryName}.so to bin/Android/$ABI_Folder_Name"
             {
-                find Android/build -name "*.so" -exec cp {} ../bin/Android/$i \;
+                find sourceFiles -name "*.so" -exec cp {} ../bin/Android/$ABI_Folder_Name \;
             } &> /dev/null
-
-            rm -rf Android/* 
 
             echo ""
 
-    done
+        done
 
     cd ..
     echo "** BUILD SUCCEEDED (Android) **"
-    echo ""
+    echo ""     
     ```
 
 Run the completed Android build to validate that it is successfully creating the libraries (in the **bin/Android** folder for expected targets). The output should appear as follows:
@@ -573,22 +596,18 @@ Preparing working files and directories
 === BUILD TARGET (Android) ===
 
 Build for x86:
-Installing customized toolchain
 Compiling and linking (output as dynamic library)
 Copying libMathFuncs.so to bin/Android/x86
 
 Build for x86_64:
-Installing customized toolchain
 Compiling and linking (output as dynamic library)
 Copying libMathFuncs.so to bin/Android/x86_64
 
 Build for arm:
-Installing customized toolchain
 Compiling and linking (output as dynamic library)
 Copying libMathFuncs.so to bin/Android/arm
 
 Build for arm64:
-Installing customized toolchain
 Compiling and linking (output as dynamic library)
 Copying libMathFuncs.so to bin/Android/arm64
 
@@ -645,11 +664,11 @@ At this stage, you should have 4 libraries in the **bin** folder under **Android
     === BUILD TARGET (iOS) ===
 
     Build for x86_64:
-    SDK: iPhoneSimulator, TARGET: 12.1
+    SDK: iPhoneSimulator, TARGET: 12.2
     Build for arm64:
-    SDK: iPhoneOS, TARGET: 12.1
+    SDK: iPhoneOS, TARGET: 12.2
     Build for arm64e:
-    SDK: iPhoneOS, TARGET: 12.1
+    SDK: iPhoneOS, TARGET: 12.2
     ** BUILD SUCCEEDED (iOS) **
     ```
 
@@ -822,9 +841,10 @@ declare -a AndroidArchitectures=("x86" "x86_64" "arm" "arm64")
 declare -a iOSArchitectures=("x86_64" "arm64" "arm64e")
 
 LibraryName="MathFuncs"
-Android_NDK_Target="android-ndk-r15c"
+Android_NDK_Host_Name="macosx"
+Android_NDK_Host_Tag="darwin-x86_64"
 Android_Minimum_Api_Version="21"
-iOS_SDK_Version="12.1"
+iOS_SDK_Version="12.2"
 iOS_SDK_Min_Version="8.0"
 
 echo ""
@@ -835,58 +855,62 @@ cd tmp
 
 LibPath=${PWD}/sourceFiles
 
-export ANDROID_NDK_HOME="/Users/$USER/Library/Developer/Xamarin/android-ndk/$Android_NDK_Target"
+if [ -z "${ANDROID_NDK_HOME}" ]
+then
+    export ANDROID_NDK_HOME="/Users/$USER/Library/Developer/Xamarin/android-sdk-$Android_NDK_Host_Name/ndk-bundle"
+fi
 
 for i in "${AndroidArchitectures[@]}"
     do
         echo "Build for $i:"
-        mkdir ../bin/Android/$i     
-        mkdir Android/build      
+
+        ABI_Folder_Name=$i
+
+        if [ $i == "arm" ]
+        then
+            ABI_Folder_Name="armeabi-v7a"
+        elif [ $i == "arm64" ]
+        then
+            ABI_Folder_Name="arm64-v8a"
+        fi
+
+        mkdir ../bin/Android/$ABI_Folder_Name     
 
         if [ $i == "x86" ]
         then
-            CxxTarget="i686-linux-android-g++"
+            CxxTarget="i686-linux-android"
         elif [ $i == "x86_64" ]
         then
-            CxxTarget="x86_64-linux-android-g++"
+            CxxTarget="x86_64-linux-android"
         elif [ $i == "arm" ]
         then
-            CxxTarget="arm-linux-androideabi-g++"
+            CxxTarget="armv7a-linux-androideabi"
         else
-            CxxTarget="aarch64-linux-android-g++"
+            CxxTarget="aarch64-linux-android"
         fi
 
-        echo "Installing customized toolchain"
-        $ANDROID_NDK_HOME/build/tools/make_standalone_toolchain.py --api $Android_Minimum_Api_Version --arch $i --install-dir=${PWD}/Android/droid-toolchain --force 
+        CxxTarget="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/$Android_NDK_Host_Tag/bin/$CxxTarget$Android_Minimum_Api_Version-clang++"   
 
         export CXX=$CxxTarget
-        
-        cd Android
-        cd droid-toolchain
-        cd bin
 
         echo "Compiling and linking (output as dynamic library)"
 
         for i2 in $LibPath/*.cpp; do
             ShortName="${i2##*/}"
             OutputName="${ShortName/cpp/o}"
-            ${PWD}/$CXX -c $i2 -std=c++0x -o ../../build/$OutputName
+            $CXX -c $i2 -std=c++0x -fPIC -o ${PWD}/sourceFiles/$OutputName
         done
 
-        ${PWD}/$CXX -shared -o ../../build/lib${LibraryName}.so ../../build/*.o
+        $CXX -shared -static-libstdc++ -o ${PWD}/sourceFiles/lib${LibraryName}.so ${PWD}/sourceFiles/*.o
 
-        cd ../../..
-
-        echo "Copying lib${LibraryName}.so to bin/Android/$i"
+        echo "Copying lib${LibraryName}.so to bin/Android/$ABI_Folder_Name"
         {
-            find Android/build -name "*.so" -exec cp {} ../bin/Android/$i \;
+            find sourceFiles -name "*.so" -exec cp {} ../bin/Android/$ABI_Folder_Name \;
         } &> /dev/null
-
-        rm -rf Android/* 
 
         echo ""
 
-done
+    done
 
 cd ..
 echo "** BUILD SUCCEEDED (Android) **"
@@ -964,22 +988,18 @@ Preparing working files and directories
 === BUILD TARGET (Android) ===
 
 Build for x86:
-Installing customized toolchain
 Compiling and linking (output as dynamic library)
 Copying libMathFuncs.so to bin/Android/x86
 
 Build for x86_64:
-Installing customized toolchain
 Compiling and linking (output as dynamic library)
 Copying libMathFuncs.so to bin/Android/x86_64
 
 Build for arm:
-Installing customized toolchain
 Compiling and linking (output as dynamic library)
 Copying libMathFuncs.so to bin/Android/arm
 
 Build for arm64:
-Installing customized toolchain
 Compiling and linking (output as dynamic library)
 Copying libMathFuncs.so to bin/Android/arm64
 
@@ -1017,7 +1037,7 @@ The intent was of course to keep this part of the walkthrough simple and unopini
 Finally, compilers have various optional flags that can be used including optimizations that can be leveraged where it makes sense to do so.
 
 ## Wrapping the native library
-For this part of the walkthrough we require the outputs from the previous stage. If you were unable to complete these steps (or elected to skip it), you can [download the libraries](https://github.com/xamarin/mobcat/blob/master/samples/cpp_with_xamarin/Sample/Artefacts/PrecompiledLibs.zip) directly. 
+For this part of the walkthrough we require the outputs from the previous stage. If you were unable to complete these steps (or elected to skip it), you can [download the libraries](https://github.com/xamcat/mobcat-samples/raw/master/cpp_with_xamarin/Sample/Artefacts/PrecompiledLibs.zip) directly. 
 
 ### Creating the Visual Studio solution
 1. In **Visual Studio for Mac**, click **New Project** (from the *Welcome Page*) or **New Solution** (from the *File* menu)
@@ -1478,7 +1498,7 @@ To complete the walkthrough, we'll now create a **Xamarin.Forms** app to consume
 
 ### Creating the **Xamarin.Forms** project
 
-1. Open a new instance of **Visual Studio for Mac**. You can do this quickly from **Terminal** with the following command:
+1. **CONTROL + CLICK** on the **Visual Studio for Mac** icon in the **dock**, then choose **New Instance** from the menu. You can alternatively do this from **Terminal** using the following command:
 
     ```
     open -n -a "Visual Studio"
@@ -1621,7 +1641,7 @@ Now we have a reference to the **MathFuncs** package in each of our projects, we
     1 / 2 = 0.5
     ```
 
-    **NOTE:** If you encounter a '*DLLNotFoundException*' when testing on Android, or a build error on iOS, be sure to check that the CPU architecture of the device/emulator/simulator you are using is compatible with the subset that we chose to support.  
+    **NOTE:** If you encounter a [DLLNotFoundException](https://www.mono-project.com/docs/advanced/pinvoke/dllnotfoundexception/) when testing on Android, or a build error such as [MT5212: Native linking failed, duplicate symbol](https://docs.microsoft.com/en-us/xamarin/ios/troubleshooting/mtouch-errors#mt5212-native-linking-failed-duplicate-symbol-) on iOS, be sure to check that the CPU architecture of the device/emulator/simulator you are using is compatible with the subset that we chose to support and the native libraries have been built correctly. To aid in troubleshooting, validate that the completed code sample provided builds and runs on your device and that your implementation matches that of the completed code sample. Consider switching out parts of your implementation for the prebuilt components (the  native libraries and NuGet packages found within the **Artefacts** folder) to help pinpoint the aspects of the walkthrough that require further attention.
 
 # Wrapping up
 We should now have a basic Xamarin.Forms app that can leverage the functionality provided by our native libraries through a common .NET wrapper distributed via a NuGet package. The example provided in this walkthrough is of course intentionally very simplistic to more easily demonstrate the approach at a high-level. It's likely that you'd need to address exception handling, callbacks, the marshalling of more complex types, and linking with other dependency libraries amongst other things. A key consideration is how to handle subsequent code changes and keeping the wrapper in sync which may depend on whether one or both of those concerns are the responsibility of a single team. Either way, automation is a real benefit here. Below are some resources providing further reading around some of the key concepts touched upon here along with the relevant downloads.  
@@ -1641,7 +1661,8 @@ We should now have a basic Xamarin.Forms app that can leverage the functionality
 
 **Further Reading:**
 - [Android CPUs & Architectures](https://developer.android.com/ndk/guides/arch)
-- [Android NDK Developer Guide](https://developer.android.com/ndk/guides/)
+- [Android NDK C++ Library Support](https://developer.android.com/ndk/guides/cpp-support)
+- [Android NDK Developer Guide](https://developer.android.com/ndk/guides/)  
 - [Apple Developer Account](https://developer.apple.com/)
 - [Bait and Switch](https://log.paulbetts.org/the-bait-and-switch-pcl-trick/)
 - [Binding an Eclipse Library Project](https://docs.microsoft.com/xamarin/android/platform/binding-java-library/binding-a-library-project)
@@ -1686,4 +1707,4 @@ We should now have a basic Xamarin.Forms app that can leverage the functionality
 - [Walkthrough: Creating and Using a Static Library (C++)](https://docs.microsoft.com/cpp/windows/walkthrough-creating-and-using-a-static-library-cpp?view=vs-2017)
 - [Xamarin](https://visualstudio.microsoft.com/xamarin/)
 
-The source code and supporting artefacts can be found on the [MobCAT GitHub](https://github.com/xamarin/mobcat/tree/master/samples/cpp_with_xamarin/Sample).
+The source code and supporting artefacts can be found on the [MobCAT GitHub](https://github.com/xamcat/mobcat-samples/tree/master/cpp_with_xamarin/Sample).
