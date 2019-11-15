@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E54ECA9D21AC20BD004955BF /* TokenUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54ECA9C21AC20BD004955BF /* TokenUtility.swift */; };
+		E54ECAAA21AC2121004955BF /* SasTokensSwift_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54ECAA921AC2121004955BF /* SasTokensSwift_Tests.swift */; };
+		E54ECAAC21AC2121004955BF /* libSasTokensSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54ECA9921AC20BD004955BF /* libSasTokensSwift.a */; };
+		E54ECAB421AC21C8004955BF /* TokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54ECAB321AC21C8004955BF /* TokenData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E54ECAAD21AC2121004955BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E54ECA9121AC20BD004955BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E54ECA9821AC20BD004955BF;
+			remoteInfo = SasTokensSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E54ECA9721AC20BD004955BF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E54ECA9921AC20BD004955BF /* libSasTokensSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSasTokensSwift.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E54ECA9C21AC20BD004955BF /* TokenUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtility.swift; sourceTree = "<group>"; };
+		E54ECAA721AC2121004955BF /* SasTokensSwift.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SasTokensSwift.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E54ECAA921AC2121004955BF /* SasTokensSwift_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SasTokensSwift_Tests.swift; sourceTree = "<group>"; };
+		E54ECAAB21AC2121004955BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E54ECAB221AC213A004955BF /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		E54ECAB321AC21C8004955BF /* TokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E54ECA9621AC20BD004955BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E54ECAA421AC2121004955BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E54ECAAC21AC2121004955BF /* libSasTokensSwift.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E54ECA9021AC20BD004955BF = {
+			isa = PBXGroup;
+			children = (
+				E54ECA9B21AC20BD004955BF /* SasTokensSwift */,
+				E54ECAA821AC2121004955BF /* SasTokensSwift.Tests */,
+				E54ECA9A21AC20BD004955BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E54ECA9A21AC20BD004955BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E54ECA9921AC20BD004955BF /* libSasTokensSwift.a */,
+				E54ECAA721AC2121004955BF /* SasTokensSwift.Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E54ECA9B21AC20BD004955BF /* SasTokensSwift */ = {
+			isa = PBXGroup;
+			children = (
+				E54ECA9C21AC20BD004955BF /* TokenUtility.swift */,
+				E54ECAB221AC213A004955BF /* BridgingHeader.h */,
+				E54ECAB321AC21C8004955BF /* TokenData.swift */,
+			);
+			path = SasTokensSwift;
+			sourceTree = "<group>";
+		};
+		E54ECAA821AC2121004955BF /* SasTokensSwift.Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E54ECAA921AC2121004955BF /* SasTokensSwift_Tests.swift */,
+				E54ECAAB21AC2121004955BF /* Info.plist */,
+			);
+			path = SasTokensSwift.Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E54ECA9821AC20BD004955BF /* SasTokensSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E54ECAA021AC20BD004955BF /* Build configuration list for PBXNativeTarget "SasTokensSwift" */;
+			buildPhases = (
+				E54ECA9521AC20BD004955BF /* Sources */,
+				E54ECA9621AC20BD004955BF /* Frameworks */,
+				E54ECA9721AC20BD004955BF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SasTokensSwift;
+			productName = SasTokensSwift;
+			productReference = E54ECA9921AC20BD004955BF /* libSasTokensSwift.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E54ECAA621AC2121004955BF /* SasTokensSwift.Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E54ECAAF21AC2121004955BF /* Build configuration list for PBXNativeTarget "SasTokensSwift.Tests" */;
+			buildPhases = (
+				E54ECAA321AC2121004955BF /* Sources */,
+				E54ECAA421AC2121004955BF /* Frameworks */,
+				E54ECAA521AC2121004955BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E54ECAAE21AC2121004955BF /* PBXTargetDependency */,
+			);
+			name = SasTokensSwift.Tests;
+			productName = SasTokensSwift.Tests;
+			productReference = E54ECAA721AC2121004955BF /* SasTokensSwift.Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E54ECA9121AC20BD004955BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = mobcat;
+				TargetAttributes = {
+					E54ECA9821AC20BD004955BF = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					E54ECAA621AC2121004955BF = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = E54ECA9421AC20BD004955BF /* Build configuration list for PBXProject "SasTokensSwift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E54ECA9021AC20BD004955BF;
+			productRefGroup = E54ECA9A21AC20BD004955BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E54ECA9821AC20BD004955BF /* SasTokensSwift */,
+				E54ECAA621AC2121004955BF /* SasTokensSwift.Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E54ECAA521AC2121004955BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E54ECA9521AC20BD004955BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E54ECA9D21AC20BD004955BF /* TokenUtility.swift in Sources */,
+				E54ECAB421AC21C8004955BF /* TokenData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E54ECAA321AC2121004955BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E54ECAAA21AC2121004955BF /* SasTokensSwift_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E54ECAAE21AC2121004955BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E54ECA9821AC20BD004955BF /* SasTokensSwift */;
+			targetProxy = E54ECAAD21AC2121004955BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E54ECA9E21AC20BD004955BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E54ECA9F21AC20BD004955BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E54ECAA121AC20BD004955BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6Y645E422Y;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = SasTokensSwift/BridgingHeader.h;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E54ECAA221AC20BD004955BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6Y645E422Y;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = SasTokensSwift/BridgingHeader.h;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E54ECAB021AC2121004955BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6Y645E422Y;
+				INFOPLIST_FILE = SasTokensSwift.Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobcat.SasTokensSwift-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E54ECAB121AC2121004955BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6Y645E422Y;
+				INFOPLIST_FILE = SasTokensSwift.Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobcat.SasTokensSwift-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E54ECA9421AC20BD004955BF /* Build configuration list for PBXProject "SasTokensSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E54ECA9E21AC20BD004955BF /* Debug */,
+				E54ECA9F21AC20BD004955BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E54ECAA021AC20BD004955BF /* Build configuration list for PBXNativeTarget "SasTokensSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E54ECAA121AC20BD004955BF /* Debug */,
+				E54ECAA221AC20BD004955BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E54ECAAF21AC2121004955BF /* Build configuration list for PBXNativeTarget "SasTokensSwift.Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E54ECAB021AC2121004955BF /* Debug */,
+				E54ECAB121AC2121004955BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E54ECA9121AC20BD004955BF /* Project object */;
+}

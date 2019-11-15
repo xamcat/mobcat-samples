@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content_key_id_list</key>
+		<array>
+			<string>skd://willzhanmswest.keydelivery.westus.media.azure.net/FairPlay/?kid=bf05ec87-4fff-4488-aa45-828fe8d7f840</string>
+		</array>
+		<key>name</key>
+		<string>AMS Test Sample</string>
+		<key>playlist_url</key>
+		<string>https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/manifest(format=m3u8-aapl)</string>
+		<key>is_protected</key>
+		<true/>
+	</dict>
+</array>
+</plist>
