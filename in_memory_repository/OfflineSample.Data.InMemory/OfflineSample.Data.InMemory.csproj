@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OfflineSample.Data\OfflineSample.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MobCAT">
+      <HintPath>..\..\MobCAT\MobCAT\bin\Debug\netstandard2.1\MobCAT.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

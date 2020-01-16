@@ -7,12 +7,13 @@ using Xamarin.Forms;
 
 using OfflineSample.Models;
 using OfflineSample.Services;
+using OfflineSample.Data;
 
 namespace OfflineSample.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IOfflineSampleRepository DataStore => DependencyService.Get<IOfflineSampleRepository>();
 
         bool isBusy = false;
         public bool IsBusy

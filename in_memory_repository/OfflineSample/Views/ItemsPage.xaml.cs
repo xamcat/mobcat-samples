@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using OfflineSample.Models;
 using OfflineSample.Views;
 using OfflineSample.ViewModels;
+using OfflineSample.Data;
 
 namespace OfflineSample.Views
 {
@@ -29,7 +30,7 @@ namespace OfflineSample.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
+            var item = args.SelectedItem as SampleModel;
             if (item == null)
                 return;
 

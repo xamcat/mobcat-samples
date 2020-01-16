@@ -7,25 +7,26 @@ using Xamarin.Forms;
 
 using OfflineSample.Models;
 using OfflineSample.Views;
+using OfflineSample.Data;
 
 namespace OfflineSample.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<SampleModel> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Items = new ObservableCollection<SampleModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+            MessagingCenter.Subscribe<NewItemPage, SampleModel>(this, "AddItem", async (obj, item) =>
             {
-                var newItem = item as Item;
+                var newItem = item as SampleModel;
                 Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
+                await DataStore.InsertItemAsync(newItem);
             });
         }
 
@@ -39,7 +40,7 @@ namespace OfflineSample.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await DataStore.GetAsync();
                 foreach (var item in items)
                 {
                     Items.Add(item);

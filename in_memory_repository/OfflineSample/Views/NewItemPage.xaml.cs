@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using OfflineSample.Models;
+using OfflineSample.Data;
 
 namespace OfflineSample.Views
 {
@@ -13,14 +14,15 @@ namespace OfflineSample.Views
     [DesignTimeVisible(false)]
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public SampleModel Item { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Item = new SampleModel
             {
+                Id = Guid.NewGuid().ToString(),
                 Text = "Item name",
                 Description = "This is an item description."
             };

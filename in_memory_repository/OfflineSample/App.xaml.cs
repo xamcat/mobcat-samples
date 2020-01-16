@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using OfflineSample.Services;
 using OfflineSample.Views;
+using OfflineSample.Data.InMemory;
 
 namespace OfflineSample
 {
@@ -13,7 +14,7 @@ namespace OfflineSample
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<InMemorySampleRepository>();
             MainPage = new AppShell();
         }
 

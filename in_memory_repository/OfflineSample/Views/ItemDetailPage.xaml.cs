@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using OfflineSample.Models;
 using OfflineSample.ViewModels;
+using OfflineSample.Data;
 
 namespace OfflineSample.Views
 {
@@ -26,7 +27,7 @@ namespace OfflineSample.Views
         {
             InitializeComponent();
 
-            var item = new Item
+            var item = new SampleModel
             {
                 Text = "Item 1",
                 Description = "This is an item description."
