@@ -11,13 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="Microsoft.AppCenter" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.0.0" />
-    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.7.1" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991477" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Microsoft.AppCenter" Version="2.6.4" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.6.4" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.6.4" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.3" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
     <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
   </ItemGroup>
   <ItemGroup>
