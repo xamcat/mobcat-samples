@@ -44,9 +44,6 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MobCAT">
-      <HintPath>..\..\MobCAT\MobCAT\bin\Debug\netstandard2.1\MobCAT.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="System" />
     <Reference Include="System.Core" />

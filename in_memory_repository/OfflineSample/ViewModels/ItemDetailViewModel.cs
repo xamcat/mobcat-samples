@@ -1,6 +1,5 @@
 ﻿using System;
 using OfflineSample.Data;
-using OfflineSample.Models;
 
 namespace OfflineSample.ViewModels
 {

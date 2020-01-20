@@ -1,9 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using OfflineSample.Models;
 using OfflineSample.ViewModels;
 using OfflineSample.Data;
 
