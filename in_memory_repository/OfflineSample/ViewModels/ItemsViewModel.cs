@@ -2,10 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
-using OfflineSample.Models;
 using OfflineSample.Views;
 using OfflineSample.Data;
 

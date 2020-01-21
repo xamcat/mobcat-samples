@@ -1,4 +1,4 @@
-﻿using Microsoft.MobCAT.Repositories;
+﻿using Microsoft.MobCAT.Repository;
 using System;
 
 namespace OfflineSample.Data

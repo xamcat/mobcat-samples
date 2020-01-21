@@ -1,4 +1,4 @@
-﻿using Microsoft.MobCAT.Repositories.Abstractions;
+﻿using Microsoft.MobCAT.Repository.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;

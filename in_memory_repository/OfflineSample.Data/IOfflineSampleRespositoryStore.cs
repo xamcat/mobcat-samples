@@ -1,8 +1,8 @@
-﻿using Microsoft.MobCAT.Repositories.Abstractions;
+﻿using Microsoft.MobCAT.Repository.Abstractions;
 
 namespace OfflineSample.Data
 {
-    interface IOfflineSampleRespositoryStore : IRepositoryStore
+    interface IOfflineSampleRespositoryStore : IRepositoryContext
     {
     }
 }

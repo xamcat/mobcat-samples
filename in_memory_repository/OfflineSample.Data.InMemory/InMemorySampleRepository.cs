@@ -1,4 +1,4 @@
-﻿using Microsoft.MobCAT.Repositories.InMemory;
+﻿using Microsoft.MobCAT.Repository.InMemory;
 using System;
 using System.Collections.Generic;
 using System.Text;

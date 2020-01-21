@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using OfflineSample.Models;
 using OfflineSample.Data;
 
 namespace OfflineSample.Views
