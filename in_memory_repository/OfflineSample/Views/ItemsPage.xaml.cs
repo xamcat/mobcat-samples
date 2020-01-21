@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using OfflineSample.Views;
 using OfflineSample.ViewModels;
 using OfflineSample.Data;
+using OfflineSample.Services;
 
 namespace OfflineSample.Views
 {
@@ -40,6 +41,11 @@ namespace OfflineSample.Views
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+        }
+        async void AddRandom_Clicked(object sender, EventArgs e)
+        {
+            var randomItemGeneratorService = new RandomItemGeneratorService();
+            randomItemGeneratorService.GenerateItems();
         }
 
         protected override void OnAppearing()

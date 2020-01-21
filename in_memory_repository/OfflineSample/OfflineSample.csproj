@@ -16,10 +16,4 @@
     <ProjectReference Include="..\OfflineSample.Data.InMemory\OfflineSample.Data.InMemory.csproj" />
     <ProjectReference Include="..\OfflineSample.Data\OfflineSample.Data.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="MobCAT">
-      <HintPath>..\..\MobCAT\MobCAT\bin\Debug\netstandard2.1\MobCAT.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 </Project>

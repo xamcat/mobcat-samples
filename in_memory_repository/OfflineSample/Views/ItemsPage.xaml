@@ -10,6 +10,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+        <ToolbarItem Text="Add Random" Clicked="AddRandom_Clicked" />
     </ContentPage.ToolbarItems>
 
     <StackLayout>

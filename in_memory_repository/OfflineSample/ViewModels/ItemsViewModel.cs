@@ -3,8 +3,10 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+
 using OfflineSample.Views;
 using OfflineSample.Data;
+using OfflineSample.Services;
 
 namespace OfflineSample.ViewModels
 {
@@ -20,6 +22,13 @@ namespace OfflineSample.ViewModels
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<NewItemPage, SampleModel>(this, "AddItem", async (obj, item) =>
+            {
+                var newItem = item as SampleModel;
+                Items.Add(newItem);
+                await DataStore.InsertItemAsync(newItem);
+            }); 
+            
+            MessagingCenter.Subscribe<RandomItemGeneratorService, SampleModel>(this, "AddItem", async (obj, item) =>
             {
                 var newItem = item as SampleModel;
                 Items.Add(newItem);

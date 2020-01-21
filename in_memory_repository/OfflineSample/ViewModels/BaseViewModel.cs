@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
+
 using OfflineSample.Data;
 
 namespace OfflineSample.ViewModels

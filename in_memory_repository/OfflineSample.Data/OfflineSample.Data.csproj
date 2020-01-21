@@ -8,10 +8,4 @@
     <PackageReference Include="MobCAT" Version="1.0.6951" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="MobCAT">
-      <HintPath>..\..\MobCAT\MobCAT\bin\Debug\netstandard2.1\MobCAT.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
