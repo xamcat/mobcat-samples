@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -100,9 +100,12 @@
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchFloat32></MtouchFloat32>
-    <MtouchEnableBitcode></MtouchEnableBitcode>
-    <BuildIpa></BuildIpa>
+    <MtouchFloat32>
+    </MtouchFloat32>
+    <MtouchEnableBitcode>
+    </MtouchEnableBitcode>
+    <BuildIpa>
+    </BuildIpa>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -118,66 +121,186 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\sunrise1.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\sunrise1.imageset\sunrise1.jpg" />
-    <ImageAsset Include="Assets.xcassets\sunrise2.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\sunrise2.imageset\sunrise2.jpg" />
-    <ImageAsset Include="Assets.xcassets\sunrise3.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\sunrise3.imageset\sunrise3.jpg" />
-    <ImageAsset Include="Assets.xcassets\sunrise4.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\sunrise4.imageset\sunrise4.jpg" />
-    <ImageAsset Include="Assets.xcassets\earth1.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\earth1.imageset\earth1.jpg" />
-    <ImageAsset Include="Assets.xcassets\earth2.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\earth2.imageset\earth2.jpg" />
-    <ImageAsset Include="Assets.xcassets\earth3.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\earth3.imageset\earth3.jpg" />
-    <ImageAsset Include="Assets.xcassets\earth4.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\earth4.imageset\earth4.jpg" />
-    <ImageAsset Include="Assets.xcassets\evening1.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\evening1.imageset\evening1.jpg" />
-    <ImageAsset Include="Assets.xcassets\evening2.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\evening2.imageset\evening2.jpg" />
-    <ImageAsset Include="Assets.xcassets\evening3.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\evening3.imageset\evening3.jpg" />
-    <ImageAsset Include="Assets.xcassets\evening4.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\evening4.imageset\evening4.jpg" />
-    <ImageAsset Include="Assets.xcassets\night1.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\night1.imageset\night1.jpg" />
-    <ImageAsset Include="Assets.xcassets\night2.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\night2.imageset\night2.jpg" />
-    <ImageAsset Include="Assets.xcassets\night3.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\night3.imageset\night3.jpg" />
-    <ImageAsset Include="Assets.xcassets\night4.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\night4.imageset\night4.jpg" />
-    <ImageAsset Include="Assets.xcassets\midday1.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\midday1.imageset\midday1.jpg" />
-    <ImageAsset Include="Assets.xcassets\midday2.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\midday2.imageset\midday2.jpg" />
-    <ImageAsset Include="Assets.xcassets\midday3.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\midday3.imageset\midday3.jpg" />
-    <ImageAsset Include="Assets.xcassets\midday4.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\midday4.imageset\midday4.jpg" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-40%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-20.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhoneXSMax.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhoneXR.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhoneX.png" />
-    <ImageAsset Include="Assets.xcassets\Launch.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Launch.imageset\iPhoneX.png" />
-    <ImageAsset Include="Assets.xcassets\Launch.imageset\iPhoneXSMax.png" />
+    <ImageAsset Include="Assets.xcassets\sunrise1.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sunrise1.imageset\sunrise1.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sunrise2.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sunrise2.imageset\sunrise2.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sunrise3.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sunrise3.imageset\sunrise3.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sunrise4.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sunrise4.imageset\sunrise4.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\earth1.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\earth1.imageset\earth1.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\earth2.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\earth2.imageset\earth2.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\earth3.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\earth3.imageset\earth3.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\earth4.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\earth4.imageset\earth4.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\evening1.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\evening1.imageset\evening1.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\evening2.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\evening2.imageset\evening2.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\evening3.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\evening3.imageset\evening3.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\evening4.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\evening4.imageset\evening4.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\night1.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\night1.imageset\night1.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\night2.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\night2.imageset\night2.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\night3.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\night3.imageset\night3.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\night4.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\night4.imageset\night4.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\midday1.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\midday1.imageset\midday1.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\midday2.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\midday2.imageset\midday2.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\midday3.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\midday3.imageset\midday3.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\midday4.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\midday4.imageset\midday4.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhoneXSMax.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhoneXR.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhoneX.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Launch.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Launch.imageset\iPhoneX.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Launch.imageset\iPhoneXSMax.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -188,7 +311,12 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
+    <PackageReference Include="MobCAT.Forms">
+      <Version>1.0.6964</Version>
+    </PackageReference>
+    <PackageReference Include="MobCAT.iOS">
+      <Version>1.0.6964</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.2</Version>
     </PackageReference>
@@ -201,6 +329,9 @@
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>2.0.0</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>4.4.0.991537</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.TestCloud.Agent">
       <Version>0.21.8</Version>
     </PackageReference>
@@ -210,14 +341,6 @@
       <Project>{597B8444-AEDB-4480-A0E3-D76A84BD2AE5}</Project>
       <Name>Weather</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\mobcat-library\MobCAT\MobCAT.csproj">
-      <Project>{BC919755-75C0-4E73-B231-59105D9A86A6}</Project>
-      <Name>MobCAT</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\mobcat-library\MobCAT.Forms\MobCAT.Forms.csproj">
-      <Project>{EBE47B69-3178-440A-894F-4493E84EFDE7}</Project>
-      <Name>MobCAT.Forms</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\OpenSans-Regular.ttf">
@@ -225,31 +348,7 @@
     </BundleResource>
     <BundleResource Include="Resources\WeatherIcons.ttf" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets.xcassets\sunrise1.imageset\" />
-    <Folder Include="Assets.xcassets\sunrise2.imageset\" />
-    <Folder Include="Assets.xcassets\sunrise3.imageset\" />
-    <Folder Include="Assets.xcassets\sunrise4.imageset\" />
-    <Folder Include="Assets.xcassets\earth1.imageset\" />
-    <Folder Include="Assets.xcassets\earth2.imageset\" />
-    <Folder Include="Assets.xcassets\earth3.imageset\" />
-    <Folder Include="Assets.xcassets\earth4.imageset\" />
-    <Folder Include="Assets.xcassets\evening1.imageset\" />
-    <Folder Include="Assets.xcassets\evening2.imageset\" />
-    <Folder Include="Assets.xcassets\evening3.imageset\" />
-    <Folder Include="Assets.xcassets\evening4.imageset\" />
-    <Folder Include="Assets.xcassets\night1.imageset\" />
-    <Folder Include="Assets.xcassets\night2.imageset\" />
-    <Folder Include="Assets.xcassets\night3.imageset\" />
-    <Folder Include="Assets.xcassets\night4.imageset\" />
-    <Folder Include="Assets.xcassets\midday1.imageset\" />
-    <Folder Include="Assets.xcassets\midday2.imageset\" />
-    <Folder Include="Assets.xcassets\midday3.imageset\" />
-    <Folder Include="Assets.xcassets\midday4.imageset\" />
-    <Folder Include="Renderers\" />
-    <Folder Include="Services\" />
-    <Folder Include="Assets.xcassets\Launch.imageset\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>

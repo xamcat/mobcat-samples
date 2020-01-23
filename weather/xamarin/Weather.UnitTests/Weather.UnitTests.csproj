@@ -17,7 +17,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Weather\Weather.csproj" />
-    <ProjectReference Include="..\..\..\..\mobcat-library\MobCAT\MobCAT.csproj" />
-    <ProjectReference Include="..\..\..\..\mobcat-library\MobCAT.Forms\MobCAT.Forms.csproj" />
   </ItemGroup>
 </Project>

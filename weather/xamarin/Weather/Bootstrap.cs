@@ -15,6 +15,7 @@ namespace Weather
         public static void Begin(Action platformSpecificBegin = null)
         {
             var navigationService = new NavigationService();
+
             navigationService.RegisterViewModels(typeof(MainPage).GetTypeInfo().Assembly);
 
             ServiceContainer.Register<INavigationService>(navigationService);
