@@ -16,4 +16,13 @@
     <ProjectReference Include="..\OfflineSample.Data.InMemory\OfflineSample.Data.InMemory.csproj" />
     <ProjectReference Include="..\OfflineSample.Data\OfflineSample.Data.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\RelationalItemDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RelationalItemsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

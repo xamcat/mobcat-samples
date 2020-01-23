@@ -5,9 +5,8 @@ using System.Text;
 
 namespace OfflineSample.Data.InMemory
 {
-    public class InMemorySampleRepository : BaseInMemoryRepository<SampleModel, InMemorySampleModel>, IOfflineSampleRepository
+    public class InMemorySampleRepository : BaseInMemoryRepository<SampleModel, InMemorySampleModel>, IOfflineSampleRepository<SampleModel>
     {
-
         protected override SampleModel ToModelType(InMemorySampleModel repositoryType) => repositoryType == null ? null : new SampleModel
         {
             Id = repositoryType.Id,

@@ -25,15 +25,8 @@ namespace OfflineSample.ViewModels
             {
                 var newItem = item as SampleModel;
                 Items.Add(newItem);
-                await DataStore.InsertItemAsync(newItem);
+                await SampleDataStore.InsertItemAsync(newItem);
             }); 
-            
-            MessagingCenter.Subscribe<RandomItemGeneratorService, SampleModel>(this, "AddItem", async (obj, item) =>
-            {
-                var newItem = item as SampleModel;
-                Items.Add(newItem);
-                await DataStore.InsertItemAsync(newItem);
-            });
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -46,7 +39,7 @@ namespace OfflineSample.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetAsync();
+                var items = await SampleDataStore.GetAsync();
                 foreach (var item in items)
                 {
                     Items.Add(item);

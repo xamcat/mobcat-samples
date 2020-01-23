@@ -42,11 +42,6 @@ namespace OfflineSample.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
         }
-        async void AddRandom_Clicked(object sender, EventArgs e)
-        {
-            var randomItemGeneratorService = new RandomItemGeneratorService();
-            randomItemGeneratorService.GenerateItems();
-        }
 
         protected override void OnAppearing()
         {

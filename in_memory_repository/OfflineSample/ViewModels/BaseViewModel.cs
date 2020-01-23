@@ -5,12 +5,13 @@ using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
 using OfflineSample.Data;
+using Microsoft.MobCAT.Repository;
 
 namespace OfflineSample.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IOfflineSampleRepository DataStore => DependencyService.Get<IOfflineSampleRepository>();
+        public IOfflineSampleRepository<SampleModel> SampleDataStore => DependencyService.Get<IOfflineSampleRepository<SampleModel>>();
 
         bool isBusy = false;
         public bool IsBusy
