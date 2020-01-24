@@ -1,4 +1,5 @@
 ﻿using OfflineSample.Data;
+using OfflineSample.Services;
 using OfflineSample.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace OfflineSample.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RelationalItemsPage : ContentPage
     {
+        private IItemGeneratorService ItemGeneratorService => DependencyService.Get<IItemGeneratorService>();
+
         RelationalItemsViewModel viewModel;
 
         public RelationalItemsPage()
@@ -35,9 +38,10 @@ namespace OfflineSample.Views
             ItemsListView.SelectedItem = null;
         }
 
-        async void AddItem_Clicked(object sender, EventArgs e)
+        async void AddUsers_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+            await ItemGeneratorService.GenerateUsersAsync(10, 10);
+            viewModel.LoadUsersCommand.Execute(null);
         }
 
         protected override void OnAppearing()

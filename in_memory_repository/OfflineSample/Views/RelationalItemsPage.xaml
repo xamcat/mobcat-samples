@@ -5,7 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="OfflineSample.Views.RelationalItemsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddUsers_Clicked" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
+
         <StackLayout>
             <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Users}"

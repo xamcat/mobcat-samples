@@ -38,10 +38,13 @@ namespace OfflineSample.ViewModels
             try
             {
                 Orders.Clear();
-                var items = await SampleOrderStore.GetAsync();
-                foreach (var item in items)
+                var items = await SampleOrderStore.ExecuteTableQueryAsync(a => a.UserId == User.Id);
+                if (items != null)
                 {
-                    Orders.Add(item);
+                    foreach (var item in items)
+                    {
+                        Orders.Add(item);
+                    }
                 }
             }
             catch (Exception ex)
