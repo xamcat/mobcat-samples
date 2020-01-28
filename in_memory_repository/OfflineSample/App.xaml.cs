@@ -13,8 +13,7 @@ namespace OfflineSample
             InitializeComponent();
 
             DependencyService.Register<InMemorySampleRepository>();
-            DependencyService.Register<InMemorySampleUserRepository>();
-            DependencyService.Register<InMemorySampleOrderRepository>();
+            DependencyService.Register<InMemorySampleRepositoryContext>(); //Repository context for relational items & operations
             DependencyService.Register<ItemGeneratorService>();
 
             MainPage = new AppShell();

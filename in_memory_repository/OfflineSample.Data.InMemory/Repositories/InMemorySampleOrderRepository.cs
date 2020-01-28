@@ -28,11 +28,20 @@ namespace OfflineSample.Data.InMemory
             Description = modelType.Description
         };
 
-        public async Task<IEnumerable<SampleOrderModel>> ExecuteTableQueryAsync(Expression<Func<SampleOrderModel, bool>> expression = null)
+        public async Task<IEnumerable<SampleOrderModel>> GetOrdersAsync(string userId)
         {
-            var convertedExpression = expression.Convert<InMemorySampleOrderModel, SampleOrderModel, bool>();
-            var repositoryTypeItems = await ExecuteTableQueryAsync(convertedExpression);
-            return repositoryTypeItems?.Select(a => ToModelType(a));
+            var ordersForUser = await ExecuteTableQueryAsync(a => a.UserId == userId);
+            return ordersForUser?.Select(a => ToModelType(a));
+        }
+
+        public async Task<IEnumerable<SampleOrderModel>> GetOrdersWithMinimumCountAsync(int minimumCount)
+        {
+            var orders = await GetAsync();
+            var ordersWithMinimumCount = orders
+                .GroupBy(a => a.UserId)
+                .Where(a => a.Count() >= minimumCount)
+                .SelectMany(a => a.Select(b=>b));
+            return ordersWithMinimumCount;
         }
     }
 }

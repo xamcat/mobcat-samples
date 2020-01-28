@@ -12,9 +12,7 @@ namespace OfflineSample.ViewModels
 {
     public class RelationalItemDetailViewModel : BaseViewModel
     {
-        private IOfflineSampleRepository<SampleUserModel> SampleUserStore => DependencyService.Get<IOfflineSampleRepository<SampleUserModel>>();
-
-        private IOfflineSampleRepository<SampleOrderModel> SampleOrderStore => DependencyService.Get<IOfflineSampleRepository<SampleOrderModel>>();
+        private IOfflineSampleRepositoryContext OfflineSampleRepositoryContext => DependencyService.Get<IOfflineSampleRepositoryContext>();
 
         public SampleUserModel User { get; set; }
         public ObservableCollection<SampleOrderModel> Orders { get; set; }
@@ -38,7 +36,7 @@ namespace OfflineSample.ViewModels
             try
             {
                 Orders.Clear();
-                var items = await SampleOrderStore.ExecuteTableQueryAsync(a => a.UserId == User.Id);
+                var items = await OfflineSampleRepositoryContext.GetOrdersForUserIdAsync(User.Id);
                 if (items != null)
                 {
                     foreach (var item in items)

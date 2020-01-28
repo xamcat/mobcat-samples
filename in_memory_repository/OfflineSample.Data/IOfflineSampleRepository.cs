@@ -9,7 +9,5 @@ using System.Threading.Tasks;
 namespace OfflineSample.Data
 {
     public interface IOfflineSampleRepository<T> : IBaseRepository<T> where T : BaseModel
-    {
-        Task<IEnumerable<T>> ExecuteTableQueryAsync(Expression<Func<T, bool>> expression = null);
-    }
+    { }
 }
