@@ -12,29 +12,33 @@ namespace OfflineSample.Services
     {
         private IOfflineSampleRepositoryContext OfflineSampleRepositoryContext => DependencyService.Get<IOfflineSampleRepositoryContext>();
 
-        public async Task GenerateUserAsync(int itemCount = 0)
+        public Task GenerateUserAsync(int itemCount = 0)
         {
             var newUser = CreateUser();
 
-            await OfflineSampleRepositoryContext.InsertUserAsync(newUser);
-
-            if (itemCount > 0)
+            return OfflineSampleRepositoryContext.InsertUserAsync(newUser).ContinueWith(task =>
             {
-                var newOrders = Enumerable.Repeat(newUser.Id, itemCount).Select(userId => GenerateOrder(userId));
-                await OfflineSampleRepositoryContext.InsertOrdersAsync(newOrders);
-            }
+                if (itemCount > 0)
+                {
+                    var newOrders = Enumerable.Repeat(newUser.Id, itemCount).Select(userId => GenerateOrder(userId));
+                    return OfflineSampleRepositoryContext.InsertOrdersAsync(newOrders);
+                }
+                return Task.CompletedTask;
+            }).Unwrap();
         }
 
-        public async Task GenerateUsersAsync(int userCount = 1, int orderCount = 0)
+        public Task GenerateUsersAsync(int userCount = 1, int orderCount = 0)
         {
             var newUsers = Enumerable.Repeat(this, userCount).Select(_ => CreateUser()).ToList(); //ToList to avoid deferred execution on the new users.
-            await OfflineSampleRepositoryContext.InsertUsersAsync(newUsers);
-
-            if (orderCount > 0)
+            return OfflineSampleRepositoryContext.InsertUsersAsync(newUsers).ContinueWith(task =>
             {
-                var newOrders = newUsers.SelectMany(a => Enumerable.Repeat(a.Id, orderCount).Select(userId => GenerateOrder(userId)));
-                await OfflineSampleRepositoryContext.InsertOrdersAsync(newOrders);
-            }
+                if (orderCount > 0)
+                {
+                    var newOrders = newUsers.SelectMany(a => Enumerable.Repeat(a.Id, orderCount).Select(userId => GenerateOrder(userId)));
+                    return OfflineSampleRepositoryContext.InsertOrdersAsync(newOrders);
+                }
+                return Task.CompletedTask;
+            }).Unwrap();
         }
 
         private SampleUserModel CreateUser()
