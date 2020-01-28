@@ -10,7 +10,7 @@ namespace Weather.Services
         public Task<T> RunOnMainThreadAsync<T>(Func<Task<T>> func)
         {
             var tcs = new TaskCompletionSource<T>();
-            MainThread.Run(async () =>
+            MainThread.RunAsync(async () =>
             {
                 try
                 {
