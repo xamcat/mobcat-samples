@@ -22,7 +22,6 @@ namespace OfflineSample.Views
         public RelationalItemsPage()
         {
             InitializeComponent();
-
             BindingContext = viewModel = new RelationalItemsViewModel();
         }
 
@@ -40,16 +39,29 @@ namespace OfflineSample.Views
 
         async void AddUsers_Clicked(object sender, EventArgs e)
         {
-            await ItemGeneratorService.GenerateUsersAsync(10, 10);
+            var random = new Random();
+            var userCount = random.Next(1, 10);
+            var orderCount = 0;
+            var minimumOrderCount = 0;
+            var maximumOrderCount = 5;
+            for (int i = 0; i < userCount; i++)
+            {
+                orderCount = random.Next(minimumOrderCount, maximumOrderCount + 1);
+                await ItemGeneratorService.GenerateUserAsync(orderCount);
+            }
             viewModel.LoadUsersCommand.Execute(null);
+            await DisplayAlert(title: "Success",
+                message: $"Generated {userCount} user(s) with {minimumOrderCount}-{maximumOrderCount} orders each.",
+                cancel: "Thanks");
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (viewModel.Users.Count == 0)
+            if (viewModel.Users == null || viewModel.Users.Count == 0)
+            {
                 viewModel.LoadUsersCommand.Execute(null);
+            }
         }
     }
 }

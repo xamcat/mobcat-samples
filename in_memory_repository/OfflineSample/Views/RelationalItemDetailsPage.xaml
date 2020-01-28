@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="OfflineSample.Views.RelationalItemDetailPage">
+             x:Class="OfflineSample.Views.RelationalItemDetailPage"
+             Title="{Binding Title}">
     <ContentPage.Content>
 
         <StackLayout>
@@ -14,7 +15,6 @@
                 HasUnevenRows="true"
                 RefreshCommand="{Binding LoadOrdersCommand}"
                 IsPullToRefreshEnabled="true"
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 CachingStrategy="RecycleElement">
                 <d:ListView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">

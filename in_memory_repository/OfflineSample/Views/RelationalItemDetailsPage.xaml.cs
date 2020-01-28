@@ -23,17 +23,11 @@ namespace OfflineSample.Views
             BindingContext = this.viewModel = viewModel;
         }
 
-        public RelationalItemDetailPage()
+        protected override void OnAppearing()
         {
-            InitializeComponent();
+            base.OnAppearing();
 
-            var user = new SampleUserModel
-            {
-                Name = "Sample User"
-            };
-
-            viewModel = new RelationalItemDetailViewModel(user);
-            BindingContext = viewModel;
+            viewModel.LoadOrdersCommand.Execute(null);
         }
     }
 }

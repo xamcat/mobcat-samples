@@ -4,13 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="OfflineSample.Views.RelationalItemsPage">
+             x:Class="OfflineSample.Views.RelationalItemsPage"
+             Title="{Binding Title}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddUsers_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-
         <StackLayout>
+            <Button Text="{Binding FilterButtonText}"
+                    Command="{Binding FilterCommand}"
+                    IsEnabled="{Binding IsFilterEnabled}"
+                    Margin="40,0"/>
             <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Users}"
                 VerticalOptions="FillAndExpand"

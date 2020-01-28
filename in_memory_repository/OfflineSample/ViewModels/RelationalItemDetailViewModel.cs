@@ -1,4 +1,6 @@
-﻿using OfflineSample.Data;
+﻿using Microsoft.MobCAT;
+using Microsoft.MobCAT.MVVM;
+using OfflineSample.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,10 +19,11 @@ namespace OfflineSample.ViewModels
         public SampleUserModel User { get; set; }
         public ObservableCollection<SampleOrderModel> Orders { get; set; }
         public Command LoadOrdersCommand { get; set; }
-
+               
         public RelationalItemDetailViewModel(SampleUserModel user = null)
         {
-            Title = $"{user?.Name} orders";
+            IsBusy = false;
+            Title = $"Orders for {user.Id}";
             User = user;
             Orders = new ObservableCollection<SampleOrderModel>();
             LoadOrdersCommand = new Command(async () => await ExecuteLoadOrdersCommand());
