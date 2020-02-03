@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Microsoft.MobCAT;
 using Weather.Services.Abstractions;
-using Xamarin.Essentials;
 
 namespace Weather.Services
 {
@@ -11,7 +10,7 @@ namespace Weather.Services
         public Task<T> RunOnMainThreadAsync<T>(Func<Task<T>> func)
         {
             var tcs = new TaskCompletionSource<T>();
-            MainThread.BeginInvokeOnMainThread(async () =>
+            MainThread.RunAsync(async () =>
             {
                 try
                 {
