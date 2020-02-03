@@ -9,7 +9,7 @@ This repository contains sample use cases for an in memory repository implementa
   
 ## Diagram
 Here is a diagram of how the sample implements the MobCAT repository pattern:
-
+![repository pattern graphic](repository_pattern_graphic.jpg)
 
 ## Reasoning/Rationale
 The pattern exposes high level methods through the InMemorySampleRepositoryContext which impelments IOfflineSampleRepositoryContext. To implement a different repository type (SQLite, EFCore, Akavache, etc), all it would need to do is implement IOfflineSampleRepositoryContext and be registered in App.xaml.cs.
