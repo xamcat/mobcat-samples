@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using OfflineSample.Views;
 using OfflineSample.ViewModels;
 using OfflineSample.Data;
+using OfflineSample.Services;
 
 namespace OfflineSample.Views
 {

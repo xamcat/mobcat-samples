@@ -5,6 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MobCAT" Version="1.0.6951" />
+    <PackageReference Include="MobCAT" Version="1.0.7125" />
   </ItemGroup>
 </Project>
