@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MobCAT" Version="1.0.6951" />
+    <PackageReference Include="MobCAT" Version="1.0.6964" />
     <PackageReference Include="Polly" Version="7.2.0" />
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991537" />  
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 
