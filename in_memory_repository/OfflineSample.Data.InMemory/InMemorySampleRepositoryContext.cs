@@ -24,8 +24,8 @@ namespace OfflineSample.Data.InMemory
                        .GetOrdersWithMinimumCountAsync(minimumOrderCount)
                        .ContinueWith(task =>
                            _inMemorySampleUserRepository.Value.GetUsersFromIds(task.Result
-                               .GroupBy(a => a.UserId)
-                               .Select(b => b.Key)))
+                               .Select(b => b.UserId)
+                               .Distinct()))
                                     .Unwrap();
         //Use ContinueWith and Unwrap to avoid multiple awaits: https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskextensions.unwrap?view=netframework-4.8
 

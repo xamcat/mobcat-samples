@@ -27,14 +27,9 @@ namespace OfflineSample.Data.InMemory
             return ordersForUser?.Select(a => ToModelType(a));
         }
 
-        public async Task<IEnumerable<SampleOrderModel>> GetOrdersWithMinimumCountAsync(int minimumCount)
-        {
-            var orders = await GetAsync();
-            var ordersWithMinimumCount = orders
-                .GroupBy(a => a.UserId)
-                .Where(a => a.Count() >= minimumCount)
-                .SelectMany(a => a.Select(b=>b));
-            return ordersWithMinimumCount;
-        }
+        public Task<IEnumerable<SampleOrderModel>> GetOrdersWithMinimumCountAsync(int minimumCount) => ExecuteTableQueryAsync<string>(expression: a => true,
+                groupingExpression: a => a.UserId).ContinueWith(task => task.Result.Where(a => a.Count() >= minimumCount)
+                        .SelectMany(a => a.Select(b => ToModelType(b)))
+                );
     }
 }
