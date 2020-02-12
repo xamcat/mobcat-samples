@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using OfflineSample.Data.InMemory;
+using OfflineSample.Services;
 
 namespace OfflineSample
 {
@@ -12,6 +13,9 @@ namespace OfflineSample
             InitializeComponent();
 
             DependencyService.Register<InMemorySampleRepository>();
+            DependencyService.Register<InMemorySampleRepositoryContext>(); //Repository context for relational items & operations
+            DependencyService.Register<ItemGeneratorService>();
+
             MainPage = new AppShell();
         }
 
