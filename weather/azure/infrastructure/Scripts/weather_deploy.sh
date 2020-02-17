@@ -10,7 +10,6 @@ for i in "$@"; do
         "" ) break ;;
         -t | --tenant  ) targetTenant="$2"; shift ;;
         -s | --subscription ) targetSubscription="$2"; shift ;;
-        -a | --admin ) adminUpnOrObjectId="$2"; shift ;;
         -k | --api-key ) apiKey="$2"; shift ;;
         -i | --openweathermap-appid ) openWeatherMapAppId="$2"; shift ;;
         -* | --*) echo "Unknown option: '$1'"; exit 1 ;;
@@ -32,12 +31,6 @@ then
     exit 1
 fi
 
-if [ -z "$adminUpnOrObjectId" ]
-then
-    echo "Missing --admin parameter"
-    exit 1
-fi
-
 if [ -z "$apiKey" ]
 then
     echo "Missing --api-key parameter"
@@ -49,10 +42,6 @@ then
     echo "Missing --openweathermap-appid parameter"
     exit 1
 fi
-
-echo "Account:"
-echo $adminUpnOrObjectId
-echo ""
 
 echo "Tenant:"
 echo $targetTenant
@@ -96,7 +85,7 @@ fi
 az account set --subscription $targetSubscription 1> /dev/null
 
 # Resolve adminId from user principal name or objectId
-adminId=$(az ad user show --upn $adminUpnOrObjectId --query "objectId" --output tsv)
+adminId=$(az ad signed-in-user show --query "objectId" --output tsv)
 
 echo "Creating or updating resource group"
 az group create \

@@ -91,18 +91,18 @@ Follow the steps below to provision the **WeatherService**, and the underlying r
 
     - subscription_id
     - tenant_id
-    - account_name
+
 7. Choose (or generate) an API key for **WeatherService**. This API key will be used to prevent the **WeatherService** unauthorized access. Use it as the **your_api_key** parameter later. There are a number of [guid generator](https://www.bing.com/search?q=guid+generator) tools available online which might help with this, however a passphrase would suffice for the purposes of this sample
 8. From **CMD**, call the respective **weather_deploy** script passing in the requisite parameters. For example:
 
     **macOS:**
     ```
-    ./weather_deploy.sh --tenant <tenant_id> --subscription <subscription_id> --admin <account_name> --openweathermap-appid <openweathermap_key> --api-key <your_api_key>
+    ./weather_deploy.sh --tenant <tenant_id> --subscription <subscription_id> --openweathermap-appid <openweathermap_key> --api-key <your_api_key>
     ```
 
     **Windows:**
     ```
-    weather_deploy.bat --tenant <tenant_id> --subscription <subscription_id> --admin <account_name> --openweathermap-appid <openweathermap_key> --api-key <your_api_key>
+    weather_deploy.bat --tenant <tenant_id> --subscription <subscription_id> --openweathermap-appid <openweathermap_key> --api-key <your_api_key>
     ```
 
 **NOTE:** The script may take upwards of 25 minutes to complete when executed for the first time. Templated deployments are incremental and subsequent executions will take significantly less time to complete.  
@@ -129,7 +129,7 @@ Follow the steps below to provision the **WeatherService**, and the underlying r
 ### Running locally
 You can also run the **WeatherService** locally for development and testing purposes using [Visual Studio](https://visualstudio.microsoft.com/vs/). The respective solution/workspace files can be found within the '*mobcat\samples\weather\azure*' directory.  
 
-To open with [Visual Studio 2017](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Enterprise&rel=15) or [Visual Studio for Mac](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio-mac/?sku=enterprisemac&rel=15) **double-click** on **WeatherService.sln** or **weather_service.code-workspace** to open with [Visual Studio Code](https://code.visualstudio.com/). 
+To open with [Visual Studio 2019](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Enterprise) **double-click** on **WeatherService.sln** or **weather_service.code-workspace** to open with [Visual Studio Code](https://code.visualstudio.com/). 
 
 #### Security warnings
 Your browser may present a security warning if you have not installed and trusted the appropraite local certificate. To address this you can  execute the *dev-certs* command (provided as part of the **.NET Core 2.1** tooling). For example:  
@@ -139,7 +139,9 @@ dotnet dev-certs https --trust
 ```
 
 #### Working with KeyVault locally using MSI (Managed Service Identity)
-When running the service locally you should ensure you are signed into Azure (via the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)) using the account that was used execute the script or one that has been subsequently given the same or greater [KeyVault](https://azure.microsoft.com/en-gb/services/key-vault/) permissions via **Access Policy**. Alternatively, you can use the [Azure Services Authentication](https://marketplace.visualstudio.com/items?itemName=chrismann.MicrosoftVisualStudioAsalExtension) extension for [Visual Studio 2017](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Enterprise&rel=15). Once installed, you can go to *Tools > Options > Azure Service Authentication* to choose an account and sign in.  
+When running the service locally you should ensure you are signed into Azure (via the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)) using the account that was used execute the script or one that has been subsequently given the same or greater [KeyVault](https://azure.microsoft.com/en-gb/services/key-vault/) permissions via **Access Policy**. 
+
+Alternatively, [Visual Studio 2019](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Enterprise) can handle this for you via *Tools > Options > Azure Service Authentication*. From here, you can choose an account and sign in.  
 
 You will also need to create a file called **localsettings.json** within the **WeatherService** folder (at the same level as the **WeatherService.csproj** file). This must contain the endpoint for your [KeyVault](https://azure.microsoft.com/en-gb/services/key-vault/) resource. For example:
 
