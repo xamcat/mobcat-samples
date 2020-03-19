@@ -1,6 +1,6 @@
 //
 //  BridgingHeader.h
-//  NotificationHubSample
+//  PushDemo
 //
 //  Created by Mike Parker on 27/04/2018.
 //  Copyright © 2018 mobcat. All rights reserved.

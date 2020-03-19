@@ -1,16 +1,16 @@
 //
-//  SasTokenUtility.swift
-//  NotificationHubSample
+//  TokenUtility.swift
+//  PushDemo
 //
-//  Created by Mike Parker on 06/07/2018.
+//  Created by Mike Parker on 27/04/2018.
 //  Copyright © 2018 mobcat. All rights reserved.
 //
 
 import Foundation
 
-struct TokenUtility {    
+struct TokenUtility {
     typealias Context = UnsafeMutablePointer<CCHmacContext>
-    
+
     static func getSasToken(forResourceUrl resourceUrl : String, withKeyName keyName : String, andKey key : String, andExpiryInSeconds expiryInSeconds : Int = 3600) -> TokenData {
         let expiry = (Int(NSDate().timeIntervalSince1970) + expiryInSeconds).description
         let encodedUrl = urlEncodedString(withString: resourceUrl)
@@ -20,34 +20,34 @@ struct TokenUtility {
         let encodedSignature = urlEncodedString(withString: signature)
         let sasToken = "SharedAccessSignature sr=\(encodedUrl)&sig=\(encodedSignature)&se=\(expiry)&skn=\(keyName)"
         let tokenData = TokenData(withToken: sasToken, andTokenExpiration: expiryInSeconds)
-        
+    
         return tokenData
     }
-    
+
     private static func sha256HMac(withData data : Data, andKey key : Data) -> Data {
         let context = Context.allocate(capacity: 1)
         CCHmacInit(context, CCHmacAlgorithm(kCCHmacAlgSHA256), (key as NSData).bytes, size_t((key as NSData).length))
         CCHmacUpdate(context, (data as NSData).bytes, (data as NSData).length)
         var hmac = Array<UInt8>(repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
         CCHmacFinal(context, &hmac)
-        
+    
         let result = NSData(bytes: hmac, length: hmac.count)
         context.deallocate()
-        
+    
         return result as Data
     }
-    
+
     private static func urlEncodedString(withString stringToConvert : String) -> String {
         var encodedString = ""
         let sourceUtf8 = (stringToConvert as NSString).utf8String
-        let length = strlen(sourceUtf8)
-        
+        let length = strlen(sourceUtf8!)
+    
         let charArray: [Character] = [ ".", "-", "_", "~", "a", "z", "A", "Z", "0", "9"]
         let asUInt8Array = String(charArray).utf8.map{ Int8($0) }
-        
+    
         for i in 0..<length {
             let currentChar = sourceUtf8![i]
-            
+        
             if (currentChar == asUInt8Array[0] || currentChar == asUInt8Array[1] || currentChar == asUInt8Array[2] || currentChar == asUInt8Array[3] ||
                 (currentChar >= asUInt8Array[4] && currentChar <= asUInt8Array[5]) ||
                 (currentChar >= asUInt8Array[6] && currentChar <= asUInt8Array[7]) ||
@@ -58,7 +58,7 @@ struct TokenUtility {
                 encodedString += String(format:"%%%02x", currentChar)
             }
         }
-        
+    
         return encodedString
     }
 }
