@@ -192,7 +192,7 @@ In this section, we will build the iOS app that will connect to the Notification
 
    The **notificationHubKeyName** and the **notificationHubKey** are found by navigating to **Access Policies**, clicking on the respective **Access Policy** e.g. *DefaultListenSharedAccessSignature*. Then copy from the **Primary Connection String** the value prefixed with *'SharedAccessKeyName='* for *notificationHubKeyName* and the value prefixed with *'SharedAccessKey='* for the **notificationHubKey**. The connection string should be in the following format:
     
-   ```
+   ```xml
    Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<notificationHubKeyName>;SharedAccessKey=<notificationHubKey>
    ```
 
@@ -367,7 +367,7 @@ In this step, we create a set of models to represent the [Notification Hub REST 
 
 The resulting token will be in the following format: 
 
-```
+```xml
 SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&sr=<UrlEncodedResourceUri>
 ```
 
@@ -397,7 +397,7 @@ For the purposes of this Swift example, we're going to use Apple's Open Source *
     #endif /* BridgingHeader_h */
     ```
 
-3. Update the Target’s **Build Settings** to reference the bridging header. This is done by opening the **Building Settings** tab and scrolling down to the **Swift Compiler - General** section. Ensure that the **Install Objective-C Compatibility Header** option set to **Yes** and enter the filepath to our bridging header into the **Objective-C Bridging Header** option i.e. *'\<ProjectName\>/BridgingHeader.h'*. If you can't find these options, ensure you have the **All** view selected (rather than **Basic** or **Customized**).
+3. Update the Target’s **Build Settings** to reference the bridging header. This is done by tapping on the **PushDemo** project and scrolling down to the **Swift Compiler - General** section. Ensure that the **Install Objective-C Compatibility Header** option set to **Yes** and enter the filepath to our bridging header into the **Objective-C Bridging Header** option i.e. *'\<ProjectName\>/BridgingHeader.h'*. If you can't find these options, ensure you have the **All** view selected (rather than **Basic** or **Customized**).
     
    There are many third-party Open Source wrapper libraries available which might make using **CommonCrypto** a bit more *'Swifty'*, however this is beyond the scope of this post.
 
@@ -476,7 +476,7 @@ For the purposes of this Swift example, we're going to use Apple's Open Source *
     print(tokenData.token)
     ```
 
-    **NOTE:** Be sure to replace the placeholder values in the **BaseAddress** string with your own
+    **NOTE:** Be sure to replace the placeholder values in the **baseAddress** string with your own
 
 ### Verifying the SAS token
 Before we implement the installation service in the client, we can check that our app is correctly generating the **SAS token** using your http utility of choice. For the purposes of this post, our tool of choice will be **Postman**.
@@ -648,14 +648,14 @@ The last step is to update **AppDelegate** to use the **NotifiationRegistrationS
 
 1. Open **AppDelegate.swift** and add class-level variables to store a reference to the **NoficiationRegistrationService** and the generic **PushTemplate**:
 
-    ```
+    ```swift
     var registrationService : NotificationRegistrationService?
     let genericTemplate = PushTemplate(withBody: "{\"aps\":{\"alert\":\"$(message)\"}}")
     ```
 
 2. In the same file, update the *didRegisterForRemoteNotificationsWithDeviceToken* function to initialize the **NotificationRegistrationService** with the requisite parameters, then call the *register* function.
 
-    ```
+    ```swift
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let installationId = (UIDevice.current.identifierForVendor?.description)!
         let pushChannel = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
@@ -690,7 +690,7 @@ At this stage, our app should have registered with **NotificationHub** and shoul
 ### Verifying the Device Installation
 We can now make the same request as we did earlier using **Postman** for [verifying the SAS token](#verifying-the-sas-token). Assuming that the **SAS token** has not expired, the response should now include the installation details we provided such as the templates and tags.  
 
-```
+```json
 {
     "installationId": "<installationId>",
     "pushChannel": "<pushChannel>",
@@ -741,7 +741,7 @@ We can send notifications via the respective [REST API](https://msdn.microsoft.c
 1. In **Postman**, open a new tab
 2. Set the request to **POST** and enter the following address:
 
-    ```
+    ```xml
     https://<namespace>.servicebus.windows.net/<hubName>/messages/?api-version=2015-01
     ```
 
@@ -756,7 +756,7 @@ We can send notifications via the respective [REST API](https://msdn.microsoft.c
 
 4. Configure the request **BODY** to use **RAW - JSON (application.json)** with the following JSON payload:
 
-    ```
+    ```json
     {
        "message" : "Hello from Postman!"
     }
@@ -764,7 +764,7 @@ We can send notifications via the respective [REST API](https://msdn.microsoft.c
 
 5. Click on the **Code** button (top-right under the **Save** button). The request should look similar to the example below:
 
-    ```
+    ```html
     POST /<hubName>/messages/?api-version=2015-01 HTTP/1.1
     Host: <namespace>.servicebus.windows.net
     Content-Type: application/json;charset=utf-8.
@@ -784,7 +784,7 @@ We can send notifications via the respective [REST API](https://msdn.microsoft.c
 We should get a **201 Created** success status code and receive the notification on the client device.
 
 # Wrapping up
-That's it! We should now have a basic iOS Swift app connected to a **Notification Hub** via the [REST API]((https://msdn.microsoft.com/en-us/library/azure/dn223264.aspx)) and should be able to send and receive notifications. My colleague [Ethan Dennis](http://www.ethandennis.me/) created an excellent post covering [registration through a backend service](http://www.ethandennis.me/2017/08/07/Azure-Notification-Hubs-Firebase-Cloud-Messaging/) which provides further examples including the use of multiple templates including a silent notification with an action. I have listed the resources referenced inline along with some further reading below.
+That's it! We should now have a basic iOS Swift app connected to a **Notification Hub** via the [REST API]((https://msdn.microsoft.com/en-us/library/azure/dn223264.aspx)) and should be able to send and receive notifications. For more information, see the following articles:
 
 - [Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview)
 - [Notification Hubs REST APIs](https://msdn.microsoft.com/en-us/library/azure/dn223264.aspx)
@@ -801,4 +801,4 @@ That's it! We should now have a basic iOS Swift app connected to a **Notificatio
 - [UNIX Epoch time](https://en.wikipedia.org/wiki/Unix_time)
 - [HMAC](https://en.wikipedia.org/wiki/HMAC)
 
-Here's the [source code](https://github.com) for the sample used in this post.
+The complete code for this walkthrough can be found [on GitHub](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_rest).
