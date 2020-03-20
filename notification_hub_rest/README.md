@@ -603,7 +603,7 @@ class NotificationRegistrationService {
     private func getSasToken() -> String {
         if (tokenData == nil ||
             tokenExpiryDate == nil ||
-            Date() < tokenExpiryDate!) {
+            Date() >= tokenExpiryDate!) {
             
             self.tokenData = TokenUtility.getSasToken(
                 forResourceUrl: getBaseAddress(),
