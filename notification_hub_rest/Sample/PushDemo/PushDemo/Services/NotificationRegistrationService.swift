@@ -1,8 +1,8 @@
 //
 //  NotificationRegistrationService.swift
-//  NotificationHubSample
+//  PushDemo
 //
-//  Created by Mike Parker on 04/05/2018.
+//  Created by Mike Parker on 27/04/2018.
 //  Copyright © 2018 mobcat. All rights reserved.
 //
 
@@ -22,13 +22,14 @@ class NotificationRegistrationService {
     private let keyName : String
     private let key : String
     private var tokenData : TokenData? = nil
+    private var tokenExpiryDate : Date? = nil
     
     init(withInstallationId installationId : String,
-         andPushChannel pushChannel : String,
-         andHubNamespace hubNamespace : String,
-         andHubName hubName : String,
-         andKeyName keyName : String,
-         andKey key: String) {
+            andPushChannel pushChannel : String,
+            andHubNamespace hubNamespace : String,
+            andHubName hubName : String,
+            andKeyName keyName : String,
+            andKey key: String) {
         self.installationId = installationId
         self.pushChannel = pushChannel
         self.hubNamespace = hubNamespace
@@ -70,8 +71,7 @@ class NotificationRegistrationService {
             
             (self.session.dataTask(with: request) { dat, res, err in
                 if let completion = completion {
-                     print((res as! HTTPURLResponse).statusCode)
-                     completion(err == nil && (res as! HTTPURLResponse).statusCode == 200)
+                        completion(err == nil && (res as! HTTPURLResponse).statusCode == 200)
                 }
             }).resume()
         }
@@ -83,8 +83,15 @@ class NotificationRegistrationService {
     
     private func getSasToken() -> String {
         if (tokenData == nil ||
-            Date(timeIntervalSince1970: Double((tokenData?.expiration)!)) < Date(timeIntervalSinceNow: -(5 * 60))) {
-            self.tokenData = TokenUtility.getSasToken(forResourceUrl: getBaseAddress(), withKeyName: self.keyName, andKey: self.key)
+            tokenExpiryDate == nil ||
+            Date() >= tokenExpiryDate!) {
+            
+            self.tokenData = TokenUtility.getSasToken(forResourceUrl: getBaseAddress(),
+                                                      withKeyName: self.keyName,
+                                                      andKey: self.key)
+            
+            self.tokenExpiryDate = Date(timeIntervalSinceNow: -(5 * 60))
+                .addingTimeInterval(TimeInterval(tokenData!.expiration))
         }
 
         return (tokenData?.token)!

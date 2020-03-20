@@ -1,8 +1,8 @@
 //
 //  DeviceInstallation.swift
-//  NotificationHubSample
+//  PushDemo
 //
-//  Created by Mike Parker on 04/05/2018.
+//  Created by Mike Parker on 27/04/2018.
 //  Copyright © 2018 mobcat. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ struct DeviceInstallation : Codable {
     let platform : String = "apns"
     var tags : [String]
     var templates : Dictionary<String, PushTemplate>
-    
+
     init(withInstallationId installationId : String, andPushChannel pushChannel : String) {
         self.installationId = installationId
         self.pushChannel = pushChannel
