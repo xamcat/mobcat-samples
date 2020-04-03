@@ -108,18 +108,66 @@ First we must configure the requisite certificate for the **Notification Hub**, 
     
        
 6. Click **Continue** and then **Register**
-7. In the **Developer Portal**, under **App IDs**, verify that the **App ID** you just created is listed
-8. Scroll to the **Push Notification** capability, then click the **Configure** button
-9. Click the **Create Certificate** button (under the **Development SSL Certificate** header). The **'Create a New Certificate'** assistant should now be visible. NOTE: you can alternatively [configure the hub using a token](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification) if you would prefer to do do 
-10. Verify that **iOS** is selected as the **Platform**, then click **Choose File** to upload the **CSR** file you created earlier, then click **Continue**
-11. Download the certificate to a convenient location
-12. In **Keychain Access**, choose **File > Import Items** to [import the downloaded certificate](https://support.apple.com/en-gb/guide/keychain-access/kyca35961/mac) (**.cer**) choosing the **login** Keychain as the destination in the **Destination Keychain** popup
-13. In **Keychain Access**, with the **login** Keychain and **Certificates** Category selected, **Command+Click** the new certificate, then click **Export**
-14. Choose the **.p12** format, provide a meaningful name and then click **Save**
-15. Provide a suitable password for the certificate (This will be required later)
+7. In the **Developer Portal**, under **Identifiers**, verify that the **App ID** you just created is listed
+8. Click on that **Identifier** to view the details (you will need these in the next step)
+
+### Creating a Certificate for Notification Hub
+A certificate is required to enable the **Notification Hub** to work with **APNS**. This can be done in one of two ways:
+
+1. Creating a **.p12** that can be uploaded directly to Notification Hub 
+2. Creating a **.p8** that can be used for [token-based authentication](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification) (*the newer approach*)
+
+The newer approach has a number of benefits (compared to using certificates) as documented in [Token-based (HTTP/2) authentication for APNS](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). However, steps have been provided for both approaches. 
+
+#### OPTION 1: Creating a **.p12** that can be uploaded directly to Notification Hub
+
+1. Scroll to the **Push Notification** capability, then click the **Configure** button
+2. Click the **Create Certificate** button (under the **Development SSL Certificate** header). The **'Create a New Certificate'** assistant should now be visible. 
+3. Verify that **iOS** is selected as the **Platform**, then click **Choose File** to upload the **CSR** file you created earlier, then click **Continue**
+4. Download the certificate to a convenient location
+5. In **Keychain Access**, choose **File > Import Items** to [import the downloaded certificate](https://support.apple.com/en-gb/guide/keychain-access/kyca35961/mac) (**.cer**) choosing the **login** Keychain as the destination in the **Destination Keychain** popup
+6. In **Keychain Access**, with the **login** Keychain and **Certificates** Category selected, **Command+Click** the new certificate, then click **Export**
+7. Choose the **.p12** format, provide a meaningful name and then click **Save**
+8. Provide a suitable password for the certificate (This will be required later)
+
+### OPTION 2: Creating a **.p8** that can be used for token-based authentication
+
+1. Take a note of the following details:
+
+    - **App ID Prefix** (a.k.a. **Team ID**)
+    - **Bundle ID**
+    
+2. Back in **Certificates, Identifiers & Profiles**, click **Keys**
+
+     **NOTE:** If you already have a key configured for APNS, you can re-use the .p8 certificate that you downloaded right after it was created. If so, you can ignore steps **3** through **5**.
+
+3. Click the **+** button (or the **Create a key** button) to create a new key
+4. Provide a suitable **Key Name** value, then tick to enable **Apple Push Notifications service (APNs)**, and then click **Continue**, followed by **Register** on the next screen
+5. Click **Download** and then move the .p8 file (prefixed with *AuthKey_*) to a secure local directory, then click **DONE**
+
+    **NOTE:** Be sure to keep this in a secure place (and save a backup). After downloading your key, it cannot be re-downloaded as the server copy is removed.
+
+6. On **Keys**, click on the key that you just created (or an existing key if you have chosen to use that instead)
+7. Take a note of the **Key ID** value
+8. Open the **.p8** certificate in a suitable application of your choice such as [**Visual Studio Code**](https://code.visualstudio.com) then take a note of the key value. This is the value between **-----BEGIN PRIVATE KEY-----** and **-----END PRIVATE KEY-----** 
+
+    ```
+    -----BEGIN PRIVATE KEY-----
+    <key_value>
+    -----END PRIVATE KEY-----
+    ```
+
+    **NOTE:** This is the **token value** that will be used later to configure **Notification Hub**
+
+At the end of these steps you should have the following information for use later in [Configuring the Notificiation Hub for Apple Push Notifications](#configuring-the-notificiation-hub-for-apple-push-notifications):
+
+- **Team ID** (see step 1)
+- **Bundle ID** (see step 1)
+- **Key ID** (see step 7)
+- **Token value** i.e. the .p8 key value (see step 8)
 
 ### Creating a provisioning profile for the app
-1. Back in the **Apple Developer Portal**, go back to **Certificates, Identifiers & Profiles**, then click **Profiles**
+1. In the **Apple Developer Portal**, go to **Certificates, Identifiers & Profiles**, then click **Profiles**
 2. Click the **+** button to create a new profile via the **iOS Provisioning Profile Wizard**
 3. Choose **iOS App Development** from the **Development** options as the profile type then click **Continue**
 4. Select the appropriate **App ID** (the one created in the [registering the app for push notifications](#registering-the-app-for-push-notifications) step) from the list, then click **Continue**
@@ -155,17 +203,39 @@ The next step is to provision and configure a Notitifation Hub in the [Azure Por
     
        
 4. Once the **Notification Hub** has been provisioned, navigate to that resource
+5. Navigate to your new **Notification Hub** in the **Azure Portal**	
+6. Select **Access Policies** from the list (under **MANAGE**)
+7. Take a note of the **Policy Name** values along with their corresponding **Connection String** values 
+8. Select **Apple (APNS)** from the list (under **Settings**) to view the default empty configuration settings
 
 ### Configuring the Notificiation Hub for Apple Push Notifications
-1. Navigate to your new **Notification Hub** in the **Azure Portal**	
-2. Select **Access Policies** from the list (under **MANAGE**)
-3. Take a note of the **Policy Name** values along with their corresponding **Connection String** values 
-4. Select **Apple (APNS)** from the list (under **Settings**)
-5. Choose **Certificate** for the **Authentication Mode**
-6. Upload the **.p12** file (exported as part of the [registering the app for push notifications](#registering-the-app-for-push-notifications) step)
-7. Specify the **Password** for the certificate
-8. Choose **Sandbox** as the **Application Mode**
-9. Click **Save** to ensure the changes are applied
+There are two options available; **Certificate** and **Token**. Follow the appropriate steps based on the approach you chose in the [Creating a Certificate for Notification Hub](#creating-a-certificate-for-notification-hub) section.
+
+- [OPTION 1: Creating a **.p12** that can be uploaded directly to Notification Hub](#option-1:-creating-a-.p12-that-can-be-uploaded-directly-to-notification-hub)
+- [OPTION 2: Creating a **.p8** that can be used for token-based authentication](#option-2:-creating-a-.p8-that-can-be-used-for-token-based-authentication)
+
+#### OPTION 1: Using a .p12 certificate
+
+1. Choose **Certificate** for the **Authentication Mode**
+2. Upload the **.p12** file (exported as part of the [registering the app for push notifications](#registering-the-app-for-push-notifications) step)
+3. Specify the **Password** for the certificate
+4. Choose **Sandbox** as the **Application Mode**
+5. Click **Save** to ensure the changes are applied
+
+#### OPTION 2: Using token-based authentication
+
+1. Choose **Token** for the **Authentication Mode**
+2. Enter the following values:
+
+    - **Key ID**
+    - **Bundle ID**
+    - **Team Id**
+    - **Token** 
+
+    **NOTE:** You should have made a note of these values when [creating the **.p8**](#option-2:-creating-a-.p8-that-can-be-used-for-token-based-authentication).
+
+3. Choose **Sandbox** as the **Application Mode**
+4. Click **Save** to ensure the changes are applied
 
 ## Xcode
 In this section, we will build the iOS app that will connect to the Notification Hub.  
@@ -786,19 +856,19 @@ We should get a **201 Created** success status code and receive the notification
 # Wrapping up
 That's it! We should now have a basic iOS Swift app connected to a **Notification Hub** via the [REST API]((https://msdn.microsoft.com/en-us/library/azure/dn223264.aspx)) and should be able to send and receive notifications. For more information, see the following articles:
 
+- [Apple Secirity: Common Crypto](https://developer.apple.com/security/)
 - [Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview)
+- [HMAC](https://en.wikipedia.org/wiki/HMAC)
+- [Notification Hubs: Registration Management](https://msdn.microsoft.com/en-us/library/azure/dn530747.aspx)
+- [Notification Hub: Register with application backend](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification)
 - [Notification Hubs REST APIs](https://msdn.microsoft.com/en-us/library/azure/dn223264.aspx)
 - [Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)
 - [Notification Hub SDK on GitHub](https://github.com/Azure/azure-notificationhubs)
-- [Notification Hub: Register with application backend](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification)
-- [Notification Hubs: Registration Management](https://msdn.microsoft.com/en-us/library/azure/dn530747.aspx)
-- [Notification Hubs: Working with Tag Expressions](https://msdn.microsoft.com/en-us/library/azure/dn530749.aspx) 
 - [Notifications Hubs: Working with Custom Templates](https://msdn.microsoft.com/en-us/library/azure/dn530748.aspx)
-- [Service Bus access control with Shared Access Signatures](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-sas)
+- [Notification Hubs: Working with Tag Expressions](https://msdn.microsoft.com/en-us/library/azure/dn530749.aspx) 
 - [Programmatically Generate SAS tokens](https://docs.microsoft.com/en-us/rest/api/eventhub/generate-sas-token)
-- [Azure Notification Hubs via Server Code](http://www.ethandennis.me/2017/08/07/Azure-Notification-Hubs-Firebase-Cloud-Messaging/)
-- [Apple Secirity: Common Crypto](https://developer.apple.com/security/)
+- [Service Bus access control with Shared Access Signatures](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-sas)
+- [Token-based (HTTP/2) authentication for APNS](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification)
 - [UNIX Epoch time](https://en.wikipedia.org/wiki/Unix_time)
-- [HMAC](https://en.wikipedia.org/wiki/HMAC)
 
 The complete code for this walkthrough can be found [on GitHub](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_rest).

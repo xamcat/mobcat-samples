@@ -1,5 +1,5 @@
 # Introduction 
-This repository contains sample projects that use the MobCAT [framework](https://github.com/xamcat/mobcat/tree/master/mobcat_shared)
+This repository contains sample projects that demonstrate the use the MobCAT [library](https://github.com/xamcat/mobcat-library) or addresses specific scenarios or challenges. 
 
 ## Build Status
 
@@ -27,18 +27,25 @@ This is a single page Xamarin.Forms sample that displays the weather forecast us
 [news](https://github.com/xamcat/mobcat-samples/tree/master/news)  
 This is a tabbed view Xamarin.Forms sample that displays news using a public News API
 
-### Sample Apps (coming soon)
-
-[communicator]()  
-Coming soon.
-
-[doggo]()  
-Woof coming soon. Bow wow.
-
 ### Other samples, prototypes and scratch projects
 
 [azure media services](https://github.com/xamcat/mobcat-samples/tree/master/azure_media_services)  
-Prototype demonstrating the ability to natively stream, download and play offline video protected by [Apple FairPlay](https://developer.apple.com/streaming/fps/) using [Azure Media Services](https://docs.microsoft.com/en-gb/azure/media-services/) and [Xamarin.iOS](https://docs.microsoft.com/en-us/xamarin/ios/)
+Prototype demonstrating the ability to natively stream, download and play offline video protected by [Apple FairPlay](https://developer.apple.com/streaming/fps/) using [Azure Media Services](https://docs.microsoft.com/en-gb/azure/media-services/) and [Xamarin.iOS](https://docs.microsoft.com/en-us/xamarin/ios/).
+
+[binding kotlin frameworks for xamarin](https://github.com/xamcat/xamarin-binding-kotlin-framework)  
+Walkthrough on binding third-party Android frameworks that are written in Kotlin so they can be used in Xamarin.Android applications. 
+
+[binding swift frameworks for xamarin](https://github.com/xamcat/xamarin-binding-swift-framework)  
+Walkthrough on binding third-party iOS frameworks that are written in Swift so they can be used in Xamarin.iOS applications. 
 
 [cpp with xamarin](https://github.com/xamcat/mobcat-samples/tree/master/cpp_with_xamarin)  
-Walkthrough of an approach to transforming some basic C/C++ source code into a cross-platform Xamarin library so it can be shared via NuGet and consumed in a Xamarin.Forms app
+Walkthrough of an approach to transforming some basic C/C++ source code into a cross-platform Xamarin library so it can be shared via NuGet and consumed in a Xamarin.Forms app.
+
+[in memory repository](https://github.com/xamcat/mobcat-samples/tree/master/in_memory_repository)  
+Demonstrates how to implement an in-memory repository by leveraging the base classes provided by the [MobCAT library](https://github.com/xamcat/mobcat-library/blob/master/docs/repository-inmemory-gettingstarted.md).
+
+[notification hub rest api](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_rest)  
+Walkthrough on how to create an [Azure Notification Hub](https://docs.microsoft.com/en-us/azure/notification-hubs), configure it for use with [APNS](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server), then work with it directly, using the preferred [installation approach](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-registration-management#installations), from a Swift-based client application using the [Notification Hub REST API](https://msdn.microsoft.com/en-us/library/azure/dn223264.aspx). 
+
+[sas token generation](https://github.com/xamcat/mobcat-samples/tree/master/sas_token_generation)  
+Prototype demonstrating how to programmatically generate a [SAS token](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-sas#overview-of-sas) for use with Azure services such as [Notification Hub](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview) using Objective-C or Swift. The [official documentation](https://docs.microsoft.com/en-us/rest/api/eventhub/generate-sas-token) already provides samples for other languages including [C#](https://docs.microsoft.com/en-us/rest/api/eventhub/generate-sas-token#c35).
