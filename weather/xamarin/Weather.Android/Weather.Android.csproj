@@ -44,7 +44,6 @@
     <EnableLLVM>true</EnableLLVM>
     <EnableProguard>true</EnableProguard>
     <AndroidLinkSkip>Weather.Android;MobCAT;MobCAT.Android;</AndroidLinkSkip>
-    <AndroidLinkMode>Full</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
