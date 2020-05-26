@@ -303,7 +303,7 @@ stages:
       displayName: Build UITests
       inputs:
         solution: 'weather/xamarin/Weather.UITests/Weather.UITests.csproj'
-        configuration: '$(BuildConfigurationiOS)'
+        configuration: '$(BuildConfiguration)'
 
     - task: AppCenterTest@1
       displayName: Upload Weather Android
