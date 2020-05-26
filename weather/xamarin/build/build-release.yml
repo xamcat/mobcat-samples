@@ -37,56 +37,59 @@ stages:
         packageType: sdk
         version: $(DotNetVersion)
 
-    - bash: |
-            # Check WeatherServiceApiKey exists
-            # Check WeatherServiceUrl exists
-            # Check AndroidAppCenterSecret exists
-            # Check iOSAppCenterSecret exists
-            
-            if [ ! -n $(WeatherServiceApiKey) ]
-            then
-                echo "You need define the WeatherServiceApiKey variable in VSTS"
-                exit
-            fi
-            
-            if [ ! -n $(WeatherServiceUrl) ]
-            then
-                echo "You need define the WeatherServiceUrl variable in VSTS"
-                exit
-            fi
-            
-            if [ ! -n $(AndroidAppCenterSecret) ]
-            then
-                echo "You need define the AndroidAppCenterSecret variable in VSTS"
-                exit
-            fi
-            
-            if [ ! -n $(iOSAppCenterSecret) ]
-            then
-                echo "You need define the iOSAppCenterSecret variable in VSTS"
-                exit
-            fi
-            
-            APP_CONSTANT_FILE=weather/xamarin/Weather/ServiceConfig.cs
-            
-            if [ -e "$APP_CONSTANT_FILE" ]
-            then
-                echo "Updating App Secret Values to WeatherServiceApiKey in ServiceConfig.cs"
-                sed -i '' 's#WeatherServiceApiKey = "[a-z:./\\_]*"#WeatherServiceApiKey = "$(WeatherServiceApiKey)"#' $APP_CONSTANT_FILE
-            
-              echo "Updating App Secret Values to WeatherServiceUrl in ServiceConfig.cs"
-                sed -i '' 's#WeatherServiceUrl = "[a-z:./\\_]*"#WeatherServiceUrl = "$(WeatherServiceUrl)"#' $APP_CONSTANT_FILE
-            
-              echo "Updating App Secret Values to AndroidAppCenterSecret in ServiceConfig.cs"
-                sed -i '' 's#AndroidAppCenterSecret = "[a-z:./\\_]*"#AndroidAppCenterSecret = "$(AndroidAppCenterSecret)"#' $APP_CONSTANT_FILE
-            
-              echo "Updating App Secret Values to iOSAppCenterSecret in ServiceConfig.cs"
-                sed -i '' 's#iOSAppCenterSecret = "[a-z:./\\_]*"#iOSAppCenterSecret = "$(iOSAppCenterSecret)"#' $APP_CONSTANT_FILE
-            
-                echo "File content:"
-                cat $APP_CONSTANT_FILE
-            fi
-        displayName: 'Add App Secrets'
+    - task: Bash@3
+      displayName: 'Add AppCenter Secrets'
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Check WeatherServiceApiKey exists
+                      # Check WeatherServiceUrl exists
+                      # Check AndroidAppCenterSecret exists
+                      # Check iOSAppCenterSecret exists
+                      
+                      if [ ! -n $(WeatherServiceApiKey) ]
+                      then
+                          echo "You need define the WeatherServiceApiKey variable in VSTS"
+                          exit
+                      fi
+                      
+                      if [ ! -n $(WeatherServiceUrl) ]
+                      then
+                          echo "You need define the WeatherServiceUrl variable in VSTS"
+                          exit
+                      fi
+                      
+                      if [ ! -n $(AndroidAppCenterSecret) ]
+                      then
+                          echo "You need define the AndroidAppCenterSecret variable in VSTS"
+                          exit
+                      fi
+                      
+                      if [ ! -n $(iOSAppCenterSecret) ]
+                      then
+                          echo "You need define the iOSAppCenterSecret variable in VSTS"
+                          exit
+                      fi
+                      
+                      APP_CONSTANT_FILE=weather/xamarin/Weather/ServiceConfig.cs
+                      
+                      if [ -e "$APP_CONSTANT_FILE" ]
+                      then
+                          echo "Updating App Secret Values to WeatherServiceApiKey in ServiceConfig.cs"
+                          sed -i '' 's#WeatherServiceApiKey = "[a-z:./\\_]*"#WeatherServiceApiKey = "$(WeatherServiceApiKey)"#' $APP_CONSTANT_FILE
+                      
+                        echo "Updating App Secret Values to WeatherServiceUrl in ServiceConfig.cs"
+                          sed -i '' 's#WeatherServiceUrl = "[a-z:./\\_]*"#WeatherServiceUrl = "$(WeatherServiceUrl)"#' $APP_CONSTANT_FILE
+                      
+                        echo "Updating App Secret Values to AndroidAppCenterSecret in ServiceConfig.cs"
+                          sed -i '' 's#AndroidAppCenterSecret = "[a-z:./\\_]*"#AndroidAppCenterSecret = "$(AndroidAppCenterSecret)"#' $APP_CONSTANT_FILE
+                      
+                        echo "Updating App Secret Values to iOSAppCenterSecret in ServiceConfig.cs"
+                          sed -i '' 's#iOSAppCenterSecret = "[a-z:./\\_]*"#iOSAppCenterSecret = "$(iOSAppCenterSecret)"#' $APP_CONSTANT_FILE
+                      
+                          echo "File content:"
+                          cat $APP_CONSTANT_FILE
+                      fi
 
     - task: NuGetToolInstaller@1
       displayName: Use Nuget $(NugetToolVersion)
@@ -143,56 +146,59 @@ stages:
         packageType: sdk
         version: $(DotNetVersion)
     
-    - bash: |
+    - task: Bash@3
+      displayName: 'Add AppCenter Secrets'
+      inputs:
+        targetType: 'inline'
+        script: |
           # Check WeatherServiceApiKey exists
-          # Check WeatherServiceUrl exists
-          # Check AndroidAppCenterSecret exists
-          # Check iOSAppCenterSecret exists
-          
-          if [ ! -n $(WeatherServiceApiKey) ]
-          then
-              echo "You need define the WeatherServiceApiKey variable in VSTS"
-              exit
-          fi
-          
-          if [ ! -n $(WeatherServiceUrl) ]
-          then
-              echo "You need define the WeatherServiceUrl variable in VSTS"
-              exit
-          fi
-          
-          if [ ! -n $(AndroidAppCenterSecret) ]
-          then
-              echo "You need define the AndroidAppCenterSecret variable in VSTS"
-              exit
-          fi
-          
-          if [ ! -n $(iOSAppCenterSecret) ]
-          then
-              echo "You need define the iOSAppCenterSecret variable in VSTS"
-              exit
-          fi
-          
-          APP_CONSTANT_FILE=weather/xamarin/Weather/ServiceConfig.cs
-          
-          if [ -e "$APP_CONSTANT_FILE" ]
-          then
-              echo "Updating App Secret Values to WeatherServiceApiKey in ServiceConfig.cs"
-              sed -i '' 's#WeatherServiceApiKey = "[a-z:./\\_]*"#WeatherServiceApiKey = "$(WeatherServiceApiKey)"#' $APP_CONSTANT_FILE
-          
-            echo "Updating App Secret Values to WeatherServiceUrl in ServiceConfig.cs"
-              sed -i '' 's#WeatherServiceUrl = "[a-z:./\\_]*"#WeatherServiceUrl = "$(WeatherServiceUrl)"#' $APP_CONSTANT_FILE
-          
-            echo "Updating App Secret Values to AndroidAppCenterSecret in ServiceConfig.cs"
-              sed -i '' 's#AndroidAppCenterSecret = "[a-z:./\\_]*"#AndroidAppCenterSecret = "$(AndroidAppCenterSecret)"#' $APP_CONSTANT_FILE
-          
-            echo "Updating App Secret Values to iOSAppCenterSecret in ServiceConfig.cs"
-              sed -i '' 's#iOSAppCenterSecret = "[a-z:./\\_]*"#iOSAppCenterSecret = "$(iOSAppCenterSecret)"#' $APP_CONSTANT_FILE
-          
-              echo "File content:"
-              cat $APP_CONSTANT_FILE
-          fi
-        displayName: 'Add App Secrets'
+                      # Check WeatherServiceUrl exists
+                      # Check AndroidAppCenterSecret exists
+                      # Check iOSAppCenterSecret exists
+                      
+                      if [ ! -n $(WeatherServiceApiKey) ]
+                      then
+                          echo "You need define the WeatherServiceApiKey variable in VSTS"
+                          exit
+                      fi
+                      
+                      if [ ! -n $(WeatherServiceUrl) ]
+                      then
+                          echo "You need define the WeatherServiceUrl variable in VSTS"
+                          exit
+                      fi
+                      
+                      if [ ! -n $(AndroidAppCenterSecret) ]
+                      then
+                          echo "You need define the AndroidAppCenterSecret variable in VSTS"
+                          exit
+                      fi
+                      
+                      if [ ! -n $(iOSAppCenterSecret) ]
+                      then
+                          echo "You need define the iOSAppCenterSecret variable in VSTS"
+                          exit
+                      fi
+                      
+                      APP_CONSTANT_FILE=weather/xamarin/Weather/ServiceConfig.cs
+                      
+                      if [ -e "$APP_CONSTANT_FILE" ]
+                      then
+                          echo "Updating App Secret Values to WeatherServiceApiKey in ServiceConfig.cs"
+                          sed -i '' 's#WeatherServiceApiKey = "[a-z:./\\_]*"#WeatherServiceApiKey = "$(WeatherServiceApiKey)"#' $APP_CONSTANT_FILE
+                      
+                        echo "Updating App Secret Values to WeatherServiceUrl in ServiceConfig.cs"
+                          sed -i '' 's#WeatherServiceUrl = "[a-z:./\\_]*"#WeatherServiceUrl = "$(WeatherServiceUrl)"#' $APP_CONSTANT_FILE
+                      
+                        echo "Updating App Secret Values to AndroidAppCenterSecret in ServiceConfig.cs"
+                          sed -i '' 's#AndroidAppCenterSecret = "[a-z:./\\_]*"#AndroidAppCenterSecret = "$(AndroidAppCenterSecret)"#' $APP_CONSTANT_FILE
+                      
+                        echo "Updating App Secret Values to iOSAppCenterSecret in ServiceConfig.cs"
+                          sed -i '' 's#iOSAppCenterSecret = "[a-z:./\\_]*"#iOSAppCenterSecret = "$(iOSAppCenterSecret)"#' $APP_CONSTANT_FILE
+                      
+                          echo "File content:"
+                          cat $APP_CONSTANT_FILE
+                      fi
           
     - task: NuGetToolInstaller@1
       displayName: Use Nuget $(NugetToolVersion)
@@ -293,14 +299,6 @@ stages:
         nugetConfigPath: weather/xamarin/build/nuget.config
         externalFeedCredentials: GitHubPackageRelease
 
-    # - task: Bash@3
-    #   inputs:
-    #     targetType: 'inline'
-    #     script: |
-    #       cd $(System.DefaultWorkingDirectory)/packages
-          
-    #       ls -a
-
     - task: MSBuild@1
       displayName: Build UITests
       inputs:
@@ -308,7 +306,7 @@ stages:
         configuration: '$(BuildConfigurationiOS)'
 
     - task: AppCenterTest@1
-      displayName: Upload SQL Android
+      displayName: Upload Weather Android
       inputs:
         appFile: '$(Build.SourcesDirectory)/weather/xamarin/Weather.Android/bin/$(BuildConfiguration)/*.apk'
         artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
@@ -323,7 +321,7 @@ stages:
         runOptions: '--test-output-dir $(Build.ArtifactStagingDirectory)/AppCenterTestResult'
         
     - task: AppCenterTest@1
-      displayName: Upload SQL iOS
+      displayName: Upload Weather iOS
       inputs:
         appFile: '$(Build.SourcesDirectory)/weather/xamarin/Weather.iOS/bin/iPhone/Debug/*.ipa'
         artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
