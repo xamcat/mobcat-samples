@@ -225,12 +225,12 @@ stages:
 
     - script: echo Build Weather Xamarin.Forms.iOS!
         
-    - task: MSBuild@1
-      displayName: 'Build  Weather Xamarin.Forms.iOS App'
+    - task: XamariniOS@2
       inputs:
-        solution: weather/xamarin/Weather.sln #yaml runs from root folder of repo
-        platform: iPhone
-        configuration: '$(BuildConfiguration)'
+        solutionFile: 'weather/xamarin/Weather.sln'
+        configuration: 'Debug'
+        packageApp: true
+        runNugetRestore: false
 
     - task: CopyFiles@2
       inputs:
