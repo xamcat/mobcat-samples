@@ -24,7 +24,7 @@ namespace Weather.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
-#if ENABLE_TEST_CLOUD
+#if DEBUG
             Xamarin.Calabash.Start();
 #endif
 
