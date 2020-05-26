@@ -245,7 +245,82 @@ stages:
   
 - stage: UploadtoTestCloud
   jobs: 
-  - job: UploadtoTestCloud
+  - job: iOSTestCloud
+    displayName: Upload to Test Cloud
+    pool:
+      name: Hosted macOS
+      vmImage: 'macOS-latest'
+      demands:
+      - xcode
+      - Xamarin.iOS
+      - msbuild
+
+    steps:
+    - script: echo Upload to Test Cloud!
+
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'current'
+        targetPath: '$(Pipeline.Workspace)'
+
+    # - task: CopyFiles@2
+    #   inputs:
+    #     SourceFolder: '$(Pipeline.Workspace)/drop_droid'
+    #     Contents: '**'
+    #     TargetFolder: '$(Build.SourcesDirectory)'
+
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(Pipeline.Workspace)/drop_ios'
+        Contents: '**'
+        TargetFolder: '$(Build.SourcesDirectory)'
+
+    - task: Bash@3
+      displayName: 'Set Mono Version 6.8.0'
+      inputs:
+        targetType: 'inline'
+        script: 'sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh $(MonoVersion)'
+
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core sdk'
+      inputs:
+        packageType: sdk
+        version: $(DotNetVersion)
+
+    - task: NuGetToolInstaller@1
+      displayName: Use Nuget $(NugetToolVersion)
+      inputs:
+        versionSpec: $(NugetToolVersion)
+
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: weather/xamarin/Weather.sln
+        feedsToUse: config
+        nugetConfigPath: weather/xamarin/build/nuget.config
+        externalFeedCredentials: GitHubPackageRelease
+
+    - task: MSBuild@1
+      displayName: Build UITests
+      inputs:
+        solution: 'weather/xamarin/Weather.UITests/Weather.UITests.csproj'
+        configuration: '$(BuildConfiguration)'
+        
+    - task: AppCenterTest@1
+      displayName: Upload Weather iOS
+      inputs:
+        appFile: '$(Build.SourcesDirectory)/weather/xamarin/Weather.iOS/bin/iPhone/Debug/*.ipa'
+        artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+        frameworkOption: 'uitest'
+        uiTestBuildDirectory: 'weather/xamarin/Weather.UITests/bin/$(BuildConfigurationiOS)'
+        # uiTestToolsDirectory: '$(UITestToolsDirectory)'
+        credentialsOption: 'serviceEndpoint'
+        serverEndpoint: 'App Center'
+        appSlug: '$(AppCenteriOSSlug)'
+        devices: '$(iOSDevices)'
+        localeOption: 'en_US'
+        runOptions: '--test-output-dir $(Build.ArtifactStagingDirectory)/AppCenterTestResult'
+
+  - job: DroidTestCloud
     displayName: Upload to Test Cloud
     pool:
       name: Hosted macOS
@@ -269,11 +344,11 @@ stages:
         Contents: '**'
         TargetFolder: '$(Build.SourcesDirectory)'
 
-    - task: CopyFiles@2
-      inputs:
-        SourceFolder: '$(Pipeline.Workspace)/drop_ios'
-        Contents: '**'
-        TargetFolder: '$(Build.SourcesDirectory)'
+    # - task: CopyFiles@2
+    #   inputs:
+    #     SourceFolder: '$(Pipeline.Workspace)/drop_ios'
+    #     Contents: '**'
+    #     TargetFolder: '$(Build.SourcesDirectory)'
 
     - task: Bash@3
       displayName: 'Set Mono Version 6.8.0'
@@ -312,7 +387,7 @@ stages:
         artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
         frameworkOption: 'uitest'
         uiTestBuildDirectory: 'weather/xamarin/Weather.UITests/bin/$(BuildConfigurationiOS)'
-        uiTestToolsDirectory: '$(UITestToolsDirectory)'
+        # uiTestToolsDirectory: '$(UITestToolsDirectory)'
         credentialsOption: 'serviceEndpoint'
         serverEndpoint: 'App Center'
         appSlug: '$(AppCenterDroidSlug)'
@@ -320,17 +395,17 @@ stages:
         localeOption: 'en_US'
         runOptions: '--test-output-dir $(Build.ArtifactStagingDirectory)/AppCenterTestResult'
         
-    - task: AppCenterTest@1
-      displayName: Upload Weather iOS
-      inputs:
-        appFile: '$(Build.SourcesDirectory)/weather/xamarin/Weather.iOS/bin/iPhone/Debug/*.ipa'
-        artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
-        frameworkOption: 'uitest'
-        uiTestBuildDirectory: 'weather/xamarin/Weather.UITests/bin/$(BuildConfigurationiOS)'
-        uiTestToolsDirectory: '$(UITestToolsDirectory)'
-        credentialsOption: 'serviceEndpoint'
-        serverEndpoint: 'App Center'
-        appSlug: '$(AppCenteriOSSlug)'
-        devices: '$(iOSDevices)'
-        localeOption: 'en_US'
-        runOptions: '--test-output-dir $(Build.ArtifactStagingDirectory)/AppCenterTestResult'
+    # - task: AppCenterTest@1
+    #   displayName: Upload Weather iOS
+    #   inputs:
+    #     appFile: '$(Build.SourcesDirectory)/weather/xamarin/Weather.iOS/bin/iPhone/Debug/*.ipa'
+    #     artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+    #     frameworkOption: 'uitest'
+    #     uiTestBuildDirectory: 'weather/xamarin/Weather.UITests/bin/$(BuildConfigurationiOS)'
+    #     uiTestToolsDirectory: '$(UITestToolsDirectory)'
+    #     credentialsOption: 'serviceEndpoint'
+    #     serverEndpoint: 'App Center'
+    #     appSlug: '$(AppCenteriOSSlug)'
+    #     devices: '$(iOSDevices)'
+    #     localeOption: 'en_US'
+    #     runOptions: '--test-output-dir $(Build.ArtifactStagingDirectory)/AppCenterTestResult'
