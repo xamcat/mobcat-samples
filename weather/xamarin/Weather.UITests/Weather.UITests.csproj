@@ -47,7 +47,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Xamarin.UITest">
-      <Version>3.0.7</Version>
+      <Version>3.0.8-dev1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.UITest.POP">
       <Version>1.0.0</Version>
