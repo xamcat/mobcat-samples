@@ -1,0 +1,363 @@
+variables:
+    BuildConfigurationiOS: Debug
+    BuildConfigurationAndroid: Release
+    NugetToolVersion: 5.4.0
+    DotNetVersion: 3.1.x
+    MonoVersion: 6_8_0
+    xcodeRoot: /Applications/Xcode_11.2.1.app
+    androidDevices: 9f06dbb6
+    iOSDevices: 212a1716
+    # UITestToolsDirectory: /Users/vsts/.nuget/packages/xamarin.uitest/3.0.6/tools
+    UITestToolsDirectory: $(System.DefaultWorkingDirectory)/packages/xamarin.uitest/3.0.5/tools
+
+
+stages:
+- stage: BuildXamarinApps
+  jobs:
+  - job: BuildXamarinAndroid
+    displayName: Build Xamarin.Android App
+    pool:
+      name: Hosted macOS
+      vmImage: 'macOS-latest'
+      demands:
+      - MSBuild
+      - Xamarin.Android
+      
+    steps:
+    - task: Bash@3
+      displayName: 'Set Mono Version 6.8.0'
+      inputs:
+        targetType: 'inline'
+        script: 'sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh $(MonoVersion)'
+
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core sdk'
+      inputs:
+        packageType: sdk
+        version: $(DotNetVersion)
+
+    - bash: |
+   # Check NewsServiceApiKey exists
+   # Check AndroidAppCenterSecret exists
+   # Check iOSAppCenterSecret exists
+   
+   if [ ! -n $(NewsServiceApiKey) ]
+   then
+       echo "You need define the WeatherServiceApiKey variable in VSTS"
+       exit
+   fi
+   
+   if [ ! -n $(AndroidAppCenterSecret) ]
+   then
+       echo "You need define the AndroidAppCenterSecret variable in VSTS"
+       exit
+   fi
+   
+   if [ ! -n $(iOSAppCenterSecret) ]
+   then
+       echo "You need define the iOSAppCenterSecret variable in VSTS"
+       exit
+   fi
+   
+   APP_CONSTANT_FILE=samples/news/News/ServiceConfig.cs
+   
+   if [ -e "$APP_CONSTANT_FILE" ]
+   then
+       echo "Updating App Secret Values to NewsServiceApiKey in ServiceConfig.cs"
+       sed -i '' 's#NewsServiceApiKey = "[a-z:./\\_]*"#NewsServiceApiKey = "$(NewsServiceApiKey)"#' $APP_CONSTANT_FILE
+   
+    echo "Updating App Secret Values to AndroidAppCenterSecret in ServiceConfig.cs"
+       sed -i '' 's#AndroidAppCenterSecret = "[a-z:./\\_]*"#AndroidAppCenterSecret = "$(AndroidAppCenterSecret)"#' $APP_CONSTANT_FILE
+   
+    echo "Updating App Secret Values to iOSAppCenterSecret in ServiceConfig.cs"
+       sed -i '' 's#iOSAppCenterSecret = "[a-z:./\\_]*"#iOSAppCenterSecret = "$(iOSAppCenterSecret)"#' $APP_CONSTANT_FILE
+   
+       echo "File content:"
+       cat $APP_CONSTANT_FILE
+   fi
+  displayName: 'Update App Secrets'
+
+    - task: NuGetToolInstaller@1
+      displayName: Use Nuget $(NugetToolVersion)
+      inputs:
+        versionSpec: $(NugetToolVersion)
+
+    - task: NuGetCommand@2
+      inputs:
+        command: 'restore'
+        restoreSolution: 'SimpleRepositorySample.sln'
+        feedsToUse: 'config'
+        nugetConfigPath: 'build/Nuget.config'
+        externalFeedCredentials: 'GitHubPackageRelease'
+
+    - script: echo Build News Xamarin.Android!
+
+    - task: XamarinAndroid@1
+      displayName: 'Build News.Android App'
+      inputs:
+        projectFile: news/News.Android/News.Android.csproj #yaml runs from root folder of repo
+        configuration: '$(BuildConfigurationAndroid)'
+        createAppPackage: true
+
+    - task: CopyFiles@2
+      inputs:
+        Contents: 'SimpleRepository.Test.SQLite.SQLiteNet.Android/bin/Release/*.apk'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+    - task: InstallAppleProvisioningProfile@1
+      inputs:
+        provisioningProfileLocation: 'secureFiles'
+        provProfileSecureFile: 'VS_WildCard_Development.mobileprovision'
+
+    - task: InstallAppleCertificate@2
+      inputs:
+        certSecureFile: 'Sweek_Dev_Cert.p12'
+        certPwd: '$(CertPassword)'
+        keychain: 'temp'
+
+    - script: echo Build SQLite iOS!
+        
+    # - task: MSBuild@1
+    #   displayName: 'Build  SQLite.iOS App'
+    #   inputs:
+    #     solution: SimpleRepositorySample.sln #yaml runs from root folder of repo
+    #     platform: iPhone
+    #     configuration: '$(BuildConfigurationiOS)'
+
+    - task: XamariniOS@2
+      inputs:
+        solutionFile: 'SimpleRepositorySample.sln'
+        configuration: 'Debug'
+        packageApp: true
+        runNugetRestore: false
+    
+    - task: CopyFiles@2
+      inputs:
+        Contents: 'SimpleRepository.Test.SQLite.SQLiteNet.iOS/bin/iPhone/Debug/*.ipa'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop_sql'
+        publishLocation: 'Container'
+
+  - job: BuildTargetAppEFCore
+    displayName: Build EFCore App
+    pool:
+      name: Hosted macOS
+      vmImage: 'macOS 10.14'
+      demands:
+      - MSBuild
+      - Xamarin.Android
+      - Xamarin.iOS
+
+    steps:
+    - task: Bash@3
+      displayName: 'Set Mono Version 6.4.0'
+      inputs:
+        targetType: 'inline'
+        script: 'sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh $(MonoVersion)'
+
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core sdk'
+      inputs:
+        packageType: sdk
+        version: $(DotNetVersion)
+
+    
+    - task: PowerShell@2
+      displayName: "Update Constants file with connection string."
+      inputs:
+        filePath: 'build/set-azureconnection.ps1'
+        arguments: '$(ConstantsFile) $(StorageString)'
+          
+    - task: NuGetToolInstaller@1
+      displayName: Use Nuget $(NugetToolVersion)
+      inputs:
+        versionSpec: $(NugetToolVersion)
+
+    - task: NuGetCommand@2
+      inputs:
+        command: 'restore'
+        restoreSolution: 'SimpleRepositorySample.sln'
+        feedsToUse: 'config'
+        nugetConfigPath: 'build/Nuget.config'
+        externalFeedCredentials: 'GitHubPackageRelease'
+
+    - script: echo Build EFCore Android!
+
+    - task: XamarinAndroid@1
+      displayName: 'Build EFCore.Android App'
+      inputs:
+        projectFile: SimpleRepository.Test.SQLite.EntityFrameworkCore.Android/SimpleRepository.Test.SQLite.EntityFrameworkCore.Android.csproj #yaml runs from root folder of repo
+        configuration: '$(BuildConfigurationAndroid)'
+        createAppPackage: true
+
+    - task: CopyFiles@2
+      inputs:
+        Contents: 'SimpleRepository.Test.SQLite.EntityFrameworkCore.Android/bin/Release/*.apk'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+    - task: InstallAppleProvisioningProfile@1
+      inputs:
+        provisioningProfileLocation: 'secureFiles'
+        provProfileSecureFile: 'VS_WildCard_Development.mobileprovision'
+
+    - task: InstallAppleCertificate@2
+      inputs:
+        certSecureFile: 'Sweek_Dev_Cert.p12'
+        certPwd: '$(CertPassword)'
+        keychain: 'temp'
+
+    - script: echo Build EFCore iOS!
+        
+    - task: MSBuild@1
+      displayName: 'Build  EFCore.iOS App'
+      inputs:
+        solution: SimpleRepositorySample.sln #yaml runs from root folder of repo
+        platform: iPhone
+        configuration: '$(BuildConfigurationiOS)'
+
+    - task: CopyFiles@2
+      inputs:
+        Contents: 'SimpleRepository.Test.SQLite.EntityFrameworkCore.iOS/bin/iPhone/Debug/*.ipa'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop_efcore'
+        publishLocation: 'Container'
+  
+- stage: UploadtoTestCloud
+  jobs: 
+  - job: UploadtoTestCloud
+    displayName: Upload to Test Cloud
+    pool:
+      name: Hosted macOS
+      vmImage: 'macOS 10.14'
+      demands:
+      - xcode
+      - Xamarin.iOS
+      - msbuild
+
+    steps:
+    - script: echo Upload to Test Cloud!
+
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'current'
+        targetPath: '$(Pipeline.Workspace)'
+
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(Pipeline.Workspace)/drop_sql'
+        Contents: '**'
+        TargetFolder: '$(Build.SourcesDirectory)'
+
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(Pipeline.Workspace)/drop_efcore'
+        Contents: '**'
+        TargetFolder: '$(Build.SourcesDirectory)'
+
+    - task: Bash@3
+      displayName: 'Set Mono Version 6.4.0'
+      inputs:
+        targetType: 'inline'
+        script: 'sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh $(MonoVersion)'
+
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core sdk'
+      inputs:
+        packageType: sdk
+        version: $(DotNetVersion)
+
+    - task: NuGetToolInstaller@1
+      displayName: Use Nuget $(NugetToolVersion)
+      inputs:
+        versionSpec: $(NugetToolVersion)
+
+    - task: NuGetCommand@2
+      inputs:
+        command: 'restore'
+        restoreSolution: 'SimpleRepository.UITest/SimpleRepository.UITest.csproj'
+        feedsToUse: 'config'
+        nugetConfigPath: 'build/Nuget.config'
+        externalFeedCredentials: 'GitHubPackageRelease'
+        restoreDirectory: '$(System.DefaultWorkingDirectory)/packages'
+
+    # - task: Bash@3
+    #   inputs:
+    #     targetType: 'inline'
+    #     script: |
+    #       cd $(System.DefaultWorkingDirectory)/packages
+          
+    #       ls -a
+
+    - task: MSBuild@1
+      displayName: Build UITests
+      inputs:
+        solution: 'SimpleRepository.UITest/SimpleRepository.UITest.csproj'
+        configuration: '$(BuildConfigurationiOS)'
+
+    - task: AppCenterTest@1
+      displayName: Upload SQL Android
+      inputs:
+        appFile: '$(Build.SourcesDirectory)/SimpleRepository.Test.SQLite.SQLiteNet.Android/bin/Release/*.apk'
+        artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+        frameworkOption: 'uitest'
+        uiTestBuildDirectory: 'SimpleRepository.UITest/bin/$(BuildConfigurationiOS)'
+        uiTestToolsDirectory: '$(UITestToolsDirectory)'
+        credentialsOption: 'serviceEndpoint'
+        serverEndpoint: 'App Center'
+        appSlug: 'Mobile-Customer-Advisory-Team/MobCAT.SQL.Test.Android'
+        devices: '$(androidDevices)'
+        localeOption: 'en_US'
+        skipWaitingForResults: true
+
+    - task: AppCenterTest@1
+      displayName: Upload SQL iOS
+      inputs:
+        appFile: '$(Build.SourcesDirectory)/SimpleRepository.Test.SQLite.SQLiteNet.iOS/bin/iPhone/Debug/*.ipa'
+        artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+        frameworkOption: 'uitest'
+        uiTestBuildDirectory: 'SimpleRepository.UITest/bin/$(BuildConfigurationiOS)'
+        uiTestToolsDirectory: '$(UITestToolsDirectory)'
+        credentialsOption: 'serviceEndpoint'
+        serverEndpoint: 'App Center'
+        appSlug: 'Mobile-Customer-Advisory-Team/MobCAT.SQL.Test.iOS'
+        devices: '$(iOSDevices)'
+        localeOption: 'en_US'
+        skipWaitingForResults: true
+
+    - task: AppCenterTest@1
+      displayName: Upload EFCore Android
+      inputs:
+        appFile: '$(Build.SourcesDirectory)/SimpleRepository.Test.SQLite.EntityFrameworkCore.Android/bin/Release/*.apk'
+        artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+        frameworkOption: 'uitest'
+        uiTestBuildDirectory: 'SimpleRepository.UITest/bin/$(BuildConfigurationiOS)'
+        uiTestToolsDirectory: '$(UITestToolsDirectory)'
+        credentialsOption: 'serviceEndpoint'
+        serverEndpoint: 'App Center'
+        appSlug: 'Mobile-Customer-Advisory-Team/MobCAT.EFCore.Test.Android'
+        devices: '$(androidDevices)'
+        localeOption: 'en_US'
+        skipWaitingForResults: true
+
+    - task: AppCenterTest@1
+      displayName: Upload EFCore iOS
+      inputs:
+        appFile: '$(Build.SourcesDirectory)/SimpleRepository.Test.SQLite.EntityFrameworkCore.iOS/bin/iPhone/Debug/*.ipa'
+        artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+        frameworkOption: 'uitest'
+        uiTestBuildDirectory: 'SimpleRepository.UITest/bin/$(BuildConfigurationiOS)'
+        uiTestToolsDirectory: '$(UITestToolsDirectory)'
+        credentialsOption: 'serviceEndpoint'
+        serverEndpoint: 'App Center'
+        appSlug: 'Mobile-Customer-Advisory-Team/MobCAT.EFCore.Test.iOS'
+        devices: '$(iOSDevices)'
+        localeOption: 'en_US'
+        skipWaitingForResults: true

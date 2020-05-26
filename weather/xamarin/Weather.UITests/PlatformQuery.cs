@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
 
