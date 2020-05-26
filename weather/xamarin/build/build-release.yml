@@ -109,12 +109,12 @@ stages:
       displayName: 'Build Weather Xamarin.Forms.Android App'
       inputs:
         projectFile: weather/xamarin/Weather.Android/Weather.Android.csproj #yaml runs from root folder of repo
-        configuration: '$(BuildConfiguration)'
+        configuration: 'Release'
         createAppPackage: true
 
     - task: CopyFiles@2
       inputs:
-        Contents: 'weather/xamarin/Weather.Android/bin/$(BuildConfiguration)/*.apk'
+        Contents: 'weather/xamarin/Weather.Android/bin/Release/*.apk'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
     
     - task: PublishBuildArtifacts@1
@@ -383,7 +383,7 @@ stages:
     - task: AppCenterTest@1
       displayName: Upload Weather Android
       inputs:
-        appFile: '$(Build.SourcesDirectory)/weather/xamarin/Weather.Android/bin/$(BuildConfiguration)/*.apk'
+        appFile: '$(Build.SourcesDirectory)/weather/xamarin/Weather.Android/bin/Release/*.apk'
         artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
         frameworkOption: 'uitest'
         uiTestBuildDirectory: 'weather/xamarin/Weather.UITests/bin/$(BuildConfiguration)'
