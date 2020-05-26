@@ -7,7 +7,9 @@ variables:
     androidDevices: 9f06dbb6
     iOSDevices: 212a1716
     # UITestToolsDirectory: /Users/vsts/.nuget/packages/xamarin.uitest/3.0.6/tools
-    UITestToolsDirectory: $(System.DefaultWorkingDirectory)/packages/xamarin.uitest/3.0.5/tools
+    UITestToolsDirectory: $(System.DefaultWorkingDirectory)/packages/xamarin.uitest/3.0.7/tools
+    AppCenteriOSSlug: 'Mobile-Customer-Advisory-Team/Weather.iOS-dev'
+    AppCenterDroidSlug: 'Mobile-Customer-Advisory-Team/Weather.Android-dev'
 
 
 stages:
@@ -204,20 +206,6 @@ stages:
         nugetConfigPath: weather/xamarin/build/nuget.config
         externalFeedCredentials: GitHubPackageRelease
 
-    - script: echo Build Weather Xamarin.Forms.iOS Android!
-
-    - task: XamarinAndroid@1
-      displayName: 'Build EFCore.Android App'
-      inputs:
-        projectFile: SimpleRepository.Test.SQLite.EntityFrameworkCore.Android/SimpleRepository.Test.SQLite.EntityFrameworkCore.Android.csproj #yaml runs from root folder of repo
-        configuration: '$(BuildConfigurationAndroid)'
-        createAppPackage: true
-
-    - task: CopyFiles@2
-      inputs:
-        Contents: 'SimpleRepository.Test.SQLite.EntityFrameworkCore.Android/bin/Release/*.apk'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
     - task: InstallAppleProvisioningProfile@1
       inputs:
         provisioningProfileLocation: 'secureFiles'
@@ -229,24 +217,24 @@ stages:
         certPwd: '$(CertPassword)'
         keychain: 'temp'
 
-    - script: echo Build EFCore iOS!
+    - script: echo Build Weather Xamarin.Forms.iOS!
         
     - task: MSBuild@1
-      displayName: 'Build  EFCore.iOS App'
+      displayName: 'Build  Weather Xamarin.Forms.iOS App'
       inputs:
-        solution: SimpleRepositorySample.sln #yaml runs from root folder of repo
+        solution: weather/xamarin/Weather.sln #yaml runs from root folder of repo
         platform: iPhone
         configuration: '$(BuildConfigurationiOS)'
 
     - task: CopyFiles@2
       inputs:
-        Contents: 'SimpleRepository.Test.SQLite.EntityFrameworkCore.iOS/bin/iPhone/Debug/*.ipa'
+        Contents: 'weather/xamarin/Weather.iOS/bin/iPhone/Debug/*.ipa'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop_efcore'
+        ArtifactName: 'drop_ios'
         publishLocation: 'Container'
   
 - stage: UploadtoTestCloud
@@ -255,7 +243,7 @@ stages:
     displayName: Upload to Test Cloud
     pool:
       name: Hosted macOS
-      vmImage: 'macOS 10.14'
+      vmImage: 'macOS-latest'
       demands:
       - xcode
       - Xamarin.iOS
@@ -271,18 +259,18 @@ stages:
 
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(Pipeline.Workspace)/drop_sql'
+        SourceFolder: '$(Pipeline.Workspace)/drop_droid'
         Contents: '**'
         TargetFolder: '$(Build.SourcesDirectory)'
 
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(Pipeline.Workspace)/drop_efcore'
+        SourceFolder: '$(Pipeline.Workspace)/drop_ios'
         Contents: '**'
         TargetFolder: '$(Build.SourcesDirectory)'
 
     - task: Bash@3
-      displayName: 'Set Mono Version 6.4.0'
+      displayName: 'Set Mono Version 6.8.0'
       inputs:
         targetType: 'inline'
         script: 'sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh $(MonoVersion)'
@@ -300,12 +288,10 @@ stages:
 
     - task: NuGetCommand@2
       inputs:
-        command: 'restore'
-        restoreSolution: 'SimpleRepository.UITest/SimpleRepository.UITest.csproj'
-        feedsToUse: 'config'
-        nugetConfigPath: 'build/Nuget.config'
-        externalFeedCredentials: 'GitHubPackageRelease'
-        restoreDirectory: '$(System.DefaultWorkingDirectory)/packages'
+        restoreSolution: weather/xamarin/Weather.sln
+        feedsToUse: config
+        nugetConfigPath: weather/xamarin/build/nuget.config
+        externalFeedCredentials: GitHubPackageRelease
 
     # - task: Bash@3
     #   inputs:
@@ -318,65 +304,35 @@ stages:
     - task: MSBuild@1
       displayName: Build UITests
       inputs:
-        solution: 'SimpleRepository.UITest/SimpleRepository.UITest.csproj'
+        solution: 'weather/xamarin/Weather.UITests/Weather.UITests.csproj'
         configuration: '$(BuildConfigurationiOS)'
 
     - task: AppCenterTest@1
       displayName: Upload SQL Android
       inputs:
-        appFile: '$(Build.SourcesDirectory)/SimpleRepository.Test.SQLite.SQLiteNet.Android/bin/Release/*.apk'
+        appFile: '$(Build.SourcesDirectory)/weather/xamarin/Weather.Android/bin/$(BuildConfiguration)/*.apk'
         artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
         frameworkOption: 'uitest'
-        uiTestBuildDirectory: 'SimpleRepository.UITest/bin/$(BuildConfigurationiOS)'
+        uiTestBuildDirectory: 'weather/xamarin/Weather.UITests/bin/$(BuildConfigurationiOS)'
         uiTestToolsDirectory: '$(UITestToolsDirectory)'
         credentialsOption: 'serviceEndpoint'
         serverEndpoint: 'App Center'
-        appSlug: 'Mobile-Customer-Advisory-Team/MobCAT.SQL.Test.Android'
+        appSlug: '$(AppCenterDroidSlug)'
         devices: '$(androidDevices)'
         localeOption: 'en_US'
-        skipWaitingForResults: true
-
+        runOptions: '--test-output-dir $(Build.ArtifactStagingDirectory)/AppCenterTestResult'
+        
     - task: AppCenterTest@1
       displayName: Upload SQL iOS
       inputs:
-        appFile: '$(Build.SourcesDirectory)/SimpleRepository.Test.SQLite.SQLiteNet.iOS/bin/iPhone/Debug/*.ipa'
+        appFile: '$(Build.SourcesDirectory)/weather/xamarin/Weather.iOS/bin/iPhone/Debug/*.ipa'
         artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
         frameworkOption: 'uitest'
-        uiTestBuildDirectory: 'SimpleRepository.UITest/bin/$(BuildConfigurationiOS)'
+        uiTestBuildDirectory: 'weather/xamarin/Weather.UITests/bin/$(BuildConfigurationiOS)'
         uiTestToolsDirectory: '$(UITestToolsDirectory)'
         credentialsOption: 'serviceEndpoint'
         serverEndpoint: 'App Center'
-        appSlug: 'Mobile-Customer-Advisory-Team/MobCAT.SQL.Test.iOS'
+        appSlug: '$(AppCenteriOSSlug)'
         devices: '$(iOSDevices)'
         localeOption: 'en_US'
-        skipWaitingForResults: true
-
-    - task: AppCenterTest@1
-      displayName: Upload EFCore Android
-      inputs:
-        appFile: '$(Build.SourcesDirectory)/SimpleRepository.Test.SQLite.EntityFrameworkCore.Android/bin/Release/*.apk'
-        artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
-        frameworkOption: 'uitest'
-        uiTestBuildDirectory: 'SimpleRepository.UITest/bin/$(BuildConfigurationiOS)'
-        uiTestToolsDirectory: '$(UITestToolsDirectory)'
-        credentialsOption: 'serviceEndpoint'
-        serverEndpoint: 'App Center'
-        appSlug: 'Mobile-Customer-Advisory-Team/MobCAT.EFCore.Test.Android'
-        devices: '$(androidDevices)'
-        localeOption: 'en_US'
-        skipWaitingForResults: true
-
-    - task: AppCenterTest@1
-      displayName: Upload EFCore iOS
-      inputs:
-        appFile: '$(Build.SourcesDirectory)/SimpleRepository.Test.SQLite.EntityFrameworkCore.iOS/bin/iPhone/Debug/*.ipa'
-        artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
-        frameworkOption: 'uitest'
-        uiTestBuildDirectory: 'SimpleRepository.UITest/bin/$(BuildConfigurationiOS)'
-        uiTestToolsDirectory: '$(UITestToolsDirectory)'
-        credentialsOption: 'serviceEndpoint'
-        serverEndpoint: 'App Center'
-        appSlug: 'Mobile-Customer-Advisory-Team/MobCAT.EFCore.Test.iOS'
-        devices: '$(iOSDevices)'
-        localeOption: 'en_US'
-        skipWaitingForResults: true
+        runOptions: '--test-output-dir $(Build.ArtifactStagingDirectory)/AppCenterTestResult'
