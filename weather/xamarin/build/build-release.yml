@@ -109,7 +109,7 @@ stages:
       displayName: 'Build Weather Xamarin.Forms.Android App'
       inputs:
         projectFile: weather/xamarin/Weather.Android/Weather.Android.csproj #yaml runs from root folder of repo
-        configuration: '$(BuildConfigurationAndroid)'
+        configuration: '$(BuildConfiguration)'
         createAppPackage: true
 
     - task: CopyFiles@2
@@ -230,7 +230,7 @@ stages:
       inputs:
         solution: weather/xamarin/Weather.sln #yaml runs from root folder of repo
         platform: iPhone
-        configuration: '$(BuildConfigurationiOS)'
+        configuration: '$(BuildConfiguration)'
 
     - task: CopyFiles@2
       inputs:
