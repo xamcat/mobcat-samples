@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1002014536937",
+    "firebase_url": "https://pushdemo-xamcat.firebaseio.com",
+    "project_id": "pushdemo-xamcat",
+    "storage_bucket": "pushdemo-xamcat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002014536937:android:c4064e509bfeafc797ac78",
+        "android_client_info": {
+          "package_name": "com.mobcat.pushdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1002014536937-1l92rr1vc9fm89b9jk7r7kurmv2esem3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxiK_eHUKZuFmJmviB0OpToNYRIZsmbis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1002014536937-1l92rr1vc9fm89b9jk7r7kurmv2esem3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
