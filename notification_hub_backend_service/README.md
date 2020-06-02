@@ -75,13 +75,13 @@ For iOS, you must have:
 
 1. Update the **Package name** so it matches the value you defined in the [Android app](https://firebase.google.com/docs/cloud-messaging/android/first-message#register_your_app_with_firebase) you registered.
 
-1. Download and add the [**google-services.json** file](https://support.google.com/firebase/answer/7015592?hl=en) from your **Firebase Project Settings page** to the project.
+1. Download the [**google-services.json** file](https://support.google.com/firebase/answer/7015592?hl=en) from your **Firebase Project Settings page** and add it to the Android target/project.
 
 #### iOS
 
-1. Update the **Bundle identifier** so it matches the [App ID](https://help.apple.com/developer-account/#/dev1b35d6f83) that you registered.
+1. Update the **Bundle identifier** so it matches the [App ID](https://help.apple.com/developer-account/#/dev1b35d6f83) that you registered in the [Apple Developer Portal](https://developer.apple.com).
 
-1. Ensure that the appropriate **.p12** certificate and **Provisioning Profile** has been selected.
+1. Ensure that the appropriate **.p12** certificate and **Provisioning Profile** has been downloaded and is being used for **Bundle Signing**.
 
 ### Supporting details
 
@@ -93,7 +93,7 @@ The backend service expects to have the following app settings defined:
 Choose your own API key e.g. a randomly generated GUID.
 
 - **NotificationHub:Name**  
-Found in the **Essentials** summary at the top of the **Overview** section when viewing your [notification hub](https://docs.microsoft.com/azure/notification-hubs) resource in the [Azure portal](https://portal.azure.com).  
+Found in the **Essentials** summary at the top of the [notification hub](https://docs.microsoft.com/azure/notification-hubs) **Overview** section.  
 
 - **NotificationHub:ConnectionString**  
 Use the connection string associated with the *DefaultFullSharedAccessSignature* **Access Policy**.
@@ -121,7 +121,9 @@ public static string ApiKey = "API_KEY";
 public static string BackendServiceEndpoint = "BACKEND_SERVICE_ENDPOINT";
 ```
 
-The **BackendServiceEndpoint** should be the base address only (ending in a '/') e.g.
+The **API_KEY** should match the **Authentication:ApiKey** app setting that you set for the backend service.  
+
+The **BACKEND_SERVICE_ENDPOINT** should be the base address for the backend service (ending in a '/') e.g.
 
 ```
 https://localhost:5001/
