@@ -67,7 +67,7 @@ For iOS, you must have:
 
 1. Configure the [required app settings](#configure-backend-app-settings) for the backend service
 
-1. Publish the backend service e.g. [deploy app to Azure]((https://docs.microsoft.com/aspnet/core/host-and-deploy/azure-apps/?view=aspnetcore-3.1&tabs=netcore-cli#publish-and-deploy-the-app)) or [run it locally](https://docs.microsoft.com/dotnet/core/tools/dotnet-run).
+1. Publish the backend service e.g. [deploy app to Azure](https://docs.microsoft.com/aspnet/core/host-and-deploy/azure-apps/?view=aspnetcore-3.1&tabs=netcore-cli#publish-and-deploy-the-app) or [run it locally](https://docs.microsoft.com/dotnet/core/tools/dotnet-run).
 
 ### Mobile App
 
