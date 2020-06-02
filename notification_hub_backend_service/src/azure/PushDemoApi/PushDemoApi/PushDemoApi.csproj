@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>13be66da-096a-454c-83bc-a4957478dc2d</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Authentication\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.NotificationHubs" Version="3.3.0" />
+  </ItemGroup>
+</Project>
