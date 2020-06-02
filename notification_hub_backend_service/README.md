@@ -137,6 +137,42 @@ If you are hosting the service using an [API App](https://azure.microsoft.com/en
 https://<api_app_name>.azurewebsites.net/
 ```
 
+## Sending notifications via the backend service
+The backend service enables you to send push notifications in a cross-platform manner using the following parameters. 
+
+- **text:** String value representing the text that will appear in the notification *(mandatory when **silent** is **false**)*.
+- **action:** String value representing the action that should performed *(mandatory when **silent** is **true**)*.
+- **silent:** Boolean value indicating that the notification should be delivered silently (*default value is **false***). 
+
+### Sample Requests
+
+#### Alert notification
+
+```html
+POST /api/notifications/requests HTTP/1.1
+Host: <your_endpoint>
+apikey: <your_api_key>
+Content-Type: application/json
+
+{
+    "text": "Message from backend service",
+    "action": "action_a"
+}
+```
+
+#### Silent notification
+
+```html
+POST /api/notifications/requests HTTP/1.1
+Host: <your_endpoint>
+apikey: <your_api_key>
+Content-Type: application/json
+
+{
+    "action": "action_b",
+    "silent": true
+}
+```
 
 ## Browse code
 
