@@ -49,6 +49,8 @@ For iOS, you must have:
 
 #### Apple Push Notification Service (APNS)
 
+1. Create a signing key and Key ID with the **APNS** key service enabled (you can re-use an existing key if one exists).
+
 1. Register an [explicit App ID](https://help.apple.com/developer-account/#/dev1b35d6f83) and configure it to [enable push notifications](https://help.apple.com/developer-account/#/dev4cb6dfbdb).
 
 1. Create a [Provisioning Profile](https://help.apple.com/developer-account/#/devf2eb157f8) that can be used with your explicit **App ID**, **.p12** development certificate, and physical device.
@@ -63,9 +65,11 @@ For iOS, you must have:
 
 1. Provision a [Notification Hub](https://docs.microsoft.com/azure/notification-hubs) in the [Azure Portal](https://portal.azure.com) and configure it for use with [Firebase Cloud Messaging](https://docs.microsoft.com/azure/notification-hubs/configure-google-firebase-cloud-messaging) and [APNS](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentication) (using the **Sandbox** option).
 
-1. Host the backend service (locally or using a suitable [compute resource](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree#understand-the-basic-features) e.g. [Azure App Service](https://docs.microsoft.com/azure/app-service)).
+1. Optionally provision a suitable [compute resource](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree#understand-the-basic-features) e.g. [Azure App Service](https://docs.microsoft.com/azure/app-service) to host the backend service. 
 
 1. Configure the [required app settings](#configure-backend-app-settings) for the backend service
+
+1. Publish the backend service e.g. [deploy app to Azure]((https://docs.microsoft.com/aspnet/core/host-and-deploy/azure-apps/?view=aspnetcore-3.1&tabs=netcore-cli#publish-and-deploy-the-app)) or [run it locally](https://docs.microsoft.com/dotnet/core/tools/dotnet-run).
 
 ### Mobile App
 
