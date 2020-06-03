@@ -9,7 +9,7 @@ namespace PushDemo.iOS.Services
     public class DeviceInstallationService : IDeviceInstallationService
     {
         Func<NSData> _getDeviceToken;
-        Func<bool> _notifificationsSupported;
+        Func<bool> _notificationsSupported;
         Func<string> _getNotificationSupportError;
 
         public DeviceInstallationService(
@@ -18,13 +18,13 @@ namespace PushDemo.iOS.Services
             Func<string> getNotificationSupportError)
         {
             _getDeviceToken = getDeviceToken ?? throw new ArgumentException(
-                    $"Parameter {nameof(getDeviceToken)} cannot be null");
+                $"Parameter {nameof(getDeviceToken)} cannot be null");
 
-            _notifificationsSupported = notificationsSupported ?? throw new ArgumentException(
-                    $"Parameter {nameof(notificationsSupported)} cannot be null");
+            _notificationsSupported = notificationsSupported ?? throw new ArgumentException(
+                $"Parameter {nameof(notificationsSupported)} cannot be null");
 
             _getNotificationSupportError = getNotificationSupportError ?? throw new ArgumentException(
-                    $"Parameter {nameof(getNotificationSupportError)} cannot be null");
+                $"Parameter {nameof(getNotificationSupportError)} cannot be null");
         }
 
         public string GetDeviceId()
@@ -32,7 +32,7 @@ namespace PushDemo.iOS.Services
 
         public DeviceInstallation GetDeviceRegistration(params string[] tags)
         {
-            if (!_notifificationsSupported())
+            if (!_notificationsSupported())
                 throw new Exception(_getNotificationSupportError());
 
             var installationId = GetDeviceId();
