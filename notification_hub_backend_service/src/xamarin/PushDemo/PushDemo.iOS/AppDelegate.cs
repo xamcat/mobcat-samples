@@ -138,12 +138,9 @@ namespace PushDemo.iOS
             if (userInfo == null)
                 return;
 
-            NSString actionKey = null;
-            NSString actionValue = null;
-
             try
             {
-                actionValue = userInfo.ObjectForKey(actionKey = new NSString("action")) as NSString;
+                var actionValue = userInfo.ObjectForKey(new NSString("action")) as NSString;
 
                 if (!string.IsNullOrWhiteSpace(actionValue?.Description))
                     NotificationActionService.TriggerAction(actionValue.Description);
@@ -151,11 +148,6 @@ namespace PushDemo.iOS
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-            }
-            finally
-            {
-                actionKey?.Dispose();
-                actionValue?.Dispose();
             }
         }
 
