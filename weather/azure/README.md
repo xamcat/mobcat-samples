@@ -14,8 +14,8 @@ The following [Azure](https://portal.azure.com) resources are provisioned as par
 - [Redis Cache](https://azure.microsoft.com/en-gb/services/cache/)
 
 ## Prerequisites
-The following dependencies are required in order to follow the steps outlined below.  
-
+The following dependencies are required in order to follow the steps outlined below. A single bash script is used 
+- [WSL Terminal (Windows only)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 - [Microsoft Azure Subscription](https://azure.microsoft.com/en-gb/pricing/purchase-options/)
 - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/dotnet-core/2.1)
@@ -26,7 +26,7 @@ You can sign up for a [free trial](https://azure.microsoft.com/free/) of Azure i
 You must have permission to create **Resource Groups** on the **Azure Subscription** in order to complete the steps below.
 
 ## Provisioning the service
-Follow the steps below to provision the **WeatherService**, and the underlying resources, to your [Azure Subscription](https://portal.azure.com). In the interest of brevity, the term '*CMD*' applies to both the Windows **Command Prompt** and the macOS **Terminal**.  
+Follow the steps below to provision the **WeatherService**, and the underlying resources, to your [Azure Subscription](https://portal.azure.com). In the interest of brevity, the term '*Terminal*' applies to both the **Windows Terminal** courtesy of the [WSL](https://devblogs.microsoft.com/commandline/introducing-windows-terminal/) and the macOS **Terminal**.  
 
 ### Acquiring an AppID for OpenWeatherMap
 1. Navigate to the **OpenWeatherMap** [sign up page](https://home.openweathermap.org/users/sign_up) 
@@ -37,7 +37,7 @@ Follow the steps below to provision the **WeatherService**, and the underlying r
 **NOTE:** There may be a delay between sign up and the key being activated. While this will prevent the use of the **WeatherService** it should not prevent you from following the remaining steps in this section.
 
 ### Validate you have Azure CLI and .NET Core SDK installed
-1. Open the **CMD**
+1. Open the **Terminal**
 2. Validate you have **Azure CLI** version *2.0* or higher
 
     ```
@@ -46,13 +46,17 @@ Follow the steps below to provision the **WeatherService**, and the underlying r
     
     In order to install or update the **Azure CLI** follow this [complete guide](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or use the following instructions:
 
-    **macOS:** 
+    **macOS Terminal:** [Brew Install](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest)
     ```
     brew update
     brew install azure-cli
     brew upgrade azure-cli
     ```
-    **Windows:** [MSI installer](https://aka.ms/installazurecliwindows)
+    **Windows WSL Terminal :** [APT Install](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+    ```
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    ```
+
 
 3. Validate you have **.NET Core SDK** version *2.1* or higher
 
@@ -71,7 +75,7 @@ Follow the steps below to provision the **WeatherService**, and the underlying r
     az login
     ```
 4. Follow the **browser** prompts to login to **Azure**
-5. Return to **CMD** and review the details of the subscriptions listed e.g.
+5. Return to **Terminal** and review the details of the subscriptions listed e.g.
 
     ```
     {
@@ -93,19 +97,34 @@ Follow the steps below to provision the **WeatherService**, and the underlying r
     - tenant_id
 
 7. Choose (or generate) an API key for **WeatherService**. This API key will be used to prevent the **WeatherService** unauthorized access. Use it as the **your_api_key** parameter later. There are a number of [guid generator](https://www.bing.com/search?q=guid+generator) tools available online which might help with this, however a passphrase would suffice for the purposes of this sample
-8. From **CMD**, call the respective **weather_deploy** script passing in the requisite parameters. For example:
+8. From **Terminal**, call the respective **weather_deploy** script passing in the requisite parameters. For example:
 
-    **macOS:**
     ```
     ./weather_deploy.sh --tenant <tenant_id> --subscription <subscription_id> --openweathermap-appid <openweathermap_key> --api-key <your_api_key>
     ```
 
-    **Windows:**
+9. Once completed successfully you should see the following output
     ```
-    weather_deploy.bat --tenant <tenant_id> --subscription <subscription_id> --openweathermap-appid <openweathermap_key> --api-key <your_api_key>
+    Publishing API App: Deploying application package
+    Getting scm site credentials for zip deployment
+    Starting zip deployment. This operation can take a while to complete ...
+    Deployment endpoint responded with status code 202
+
     ```
 
-**NOTE:** The script may take upwards of 25 minutes to complete when executed for the first time. Templated deployments are incremental and subsequent executions will take significantly less time to complete.  
+  **NOTE:** The script may take upwards of 25 minutes to complete when executed for the first time. Templated deployments are incremental and subsequent executions will take significantly less time to complete.  
+
+## Troubleshooting
+  If you get an error running the script on Windows such as the following. This will be due the line ending settings used in git which will convert the file to use Windows style line endings. And easy fix for this is to simply run the following commands.
+
+    ```
+    apt-get update
+    apt install dos2unix
+    dos2unix weather_desploy.sh
+    ```
+
+  This 
+
 
 ### Reviewing the deployment
 1. Navigate to the [Azure Portal](https://portal.azure.com)
