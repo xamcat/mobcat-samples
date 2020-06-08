@@ -19,18 +19,6 @@ namespace PushDemo
                 ServiceContainer.Resolve<INotificationRegistrationService>();
         }
 
-        protected override void OnAppearing()
-        {
-            RegisterButton.Clicked += RegisterButtonClicked;
-            DeregisterButton.Clicked += DeregisterButtonClicked;
-        }
-
-        protected override void OnDisappearing()
-        {
-            RegisterButton.Clicked -= RegisterButtonClicked;
-            DeregisterButton.Clicked -= DeregisterButtonClicked;
-        }
-
         void RegisterButtonClicked(object sender, EventArgs e)
             => _notificationRegistrationService.RegisterDeviceAsync().ContinueWith((task)
                 => { ShowAlert(task.IsFaulted ?
