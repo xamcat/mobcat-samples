@@ -38,7 +38,17 @@ namespace PushDemo.iOS
             global::Xamarin.Forms.Forms.Init();
 
             if (NotificationsSupported)
-                RequestRemoteNotifications();
+            {
+                UNUserNotificationCenter.Current.RequestAuthorization(
+                        UNAuthorizationOptions.Alert |
+                        UNAuthorizationOptions.Badge |
+                        UNAuthorizationOptions.Sound,
+                        (approvalGranted, error) =>
+                        {
+                            if (approvalGranted && error == null)
+                                RegisterForRemoteNotifications();
+                        });
+            }
 
             Bootstrap.Begin(() => new DeviceInstallationService(
                 () => _deviceToken,
@@ -91,32 +101,6 @@ namespace PushDemo.iOS
             UIApplication application,
             NSDictionary userInfo)
             => ProcessNotificationActions(userInfo);
-
-        void RequestRemoteNotifications()
-        {
-            UNUserNotificationCenter.Current.GetNotificationSettings((settings) => {
-                var alertsAllowed = (settings.AlertSetting == UNNotificationSetting.Enabled);
-                var badgeAllowed = (settings.BadgeSetting == UNNotificationSetting.Enabled);
-                var soundAllowed = (settings.SoundSetting == UNNotificationSetting.Enabled);
-
-                if (!alertsAllowed || !badgeAllowed || !soundAllowed)
-                {
-                    UNUserNotificationCenter.Current.RequestAuthorization(
-                        UNAuthorizationOptions.Alert |
-                        UNAuthorizationOptions.Badge |
-                        UNAuthorizationOptions.Sound,
-                        (approvalGranted, error) =>
-                        {
-                            if (approvalGranted && error == null)
-                                RegisterForRemoteNotifications();
-                        });
-                }
-                else
-                {
-                    RegisterForRemoteNotifications();
-                }
-            });
-        }
 
         void RegisterForRemoteNotifications()
         {
