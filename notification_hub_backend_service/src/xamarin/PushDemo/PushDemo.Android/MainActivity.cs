@@ -58,30 +58,6 @@ namespace PushDemo.Droid
             ProcessNotificationActions(intent);
         }
 
-        protected override void OnResume()
-        {
-            base.OnResume();
-            PushNotificationFirebaseMessagingService.AppInForeground = true;
-        }
-
-        protected override void OnPause()
-        {
-            base.OnPause();
-            PushNotificationFirebaseMessagingService.AppInForeground = false;
-        }
-
-        protected override void OnStop()
-        {
-            base.OnStop();
-            PushNotificationFirebaseMessagingService.AppInForeground = false;
-        }
-
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-            PushNotificationFirebaseMessagingService.AppInForeground = false;
-        }
-
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

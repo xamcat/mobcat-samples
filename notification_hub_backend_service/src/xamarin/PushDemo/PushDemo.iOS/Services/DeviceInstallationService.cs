@@ -52,19 +52,6 @@ namespace PushDemo.iOS.Services
 
             installation.Tags.AddRange(tags);
 
-            PushTemplate genericTemplate = new PushTemplate
-            {
-                Body = "{\"aps\":{\"alert\":\"$(alertMessage)\"}, \"action\": \"$(alertAction)\"}"
-            };
-
-            PushTemplate silentTemplate = new PushTemplate
-            {
-                Body = "{\"aps\":{\"content-available\":1, \"apns-priority\": 5, \"sound\":\"\", \"badge\": 0}, \"message\": \"$(silentMessage)\", \"action\": \"$(silentAction)\"}"
-            };
-
-            installation.Templates.Add("genericTemplate", genericTemplate);
-            installation.Templates.Add("silentTemplate", silentTemplate);
-
             return installation;
         }
 
