@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace PushDemo.Models
@@ -16,6 +15,6 @@ namespace PushDemo.Models
         public string PushChannel { get; set; }
 
         [JsonProperty("tags")]
-        public IList<string> Tags { get; set; } = Array.Empty<string>();
+        public List<string> Tags { get; set; } = new List<string>();
     }
 }
