@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Foundation;
 using PushDemo.iOS.Services;
 using PushDemo.Services;
@@ -9,10 +10,10 @@ using Xamarin.Essentials;
 
 namespace PushDemo.iOS
 {
-    [Register("AppDelegate")]
+    [Register(nameof(AppDelegate))]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
-        const string CachedDeviceToken = "CachedDeviceToken";
+        const string CachedDeviceToken = "cached_device_token";
         const int SupportedVersionMajor = 13;
         const int SupportedVersionMinor = 0;
 
@@ -67,30 +68,8 @@ namespace PushDemo.iOS
         public override void RegisteredForRemoteNotifications(
             UIApplication application,
             NSData deviceToken)
-        {
-            _deviceToken = deviceToken;
-
-            SecureStorage.GetAsync(CachedDeviceToken).ContinueWith((i) =>
-            {
-                if (i.IsFaulted) throw i.Exception;
-
-                var cachedToken = i.Result;
-
-                var deviceTokenHash = _deviceToken?.Description?.GetHashCode().ToString();
-
-                if (!string.IsNullOrWhiteSpace(cachedToken) &&
-                    cachedToken.Equals(deviceTokenHash))
-                    return;
-
-                NotificationRegistrationService.RefreshRegistrationAsync().ContinueWith((j) =>
-                {
-                    if (j.IsFaulted) throw j.Exception;
-
-                    SecureStorage.SetAsync(CachedDeviceToken, deviceTokenHash).ContinueWith((k)
-                        => { if (k.IsFaulted) throw k.Exception; });
-                });
-            });
-        }
+            => CompleteRegistrationAsync(deviceToken).ContinueWith((task)
+                => { if (task.IsFaulted) throw task.Exception; });
 
         public override void FailedToRegisterForRemoteNotifications(
             UIApplication application,
@@ -115,6 +94,26 @@ namespace PushDemo.iOS
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(pushSettings);
                 UIApplication.SharedApplication.RegisterForRemoteNotifications();
             });
+        }
+
+        async Task CompleteRegistrationAsync(NSData deviceToken)
+        {
+            _deviceToken = deviceToken;
+
+            var cachedToken = await SecureStorage.GetAsync(CachedDeviceToken)
+                .ConfigureAwait(false);
+
+            var tokenHash = _deviceToken?.Description?.GetHashCode().ToString();
+
+            if (!string.IsNullOrWhiteSpace(cachedToken) &&
+                cachedToken.Equals(tokenHash))
+                return;
+
+            await NotificationRegistrationService.RefreshRegistrationAsync()
+                .ConfigureAwait(false);
+
+            await SecureStorage.SetAsync(CachedDeviceToken, tokenHash)
+                .ConfigureAwait(false);
         }
 
         void ProcessNotificationActions(NSDictionary userInfo)

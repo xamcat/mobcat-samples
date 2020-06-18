@@ -50,19 +50,6 @@ namespace PushDemo.Droid.Services
 
             installation.Tags.AddRange(tags);
 
-            PushTemplate genericTemplate = new PushTemplate
-            {
-                Body = "{\"data\":{\"message\":\"$(alertMessage)\", \"action\":\"$(alertAction)\"}}"
-            };
-
-            PushTemplate silentTemplate = new PushTemplate
-            {
-                Body = "{\"data\":{\"message\":\"$(silentMessage)\", \"action\":\"$(silentAction)\", \"silent\":\"true\"}}"
-            };
-
-            installation.Templates.Add("genericTemplate", genericTemplate);
-            installation.Templates.Add("silentTemplate", silentTemplate);
-
             return installation;
         }
     }
