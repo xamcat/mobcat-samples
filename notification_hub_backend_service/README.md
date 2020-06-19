@@ -4,20 +4,20 @@ Sample demonstrating the use of [Azure Notification Hubs](https://docs.microsoft
 
 An [ASP.NET Core Web API](https://dotnet.microsoft.com/apps/aspnet/apis) backend is used to handle [device registration](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#what-is-device-registration) on behalf of the client using the latest and best [Installation](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#installations) approach via the [Notification Hubs SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/), as shown in the guidance topic [Registering from your app backend](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#registration-management-from-a-backend).
 
-A cross-platform [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) application is used to demonstrate the use of the backend service using explicit register/deregister actions.
+A cross-platform [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) application is used to demonstrate the use of the backend service using explicit register/deregister actions.  
 
 <img src="illustrations/pushdemo_mainpage.png" alt="PushDemo Sample - MainPage" height="350" style="display:inline-block;" />
 
-Alert style notifications will appear in the notification center (when the app is stopped or in the background).
+Notifications will appear in the notification center when the app is stopped or in the background.
 
 <img src="illustrations/pushdemo_notification.png" alt="PushDemo Sample - Notification" height="175" style="display:inline-block;" />
 
-If a notification contains an action and is received when app is in the foreground, or where an alert-style notification is used to launch the application from notification center, a message is presented identifying the action specified.
+If a notification contains an action and is received when app is in the foreground, or where a notification is used to launch the application from notification center, a message is presented identifying the action specified.
 
 <img src="illustrations/pushdemo_action_alert.png" alt="PushDemo Sample - Action Alert" height="350" style="display:inline-block;" />
 
 > [!NOTE]
-> You would typically perform the registration (and deregisration) actions during the appropriate point in the application lifecycle (or as part of your first-run experience perhaps) without explicit user register/deregister inputs. However, this example will require explicit user input to allow this functionality to be explored and tested more easily. The notifications are defined client-side using [custom templates](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-templates-cross-platform-push-messages) in this case but could be handled server-side in future.
+> You would typically perform the registration (and deregisration) actions during the appropriate point in the application lifecycle (or as part of your first-run experience perhaps) without explicit user register/deregister inputs. However, this example will require explicit user input to allow this functionality to be explored and tested more easily. The notification payloads are defined outside of the [Installation](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation?view=azure-dotnet) to allow experimentation without having to update existing installations via the service. [Custom templates](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-templates-cross-platform-push-messages) would otherwise be ideal.
 
 ## Prerequisites
 
@@ -42,6 +42,8 @@ For iOS, you must have:
 
 ## Getting Started
 
+A accompanying [tutorial](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-backend-service-xamarin-forms#create-an-aspnet-core-web-api-backend-application) was written alongside this sample providing detailed steps on how to built it from scratch. High-level steps are provided below for getting the sample running on your own infrastructure.
+
 ### Platform Dependencies
 
 #### Apple Push Notification Service (APNS)
@@ -64,7 +66,7 @@ For iOS, you must have:
 
 1. Optionally provision a suitable [compute resource](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree#understand-the-basic-features) to host the backend service e.g. [Azure App Service](https://docs.microsoft.com/azure/app-service).
 
-1. Configure the [required app settings](#configure-backend-app-settings) for the backend service
+1. Configure the [required app settings](#configure-backend-app-settings) for the backend service.
 
 1. Publish the backend service e.g. [deploy app to Azure](https://docs.microsoft.com/aspnet/core/host-and-deploy/azure-apps/?view=aspnetcore-3.1&tabs=netcore-cli#publish-and-deploy-the-app) or [run it locally](https://docs.microsoft.com/dotnet/core/tools/dotnet-run).
 
@@ -146,7 +148,7 @@ The backend service enables you to send push notifications in a cross-platform m
 
 ### Sample Requests
 
-#### Alert notification
+#### Generic notification
 
 ```html
 POST /api/notifications/requests HTTP/1.1
