@@ -11,6 +11,7 @@ namespace PushDemo.Droid.Services
     {
         IPushDemoNotificationActionService _notificationActionService;
         INotificationRegistrationService _notificationRegistrationService;
+        IDeviceInstallationService _deviceInstallationService;
 
         IPushDemoNotificationActionService NotificationActionService
             => _notificationActionService ??
@@ -22,11 +23,14 @@ namespace PushDemo.Droid.Services
                 (_notificationRegistrationService =
                 ServiceContainer.Resolve<INotificationRegistrationService>());
 
-        internal static string Token { get; set; }
+        IDeviceInstallationService DeviceInstallationService
+            => _deviceInstallationService ??
+                (_deviceInstallationService =
+                ServiceContainer.Resolve<IDeviceInstallationService>());
 
         public override void OnNewToken(string token)
         {
-            Token = token;
+            DeviceInstallationService.Token = token;
 
             NotificationRegistrationService.RefreshRegistrationAsync()
                 .ContinueWith((task) => { if (task.IsFaulted) throw task.Exception; });

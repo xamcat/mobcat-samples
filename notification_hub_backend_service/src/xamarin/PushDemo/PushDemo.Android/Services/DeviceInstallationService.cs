@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.App;
+using Android.Gms.Common;
 using PushDemo.Models;
 using PushDemo.Services;
 using static Android.Provider.Settings;
@@ -8,49 +9,42 @@ namespace PushDemo.Droid.Services
 {
     public class DeviceInstallationService : IDeviceInstallationService
     {
-        Func<string> _getFirebaseToken;
-        Func<bool> _playServicesAvailable;
-        Func<string> _getPlayServicesError;
+        public string Token { get; set; }
+
+        public bool NotificationsSupported
+            => GoogleApiAvailability.Instance
+                .IsGooglePlayServicesAvailable(Application.Context) == ConnectionResult.Success;
 
         public string GetDeviceId()
             => Secure.GetString(Application.Context.ContentResolver, Secure.AndroidId);
 
-        public DeviceInstallationService(
-            Func<string> getFirebaseToken,
-            Func<bool> playServicesAvailable,
-            Func<string> getPlayServicesError)
+        public DeviceInstallation GetDeviceInstallation(params string[] tags)
         {
-            _getFirebaseToken = getFirebaseToken ?? throw new ArgumentException(
-                $"Parameter {nameof(getFirebaseToken)} cannot be null");
-
-            _playServicesAvailable = playServicesAvailable ?? throw new ArgumentException(
-                $"Parameter {nameof(playServicesAvailable)} cannot be null");
-
-            _getPlayServicesError = getPlayServicesError ?? throw new ArgumentException(
-                $"Parameter {nameof(getPlayServicesError)} cannot be null");
-        }
-
-        public DeviceInstallation GetDeviceRegistration(params string[] tags)
-        {
-            if (!_playServicesAvailable())
-                throw new Exception(_getPlayServicesError());
-
-            var installationId = GetDeviceId();
-            var token = _getFirebaseToken();
-
-            if (token == null)
-                return null;
+            if (!NotificationsSupported)
+                throw new Exception(GetPlayServicesError());
 
             var installation = new DeviceInstallation
             {
-                InstallationId = installationId,
+                InstallationId = GetDeviceId(),
                 Platform = "fcm",
-                PushChannel = token
+                PushChannel = Token
             };
 
             installation.Tags.AddRange(tags);
 
             return installation;
+        }
+
+        string GetPlayServicesError()
+        {
+            int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(Application.Context);
+
+            if (resultCode != ConnectionResult.Success)
+                return GoogleApiAvailability.Instance.IsUserResolvableError(resultCode) ?
+                           GoogleApiAvailability.Instance.GetErrorString(resultCode) :
+                           "This device is not supported";
+
+            return "An error occurred preventing the use of push notifications";
         }
     }
 }

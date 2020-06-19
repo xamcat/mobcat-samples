@@ -1,5 +1,4 @@
 ﻿using System;
-using Foundation;
 using PushDemo.Models;
 using PushDemo.Services;
 using UIKit;
@@ -8,46 +7,27 @@ namespace PushDemo.iOS.Services
 {
     public class DeviceInstallationService : IDeviceInstallationService
     {
-        Func<NSData> _getDeviceToken;
-        Func<bool> _notificationsSupported;
-        Func<string> _getNotificationSupportError;
+        const int SupportedVersionMajor = 13;
+        const int SupportedVersionMinor = 0;
 
-        public DeviceInstallationService(
-            Func<NSData> getDeviceToken,
-            Func<bool> notificationsSupported,
-            Func<string> getNotificationSupportError)
-        {
-            _getDeviceToken = getDeviceToken ?? throw new ArgumentException(
-                $"Parameter {nameof(getDeviceToken)} cannot be null");
+        public string Token { get; set; }
 
-            _notificationsSupported = notificationsSupported ?? throw new ArgumentException(
-                $"Parameter {nameof(notificationsSupported)} cannot be null");
-
-            _getNotificationSupportError = getNotificationSupportError ?? throw new ArgumentException(
-                $"Parameter {nameof(getNotificationSupportError)} cannot be null");
-        }
+        public bool NotificationsSupported
+            => UIDevice.CurrentDevice.CheckSystemVersion(SupportedVersionMajor, SupportedVersionMinor);
 
         public string GetDeviceId()
             => UIDevice.CurrentDevice.IdentifierForVendor.ToString();
 
-        public DeviceInstallation GetDeviceRegistration(params string[] tags)
+        public DeviceInstallation GetDeviceInstallation(params string[] tags)
         {
-            if (!_notificationsSupported())
-                throw new Exception(_getNotificationSupportError());
-
-            var installationId = GetDeviceId();
-            var token = _getDeviceToken();
-
-            if (token == null)
-                return null;
-
-            var pushChannel = NSDataToHex(token);
+            if (!NotificationsSupported)
+                throw new Exception(GetNotificationsSupportError());
 
             var installation = new DeviceInstallation
             {
-                InstallationId = installationId,
+                InstallationId = GetDeviceId(),
                 Platform = "apns",
-                PushChannel = pushChannel
+                PushChannel = Token
             };
 
             installation.Tags.AddRange(tags);
@@ -55,19 +35,16 @@ namespace PushDemo.iOS.Services
             return installation;
         }
 
-        string NSDataToHex(NSData data) => ByteToHex(data.ToArray());
-
-        string ByteToHex(byte[] data)
+        string GetNotificationsSupportError()
         {
-            if (data == null)
-                return null;
+            if (!NotificationsSupported)
+                return $"This app only supports notifications on iOS {SupportedVersionMajor}.{SupportedVersionMinor} and above. You are running {UIDevice.CurrentDevice.SystemVersion}.";
 
-            System.Text.StringBuilder sb = new System.Text.StringBuilder(data.Length * 2);
+            if (Token == null)
+                return $"This app can support notifications but you must enable this in your settings.";
 
-            foreach (byte b in data)
-                sb.AppendFormat("{0:x2}", b);
 
-            return sb.ToString().ToUpperInvariant();
+            return "An error occurred preventing the use of push notifications";
         }
-    }
+    } 
 }
