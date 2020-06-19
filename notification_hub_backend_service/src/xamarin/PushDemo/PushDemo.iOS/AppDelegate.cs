@@ -102,13 +102,13 @@ namespace PushDemo.iOS
                 .ConfigureAwait(false);
 
             if (!string.IsNullOrWhiteSpace(cachedToken) &&
-                cachedToken.Equals(_deviceInstallationService.Token))
+                cachedToken.Equals(DeviceInstallationService.Token))
                 return;
 
             await NotificationRegistrationService.RefreshRegistrationAsync()
                 .ConfigureAwait(false);
 
-            await SecureStorage.SetAsync(CachedDeviceToken, _deviceInstallationService.Token)
+            await SecureStorage.SetAsync(CachedDeviceToken, DeviceInstallationService.Token)
                 .ConfigureAwait(false);
         }
 
