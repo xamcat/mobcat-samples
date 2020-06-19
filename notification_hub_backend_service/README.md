@@ -42,7 +42,7 @@ For iOS, you must have:
 
 ## Getting Started
 
-A accompanying [tutorial](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-backend-service-xamarin-forms) was written alongside this sample providing detailed steps on how to built it from scratch. High-level steps are provided below for getting the sample running on your own infrastructure.
+A accompanying [tutorial](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-backend-service-xamarin-forms) was written alongside this sample providing detailed steps on how to build it from scratch. High-level steps are otherwise provided below for getting the sample running on your own infrastructure to aid in further exploration.
 
 ### Platform Dependencies
 
