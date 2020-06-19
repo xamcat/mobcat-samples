@@ -8,7 +8,6 @@ using Firebase.Iid;
 using PushDemo.Droid.Services;
 using PushDemo.Services;
 
-
 namespace PushDemo.Droid
 {
     [Activity(Label = "PushDemo", LaunchMode = LaunchMode.SingleTop, Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]

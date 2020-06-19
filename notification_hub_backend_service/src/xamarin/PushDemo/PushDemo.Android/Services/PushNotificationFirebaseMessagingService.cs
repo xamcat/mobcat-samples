@@ -30,8 +30,7 @@ namespace PushDemo.Droid.Services
 
         public override void OnNewToken(string token)
         {
-            if (DeviceInstallationService != null)
-                DeviceInstallationService.Token = token;
+            DeviceInstallationService.Token = token;
 
             NotificationRegistrationService.RefreshRegistrationAsync()
                 .ContinueWith((task) => { if (task.IsFaulted) throw task.Exception; });
