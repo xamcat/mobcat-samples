@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Foundation;
+using PushDemo.iOS.Extensions;
 using PushDemo.iOS.Services;
 using PushDemo.Services;
 using UIKit;
@@ -14,12 +15,10 @@ namespace PushDemo.iOS
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
         const string CachedDeviceToken = "cached_device_token";
-        const int SupportedVersionMajor = 13;
-        const int SupportedVersionMinor = 0;
 
-        NSData _deviceToken;
         IPushDemoNotificationActionService _notificationActionService;
         INotificationRegistrationService _notificationRegistrationService;
+        IDeviceInstallationService _deviceInstallationService;
 
         IPushDemoNotificationActionService NotificationActionService
             => _notificationActionService ??
@@ -31,14 +30,18 @@ namespace PushDemo.iOS
                 (_notificationRegistrationService =
                 ServiceContainer.Resolve<INotificationRegistrationService>());
 
-        bool NotificationsSupported
-            => UIDevice.CurrentDevice.CheckSystemVersion(SupportedVersionMajor, SupportedVersionMinor);
+        IDeviceInstallationService DeviceInstallationService
+            => _deviceInstallationService ??
+                (_deviceInstallationService =
+                ServiceContainer.Resolve<IDeviceInstallationService>());
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
 
-            if (NotificationsSupported)
+            Bootstrap.Begin(() => new DeviceInstallationService());
+
+            if (DeviceInstallationService.NotificationsSupported)
             {
                 UNUserNotificationCenter.Current.RequestAuthorization(
                         UNAuthorizationOptions.Alert |
@@ -50,11 +53,6 @@ namespace PushDemo.iOS
                                 RegisterForRemoteNotifications();
                         });
             }
-
-            Bootstrap.Begin(() => new DeviceInstallationService(
-                () => _deviceToken,
-                () => NotificationsSupported,
-                () => GetNotificationsSupportError()));
 
             LoadApplication(new App());
 
@@ -98,21 +96,19 @@ namespace PushDemo.iOS
 
         async Task CompleteRegistrationAsync(NSData deviceToken)
         {
-            _deviceToken = deviceToken;
+            DeviceInstallationService.Token = deviceToken.ToHexString();
 
             var cachedToken = await SecureStorage.GetAsync(CachedDeviceToken)
                 .ConfigureAwait(false);
 
-            var tokenHash = _deviceToken?.Description?.GetHashCode().ToString();
-
             if (!string.IsNullOrWhiteSpace(cachedToken) &&
-                cachedToken.Equals(tokenHash))
+                cachedToken.Equals(_deviceInstallationService.Token))
                 return;
 
             await NotificationRegistrationService.RefreshRegistrationAsync()
                 .ConfigureAwait(false);
 
-            await SecureStorage.SetAsync(CachedDeviceToken, tokenHash)
+            await SecureStorage.SetAsync(CachedDeviceToken, _deviceInstallationService.Token)
                 .ConfigureAwait(false);
         }
 
@@ -133,18 +129,5 @@ namespace PushDemo.iOS
                 Debug.WriteLine(ex.Message);
             }
         }
-
-        string GetNotificationsSupportError()
-        {
-            if (!NotificationsSupported)
-                return $"This app only supports notifications on iOS {SupportedVersionMajor}.{SupportedVersionMinor} and above. You are running {UIDevice.CurrentDevice.SystemVersion}.";
-
-            if (_deviceToken == null)
-                return $"This app can support notifications but you must enable this in your settings.";
-
-
-            return "An error occurred preventing the use of push notifications";
-        }
-            
     }
 }

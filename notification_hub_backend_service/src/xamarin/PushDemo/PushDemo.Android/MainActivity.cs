@@ -1,13 +1,13 @@
-﻿using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.OS;
-using PushDemo.Droid.Services;
+﻿using System;
+using Android.App;
 using Android.Content;
-using PushDemo.Services;
-using System;
+using Android.Content.PM;
+using Android.OS;
+using Android.Runtime;
 using Firebase.Iid;
-using Android.Gms.Common;
+using PushDemo.Droid.Services;
+using PushDemo.Services;
+
 
 namespace PushDemo.Droid
 {
@@ -15,15 +15,17 @@ namespace PushDemo.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, Android.Gms.Tasks.IOnSuccessListener
     {
         IPushDemoNotificationActionService _notificationActionService;
+        IDeviceInstallationService _deviceInstallationService;
 
         IPushDemoNotificationActionService NotificationActionService
             => _notificationActionService ??
                 (_notificationActionService =
                 ServiceContainer.Resolve<IPushDemoNotificationActionService>());
 
-        bool PlayServicesAvailable
-            => GoogleApiAvailability.Instance
-                .IsGooglePlayServicesAvailable(this) == ConnectionResult.Success;
+        IDeviceInstallationService DeviceInstallationService
+            => _deviceInstallationService ??
+                (_deviceInstallationService =
+                ServiceContainer.Resolve<IDeviceInstallationService>());
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -32,7 +34,9 @@ namespace PushDemo.Droid
 
             base.OnCreate(savedInstanceState);
 
-            if (PlayServicesAvailable)
+            Bootstrap.Begin(() => new DeviceInstallationService());
+
+            if (DeviceInstallationService.NotificationsSupported)
             {
                 FirebaseInstanceId.GetInstance(Firebase.FirebaseApp.Instance)
                     .GetInstanceId()
@@ -41,11 +45,6 @@ namespace PushDemo.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-
-            Bootstrap.Begin(() => new DeviceInstallationService(
-                () => PushNotificationFirebaseMessagingService.Token,
-                () => PlayServicesAvailable,
-                () => GetPlayServicesError()));
 
             LoadApplication(new App());
 
@@ -66,7 +65,7 @@ namespace PushDemo.Droid
         }
 
         public void OnSuccess(Java.Lang.Object result)
-            => PushNotificationFirebaseMessagingService.Token =
+            => DeviceInstallationService.Token =
                 result.Class.GetMethod("getToken").Invoke(result).ToString();
 
         void ProcessNotificationActions(Intent intent)
@@ -85,18 +84,6 @@ namespace PushDemo.Droid
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
-        }
-
-        string GetPlayServicesError()
-        {
-            int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
-
-            if (resultCode != ConnectionResult.Success)
-                return GoogleApiAvailability.Instance.IsUserResolvableError(resultCode) ?
-                           GoogleApiAvailability.Instance.GetErrorString(resultCode) :
-                           "This device is not supported";
-
-            return "An error occurred preventing the use of push notifications";
         }
     }
 }
