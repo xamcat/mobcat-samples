@@ -17,6 +17,7 @@ import {
   Text,
   StatusBar,
   Alert,
+  Button,
 } from 'react-native';
 
 import {
@@ -28,25 +29,21 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import DemoNotificationService from './DemoNotificationService';
 
-declare const global: {HermesInternal: null | {}};
+declare const global: { HermesInternal: null | {} };
 
 class App extends Component {
   private notificationService: DemoNotificationService;
 
   constructor(props) {
-    console.log('!!! App.ctr');
     super(props);
     this.state = {};
-
     this.notificationService = new DemoNotificationService(
       this.onRegister.bind(this),
       this.onNotification.bind(this),
     );
-
-    console.log('!!! App.ctr completed');
   }
 
-  render(){
+  render() {
     return (
       <>
         <StatusBar barStyle="dark-content" />
@@ -56,24 +53,28 @@ class App extends Component {
             style={styles.scrollView}>
             <Header />
             <Text>PushDemo is a React Native application which registers for push notifications with Azure Web API backend and subscribes to receive push updates</Text>
+            <Button title="Register for pushes" onPress={this.onRegisterButtonPress.bind(this)} />
+            <Button title="Deregister" onPress={this.onDeregisterButtonPress.bind(this)} />
           </ScrollView>
         </SafeAreaView>
       </>
     );
   }
 
-  async onRegister(token) {
-    console.log('!!! App.onRegister');
-    Alert.alert("Registered", `The app has been successfully registered for push notifications: ${token.os}=${token.token}`);
-    this.setState({registerToken: token.token, fcmRegistered: true});
+  async onRegisterButtonPress() {
+    if (!this.state.registerToken || !this.state.registeredOS) {
+      Alert.alert("The push notifications token wasn't received.");
+      return;
+    }
 
+    // TODO: get device id
     const registerApiUrl = "https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations";
-    const deviceId = "A556CF39-8A55-4F7E-9DE3-E5863FAAF8BB";
-    const pnPlatform = token.os == "ios" ? "apns" : "fcm";
-    const pnGenericTemplate = token.os == "ios" ? "{\"aps\":{\"alert\":\"$(alertMessage)\"}, \"action\": \"$(alertAction)\"}" : "{\"data\":{\"message\":\"$(alertMessage)\", \"action\":\"$(alertAction)\"}}";
-    const pnSilentTemplate = token.os == "ios" ? "{\"aps\":{\"content-available\":1, \"apns-priority\": 5, \"sound\":\"\", \"badge\": 0}, \"message\": \"$(silentMessage)\", \"action\": \"$(silentAction)\"}": "{\"data\":{\"message\":\"$(silentMessage)\", \"action\":\"$(silentAction)\", \"silent\":\"true\"}}"
+    const deviceId = this.state.registeredOS == "ios" ? "A556CF39-8A55-4F7E-9DE3-E5863FAAF8CC" : "A556CF39-8A55-4F7E-9DE3-E5863FAAF8BB";
+    const pnPlatform = this.state.registeredOS == "ios" ? "apns" : "fcm";
+    const pnToken = this.state.registerToken;
+    const pnGenericTemplate = this.state.registeredOS == "ios" ? "{\"aps\":{\"alert\":\"$(alertMessage)\"}, \"action\": \"$(alertAction)\"}" : "{\"data\":{\"message\":\"$(alertMessage)\", \"action\":\"$(alertAction)\"}}";
+    const pnSilentTemplate = this.state.registeredOS == "ios" ? "{\"aps\":{\"content-available\":1, \"apns-priority\": 5, \"sound\":\"\", \"badge\": 0}, \"message\": \"$(silentMessage)\", \"action\": \"$(silentAction)\"}" : "{\"data\":{\"message\":\"$(silentMessage)\", \"action\":\"$(silentAction)\", \"silent\":\"true\"}}"
     const apiKey = '123-456';
-      
     const result = await fetch(registerApiUrl, {
       method: 'PUT',
       headers: {
@@ -84,30 +85,58 @@ class App extends Component {
       body: JSON.stringify({
         installationId: deviceId,
         platform: pnPlatform,
-        pushChannel: token.token,
+        pushChannel: pnToken,
         tags: [],
         templates: {
-            genericTemplate: {
-                body: pnGenericTemplate
-            },
-            silentTemplate: {
-                body: pnSilentTemplate
-            }
+          genericTemplate: {
+            body: pnGenericTemplate
+          },
+          silentTemplate: {
+            body: pnSilentTemplate
+          }
         }
       })
     });
 
     console.log(result);
+    // TODO: check response code
+    Alert.alert("Registered", "The app has been successfully registered for push notifications");
+  }
+
+  async onDeregisterButtonPress() {
+    if (!this.notificationService)
+      return;
+
+    const deviceId = this.state.registeredOS == "ios" ? "A556CF39-8A55-4F7E-9DE3-E5863FAAF8CC" : "A556CF39-8A55-4F7E-9DE3-E5863FAAF8BB";
+    const registerApiUrl = `https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations/${deviceId}`;
+    const apiKey = '123-456';
+    const result = await fetch(registerApiUrl, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'apiKey': apiKey
+      }
+    });
+
+    console.log(result);
+    // TODO: check response code
+    Alert.alert("Deregistered", "The app has been successfully deregistered from push notifications");
+  }
+
+  async onRegister(token) {
+    console.log(`The push notifications token has been received for ${token.os}.`);
+    this.setState({ registerToken: token.token, registeredOS: token.os });
+    Alert.alert("Token received", "The push notifications token has been received.");
   }
 
   onNotification(notification) {
-    console.log('!!! App.onNotification');
-    Alert.alert(notification.title, notification.message);
+    console.log(`Push notification has been received for ${this.state.registeredOS}.`);
+    Alert.alert(notification.data.action, notification.data.message);
   }
 
   handlePerm(permissions) {
-    console.log('!!! App.handlePerm');
-    Alert.alert('Permissions', JSON.stringify(perms));
+    console.log('Push notification handle permissions request has been received.');
   }
 };
 

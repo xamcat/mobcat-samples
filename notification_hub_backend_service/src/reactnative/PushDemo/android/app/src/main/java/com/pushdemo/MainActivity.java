@@ -1,4 +1,4 @@
-package com.pushdemo;
+package com.microsoft.pushtest.alstrakh;
 
 import com.facebook.react.ReactActivity;
 

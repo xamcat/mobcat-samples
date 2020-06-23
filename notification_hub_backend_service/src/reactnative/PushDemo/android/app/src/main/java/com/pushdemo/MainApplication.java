@@ -1,9 +1,9 @@
-package com.pushdemo;
+package com.microsoft.pushtest.alstrakh;
 
 import android.app.Application;
 import android.content.Context;
 
-import com.facebook.react.BuildConfig;
+import com.microsoft.pushtest.alstrakh.BuildConfig;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
@@ -19,7 +19,8 @@ public class MainApplication extends Application implements ReactApplication {
       new ReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
-          return BuildConfig.DEBUG;
+
+            return BuildConfig.DEBUG;
         }
 
         @Override
