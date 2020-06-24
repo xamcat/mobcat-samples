@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import Config from 'config/config.env'
+import Config from 'config.env'
 import DemoNotificationService from './services/DemoNotificationService';
 import DemoNotificationRegistrationService from './services/DemoNotificationRegistrationService';
 
