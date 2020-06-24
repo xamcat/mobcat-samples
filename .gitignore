@@ -339,3 +339,6 @@ UserInterfaceState\.xcuserstate
 
 # VSCode files
 .vscode/
+
+# Config
+config.env.js

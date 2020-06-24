@@ -3,12 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "yarn configure && npx react-native run-android",
-    "ios": "yarn configure && npx react-native run-ios",
-    "start": "yarn configure && npx react-native start",
+    "android": "npx react-native run-android",
+    "ios": "npx react-native run-ios",
+    "start": "npx react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "configure": "echo \"Applying config\" && cp .config.env.js config/config.env.js"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@react-native-community/push-notification-ios": "^1.2.2",
