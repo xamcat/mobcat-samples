@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
+import Config from 'config/config.env'
 import DemoNotificationService from './services/DemoNotificationService';
 import DemoNotificationRegistrationService from './services/DemoNotificationRegistrationService';
 
@@ -41,10 +42,9 @@ class App extends Component<IState> {
       this.onNotification.bind(this),
     );
 
-    // TODO: move parameters to config and git ignore it
     this.notificationRegistrationService = new DemoNotificationRegistrationService(
-      "https://push-demo-api-alstrakh.azurewebsites.net/api/",
-      "123-456",
+      Config.API_URL,
+      Config.API_KEY,
     );
   }
 
@@ -126,10 +126,6 @@ class App extends Component<IState> {
   onNotification(notification: any) {
     this.setState({ status: `Received a push notification...` });
     Alert.alert(notification.data.action, notification.data.message);
-  }
-
-  handlePermissions(permissions: any) {
-    console.log('Push notification handle permissions request has been received.');
   }
 };
 
