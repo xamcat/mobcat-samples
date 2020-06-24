@@ -8,7 +8,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import DemoNotificationService from './DemoNotificationService';
+import DemoNotificationService from './services/DemoNotificationService';
+import DemoNotificationRegistrationService from './services/DemoNotificationRegistrationService';
 
 declare const global: { HermesInternal: null | {} };
 
@@ -20,20 +21,30 @@ interface IState {
 }
 
 class App extends Component<IState> {
-  notificationService: DemoNotificationService;
   state: IState;
+  notificationService: DemoNotificationService;
+  notificationRegistrationService: DemoNotificationRegistrationService;
+  deviceId: string;
 
   constructor(props: any) {
     super(props);
+    this.deviceId = DeviceInfo.getUniqueId();
     this.state = {
       status: "Push notifications registration status is unknown",
       registeredOS: "",
       registerToken: "",
       isBusy: false,
     };
+
     this.notificationService = new DemoNotificationService(
       this.onRegister.bind(this),
       this.onNotification.bind(this),
+    );
+
+    // TODO: move parameters to config and git ignore it
+    this.notificationRegistrationService = new DemoNotificationRegistrationService(
+      "https://push-demo-api-alstrakh.azurewebsites.net/api/",
+      "123-456",
     );
   }
 
@@ -64,42 +75,32 @@ class App extends Component<IState> {
       return;
     }
 
+    let status: string = "Registering...";
     try {
-      this.setState({ isBusy: true });
-      const registerApiUrl = "https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations";
-      const deviceId = DeviceInfo.getUniqueId();
+      this.setState({ isBusy: true, status: status });
       const pnPlatform = this.state.registeredOS == "ios" ? "apns" : "fcm";
       const pnToken = this.state.registerToken;
       const pnGenericTemplate = this.state.registeredOS == "ios" ? "{\"aps\":{\"alert\":\"$(alertMessage)\"}, \"action\": \"$(alertAction)\"}" : "{\"data\":{\"message\":\"$(alertMessage)\", \"action\":\"$(alertAction)\"}}";
       const pnSilentTemplate = this.state.registeredOS == "ios" ? "{\"aps\":{\"content-available\":1, \"apns-priority\": 5, \"sound\":\"\", \"badge\": 0}, \"message\": \"$(silentMessage)\", \"action\": \"$(silentAction)\"}" : "{\"data\":{\"message\":\"$(silentMessage)\", \"action\":\"$(silentAction)\", \"silent\":\"true\"}}"
-      const apiKey = '123-456';
-      const result = await fetch(registerApiUrl, {
-        method: 'PUT',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'apiKey': apiKey
-        },
-        body: JSON.stringify({
-          installationId: deviceId,
-          platform: pnPlatform,
-          pushChannel: pnToken,
-          tags: [],
-          templates: {
-            genericTemplate: {
-              body: pnGenericTemplate
-            },
-            silentTemplate: {
-              body: pnSilentTemplate
-            }
+      const request = {
+        installationId: this.deviceId,
+        platform: pnPlatform,
+        pushChannel: pnToken,
+        tags: [],
+        templates: {
+          genericTemplate: {
+            body: pnGenericTemplate
+          },
+          silentTemplate: {
+            body: pnSilentTemplate
           }
-        })
-      });
-      var status = result.status == 200 ? `Registered for ${this.state.registeredOS} push notifications` : `Registration error ${result.status}: ${result.statusText}`;
-      this.setState({ status: status });
+        }
+      };
+      const response = await this.notificationRegistrationService.registerAsync(request);
+      status = response.status == 200 ? `Registered for ${this.state.registeredOS} push notifications` : `Registration error ${response.status}: ${response.statusText}`;
     }
     finally {
-      this.setState({ isBusy: false });
+      this.setState({ isBusy: false, status: status });
     }
   }
 
@@ -107,28 +108,18 @@ class App extends Component<IState> {
     if (!this.notificationService)
       return;
 
+    let status: string = "Deregistering...";
     try {
-      this.setState({ isBusy: true });
-      const deviceId = DeviceInfo.getUniqueId();
-      const registerApiUrl = `https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations/${deviceId}`;
-      const apiKey = '123-456';
-      const result = await fetch(registerApiUrl, {
-        method: 'DELETE',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'apiKey': apiKey
-        }
-      });
-      var status = result.status == 200 ? `Deregistered from push notifications` : `Deregistration error ${result.status}: ${result.statusText}`;
-      this.setState({ status: status });
+      this.setState({ isBusy: true, status: status });
+      const response = await this.notificationRegistrationService.deregisterAsync(this.deviceId);
+      status = response.status == 200 ? `Deregistered from push notifications` : `Deregistration error ${response.status}: ${response.statusText}`;
     }
     finally {
-      this.setState({ isBusy: false });
+      this.setState({ isBusy: false, status: status });
     }
   }
 
-  async onRegister(token: any) {
+  onRegister(token: any) {
     this.setState({ registerToken: token.token, registeredOS: token.os, status: `The push notifications token has been received.` });
   }
 
@@ -137,7 +128,7 @@ class App extends Component<IState> {
     Alert.alert(notification.data.action, notification.data.message);
   }
 
-  handlePerm(permissions: any) {
+  handlePermissions(permissions: any) {
     console.log('Push notification handle permissions request has been received.');
   }
 };

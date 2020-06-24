@@ -4,21 +4,21 @@ import DemoNotificationHandler from './DemoNotificationHandler';
 export default class DemoNotificationService {
   private lastId: number;
 
-  constructor(onRegister, onNotification) {
+  constructor(onRegister: any, onNotification: any) {
     this.lastId = 0;
 
     DemoNotificationHandler.attachRegister(onRegister);
     DemoNotificationHandler.attachNotification(onNotification);
 
     // Clear badge number at start
-    PushNotification.getApplicationIconBadgeNumber(function(number) {
+    PushNotification.getApplicationIconBadgeNumber(function(number: number) {
       if(number > 0) {
         PushNotification.setApplicationIconBadgeNumber(0);
       }
     });
   }
 
-  localNotif(soundName) {
+  localNotification(soundName: string) {
     this.lastId++;
     PushNotification.localNotification({
       /* Android Only Properties */
@@ -51,7 +51,7 @@ export default class DemoNotificationService {
     });
   }
 
-  scheduleNotif(soundName) {
+  scheduleNotification(soundName: string) {
     this.lastId++;
     PushNotification.localNotificationSchedule({
       date: new Date(Date.now() + 30 * 1000), // in 30 secs
@@ -85,7 +85,7 @@ export default class DemoNotificationService {
     });
   }
 
-  checkPermission(cbk) {
+  checkPermissions(cbk: any) {
     return PushNotification.checkPermissions(cbk);
   }
 
@@ -93,7 +93,7 @@ export default class DemoNotificationService {
     return PushNotification.requestPermissions();
   }
 
-  cancelNotif() {
+  cancelNotifications() {
     PushNotification.cancelLocalNotifications({id: '' + this.lastId});
   }
 
