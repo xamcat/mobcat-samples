@@ -1,42 +1,36 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React, { Component } from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
   Alert,
   Button,
 } from 'react-native';
 
 import {
-  Header,
-  LearnMoreLinks,
   Colors,
-  DebugInstructions,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import DemoNotificationService from './DemoNotificationService';
 
 declare const global: { HermesInternal: null | {} };
 
-class App extends Component {
-  private notificationService: DemoNotificationService;
+interface IState {
+  status: string,
+  registeredOS: string,
+  registerToken: string,
+}
 
-  constructor(props) {
+class App extends Component<IState> {
+  notificationService: DemoNotificationService;
+  state: IState;
+
+  constructor(props: any) {
     super(props);
-    this.state = {};
+    this.state = {
+      status: "Push notifications registration status is unknown",
+      registeredOS: "",
+      registerToken: ""
+    };
     this.notificationService = new DemoNotificationService(
       this.onRegister.bind(this),
       this.onNotification.bind(this),
@@ -45,19 +39,19 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={styles.scrollView}>
-            <Header />
-            <Text>PushDemo is a React Native application which registers for push notifications with Azure Web API backend and subscribes to receive push updates</Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>Welcome to PushDemo app</Text>
+        <Text style={styles.subtitle}>PushDemo is a React Native application which registers for push notifications with Azure Web API backend and subscribes to receive push updates</Text>
+        <Text style={styles.status}>Status: {this.state.status}</Text>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.button}>
             <Button title="Register for pushes" onPress={this.onRegisterButtonPress.bind(this)} />
+          </View>
+          <View style={styles.button}>
             <Button title="Deregister" onPress={this.onDeregisterButtonPress.bind(this)} />
-          </ScrollView>
-        </SafeAreaView>
-      </>
+          </View>
+        </View>
+      </View>
     );
   }
 
@@ -98,9 +92,8 @@ class App extends Component {
       })
     });
 
-    console.log(result);
     // TODO: check response code
-    Alert.alert("Registered", "The app has been successfully registered for push notifications");
+    this.setState({ status: `Registered for ${this.state.registeredOS} push notifications`})
   }
 
   async onDeregisterButtonPress() {
@@ -119,64 +112,56 @@ class App extends Component {
       }
     });
 
-    console.log(result);
     // TODO: check response code
-    Alert.alert("Deregistered", "The app has been successfully deregistered from push notifications");
+    this.setState({ status: `The app has been successfully deregistered from push notifications` });
   }
 
-  async onRegister(token) {
-    console.log(`The push notifications token has been received for ${token.os}.`);
-    this.setState({ registerToken: token.token, registeredOS: token.os });
-    Alert.alert("Token received", "The push notifications token has been received.");
+  async onRegister(token: any) {
+    this.setState({ registerToken: token.token, registeredOS: token.os, status: `The push notifications token has been received.` });
   }
 
-  onNotification(notification) {
-    console.log(`Push notification has been received for ${this.state.registeredOS}.`);
+  onNotification(notification: any) {
+    this.setState({ status: `Received a push notification...` });
     Alert.alert(notification.data.action, notification.data.message);
   }
 
-  handlePerm(permissions) {
+  handlePerm(permissions: any) {
     console.log('Push notification handle permissions request has been received.');
   }
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
+  container: {
+    flex: 1,
+    alignItems: "center",
     backgroundColor: Colors.lighter,
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  title: {
+    fontSize: 40,
+    textAlign: "center",
+    margin: 50,
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
+  subtitle: {
     fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
+    textAlign: "center",
+    margin: 10,
+    color: "#3e3e3e",
   },
-  highlight: {
-    fontWeight: '700',
+  status: {
+    fontSize: 18,
+    textAlign: "center",
+    margin: 15,
+    color: "black",
+    backgroundColor: "yellow",
   },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  button: {
+    marginBottom: 10,
   },
+  buttonsContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 50
+  }
 });
 
 export default App;
