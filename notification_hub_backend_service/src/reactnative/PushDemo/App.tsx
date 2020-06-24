@@ -67,61 +67,69 @@ class App extends Component<IState> {
       return;
     }
 
-    this.setState({ isBusy: true });
-    // TODO: get device id
-    const registerApiUrl = "https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations";
-    const deviceId = this.state.registeredOS == "ios" ? "A556CF39-8A55-4F7E-9DE3-E5863FAAF8CC" : "A556CF39-8A55-4F7E-9DE3-E5863FAAF8BB";
-    const pnPlatform = this.state.registeredOS == "ios" ? "apns" : "fcm";
-    const pnToken = this.state.registerToken;
-    const pnGenericTemplate = this.state.registeredOS == "ios" ? "{\"aps\":{\"alert\":\"$(alertMessage)\"}, \"action\": \"$(alertAction)\"}" : "{\"data\":{\"message\":\"$(alertMessage)\", \"action\":\"$(alertAction)\"}}";
-    const pnSilentTemplate = this.state.registeredOS == "ios" ? "{\"aps\":{\"content-available\":1, \"apns-priority\": 5, \"sound\":\"\", \"badge\": 0}, \"message\": \"$(silentMessage)\", \"action\": \"$(silentAction)\"}" : "{\"data\":{\"message\":\"$(silentMessage)\", \"action\":\"$(silentAction)\", \"silent\":\"true\"}}"
-    const apiKey = '123-456';
-    const result = await fetch(registerApiUrl, {
-      method: 'PUT',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'apiKey': apiKey
-      },
-      body: JSON.stringify({
-        installationId: deviceId,
-        platform: pnPlatform,
-        pushChannel: pnToken,
-        tags: [],
-        templates: {
-          genericTemplate: {
-            body: pnGenericTemplate
-          },
-          silentTemplate: {
-            body: pnSilentTemplate
+    try {
+      this.setState({ isBusy: true });
+      // TODO: get device id
+      const registerApiUrl = "https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations";
+      const deviceId = this.state.registeredOS == "ios" ? "A556CF39-8A55-4F7E-9DE3-E5863FAAF8CC" : "A556CF39-8A55-4F7E-9DE3-E5863FAAF8BB";
+      const pnPlatform = this.state.registeredOS == "ios" ? "apns" : "fcm";
+      const pnToken = this.state.registerToken;
+      const pnGenericTemplate = this.state.registeredOS == "ios" ? "{\"aps\":{\"alert\":\"$(alertMessage)\"}, \"action\": \"$(alertAction)\"}" : "{\"data\":{\"message\":\"$(alertMessage)\", \"action\":\"$(alertAction)\"}}";
+      const pnSilentTemplate = this.state.registeredOS == "ios" ? "{\"aps\":{\"content-available\":1, \"apns-priority\": 5, \"sound\":\"\", \"badge\": 0}, \"message\": \"$(silentMessage)\", \"action\": \"$(silentAction)\"}" : "{\"data\":{\"message\":\"$(silentMessage)\", \"action\":\"$(silentAction)\", \"silent\":\"true\"}}"
+      const apiKey = '123-456';
+      const result = await fetch(registerApiUrl, {
+        method: 'PUT',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'apiKey': apiKey
+        },
+        body: JSON.stringify({
+          installationId: deviceId,
+          platform: pnPlatform,
+          pushChannel: pnToken,
+          tags: [],
+          templates: {
+            genericTemplate: {
+              body: pnGenericTemplate
+            },
+            silentTemplate: {
+              body: pnSilentTemplate
+            }
           }
-        }
-      })
-    });
-
-    this.setState({ isBusy: false });
-    // TODO: check response code
-    this.setState({ status: `Registered for ${this.state.registeredOS} push notifications` })
+        })
+      });
+      var status = result.status == 200 ? `Registered for ${this.state.registeredOS} push notifications` : `Registration error ${result.status}: ${result.statusText}`;
+      this.setState({ status: status });
+    }
+    finally {
+      this.setState({ isBusy: false });
+    }
   }
 
   async onDeregisterButtonPress() {
     if (!this.notificationService)
       return;
 
-    const deviceId = this.state.registeredOS == "ios" ? "A556CF39-8A55-4F7E-9DE3-E5863FAAF8CC" : "A556CF39-8A55-4F7E-9DE3-E5863FAAF8BB";
-    const registerApiUrl = `https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations/${deviceId}`;
-    const apiKey = '123-456';
-    const result = await fetch(registerApiUrl, {
-      method: 'DELETE',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'apiKey': apiKey
-      }
-    });
-
-    // TODO: check response code
-    this.setState({ status: `Deregistered from push notifications` });
+    try {
+      this.setState({ isBusy: true });
+      const deviceId = this.state.registeredOS == "ios" ? "A556CF39-8A55-4F7E-9DE3-E5863FAAF8CC" : "A556CF39-8A55-4F7E-9DE3-E5863FAAF8BB";
+      const registerApiUrl = `https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations/${deviceId}`;
+      const apiKey = '123-456';
+      const result = await fetch(registerApiUrl, {
+        method: 'DELETE',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'apiKey': apiKey
+        }
+      });
+      var status = result.status == 200 ? `Deregistered from push notifications` : `Deregistration error ${result.status}: ${result.statusText}`;
+      this.setState({ status: status });
+    }
+    finally {
+      this.setState({ isBusy: false });
+    }
   }
 
   async onRegister(token: any) {
