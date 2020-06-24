@@ -79,6 +79,8 @@ target 'PushDemo' do
 
   pod 'RNCPushNotificationIOS', :path => '../node_modules/@react-native-community/push-notification-ios'
 
+  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+
   target 'PushDemoTests' do
     inherit! :complete
     # Pods for testing

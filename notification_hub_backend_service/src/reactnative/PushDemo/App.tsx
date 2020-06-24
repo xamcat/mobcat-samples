@@ -7,10 +7,7 @@ import {
   Button,
   ActivityIndicator,
 } from 'react-native';
-
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+import DeviceInfo from 'react-native-device-info';
 import DemoNotificationService from './DemoNotificationService';
 
 declare const global: { HermesInternal: null | {} };
@@ -69,9 +66,8 @@ class App extends Component<IState> {
 
     try {
       this.setState({ isBusy: true });
-      // TODO: get device id
       const registerApiUrl = "https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations";
-      const deviceId = this.state.registeredOS == "ios" ? "A556CF39-8A55-4F7E-9DE3-E5863FAAF8CC" : "A556CF39-8A55-4F7E-9DE3-E5863FAAF8BB";
+      const deviceId = DeviceInfo.getUniqueId();
       const pnPlatform = this.state.registeredOS == "ios" ? "apns" : "fcm";
       const pnToken = this.state.registerToken;
       const pnGenericTemplate = this.state.registeredOS == "ios" ? "{\"aps\":{\"alert\":\"$(alertMessage)\"}, \"action\": \"$(alertAction)\"}" : "{\"data\":{\"message\":\"$(alertMessage)\", \"action\":\"$(alertAction)\"}}";
@@ -113,7 +109,7 @@ class App extends Component<IState> {
 
     try {
       this.setState({ isBusy: true });
-      const deviceId = this.state.registeredOS == "ios" ? "A556CF39-8A55-4F7E-9DE3-E5863FAAF8CC" : "A556CF39-8A55-4F7E-9DE3-E5863FAAF8BB";
+      const deviceId = DeviceInfo.getUniqueId();
       const registerApiUrl = `https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations/${deviceId}`;
       const apiKey = '123-456';
       const result = await fetch(registerApiUrl, {
@@ -150,7 +146,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: Colors.lighter,
+    backgroundColor: "azure",
   },
   title: {
     fontSize: 40,
