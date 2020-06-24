@@ -5,6 +5,7 @@ import {
   Text,
   Alert,
   Button,
+  ActivityIndicator,
 } from 'react-native';
 
 import {
@@ -18,6 +19,7 @@ interface IState {
   status: string,
   registeredOS: string,
   registerToken: string,
+  isBusy: boolean,
 }
 
 class App extends Component<IState> {
@@ -29,7 +31,8 @@ class App extends Component<IState> {
     this.state = {
       status: "Push notifications registration status is unknown",
       registeredOS: "",
-      registerToken: ""
+      registerToken: "",
+      isBusy: false,
     };
     this.notificationService = new DemoNotificationService(
       this.onRegister.bind(this),
@@ -43,12 +46,15 @@ class App extends Component<IState> {
         <Text style={styles.title}>Welcome to PushDemo app</Text>
         <Text style={styles.subtitle}>PushDemo is a React Native application which registers for push notifications with Azure Web API backend and subscribes to receive push updates</Text>
         <Text style={styles.status}>Status: {this.state.status}</Text>
+        {this.state.isBusy &&
+          <ActivityIndicator></ActivityIndicator>
+        }
         <View style={styles.buttonsContainer}>
           <View style={styles.button}>
-            <Button title="Register for pushes" onPress={this.onRegisterButtonPress.bind(this)} />
+            <Button title="Register for pushes" onPress={this.onRegisterButtonPress.bind(this)} disabled={this.state.isBusy} />
           </View>
           <View style={styles.button}>
-            <Button title="Deregister" onPress={this.onDeregisterButtonPress.bind(this)} />
+            <Button title="Deregister" onPress={this.onDeregisterButtonPress.bind(this)} disabled={this.state.isBusy} />
           </View>
         </View>
       </View>
@@ -61,6 +67,7 @@ class App extends Component<IState> {
       return;
     }
 
+    this.setState({ isBusy: true });
     // TODO: get device id
     const registerApiUrl = "https://push-demo-api-alstrakh.azurewebsites.net/api/notifications/installations";
     const deviceId = this.state.registeredOS == "ios" ? "A556CF39-8A55-4F7E-9DE3-E5863FAAF8CC" : "A556CF39-8A55-4F7E-9DE3-E5863FAAF8BB";
@@ -92,8 +99,9 @@ class App extends Component<IState> {
       })
     });
 
+    this.setState({ isBusy: false });
     // TODO: check response code
-    this.setState({ status: `Registered for ${this.state.registeredOS} push notifications`})
+    this.setState({ status: `Registered for ${this.state.registeredOS} push notifications` })
   }
 
   async onDeregisterButtonPress() {
@@ -113,7 +121,7 @@ class App extends Component<IState> {
     });
 
     // TODO: check response code
-    this.setState({ status: `The app has been successfully deregistered from push notifications` });
+    this.setState({ status: `Deregistered from push notifications` });
   }
 
   async onRegister(token: any) {
