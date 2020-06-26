@@ -14,8 +14,6 @@ namespace PushDemo.iOS
     [Register(nameof(AppDelegate))]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
-        const string CachedDeviceToken = "cached_device_token";
-
         IPushDemoNotificationActionService _notificationActionService;
         INotificationRegistrationService _notificationRegistrationService;
         IDeviceInstallationService _deviceInstallationService;
@@ -94,22 +92,11 @@ namespace PushDemo.iOS
             });
         }
 
-        async Task CompleteRegistrationAsync(NSData deviceToken)
+        Task CompleteRegistrationAsync(NSData deviceToken)
         {
             DeviceInstallationService.Token = deviceToken.ToHexString();
 
-            var cachedToken = await SecureStorage.GetAsync(CachedDeviceToken)
-                .ConfigureAwait(false);
-
-            if (!string.IsNullOrWhiteSpace(cachedToken) &&
-                cachedToken.Equals(DeviceInstallationService.Token))
-                return;
-
-            await NotificationRegistrationService.RefreshRegistrationAsync()
-                .ConfigureAwait(false);
-
-            await SecureStorage.SetAsync(CachedDeviceToken, DeviceInstallationService.Token)
-                .ConfigureAwait(false);
+            return NotificationRegistrationService.RefreshRegistrationAsync();
         }
 
         void ProcessNotificationActions(NSDictionary userInfo)

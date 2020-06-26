@@ -23,6 +23,9 @@ namespace PushDemo.Droid.Services
             if (!NotificationsSupported)
                 throw new Exception(GetPlayServicesError());
 
+            if (string.IsNullOrWhiteSpace(Token))
+                throw new Exception("Unable to resolve token for FCM");
+
             var installation = new DeviceInstallation
             {
                 InstallationId = GetDeviceId(),
