@@ -46,18 +46,6 @@ namespace PushDemo.Services
         {
             var deviceInstallation = DeviceInstallationService?.GetDeviceInstallation(tags);
 
-            if (deviceInstallation == null)
-                throw new Exception($"Unable to get device installation information.");
-
-            if (string.IsNullOrWhiteSpace(deviceInstallation.InstallationId))
-                throw new Exception($"No {nameof(deviceInstallation.InstallationId)} value for {nameof(DeviceInstallation)}");
-
-            if (string.IsNullOrWhiteSpace(deviceInstallation.Platform))
-                throw new Exception($"No {nameof(deviceInstallation.Platform)} value for {nameof(DeviceInstallation)}");
-
-            if (string.IsNullOrWhiteSpace(deviceInstallation.PushChannel))
-                throw new Exception($"No {nameof(deviceInstallation.PushChannel)} value for {nameof(DeviceInstallation)}");
-
             await SendAsync<DeviceInstallation>(HttpMethod.Put, RequestUrl, deviceInstallation)
                 .ConfigureAwait(false);
 

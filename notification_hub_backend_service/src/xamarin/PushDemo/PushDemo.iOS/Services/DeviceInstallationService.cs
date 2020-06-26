@@ -23,6 +23,9 @@ namespace PushDemo.iOS.Services
             if (!NotificationsSupported)
                 throw new Exception(GetNotificationsSupportError());
 
+            if (string.IsNullOrWhiteSpace(Token))
+                throw new Exception("Unable to resolve token for APNS");
+
             var installation = new DeviceInstallation
             {
                 InstallationId = GetDeviceId(),
