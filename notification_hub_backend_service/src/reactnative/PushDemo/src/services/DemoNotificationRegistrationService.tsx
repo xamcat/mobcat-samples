@@ -17,6 +17,7 @@ export default class DemoNotificationService {
             body: JSON.stringify(request)
         });
 
+        this.validateResponse(result);
         return result;
     }
 
@@ -31,6 +32,13 @@ export default class DemoNotificationService {
             }
         });
 
+        this.validateResponse(result);
         return result;
+    }
+
+    private validateResponse(response: Response) {
+        if (!response || response.status != 200) {
+            throw `HTTP error ${response.status}: ${response.statusText}`;
+        }
     }
 }

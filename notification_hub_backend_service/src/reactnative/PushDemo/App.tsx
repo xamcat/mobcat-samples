@@ -8,9 +8,9 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import Config from 'config.env'
-import DemoNotificationService from './services/DemoNotificationService';
-import DemoNotificationRegistrationService from './services/DemoNotificationRegistrationService';
+import Config from './src/config/AppConfig'
+import DemoNotificationService from './src/services/DemoNotificationService';
+import DemoNotificationRegistrationService from './src/services/DemoNotificationRegistrationService';
 
 declare const global: { HermesInternal: null | {} };
 
@@ -43,8 +43,8 @@ class App extends Component<IState> {
     );
 
     this.notificationRegistrationService = new DemoNotificationRegistrationService(
-      Config.API_URL,
-      Config.API_KEY,
+      Config.apiUrl,
+      Config.apiKey,
     );
   }
 
@@ -97,7 +97,9 @@ class App extends Component<IState> {
         }
       };
       const response = await this.notificationRegistrationService.registerAsync(request);
-      status = response.status == 200 ? `Registered for ${this.state.registeredOS} push notifications` : `Registration error ${response.status}: ${response.statusText}`;
+      status = `Registered for ${this.state.registeredOS} push notifications`;
+    } catch (e) {
+      status = `Registration failed: ${e}`;
     }
     finally {
       this.setState({ isBusy: false, status: status });
@@ -111,8 +113,10 @@ class App extends Component<IState> {
     let status: string = "Deregistering...";
     try {
       this.setState({ isBusy: true, status: status });
-      const response = await this.notificationRegistrationService.deregisterAsync(this.deviceId);
-      status = response.status == 200 ? `Deregistered from push notifications` : `Deregistration error ${response.status}: ${response.statusText}`;
+      await this.notificationRegistrationService.deregisterAsync(this.deviceId);
+      status = "Deregistered from push notifications";
+    } catch (e) {
+      status = `Deregistration failed: ${e}`;
     }
     finally {
       this.setState({ isBusy: false, status: status });
