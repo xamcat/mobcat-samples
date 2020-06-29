@@ -1,5 +1,26 @@
 # React Native push notifications via backend service connected to Azure Notification Hub
 
+## Background
+
+Sample demonstrating the use of Azure Notification Hubs via a backend service to send push notifications to Android and iOS applications.
+
+An ASP.NET Core Web API backend is used to handle device registration on behalf of the client using the latest and best Installation approach via the Notification Hubs SDK for backend operations, as shown in the guidance topic Registering from your app backend.
+
+A cross-platform React Native application is used to demonstrate the use of the backend service using explicit register/deregister actions.
+
+![ios app](illustrations/react-native-ios-app.PNG)
+![android app](illustrations/react-native-android-app.PNG)
+
+If a notification contains an action and is received when app is in the foreground, or where a notification is used to launch the application from notification center, a message is presented identifying the action specified.
+
+![ios push silent](illustrations/react-native-ios-push-silent.PNG)
+![android push silent](illustrations/react-native-android-push-silent.PNG)
+
+Notifications will appear in the notification center when the app is stopped or in the background.
+
+![ios push not silent](illustrations/react-native-ios-push-notsilent.PNG)
+![android push not silent](illustrations/react-native-android-push-notsilent.PNG)
+
 ## Create a cross-platform React Native application
 
 In this section, you build a React Native mobile application implementing push notifications in a cross-platform manner.
@@ -11,12 +32,27 @@ An alert is displayed when an action is specified and the app is in the foregrou
 > [!NOTE]
 > You would typically perform the registration (and deregistration) actions during the appropriate point in the application lifecycle (or as part of your first-run experience perhaps) without explicit user register/deregister inputs. However, this example will require explicit user input to allow this functionality to be explored and tested more easily.
 
+### Prerequisites
+
+- Visual Studio Code
+- React Native Tools
+- For Android, you must have:
+
+  1. Android Studio
+  1. A developer unlocked physical device or an emulator (running API 26 and above with Google Play Services installed).
+
+- For iOS, you must have:
+
+  1. Xcode and physical device
+  1. An active Apple Developer Account.
+  1. A physical iOS device that is registered to your developer account (running iOS 13.0 and above).
+  1. A .p12 development certificate installed in your keychain allowing you to run an app on a physical device.
+
 ### Create the React Native solution
 
-[Setting up the development environment · React Native](https://reactnative.dev/docs/environment-setup)
+1. In `Terminal`, update your environment tools, required to work with React Native using the following commands:
 
 ```bash
-# update environment
 # install node
 brew install node
 # or update
@@ -27,14 +63,27 @@ brew install watchman
 brew upgrade watchman
 # install cocoapods
 sudo gem install cocoapods
-# if rn cli installed
+```
+
+1. In `Terminal`, run the following command, if you have `React Native` CLI installed to uninstall it. You are going to use `npx` to automatically use the latest CLI version available:
+
+```bash
 npm uninstall -g react-native-cli
+```
+
+1. Navigate to your projects folder where you want to create the new application
+
+```bash
 # init new project with npx
 npx react-native init PushDemo --template react-native-template-typescript
 cd PushDemo
 npx react-native start
 npx react-native run-ios
+```
 
+1. Android configure
+
+```bash
 # create assets folder for the bundle
 mkdir android/app/scr/main/assets
 # build the bundle
@@ -42,6 +91,8 @@ npx react-native bundle --platform android --dev true --entry-file index.js --bu
 # enable ability for sim to access the localhost
 adb reverse tcp:8081 tcp:8081
 ```
+
+Detailed development environment guide is available in the [official documentation](https://reactnative.dev/docs/environment-setup)
 
 ### Install required packages
 
