@@ -17,7 +17,7 @@ export default class DemoNotificationService {
             body: JSON.stringify(request)
         });
 
-        this.validateResponse(result);
+        this.validateResponse(registerApiUrl, result);
         return result;
     }
 
@@ -32,11 +32,12 @@ export default class DemoNotificationService {
             }
         });
 
-        this.validateResponse(result);
+        this.validateResponse(deregisterApiUrl, result);
         return result;
     }
 
-    private validateResponse(response: Response) {
+    private validateResponse(requestUrl: string, response: Response) {
+        console.log(`Request: ${requestUrl} => Response: ${response.status}`);
         if (!response || response.status != 200) {
             throw `HTTP error ${response.status}: ${response.statusText}`;
         }
