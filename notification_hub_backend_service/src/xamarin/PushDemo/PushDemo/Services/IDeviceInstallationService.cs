@@ -4,7 +4,9 @@ namespace PushDemo.Services
 {
     public interface IDeviceInstallationService
     {
+        string Token { get; set; }
+        bool NotificationsSupported { get; }
         string GetDeviceId();
-        DeviceInstallation GetDeviceRegistration(params string[] tags);
+        DeviceInstallation GetDeviceInstallation(params string[] tags);
     }
 }
