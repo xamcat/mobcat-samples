@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
-  Text,
   Alert,
   Button,
   ActivityIndicator,
@@ -11,6 +10,7 @@ import DeviceInfo from 'react-native-device-info';
 import Config from './src/config/AppConfig'
 import DemoNotificationService from './src/services/DemoNotificationService';
 import DemoNotificationRegistrationService from './src/services/DemoNotificationRegistrationService';
+import AppConfig from './src/config/AppConfig';
 
 declare const global: { HermesInternal: null | {} };
 
@@ -38,8 +38,8 @@ class App extends Component<IState> {
     };
 
     this.notificationService = new DemoNotificationService(
-      this.onRegister.bind(this),
-      this.onNotification.bind(this),
+      this.onTokenReceived.bind(this),
+      this.onNotificationReceived.bind(this),
     );
 
     this.notificationRegistrationService = new DemoNotificationRegistrationService(
@@ -51,19 +51,14 @@ class App extends Component<IState> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Welcome to PushDemo app</Text>
-        <Text style={styles.subtitle}>PushDemo is a React Native application which registers for push notifications with Azure Web API backend and subscribes to receive push updates</Text>
-        <Text style={styles.status}>Status: {this.state.status}</Text>
         {this.state.isBusy &&
           <ActivityIndicator></ActivityIndicator>
         }
-        <View style={styles.buttonsContainer}>
-          <View style={styles.button}>
-            <Button title="Register for pushes" onPress={this.onRegisterButtonPress.bind(this)} disabled={this.state.isBusy} />
-          </View>
-          <View style={styles.button}>
-            <Button title="Deregister" onPress={this.onDeregisterButtonPress.bind(this)} disabled={this.state.isBusy} />
-          </View>
+        <View style={styles.button}>
+          <Button title="Register" onPress={this.onRegisterButtonPress.bind(this)} disabled={this.state.isBusy} />
+        </View>
+        <View style={styles.button}>
+          <Button title="Deregister" onPress={this.onDeregisterButtonPress.bind(this)} disabled={this.state.isBusy} />
         </View>
       </View>
     );
@@ -113,16 +108,16 @@ class App extends Component<IState> {
     }
   }
 
-  onRegister(token: any) {
+  onTokenReceived(token: any) {
     this.setState({ registerToken: token.token, registeredOS: token.os, status: `The push notifications token has been received.` });
   }
 
-  onNotification(notification: any) {
+  onNotificationReceived(notification: any) {
     console.log(`Received a push notification on ${this.state.registeredOS}`);
     this.setState({ status: `Received a push notification...` });
 
     if (notification.data.message) {
-      Alert.alert(notification.data.action, notification.data.message);
+      Alert.alert(AppConfig.appName, `${notification.data.action} action received`);
     }
   }
 };
@@ -131,33 +126,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "azure",
-  },
-  title: {
-    fontSize: 40,
-    textAlign: "center",
+    justifyContent: 'flex-end',
     margin: 50,
   },
-  subtitle: {
-    fontSize: 18,
-    textAlign: "center",
-    margin: 10,
-    color: "#3e3e3e",
-  },
-  status: {
-    fontSize: 18,
-    textAlign: "center",
-    margin: 15,
-    color: "black",
-    backgroundColor: "yellow",
-  },
   button: {
-    marginBottom: 10,
-  },
-  buttonsContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 50
+    margin: 5,
+    width: "100%",
   }
 });
 
