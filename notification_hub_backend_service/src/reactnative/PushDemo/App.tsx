@@ -17,7 +17,8 @@ declare const global: { HermesInternal: null | {} };
 interface IState {
   status: string,
   registeredOS: string,
-  registerToken: string,
+  registeredToken: string,
+  isRegistered: boolean,
   isBusy: boolean,
 }
 
@@ -33,7 +34,8 @@ class App extends Component<IState> {
     this.state = {
       status: "Push notifications registration status is unknown",
       registeredOS: "",
-      registerToken: "",
+      registeredToken: "",
+      isRegistered: false,
       isBusy: false,
     };
 
@@ -65,16 +67,17 @@ class App extends Component<IState> {
   }
 
   async onRegisterButtonPress() {
-    if (!this.state.registerToken || !this.state.registeredOS) {
+    if (!this.state.registeredToken || !this.state.registeredOS) {
       Alert.alert("The push notifications token wasn't received.");
       return;
     }
 
     let status: string = "Registering...";
+    let isRegistered = this.state.isRegistered;
     try {
-      this.setState({ isBusy: true, status: status });
+      this.setState({ isBusy: true, status });
       const pnPlatform = this.state.registeredOS == "ios" ? "apns" : "fcm";
-      const pnToken = this.state.registerToken;
+      const pnToken = this.state.registeredToken;
       const request = {
         installationId: this.deviceId,
         platform: pnPlatform,
@@ -83,11 +86,12 @@ class App extends Component<IState> {
       };
       const response = await this.notificationRegistrationService.registerAsync(request);
       status = `Registered for ${this.state.registeredOS} push notifications`;
+      isRegistered = true;
     } catch (e) {
       status = `Registration failed: ${e}`;
     }
     finally {
-      this.setState({ isBusy: false, status: status });
+      this.setState({ isBusy: false, status, isRegistered });
     }
   }
 
@@ -96,20 +100,27 @@ class App extends Component<IState> {
       return;
 
     let status: string = "Deregistering...";
+    let isRegistered = this.state.isRegistered;
     try {
-      this.setState({ isBusy: true, status: status });
+      this.setState({ isBusy: true, status });
       await this.notificationRegistrationService.deregisterAsync(this.deviceId);
       status = "Deregistered from push notifications";
+      isRegistered = false;
     } catch (e) {
       status = `Deregistration failed: ${e}`;
     }
     finally {
-      this.setState({ isBusy: false, status: status });
+      this.setState({ isBusy: false, status, isRegistered });
     }
   }
 
   onTokenReceived(token: any) {
-    this.setState({ registerToken: token.token, registeredOS: token.os, status: `The push notifications token has been received.` });
+    console.log(`Received a notification token on ${token.os}`);
+    this.setState({ registeredToken: token.token, registeredOS: token.os, status: `The push notifications token has been received.` });
+
+    if (this.state.isRegistered && this.state.registeredToken && this.state.registeredOS) {
+      this.onRegisterButtonPress();
+    }
   }
 
   onNotificationReceived(notification: any) {
