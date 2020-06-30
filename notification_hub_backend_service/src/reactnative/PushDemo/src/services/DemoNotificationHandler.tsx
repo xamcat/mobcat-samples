@@ -1,6 +1,9 @@
 import PushNotification from 'react-native-push-notification';
 
 class DemoNotificationHandler {
+  private _onRegister: any;
+  private _onNotification: any;
+  
   onNotification(notification: any) {
     console.log('NotificationHandler:', notification);
 
@@ -17,11 +20,11 @@ class DemoNotificationHandler {
     }
   }
 
-  attachRegister(handler: any) {
+  attachTokenReceived(handler: any) {
     this._onRegister = handler;
   }
 
-  attachNotification(handler: any) {
+  attachNotificationReceived(handler: any) {
     this._onNotification = handler;
   }
 }
