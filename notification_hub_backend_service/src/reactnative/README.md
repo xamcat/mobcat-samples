@@ -65,23 +65,37 @@ brew upgrade watchman
 sudo gem install cocoapods
 ```
 
-1. In `Terminal`, run the following command, if you have `React Native` CLI installed to uninstall it. You are going to use `npx` to automatically use the latest CLI version available:
+1. In `Terminal`, run the following command, if you have `React Native` CLI installed to uninstall it. You are going to use `npx` to automatically use the latest React Native CLI version available:
 
 ```bash
 npm uninstall -g react-native-cli
 ```
 
-1. Navigate to your projects folder where you want to create the new application
+> [!NOTE]
+> React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
+
+1. Navigate to your projects folder where you want to create the new application. Use the Typescript based template by specifying the `--template` parameter:
 
 ```bash
 # init new project with npx
 npx react-native init PushDemo --template react-native-template-typescript
+
+```
+
+1. Run metro server which builds javascript bundles as well as monitors any code updates to refresh it on the fly:
+
+```bash
 cd PushDemo
 npx react-native start
+```
+
+1. Run the iOS app to verify the setup. Make sure you started an iOS simulator or connected an iOS device, before executing the following command:
+
+```bash
 npx react-native run-ios
 ```
 
-1. Android configure
+1. Run the Android app to verify the setup. This requires a few additional steps in order to configure an Android emulator or device to be able accessing the React Native metro server. The following commands generate initial javascript bundle for Android and put it into the assets folder.
 
 ```bash
 # create assets folder for the bundle
@@ -92,7 +106,18 @@ npx react-native bundle --platform android --dev true --entry-file index.js --bu
 adb reverse tcp:8081 tcp:8081
 ```
 
-Detailed development environment guide is available in the [official documentation](https://reactnative.dev/docs/environment-setup)
+This script will be pre-deployed with the initial version of the app, where you will be able to configure your emulator or device to access the metro server by specifying the server ip address. Execute the following command to build and run the Android application:
+
+```bash
+npx react-native run-android
+```
+
+Once in the app, hit `CMD+M` (emulator) or shake the device to populate the developer settings, navigate to `Settings` > `Change Bundle Location` and specify the metro server ip address with the default port: `<metro-server-ip-address>:8081`.
+
+1. In the `App.tsx` file apply any change to the page layout, safe and make the change is instantly reflected in both iOS and Android apps.
+
+> [!NOTE]
+> Detailed development environment guide is available in the [official documentation](https://reactnative.dev/docs/environment-setup)
 
 ### Install required packages
 
