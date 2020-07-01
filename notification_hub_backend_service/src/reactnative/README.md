@@ -8,18 +8,18 @@ An ASP.NET Core Web API backend is used to handle device registration on behalf 
 
 A cross-platform React Native application is used to demonstrate the use of the backend service using explicit register/deregister actions.
 
-![ios app](illustrations/react-native-ios-app.PNG)
-![android app](illustrations/react-native-android-app.PNG)
+![ios app](    illustrations/react-native-ios-app.png)
+![android app](illustrations/react-native-android-app.png)
 
 If a notification contains an action and is received when app is in the foreground, or where a notification is used to launch the application from notification center, a message is presented identifying the action specified.
 
-![ios push silent](illustrations/react-native-ios-push-silent.PNG)
-![android push silent](illustrations/react-native-android-push-silent.PNG)
+![ios push silent](illustrations/react-native-ios-push-silent.png)
+![android push silent](illustrations/react-native-android-push-silent.png)
 
 Notifications will appear in the notification center when the app is stopped or in the background.
 
-![ios push not silent](illustrations/react-native-ios-push-notsilent.PNG)
-![android push not silent](illustrations/react-native-android-push-notsilent.PNG)
+![ios push not silent](illustrations/react-native-ios-push-notsilent.png)
+![android push not silent](illustrations/react-native-android-push-notsilent.png)
 
 ## Create a cross-platform React Native application
 
