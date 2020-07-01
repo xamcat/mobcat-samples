@@ -114,14 +114,14 @@ npx react-native run-android
 
 Once in the app, hit `CMD+M` (emulator) or shake the device to populate the developer settings, navigate to `Settings` > `Change Bundle Location` and specify the metro server ip address with the default port: `<metro-server-ip-address>:8081`.
 
-1. In the `App.tsx` file apply any change to the page layout, safe and make the change is instantly reflected in both iOS and Android apps.
+1. In the `App.tsx` file apply any change to the page layout, save it and make the change is automatically reflected in both iOS and Android apps.
 
 > [!NOTE]
-> Detailed development environment guide is available in the [official documentation](https://reactnative.dev/docs/environment-setup)
+> Detailed development environment setup guide is available in the [official documentation](https://reactnative.dev/docs/environment-setup)
 
 ### Install required packages
 
-- [🚧 PushNotificationIOS · React Native](https://reactnative.dev/docs/pushnotificationios) - deprecated in favor of the community package: [@react-native-community/push-notification-ios  -  npm](https://www.npmjs.com/package/@react-native-community/push-notification-ios)
+- [PushNotificationIOS · React Native](https://reactnative.dev/docs/pushnotificationios) - deprecated in favor of the community package: [@react-native-community/push-notification-ios  -  npm](https://www.npmjs.com/package/@react-native-community/push-notification-ios)
 
 - [Apple Push Notifications with React Native and Node.js](https://medium.com/@rossbulat/apple-push-notifications-with-react-native-and-node-js-17cde7b8d065) - guide for iOS and Android - depends on the package above
 
@@ -135,6 +135,9 @@ Once in the app, hit `CMD+M` (emulator) or shake the device to populate the deve
 import PushNotification from 'react-native-push-notification';
 
 class DemoNotificationHandler {
+  private _onRegister: any;
+  private _onNotification: any;
+  
   onNotification(notification: any) {
     console.log('NotificationHandler:', notification);
 
@@ -151,11 +154,11 @@ class DemoNotificationHandler {
     }
   }
 
-  attachRegister(handler: any) {
+  attachTokenReceived(handler: any) {
     this._onRegister = handler;
   }
 
-  attachNotification(handler: any) {
+  attachNotificationReceived(handler: any) {
     this._onNotification = handler;
   }
 }
@@ -175,7 +178,6 @@ PushNotification.configure({
 });
 
 export default handler;
-
 ```
 
 1. DemoNotificationService
@@ -185,28 +187,14 @@ import PushNotification from 'react-native-push-notification';
 import DemoNotificationHandler from './DemoNotificationHandler';
 
 export default class DemoNotificationService {
-  private lastId: number;
-
-  constructor(onRegister: any, onNotification: any) {
-    this.lastId = 0;
-
-    DemoNotificationHandler.attachRegister(onRegister);
-    DemoNotificationHandler.attachNotification(onNotification);
-
-    // Clear badge number at start
+  constructor(onTokenReceived: any, onNotificationReceived: any) {
+    DemoNotificationHandler.attachTokenReceived(onTokenReceived);
+    DemoNotificationHandler.attachNotificationReceived(onNotificationReceived);
     PushNotification.getApplicationIconBadgeNumber(function(number: number) {
       if(number > 0) {
         PushNotification.setApplicationIconBadgeNumber(0);
       }
     });
-  }
-
-  localNotification(soundName: string) {
-    // ...
-  }
-
-  scheduleNotification(soundName: string) {
-    // ...
   }
 
   checkPermissions(cbk: any) {
@@ -218,7 +206,7 @@ export default class DemoNotificationService {
   }
 
   cancelNotifications() {
-    PushNotification.cancelLocalNotifications({id: '' + this.lastId});
+    PushNotification.cancelLocalNotifications();
   }
 
   cancelAll() {
@@ -231,7 +219,6 @@ export default class DemoNotificationService {
 }
 ```
 
-
 1. DemoNotificationRegistrationService
 
 ```typescript
@@ -243,9 +230,10 @@ export default class DemoNotificationService {
     }
 
     async registerAsync(request: any): Promise<Response> {
+        const method = 'PUT';
         const registerApiUrl = `${this.apiUrl}/notifications/installations`;
         const result = await fetch(registerApiUrl, {
-            method: 'PUT',
+            method: method,
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -254,14 +242,15 @@ export default class DemoNotificationService {
             body: JSON.stringify(request)
         });
 
-        this.validateResponse(result);
+        this.validateResponse(registerApiUrl, method, request, result);
         return result;
     }
 
     async deregisterAsync(deviceId: string): Promise<Response> {
+        const method = 'DELETE';
         const deregisterApiUrl = `${this.apiUrl}/notifications/installations/${deviceId}`;
         const result = await fetch(deregisterApiUrl, {
-            method: 'DELETE',
+            method: method,
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -269,11 +258,12 @@ export default class DemoNotificationService {
             }
         });
 
-        this.validateResponse(result);
+        this.validateResponse(deregisterApiUrl, method, null, result);
         return result;
     }
 
-    private validateResponse(response: Response) {
+    private validateResponse(requestUrl: string, method: string, requestPayload: any, response: Response) {
+        console.log(`Request: ${method} ${requestUrl} => ${JSON.stringify(requestPayload)}\nResponse: ${response.status}`);
         if (!response || response.status != 200) {
             throw `HTTP error ${response.status}: ${response.statusText}`;
         }
@@ -281,45 +271,166 @@ export default class DemoNotificationService {
 }
 ```
 
-1. AppConfig
-
-- Configuration: [Custom React Native Configurations – a simple solution - Aquent | DEV6](https://www.dev6.com/react/custom-react-native-configurations-a-simple-solution/)
+1. Configure the app by modifying default `AppConfig`
 
 ```bash
 "configure": "cp .app.config.tsx src/config/AppConfig.tsx"
 yarn configure
 ```
 
+```typescript
 module.exports = {
-    ENV: "production",
-    API_URL: "https://push-demo-api-alstrakh.azurewebsites.net/api/",
-    API_KEY: "123-456",
+    appName: "PushDemo",
+    env: "production",
+    apiUrl: "https://<azure-push-notifications-api-url>/api/",
+    apiKey: "<api-auth-key>",
 };
+```
 
 ### Implement the cross-platform UI
 
-```Typescript
+1. Define page layout
+
+```typescript
 <View style={styles.container}>
-    <Text style={styles.title}>Welcome to PushDemo app</Text>
-    <Text style={styles.subtitle}>PushDemo is a React Native application which registers for push notifications with Azure Web API backend and subscribes to receive push updates</Text>
-    <Text style={styles.status}>Status: {this.state.status}</Text>
-    {this.state.isBusy &&
-        <ActivityIndicator></ActivityIndicator>
+  {this.state.isBusy &&
+    <ActivityIndicator></ActivityIndicator>
+  }
+  <View style={styles.button}>
+    <Button title="Register" onPress={this.onRegisterButtonPress.bind(this)} disabled={this.state.isBusy} />
+  </View>
+  <View style={styles.button}>
+    <Button title="Deregister" onPress={this.onDeregisterButtonPress.bind(this)} disabled={this.state.isBusy} />
+  </View>
+</View>
+```
+
+1. Apply styles
+
+```css
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: 'flex-end',
+    margin: 50,
+  },
+  button: {
+    margin: 5,
+    width: "100%",
+  }
+});
+```
+
+1. Initialize the page component
+
+```typescript
+  state: IState;
+  notificationService: DemoNotificationService;
+  notificationRegistrationService: DemoNotificationRegistrationService;
+  deviceId: string;
+
+  constructor(props: any) {
+    super(props);
+    this.deviceId = DeviceInfo.getUniqueId();
+    this.state = {
+      status: "Push notifications registration status is unknown",
+      registeredOS: "",
+      registeredToken: "",
+      isRegistered: false,
+      isBusy: false,
+    };
+
+    this.notificationService = new DemoNotificationService(
+      this.onTokenReceived.bind(this),
+      this.onNotificationReceived.bind(this),
+    );
+
+    this.notificationRegistrationService = new DemoNotificationRegistrationService(
+      Config.apiUrl,
+      Config.apiKey,
+    );
+  }
+```
+
+1. Define button click handlers
+
+```typescript
+  async onRegisterButtonPress() {
+    if (!this.state.registeredToken || !this.state.registeredOS) {
+      Alert.alert("The push notifications token wasn't received.");
+      return;
     }
-    <View style={styles.buttonsContainer}>
-        <View style={styles.button}>
-        <Button title="Register for pushes" onPress={this.onRegisterButtonPress.bind(this)} disabled={this.state.isBusy} />
-        </View>
-        <View style={styles.button}>
-        <Button title="Deregister" onPress={this.onDeregisterButtonPress.bind(this)} disabled={this.state.isBusy} />
-        </View>
-    </View>
-    </View>
+
+    let status: string = "Registering...";
+    let isRegistered = this.state.isRegistered;
+    try {
+      this.setState({ isBusy: true, status });
+      const pnPlatform = this.state.registeredOS == "ios" ? "apns" : "fcm";
+      const pnToken = this.state.registeredToken;
+      const request = {
+        installationId: this.deviceId,
+        platform: pnPlatform,
+        pushChannel: pnToken,
+        tags: []
+      };
+      const response = await this.notificationRegistrationService.registerAsync(request);
+      status = `Registered for ${this.state.registeredOS} push notifications`;
+      isRegistered = true;
+    } catch (e) {
+      status = `Registration failed: ${e}`;
+    }
+    finally {
+      this.setState({ isBusy: false, status, isRegistered });
+    }
+  }
+
+  async onDeregisterButtonPress() {
+    if (!this.notificationService)
+      return;
+
+    let status: string = "Deregistering...";
+    let isRegistered = this.state.isRegistered;
+    try {
+      this.setState({ isBusy: true, status });
+      await this.notificationRegistrationService.deregisterAsync(this.deviceId);
+      status = "Deregistered from push notifications";
+      isRegistered = false;
+    } catch (e) {
+      status = `Deregistration failed: ${e}`;
+    }
+    finally {
+      this.setState({ isBusy: false, status, isRegistered });
+    }
+  }
+```
+
+1. Handle received token registrations and push notifications
+
+```typescript
+  onTokenReceived(token: any) {
+    console.log(`Received a notification token on ${token.os}`);
+    this.setState({ registeredToken: token.token, registeredOS: token.os, status: `The push notifications token has been received.` });
+
+    if (this.state.isRegistered && this.state.registeredToken && this.state.registeredOS) {
+      this.onRegisterButtonPress();
+    }
+  }
+
+  onNotificationReceived(notification: any) {
+    console.log(`Received a push notification on ${this.state.registeredOS}`);
+    this.setState({ status: `Received a push notification...` });
+
+    if (notification.data.message) {
+      Alert.alert(AppConfig.appName, `${notification.data.action} action received`);
+    }
+  }
+};
 ```
 
 ## Configure the native Android project for push notifications
 
-### Configure required packages
+### Configure required Android packages
 
 - [Apple Push Notifications with React Native and Node.js](https://medium.com/@rossbulat/apple-push-notifications-with-react-native-and-node-js-17cde7b8d065) - guide for iOS and Android - depends on the package above
 
@@ -337,7 +448,7 @@ TBD
 
 ## Configure the native iOS project for push notifications
 
-### Configure required packages
+### Configure required iOS packages
 
 - [@react-native-community/push-notification-ios  -  npm](https://www.npmjs.com/package/@react-native-community/push-notification-ios)
 
