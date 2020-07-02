@@ -8,7 +8,7 @@ An ASP.NET Core Web API backend is used to handle device registration on behalf 
 
 A cross-platform React Native application is used to demonstrate the use of the backend service using explicit register/deregister actions.
 
-![ios app](    illustrations/react-native-ios-app.png)
+![ios app](illustrations/react-native-ios-app.png)
 ![android app](illustrations/react-native-android-app.png)
 
 If a notification contains an action and is received when app is in the foreground, or where a notification is used to launch the application from notification center, a message is presented identifying the action specified.
@@ -271,12 +271,19 @@ export default class DemoNotificationService {
 }
 ```
 
-1. Configure the app by modifying default `AppConfig`
+1. Configure the app. Open `package.json` and add the following script definition:
+
+```json
+"configure": "cp .app.config.tsx src/config/AppConfig.tsx"
+```
+
+Then execute this script which will copy the default config to the `config` folder.
 
 ```bash
-"configure": "cp .app.config.tsx src/config/AppConfig.tsx"
 yarn configure
 ```
+
+Final step is to update the configuration file copied at the previous step with the API access information. Specify `apiKey` and `apiUrl` parameters:
 
 ```typescript
 module.exports = {
