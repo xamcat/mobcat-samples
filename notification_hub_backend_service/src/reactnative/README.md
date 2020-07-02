@@ -121,11 +121,30 @@ Once in the app, hit `CMD+M` (emulator) or shake the device to populate the deve
 
 ### Install required packages
 
-- [PushNotificationIOS · React Native](https://reactnative.dev/docs/pushnotificationios) - deprecated in favor of the community package: [@react-native-community/push-notification-ios  -  npm](https://www.npmjs.com/package/@react-native-community/push-notification-ios)
+You need the 3 following packages for this sample to work:
 
-- [Apple Push Notifications with React Native and Node.js](https://medium.com/@rossbulat/apple-push-notifications-with-react-native-and-node-js-17cde7b8d065) - guide for iOS and Android - depends on the package above
+1. [React Native Push Notifications iOS](https://www.npmjs.com/package/@react-native-community/push-notification-ios) - [Project GitHub](https://github.com/react-native-community/push-notification-ios)
 
-- Device info package:[react-native-device-info  -  npm](https://www.npmjs.com/package/react-native-device-info)
+    This module was created when the PushNotificationIOS was split out from the core of React Native. The package natively implements push notifications for iOS and provides React Native interface to access it. Run the following command to install the package:
+
+    ```bash
+    yarn add @react-native-community/push-notification-ios
+    ```
+
+1. [React Native Push Notifications Cross-platform](https://www.npmjs.com/package/react-native-push-notification)
+
+    This module implements local and remote notifications on iOS and Android. The previous module is the only dependency for this one. Run the following command to install the package:
+
+    ```bash
+    yarn add react-native-push-notification
+    ```
+
+1. [Device info package](https://www.npmjs.com/package/react-native-device-info)
+    The module provides information about a device in runtime, you will use it to define a device identifier, which is used to register for push notification. Run the following command to install the package:
+
+    ```bash
+    yarn add react-native-device-info
+    ```
 
 ### Implement the cross-platform components
 
@@ -439,7 +458,7 @@ const styles = StyleSheet.create({
 
 ### Configure required Android packages
 
-- [Apple Push Notifications with React Native and Node.js](https://medium.com/@rossbulat/apple-push-notifications-with-react-native-and-node-js-17cde7b8d065) - guide for iOS and Android - depends on the package above
+TBD
 
 ### Validate package name and permissions
 
@@ -457,12 +476,88 @@ TBD
 
 ### Configure required iOS packages
 
-- [@react-native-community/push-notification-ios  -  npm](https://www.npmjs.com/package/@react-native-community/push-notification-ios)
+The package is [automatically linked](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) when building the app. All you need to do is to install the native pods:
+
+```bash
+npx pod-install
+```
 
 ### Configure Info.plist and Entitlements.plist
 
-TBD
+1. Go into your "PushDemo/ios" folder and open "PushDemo.xcworkspace" workspace, select the top project "PushDemo" and select the "Signing & Capabilities" tab.
+
+1. Update Bundle Identifier to match the value used in the provisioning profile.
+
+1. Add 2 new Capabilities using the - "+" button:
+
+- Background Mode capability and tick Remote Notifications.
+- Push Notifications capability
 
 ### Handle push notifications for iOS
 
-TBD
+1. Open "AppDelegate.h" and add the following import:
+
+```objective-c
+#import <UserNotifications/UNUserNotificationCenter.h>
+```
+
+1. Update list of protocols, supported by the "AppDelegate", by adding `UNUserNotificationCenterDelegate`:
+
+```objective-c
+@interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate, UNUserNotificationCenterDelegate>
+```
+
+1. Open "AppDelegate.m" and configure all the required iOS callbacks:
+
+```objective-c
+#import <UserNotifications/UserNotifications.h>
+#import <RNCPushNotificationIOS.h>
+
+...
+
+// Required to register for notifications
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+ [RNCPushNotificationIOS didRegisterUserNotificationSettings:notificationSettings];
+}
+
+// Required for the register event.
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+ [RNCPushNotificationIOS didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
+
+// Required for the notification event. You must call the completion handler after handling the remote notification.
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+  [RNCPushNotificationIOS didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+}
+
+// Required for the registrationError event.
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+ [RNCPushNotificationIOS didFailToRegisterForRemoteNotificationsWithError:error];
+}
+
+// IOS 10+ Required for localNotification event
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+         withCompletionHandler:(void (^)(void))completionHandler
+{
+  [RNCPushNotificationIOS didReceiveNotificationResponse:response];
+  completionHandler();
+}
+
+// IOS 4-10 Required for the localNotification event.
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+ [RNCPushNotificationIOS didReceiveLocalNotification:notification];
+}
+
+//Called when a notification is delivered to a foreground app.
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+{
+  completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+}
+```
