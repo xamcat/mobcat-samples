@@ -6,10 +6,11 @@ Sample demonstrating the use of Azure Notification Hubs via a backend service to
 
 An ASP.NET Core Web API backend is used to handle device registration on behalf of the client using the latest and best Installation approach via the Notification Hubs SDK for backend operations, as shown in the guidance topic Registering from your app backend.
 
-A cross-platform React Native application is used to demonstrate the use of the backend service using explicit register/deregister actions.
+A cross-platform React Native application is used to demonstrate the use of the backend service using explicit register/deregister actions:
 
-![ios app](illustrations/react-native-ios-app.png)
-![android app](illustrations/react-native-android-app.png)
+| iOS                                                | Android                                                    |
+| -------------------------------------------------- |:----------------------------------------------------------:|
+| ![ios app](illustrations/react-native-ios-app.png) | ![android app](illustrations/react-native-android-app.png) |
 
 If a notification contains an action and is received when app is in the foreground, or where a notification is used to launch the application from notification center, a message is presented identifying the action specified.
 
@@ -458,19 +459,90 @@ const styles = StyleSheet.create({
 
 ### Configure required Android packages
 
-TBD
+The package is [automatically linked](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) when building the app. You have a few additional steps below to complete the configuration process.
 
-### Validate package name and permissions
+### Configure Android manifest
 
-TBD
+In your "android/app/src/main/AndroidManifest.xml", verify the package name, permissions and required services. Make sure that you registered `RNPushNotificationPublisher` and `RNPushNotificationBootEventReceiver` receivers, and registered the `RNPushNotificationListenerService` service. The notifications metadata can be used to customize your push notifications appearance.
 
-### Add the Google Services JSON file
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="YOUR_PACKAGE_NAME">
 
-TBD
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:usesCleartextTraffic="true"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme">
+
+      <meta-data  android:name="com.dieam.reactnativepushnotification.notification_channel_name"
+                  android:value="PushDemo Channel"/>
+      <meta-data  android:name="com.dieam.reactnativepushnotification.notification_channel_description"
+                  android:value="PushDemo Channel Description"/>
+      <meta-data  android:name="com.dieam.reactnativepushnotification.notification_foreground"
+                  android:value="true"/>
+      <meta-data  android:name="com.dieam.reactnativepushnotification.notification_color"
+                  android:resource="@android:color/white"/>
+
+      <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
+      <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver">
+          <intent-filter>
+              <action android:name="android.intent.action.BOOT_COMPLETED" />
+          </intent-filter>
+      </receiver>
+
+      <service
+          android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService"
+          android:exported="false" >
+          <intent-filter>
+              <action android:name="com.google.firebase.MESSAGING_EVENT" />
+          </intent-filter>
+      </service>
+
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+        android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustResize">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+    </application>
+
+</manifest>
+```
+
+### Configure Google Services
+
+In "android/app/build.gradle" register Google Services:
+
+```gradle
+dependencies {
+  ...
+  implementation 'com.google.firebase:firebase-analytics:17.3.0'
+  ...
+}
+
+apply plugin: 'com.google.gms.google-services'
+```
+
+Copy the "google-services.json" file that you downloaded during FCM setup to the project folder "android/app/".
 
 ### Handle push notifications for Android
 
-TBD
+You configured the existing `RNPushNotificationListenerService` service to handle incoming Android push notifications. This service was registered earlier in the application manifest. It processes incoming notifications and proxies them to the cross-platform React Native part. No additional steps are required.
 
 ## Configure the native iOS project for push notifications
 
