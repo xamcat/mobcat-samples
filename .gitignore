@@ -336,3 +336,10 @@ ASALocalRun/
 devsettings\.plist
 contents\.xcworkspacedata
 UserInterfaceState\.xcuserstate
+
+# VSCode files
+.vscode/
+
+# Config
+config/
+
