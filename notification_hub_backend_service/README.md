@@ -1,10 +1,10 @@
 # Push notifications using Azure Notification Hubs via a backend service
 
-Sample demonstrating the use of [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) via a backend service to send push notifications to **Android** and **iOS** applications.  
+Samples demonstrating the use of [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) via a backend service to send push notifications to **Android** and **iOS** applications.  
 
 An [ASP.NET Core Web API](https://dotnet.microsoft.com/apps/aspnet/apis) backend is used to handle [device registration](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#what-is-device-registration) on behalf of the client using the latest and best [Installation](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#installations) approach via the [Notification Hubs SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/), as shown in the guidance topic [Registering from your app backend](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#registration-management-from-a-backend).
 
-A cross-platform [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) application is used to demonstrate the use of the backend service using explicit register/deregister actions.  
+Cross-platform applications have been created (using [Flutter](src/flutter/README.md), [ReactNative](src/reactnative/README.md), and [Xamarin.Forms](src/xamarin/README.md)) to demonstrate the use of the backend service using explicit register/deregister actions.  
 
 <img src="illustrations/pushdemo_mainpage.png" alt="PushDemo Sample - MainPage" height="350" style="display:inline-block;" />
 
@@ -24,8 +24,9 @@ If a notification contains an action and is received when app is in the foregrou
 To run this sample your will need:
 
 - An [Azure subscription](https://portal.azure.com) where you can create and manage resources.
-- A Mac with [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) installed (or a PC running [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Mobile Development with .NET** workload).
 - The ability to run the app on either **Android** (physical or emulator devices) or **iOS** (physical devices only).
+- Framework-specific tooling and dependencies installed and configured.
+- Familiarity with the relevant frameworks and tooling.
 
 For Android, you must have:
 
@@ -42,7 +43,7 @@ For iOS, you must have:
 
 ## Getting Started
 
-A accompanying [tutorial](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-backend-service-xamarin-forms) was written alongside this sample providing detailed steps on how to build it from scratch. High-level steps are otherwise provided below for getting the sample running on your own infrastructure to aid in further exploration.
+[Tutorials](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-backend-service-xamarin-forms) were written alongside these samples providing detailed steps on how to build each from scratch. High-level steps are otherwise provided below for getting the samples running on your own infrastructure to aid in further exploration.
 
 ### Platform Dependencies
 
@@ -70,15 +71,23 @@ A accompanying [tutorial](https://docs.microsoft.com/azure/notification-hubs/not
 
 1. Publish the backend service e.g. [deploy app to Azure](https://docs.microsoft.com/aspnet/core/host-and-deploy/azure-apps/?view=aspnetcore-3.1&tabs=netcore-cli#publish-and-deploy-the-app) or [run it locally](https://docs.microsoft.com/dotnet/core/tools/dotnet-run).
 
-### Mobile App
+### Client apps
 
-1. Update the placeholder [client config values](#update-mobile-app-config) to use the appropriate service endpoint and api key values.
+1. Update the [mobile app config](#update-mobile-app-config) to use the appropriate service endpoint and api key values.
+
+    > [!NOTE]
+    > Find and replace the **API_KEY**, and **BACKEND_SERVICE_ENDPOINT** placeholder text with your own values.
 
 #### Android
 
 1. Update the **Package name** so it matches the value you defined in the [Android app](https://firebase.google.com/docs/cloud-messaging/android/first-message#register_your_app_with_firebase) you registered.
 
-1. Download the [**google-services.json** file](https://support.google.com/firebase/answer/7015592?hl=en) from your **Firebase Project Settings page** and add it to the Android target/project.
+1. Download the [**google-services.json** file](https://support.google.com/firebase/answer/7015592?hl=en) from your **Firebase Project Settings page** and add it to the Android target.
+
+    > [!NOTE]
+    > For **Xamarin.Forms**, you should add this file to the **PushDemo.Android** project and ensure **GoogleServicesJson** is set as the **Build Action**.  
+    >
+    > For **Flutter**, you should add the file to the **android** > **app** folder.
 
 #### iOS
 
@@ -117,11 +126,22 @@ dotnet user-secrets set "Authentication:ApiKey" <value>
 
 #### Update mobile app config
 
-Find and replace the **API_KEY**, and **BACKEND_SERVICE_ENDPOINT** placeholder text with your own values. For example, in the Xamarin.Forms **PushDemo** project, these are defined within **Config.cs**.
+Find and replace the **API_KEY**, and **BACKEND_SERVICE_ENDPOINT** placeholder text with your own values. 
+
+In the **Xamarin.Forms** sample, these are defined within **Config.cs**.
 
 ```csharp
 public static string ApiKey = "API_KEY";
 public static string BackendServiceEndpoint = "BACKEND_SERVICE_ENDPOINT";
+```
+
+In the **Flutter** sample, these are defined within **lib** > **config.dart**.
+
+```dart
+class Config {
+  static String apiKey = "API_KEY";
+  static String backendServiceEndpoint = "BACKEND_SERVICE_ENDPOINT";
+}
 ```
 
 The **API_KEY** should match the **Authentication:ApiKey** app setting that you set for the backend service.  
@@ -178,5 +198,12 @@ Content-Type: application/json
 
 ## Browse code
 
+### Backend service
+
 - [Backend Service (ASP.NET Core)](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service/src/azure)  
-- [Mobile App (Xamarin.Forms)](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service/src/xamarin)  
+
+### Client apps
+
+- [Flutter App](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service/src/flutter)  
+- [React Native App](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service/src/reactnative)  
+- [Xamarin.Forms App](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service/src/xamarin)  
