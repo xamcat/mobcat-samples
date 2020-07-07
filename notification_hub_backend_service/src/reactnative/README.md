@@ -8,19 +8,21 @@ An ASP.NET Core Web API backend is used to handle device registration on behalf 
 
 A cross-platform React Native application is used to demonstrate the use of the backend service using explicit register/deregister actions:
 
-| iOS                                                | Android                                                    |
-| -------------------------------------------------- |:----------------------------------------------------------:|
-| ![ios app](illustrations/react-native-ios-app.png) | ![android app](illustrations/react-native-android-app.png) |
+| iOS | Android |
+|:---:|:---:|
+|![ios app](illustrations/react-native-ios-app.png)|![android app](illustrations/react-native-android-app.png)|
 
-If a notification contains an action and is received when app is in the foreground, or where a notification is used to launch the application from notification center, a message is presented identifying the action specified.
+If a notification contains an action and is received when app is in the foreground, or where a notification is used to launch the application from notification center, a message is presented identifying the action specified:
 
-![ios push silent](illustrations/react-native-ios-push-silent.png)
-![android push silent](illustrations/react-native-android-push-silent.png)
+| iOS | Android |
+|:---:|:---:|
+|![ios push silent](illustrations/react-native-ios-push-silent.png)|![android push silent](illustrations/react-native-android-push-silent.png)|
 
-Notifications will appear in the notification center when the app is stopped or in the background.
+Notifications will appear in the notification center when the app is stopped or in the background:
 
-![ios push not silent](illustrations/react-native-ios-push-notsilent.png)
-![android push not silent](illustrations/react-native-android-push-notsilent.png)
+| iOS | Android |
+|:---:|:---:|
+|![ios push not silent](illustrations/react-native-ios-push-notsilent.png)|![android push not silent](illustrations/react-native-android-push-notsilent.png)|
 
 ## Create a cross-platform React Native application
 
@@ -35,16 +37,16 @@ An alert is displayed when an action is specified and the app is in the foregrou
 
 ### Prerequisites
 
-- Visual Studio Code
-- React Native Tools
+- [Visual Studio Code](https://code.visualstudio.com/download).
+- [React Native Tools](https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native) for Visual Studio Code.
 - For Android, you must have:
 
-  1. Android Studio
+  1. [Android Studio](https://developer.android.com/studio).
   1. A developer unlocked physical device or an emulator (running API 26 and above with Google Play Services installed).
 
 - For iOS, you must have:
 
-  1. Xcode and physical device
+  1. [Xcode](https://developer.android.com/studio).
   1. An active Apple Developer Account.
   1. A physical iOS device that is registered to your developer account (running iOS 13.0 and above).
   1. A .p12 development certificate installed in your keychain allowing you to run an app on a physical device.
@@ -53,72 +55,71 @@ An alert is displayed when an action is specified and the app is in the foregrou
 
 1. In `Terminal`, update your environment tools, required to work with React Native using the following commands:
 
-```bash
-# install node
-brew install node
-# or update
-brew update node
-# install wathcman
-brew install watchman
-# or update
-brew upgrade watchman
-# install cocoapods
-sudo gem install cocoapods
-```
+    ```bash
+    # install node
+    brew install node
+    # or update
+    brew update node
+    # install watchman
+    brew install watchman
+    # or update
+    brew upgrade watchman
+    # install cocoapods
+    sudo gem install cocoapods
+    ```
 
 1. In `Terminal`, run the following command, if you have `React Native` CLI installed to uninstall it. You are going to use `npx` to automatically use the latest React Native CLI version available:
 
-```bash
-npm uninstall -g react-native-cli
-```
+    ```bash
+    npm uninstall -g react-native-cli
+    ```
 
-> [!NOTE]
-> React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
+    > [!NOTE]
+    > React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
 
 1. Navigate to your projects folder where you want to create the new application. Use the Typescript based template by specifying the `--template` parameter:
 
-```bash
-# init new project with npx
-npx react-native init PushDemo --template react-native-template-typescript
-
-```
+    ```bash
+    # init new project with npx
+    npx react-native init PushDemo --template react-native-template-typescript
+    ```
 
 1. Run metro server which builds javascript bundles as well as monitors any code updates to refresh it on the fly:
 
-```bash
-cd PushDemo
-npx react-native start
-```
+    ```bash
+    cd PushDemo
+    npx react-native start
+    ```
 
 1. Run the iOS app to verify the setup. Make sure you started an iOS simulator or connected an iOS device, before executing the following command:
 
-```bash
-npx react-native run-ios
-```
+    ```bash
+    npx react-native run-ios
+    ```
 
 1. Run the Android app to verify the setup. This requires a few additional steps in order to configure an Android emulator or device to be able accessing the React Native metro server. The following commands generate initial javascript bundle for Android and put it into the assets folder.
 
-```bash
-# create assets folder for the bundle
-mkdir android/app/scr/main/assets
-# build the bundle
-npx react-native bundle --platform android --dev true --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
-# enable ability for sim to access the localhost
-adb reverse tcp:8081 tcp:8081
-```
+    ```bash
+    # create assets folder for the bundle
+    mkdir android/app/scr/main/assets
+    # build the bundle
+    npx react-native bundle --platform android --dev true --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+    # enable ability for sim to access the localhost
+    adb reverse tcp:8081 tcp:8081
+    ```
 
-This script will be pre-deployed with the initial version of the app, where you will be able to configure your emulator or device to access the metro server by specifying the server ip address. Execute the following command to build and run the Android application:
+    This script will be pre-deployed with the initial version of the app, where you will be able to configure your emulator or device to access the metro server by specifying the server ip address. Execute the following command to build and run the Android application:
 
-```bash
-npx react-native run-android
-```
+    ```bash
+    npx react-native run-android
+    ```
 
-Once in the app, hit `CMD+M` (emulator) or shake the device to populate the developer settings, navigate to `Settings` > `Change Bundle Location` and specify the metro server ip address with the default port: `<metro-server-ip-address>:8081`.
+    Once in the app, hit `CMD+M` (emulator) or shake the device to populate the developer settings, navigate to `Settings` > `Change Bundle Location` and specify the metro server ip address with the default port: `<metro-server-ip-address>:8081`.
 
 1. In the `App.tsx` file apply any change to the page layout, save it and make the change is automatically reflected in both iOS and Android apps.
 
-> [!NOTE]
-> Detailed development environment setup guide is available in the [official documentation](https://reactnative.dev/docs/environment-setup)
+    > [!NOTE]
+    > Detailed development environment setup guide is available in the [official documentation](https://reactnative.dev/docs/environment-setup)
 
 ### Install required packages
 
@@ -149,311 +150,310 @@ You need the 3 following packages for this sample to work:
 
 ### Implement the cross-platform components
 
-1. DemoNotificationHandler
+1. Create and implement `DemoNotificationHandler`:
 
-```typescript
-import PushNotification from 'react-native-push-notification';
+    ```typescript
+    import PushNotification from 'react-native-push-notification';
 
-class DemoNotificationHandler {
-  private _onRegister: any;
-  private _onNotification: any;
-  
-  onNotification(notification: any) {
-    console.log('NotificationHandler:', notification);
+    class DemoNotificationHandler {
+      private _onRegister: any;
+      private _onNotification: any;
 
-    if (typeof this._onNotification === 'function') {
-      this._onNotification(notification);
-    }
-  }
+      onNotification(notification: any) {
+        console.log('NotificationHandler:', notification);
 
-  onRegister(token: any) {
-    console.log('NotificationHandler:', token);
-
-    if (typeof this._onRegister === 'function') {
-      this._onRegister(token);
-    }
-  }
-
-  attachTokenReceived(handler: any) {
-    this._onRegister = handler;
-  }
-
-  attachNotificationReceived(handler: any) {
-    this._onNotification = handler;
-  }
-}
-
-const handler = new DemoNotificationHandler();
-
-PushNotification.configure({
-  onRegister: handler.onRegister.bind(handler),
-  onNotification: handler.onNotification.bind(handler),
-  permissions: {
-    alert: true,
-    badge: true,
-    sound: true,
-  },
-  popInitialNotification: true,
-  requestPermissions: true,
-});
-
-export default handler;
-```
-
-1. DemoNotificationService
-
-```typescript
-import PushNotification from 'react-native-push-notification';
-import DemoNotificationHandler from './DemoNotificationHandler';
-
-export default class DemoNotificationService {
-  constructor(onTokenReceived: any, onNotificationReceived: any) {
-    DemoNotificationHandler.attachTokenReceived(onTokenReceived);
-    DemoNotificationHandler.attachNotificationReceived(onNotificationReceived);
-    PushNotification.getApplicationIconBadgeNumber(function(number: number) {
-      if(number > 0) {
-        PushNotification.setApplicationIconBadgeNumber(0);
+        if (typeof this._onNotification === 'function') {
+          this._onNotification(notification);
+        }
       }
-    });
-  }
 
-  checkPermissions(cbk: any) {
-    return PushNotification.checkPermissions(cbk);
-  }
+      onRegister(token: any) {
+        console.log('NotificationHandler:', token);
 
-  requestPermissions() {
-    return PushNotification.requestPermissions();
-  }
+        if (typeof this._onRegister === 'function') {
+          this._onRegister(token);
+        }
+      }
 
-  cancelNotifications() {
-    PushNotification.cancelLocalNotifications();
-  }
+      attachTokenReceived(handler: any) {
+        this._onRegister = handler;
+      }
 
-  cancelAll() {
-    PushNotification.cancelAllLocalNotifications();
-  }
-
-  abandonPermissions() {
-    PushNotification.abandonPermissions();
-  }
-}
-```
-
-1. DemoNotificationRegistrationService
-
-```typescript
-export default class DemoNotificationService {
-    constructor(
-        readonly apiUrl: string,
-        readonly apiKey: string) {
-
+      attachNotificationReceived(handler: any) {
+        this._onNotification = handler;
+      }
     }
+
+    const handler = new DemoNotificationHandler();
+
+    PushNotification.configure({
+      onRegister: handler.onRegister.bind(handler),
+      onNotification: handler.onNotification.bind(handler),
+      permissions: {
+        alert: true,
+        badge: true,
+        sound: true,
+      },
+      popInitialNotification: true,
+      requestPermissions: true,
+    });
+
+    export default handler;
+    ```
+
+1. Create and implement `DemoNotificationService`:
+
+    ```typescript
+    import PushNotification from 'react-native-push-notification';
+    import DemoNotificationHandler from './DemoNotificationHandler';
+
+    export default class DemoNotificationService {
+      constructor(onTokenReceived: any, onNotificationReceived: any) {
+        DemoNotificationHandler.attachTokenReceived(onTokenReceived);
+        DemoNotificationHandler.attachNotificationReceived(onNotificationReceived);
+        PushNotification.getApplicationIconBadgeNumber(function(number: number) {
+          if(number > 0) {
+            PushNotification.setApplicationIconBadgeNumber(0);
+          }
+        });
+      }
+
+      checkPermissions(cbk: any) {
+        return PushNotification.checkPermissions(cbk);
+      }
+
+      requestPermissions() {
+        return PushNotification.requestPermissions();
+      }
+
+      cancelNotifications() {
+        PushNotification.cancelLocalNotifications();
+      }
+
+      cancelAll() {
+        PushNotification.cancelAllLocalNotifications();
+      }
+
+      abandonPermissions() {
+        PushNotification.abandonPermissions();
+      }
+    }
+    ```
+
+1. Create and implement `DemoNotificationRegistrationService`:
+
+    ```typescript
+    export default class DemoNotificationService {
+        constructor(
+            readonly apiUrl: string,
+            readonly apiKey: string) {
+        }
 
     async registerAsync(request: any): Promise<Response> {
-        const method = 'PUT';
-        const registerApiUrl = `${this.apiUrl}/notifications/installations`;
-        const result = await fetch(registerApiUrl, {
-            method: method,
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                'apiKey': this.apiKey
-            },
-            body: JSON.stringify(request)
-        });
+            const method = 'PUT';
+            const registerApiUrl = `${this.apiUrl}/notifications/installations`;
+            const result = await fetch(registerApiUrl, {
+                method: method,
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    'apiKey': this.apiKey
+                },
+                body: JSON.stringify(request)
+            });
 
-        this.validateResponse(registerApiUrl, method, request, result);
-        return result;
-    }
+            this.validateResponse(registerApiUrl, method, request, result);
+            return result;
+        }
 
-    async deregisterAsync(deviceId: string): Promise<Response> {
-        const method = 'DELETE';
-        const deregisterApiUrl = `${this.apiUrl}/notifications/installations/${deviceId}`;
-        const result = await fetch(deregisterApiUrl, {
-            method: method,
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                'apiKey': this.apiKey
+        async deregisterAsync(deviceId: string): Promise<Response> {
+            const method = 'DELETE';
+            const deregisterApiUrl = `${this.apiUrl}/notifications/installations/${deviceId}`;
+            const result = await fetch(deregisterApiUrl, {
+                method: method,
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    'apiKey': this.apiKey
+                }
+            });
+
+            this.validateResponse(deregisterApiUrl, method, null, result);
+            return result;
+        }
+
+        private validateResponse(requestUrl: string, method: string, requestPayload: any, response: Response) {
+            console.log(`Request: ${method} ${requestUrl} => ${JSON.stringify(requestPayload)}\nResponse: ${response.status}`);
+            if (!response || response.status != 200) {
+                throw `HTTP error ${response.status}: ${response.statusText}`;
             }
-        });
-
-        this.validateResponse(deregisterApiUrl, method, null, result);
-        return result;
-    }
-
-    private validateResponse(requestUrl: string, method: string, requestPayload: any, response: Response) {
-        console.log(`Request: ${method} ${requestUrl} => ${JSON.stringify(requestPayload)}\nResponse: ${response.status}`);
-        if (!response || response.status != 200) {
-            throw `HTTP error ${response.status}: ${response.statusText}`;
         }
     }
-}
-```
+    ```
 
 1. Configure the app. Open `package.json` and add the following script definition:
 
-```json
-"configure": "cp .app.config.tsx src/config/AppConfig.tsx"
-```
+    ```json
+    "configure": "cp .app.config.tsx src/config/AppConfig.tsx"
+    ```
 
-Then execute this script which will copy the default config to the `config` folder.
+    Then execute this script which will copy the default config to the `config` folder.
 
-```bash
-yarn configure
-```
+    ```bash
+    yarn configure
+    ```
 
-Final step is to update the configuration file copied at the previous step with the API access information. Specify `apiKey` and `apiUrl` parameters:
+    Final step is to update the configuration file copied at the previous step with the API access information. Specify `apiKey` and `apiUrl` parameters:
 
-```typescript
-module.exports = {
-    appName: "PushDemo",
-    env: "production",
-    apiUrl: "https://<azure-push-notifications-api-url>/api/",
-    apiKey: "<api-auth-key>",
-};
-```
+    ```typescript
+    module.exports = {
+        appName: "PushDemo",
+        env: "production",
+        apiUrl: "https://<azure-push-notifications-api-url>/api/",
+        apiKey: "<api-auth-key>",
+    };
+    ```
 
 ### Implement the cross-platform UI
 
 1. Define page layout
 
-```typescript
-<View style={styles.container}>
-  {this.state.isBusy &&
-    <ActivityIndicator></ActivityIndicator>
-  }
-  <View style={styles.button}>
-    <Button title="Register" onPress={this.onRegisterButtonPress.bind(this)} disabled={this.state.isBusy} />
-  </View>
-  <View style={styles.button}>
-    <Button title="Deregister" onPress={this.onDeregisterButtonPress.bind(this)} disabled={this.state.isBusy} />
-  </View>
-</View>
-```
+    ```typescript
+    <View style={styles.container}>
+      {this.state.isBusy &&
+        <ActivityIndicator></ActivityIndicator>
+      }
+      <View style={styles.button}>
+        <Button title="Register" onPress={this.onRegisterButtonPress.bind(this)} disabled={this.state.isBusy} />
+      </View>
+      <View style={styles.button}>
+        <Button title="Deregister" onPress={this.onDeregisterButtonPress.bind(this)} disabled={this.state.isBusy} />
+      </View>
+    </View>
+    ```
 
 1. Apply styles
 
-```css
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: 'flex-end',
-    margin: 50,
-  },
-  button: {
-    margin: 5,
-    width: "100%",
-  }
-});
-```
+    ```css
+    const styles = StyleSheet.create({
+      container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: 'flex-end',
+        margin: 50,
+      },
+      button: {
+        margin: 5,
+        width: "100%",
+      }
+    });
+    ```
 
 1. Initialize the page component
 
-```typescript
-  state: IState;
-  notificationService: DemoNotificationService;
-  notificationRegistrationService: DemoNotificationRegistrationService;
-  deviceId: string;
+    ```typescript
+      state: IState;
+      notificationService: DemoNotificationService;
+      notificationRegistrationService: DemoNotificationRegistrationService;
+      deviceId: string;
 
-  constructor(props: any) {
-    super(props);
-    this.deviceId = DeviceInfo.getUniqueId();
-    this.state = {
-      status: "Push notifications registration status is unknown",
-      registeredOS: "",
-      registeredToken: "",
-      isRegistered: false,
-      isBusy: false,
-    };
+      constructor(props: any) {
+        super(props);
+        this.deviceId = DeviceInfo.getUniqueId();
+        this.state = {
+          status: "Push notifications registration status is unknown",
+          registeredOS: "",
+          registeredToken: "",
+          isRegistered: false,
+          isBusy: false,
+        };
 
-    this.notificationService = new DemoNotificationService(
-      this.onTokenReceived.bind(this),
-      this.onNotificationReceived.bind(this),
-    );
+        this.notificationService = new DemoNotificationService(
+          this.onTokenReceived.bind(this),
+          this.onNotificationReceived.bind(this),
+        );
 
-    this.notificationRegistrationService = new DemoNotificationRegistrationService(
-      Config.apiUrl,
-      Config.apiKey,
-    );
-  }
-```
+        this.notificationRegistrationService = new DemoNotificationRegistrationService(
+          Config.apiUrl,
+          Config.apiKey,
+        );
+      }
+    ```
 
 1. Define button click handlers
 
-```typescript
-  async onRegisterButtonPress() {
-    if (!this.state.registeredToken || !this.state.registeredOS) {
-      Alert.alert("The push notifications token wasn't received.");
-      return;
-    }
+    ```typescript
+      async onRegisterButtonPress() {
+        if (!this.state.registeredToken || !this.state.registeredOS) {
+          Alert.alert("The push notifications token wasn't received.");
+          return;
+        }
 
-    let status: string = "Registering...";
-    let isRegistered = this.state.isRegistered;
-    try {
-      this.setState({ isBusy: true, status });
-      const pnPlatform = this.state.registeredOS == "ios" ? "apns" : "fcm";
-      const pnToken = this.state.registeredToken;
-      const request = {
-        installationId: this.deviceId,
-        platform: pnPlatform,
-        pushChannel: pnToken,
-        tags: []
-      };
-      const response = await this.notificationRegistrationService.registerAsync(request);
-      status = `Registered for ${this.state.registeredOS} push notifications`;
-      isRegistered = true;
-    } catch (e) {
-      status = `Registration failed: ${e}`;
-    }
-    finally {
-      this.setState({ isBusy: false, status, isRegistered });
-    }
-  }
+        let status: string = "Registering...";
+        let isRegistered = this.state.isRegistered;
+        try {
+          this.setState({ isBusy: true, status });
+          const pnPlatform = this.state.registeredOS == "ios" ? "apns" : "fcm";
+          const pnToken = this.state.registeredToken;
+          const request = {
+            installationId: this.deviceId,
+            platform: pnPlatform,
+            pushChannel: pnToken,
+            tags: []
+          };
+          const response = await this.notificationRegistrationService.registerAsync(request);
+          status = `Registered for ${this.state.registeredOS} push notifications`;
+          isRegistered = true;
+        } catch (e) {
+          status = `Registration failed: ${e}`;
+        }
+        finally {
+          this.setState({ isBusy: false, status, isRegistered });
+        }
+      }
 
-  async onDeregisterButtonPress() {
-    if (!this.notificationService)
-      return;
+      async onDeregisterButtonPress() {
+        if (!this.notificationService)
+          return;
 
-    let status: string = "Deregistering...";
-    let isRegistered = this.state.isRegistered;
-    try {
-      this.setState({ isBusy: true, status });
-      await this.notificationRegistrationService.deregisterAsync(this.deviceId);
-      status = "Deregistered from push notifications";
-      isRegistered = false;
-    } catch (e) {
-      status = `Deregistration failed: ${e}`;
-    }
-    finally {
-      this.setState({ isBusy: false, status, isRegistered });
-    }
-  }
-```
+        let status: string = "Deregistering...";
+        let isRegistered = this.state.isRegistered;
+        try {
+          this.setState({ isBusy: true, status });
+          await this.notificationRegistrationService.deregisterAsync(this.deviceId);
+          status = "Deregistered from push notifications";
+          isRegistered = false;
+        } catch (e) {
+          status = `Deregistration failed: ${e}`;
+        }
+        finally {
+          this.setState({ isBusy: false, status, isRegistered });
+        }
+      }
+    ```
 
 1. Handle received token registrations and push notifications
 
-```typescript
-  onTokenReceived(token: any) {
-    console.log(`Received a notification token on ${token.os}`);
-    this.setState({ registeredToken: token.token, registeredOS: token.os, status: `The push notifications token has been received.` });
+    ```typescript
+      onTokenReceived(token: any) {
+        console.log(`Received a notification token on ${token.os}`);
+        this.setState({ registeredToken: token.token, registeredOS: token.os, status: `The push notifications token has been received.` });
 
-    if (this.state.isRegistered && this.state.registeredToken && this.state.registeredOS) {
-      this.onRegisterButtonPress();
-    }
-  }
+        if (this.state.isRegistered && this.state.registeredToken && this.state.registeredOS) {
+          this.onRegisterButtonPress();
+        }
+      }
 
-  onNotificationReceived(notification: any) {
-    console.log(`Received a push notification on ${this.state.registeredOS}`);
-    this.setState({ status: `Received a push notification...` });
+      onNotificationReceived(notification: any) {
+        console.log(`Received a push notification on ${this.state.registeredOS}`);
+        this.setState({ status: `Received a push notification...` });
 
-    if (notification.data.message) {
-      Alert.alert(AppConfig.appName, `${notification.data.action} action received`);
-    }
-  }
-};
-```
+        if (notification.data.message) {
+          Alert.alert(AppConfig.appName, `${notification.data.action} action received`);
+        }
+      }
+    };
+    ```
 
 ## Configure the native Android project for push notifications
 
@@ -465,64 +465,64 @@ The package is [automatically linked](https://github.com/react-native-community/
 
 In your "android/app/src/main/AndroidManifest.xml", verify the package name, permissions and required services. Make sure that you registered `RNPushNotificationPublisher` and `RNPushNotificationBootEventReceiver` receivers, and registered the `RNPushNotificationListenerService` service. The notifications metadata can be used to customize your push notifications appearance.
 
-```xml
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="YOUR_PACKAGE_NAME">
+  ```xml
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="YOUR_PACKAGE_NAME">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
+        <uses-permission android:name="android.permission.VIBRATE" />
+        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
-    <application
-      android:name=".MainApplication"
-      android:label="@string/app_name"
-      android:usesCleartextTraffic="true"
-      android:icon="@mipmap/ic_launcher"
-      android:roundIcon="@mipmap/ic_launcher_round"
-      android:allowBackup="false"
-      android:theme="@style/AppTheme">
+        <application
+          android:name=".MainApplication"
+          android:label="@string/app_name"
+          android:usesCleartextTraffic="true"
+          android:icon="@mipmap/ic_launcher"
+          android:roundIcon="@mipmap/ic_launcher_round"
+          android:allowBackup="false"
+          android:theme="@style/AppTheme">
 
-      <meta-data  android:name="com.dieam.reactnativepushnotification.notification_channel_name"
-                  android:value="PushDemo Channel"/>
-      <meta-data  android:name="com.dieam.reactnativepushnotification.notification_channel_description"
-                  android:value="PushDemo Channel Description"/>
-      <meta-data  android:name="com.dieam.reactnativepushnotification.notification_foreground"
-                  android:value="true"/>
-      <meta-data  android:name="com.dieam.reactnativepushnotification.notification_color"
-                  android:resource="@android:color/white"/>
+          <meta-data  android:name="com.dieam.reactnativepushnotification.notification_channel_name"
+                      android:value="PushDemo Channel"/>
+          <meta-data  android:name="com.dieam.reactnativepushnotification.notification_channel_description"
+                      android:value="PushDemo Channel Description"/>
+          <meta-data  android:name="com.dieam.reactnativepushnotification.notification_foreground"
+                      android:value="true"/>
+          <meta-data  android:name="com.dieam.reactnativepushnotification.notification_color"
+                      android:resource="@android:color/white"/>
 
-      <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
-      <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver">
-          <intent-filter>
-              <action android:name="android.intent.action.BOOT_COMPLETED" />
-          </intent-filter>
-      </receiver>
+          <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
+          <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver">
+              <intent-filter>
+                  <action android:name="android.intent.action.BOOT_COMPLETED" />
+              </intent-filter>
+          </receiver>
 
-      <service
-          android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService"
-          android:exported="false" >
-          <intent-filter>
-              <action android:name="com.google.firebase.MESSAGING_EVENT" />
-          </intent-filter>
-      </service>
+          <service
+              android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService"
+              android:exported="false" >
+              <intent-filter>
+                  <action android:name="com.google.firebase.MESSAGING_EVENT" />
+              </intent-filter>
+          </service>
 
-      <activity
-        android:name=".MainActivity"
-        android:label="@string/app_name"
-        android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-        android:launchMode="singleTask"
-        android:windowSoftInputMode="adjustResize">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-      </activity>
-      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-    </application>
+          <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+          </activity>
+          <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        </application>
 
-</manifest>
-```
+  </manifest>
+  ```
 
 ### Configure Google Services
 
@@ -562,74 +562,74 @@ npx pod-install
 
 1. Add 2 new Capabilities using the - "+" button:
 
-- Background Mode capability and tick Remote Notifications.
-- Push Notifications capability
+    - Background Mode capability and tick Remote Notifications.
+    - Push Notifications capability
 
 ### Handle push notifications for iOS
 
 1. Open "AppDelegate.h" and add the following import:
 
-```objective-c
-#import <UserNotifications/UNUserNotificationCenter.h>
-```
+    ```objective-c
+    #import <UserNotifications/UNUserNotificationCenter.h>
+    ```
 
 1. Update list of protocols, supported by the "AppDelegate", by adding `UNUserNotificationCenterDelegate`:
 
-```objective-c
-@interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate, UNUserNotificationCenterDelegate>
-```
+    ```objective-c
+    @interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate, UNUserNotificationCenterDelegate>
+    ```
 
 1. Open "AppDelegate.m" and configure all the required iOS callbacks:
 
-```objective-c
-#import <UserNotifications/UserNotifications.h>
-#import <RNCPushNotificationIOS.h>
+    ```objective-c
+    #import <UserNotifications/UserNotifications.h>
+    #import <RNCPushNotificationIOS.h>
 
-...
+    ...
 
-// Required to register for notifications
-- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
-{
- [RNCPushNotificationIOS didRegisterUserNotificationSettings:notificationSettings];
-}
+    // Required to register for notifications
+    - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+    {
+     [RNCPushNotificationIOS didRegisterUserNotificationSettings:notificationSettings];
+    }
 
-// Required for the register event.
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
- [RNCPushNotificationIOS didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
-}
+    // Required for the register event.
+    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+    {
+     [RNCPushNotificationIOS didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+    }
 
-// Required for the notification event. You must call the completion handler after handling the remote notification.
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-{
-  [RNCPushNotificationIOS didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
-}
+    // Required for the notification event. You must call the completion handler after handling the remote notification.
+    - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+    fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+    {
+      [RNCPushNotificationIOS didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+    }
 
-// Required for the registrationError event.
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
-{
- [RNCPushNotificationIOS didFailToRegisterForRemoteNotificationsWithError:error];
-}
+    // Required for the registrationError event.
+    - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+    {
+     [RNCPushNotificationIOS didFailToRegisterForRemoteNotificationsWithError:error];
+    }
 
-// IOS 10+ Required for localNotification event
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center
-didReceiveNotificationResponse:(UNNotificationResponse *)response
-         withCompletionHandler:(void (^)(void))completionHandler
-{
-  [RNCPushNotificationIOS didReceiveNotificationResponse:response];
-  completionHandler();
-}
+    // IOS 10+ Required for localNotification event
+    - (void)userNotificationCenter:(UNUserNotificationCenter *)center
+    didReceiveNotificationResponse:(UNNotificationResponse *)response
+             withCompletionHandler:(void (^)(void))completionHandler
+    {
+      [RNCPushNotificationIOS didReceiveNotificationResponse:response];
+      completionHandler();
+    }
 
-// IOS 4-10 Required for the localNotification event.
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
- [RNCPushNotificationIOS didReceiveLocalNotification:notification];
-}
+    // IOS 4-10 Required for the localNotification event.
+    - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+    {
+     [RNCPushNotificationIOS didReceiveLocalNotification:notification];
+    }
 
-//Called when a notification is delivered to a foreground app.
--(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
-{
-  completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
-}
-```
+    //Called when a notification is delivered to a foreground app.
+    -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+    {
+      completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+    }
+    ```
