@@ -1,0 +1,4 @@
+enum PushDemoAction {
+  actionA,
+  actionB,
+}
