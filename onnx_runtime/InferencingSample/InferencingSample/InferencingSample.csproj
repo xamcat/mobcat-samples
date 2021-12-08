@@ -17,7 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
-    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.10.0-dev-20211007-0712-73c0796ac" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.10.0" />
     <PackageReference Include="SkiaSharp" Version="2.80.3" />
   </ItemGroup>
   <ItemGroup>

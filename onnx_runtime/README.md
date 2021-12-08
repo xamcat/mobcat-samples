@@ -1,20 +1,17 @@
-###### Sample: Implementing machine learning in Xamarin with ONNX Runtime
+###### Sample: Machine learning in Xamarin with ONNX Runtime
 
 ## Overview
-This first-principles example demonstrates use of [ONNX Runtime](https://onnxruntime.ai/) for on-device inferencing in a Xamarin.Forms app. An existing open-source image classification model ([MobileNet](https://github.com/onnx/models/blob/master/vision/classification/mobilenet)) from the [ONNX Model Zoo](https://github.com/onnx/models#onnx-model-zoo) has been used along with the [sample image](https://github.com/microsoft/onnxruntime/raw/master/csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample/dog.jpeg) from an [existing sample](https://github.com/microsoft/onnxruntime/tree/master/csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample).
+This first-principles example demonstrates use of [ONNX Runtime](https://onnxruntime.ai/) for on-device inferencing in a Xamarin.Forms app. An existing open-source image classification model ([MobileNet](https://github.com/onnx/models/blob/master/vision/classification/mobilenet)) from the [ONNX Model Zoo](https://github.com/onnx/models#onnx-model-zoo) has been used along with the [test image](https://github.com/microsoft/onnxruntime/raw/master/csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample/dog.jpeg) from an [existing sample](https://github.com/microsoft/onnxruntime/tree/master/csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample).
 
-The app classifies the primary object in the [sample image](https://github.com/microsoft/onnxruntime/raw/master/csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample/dog.jpeg), a golden retriever in this case, and displays the result.
+The app classifies the primary object in the [test image](https://github.com/microsoft/onnxruntime/raw/master/csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample/dog.jpeg), a golden retriever in this case, and displays the result.
 
 ![The inference result displayed in an alert](Illustrations/inference_result.png "inference result displayed in an alert")
 
-The intent is to provide a helpful on-ramp for those looking to leverage [ONNX Runtime](https://onnxruntime.ai/) in their Xamarin.Forms apps. Be sure to checkout the official [getting started](https://onnxruntime.ai/docs/get-started/with-csharp.html) and [tutorial](https://onnxruntime.ai/docs/tutorials/api-basics.html) content as well as the [Xamarin specific samples](https://github.com/microsoft/onnxruntime/tree/master/csharp/sample/Xamarin).
+The intent is to provide a helpful on-ramp for those looking to leverage [ONNX Runtime](https://onnxruntime.ai/) in their Xamarin.Forms apps. Be sure to checkout the official [getting started](https://onnxruntime.ai/docs/get-started/with-csharp.html) and [tutorial](https://onnxruntime.ai/docs/tutorials/api-basics.html) content as well as the [Xamarin specific samples](https://github.com/microsoft/onnxruntime-inference-examples/tree/main/mobile/examples/Xamarin).
 
 ## Getting Started
 
 This sample should build and run from [Visual Studio](https://www.visualstudio.com) with no additional setup. You can clone (or download) the [mobcat-samples repo](https://github.com/xamcat/mobcat-samples) then open **InferenceSample.sln**
-
-> [!IMPORTANT]  
-> You'll have to wait until the [ONNX Runtime NuGet Package](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) with Xamarin support is officially released to test this out.
 
 ## Known Issues
 
