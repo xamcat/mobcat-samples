@@ -7,9 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CustomVisionInferencing\CustomVisionInferencing.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Microsoft.ML.OnnxRuntime" />
-  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.10.0" />
   </ItemGroup>
